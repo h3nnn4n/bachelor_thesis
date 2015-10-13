@@ -1,0 +1,1124 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.10.12)  13 OCT 2015 02:13
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**tccudesc.tex
+(./tccudesc.tex
+LaTeX2e <2014/05/01>
+Babel <3.9l> and hyphenation patterns for 3 languages loaded.
+(./monografia.cls
+Document Class: monografia 2001/04/21 v1.4e Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+\bibindent=\dimen103
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks14
+\ex@=\dimen104
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen105
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count88
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count89
+\leftroot@=\count90
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count91
+\DOTSCASE@=\count92
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen106
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count93
+\c@MaxMatrixCols=\count94
+\dotsspace@=\muskip10
+\c@parentequation=\count95
+\dspbrk@lvl=\count96
+\tag@help=\toks15
+\row@=\count97
+\column@=\count98
+\maxfields@=\count99
+\andhelp@=\toks16
+\eqnshift@=\dimen107
+\alignsep@=\dimen108
+\tagshift@=\dimen109
+\tagwidth@=\dimen110
+\totwidth@=\dimen111
+\lineht@=\dimen112
+\@envbody=\toks17
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks18
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2009/07/02 v2.20.1
+\thm@style=\toks19
+\thm@bodyfont=\toks20
+\thm@headfont=\toks21
+\thm@notefont=\toks22
+\thm@headpunct=\toks23
+\thm@preskip=\skip46
+\thm@postskip=\skip47
+\thm@headsep=\skip48
+\dth@everypar=\toks24
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2014/09/25 3.9l The Babel package
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2012/08/20 v3.3p English support from the babel system
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2014/09/25 3.9l Babel common definitions
+\babel@savecnt=\count100
+\U@D=\dimen113
+)
+\l@british = a dialect from \language\l@english 
+\l@UKenglish = a dialect from \language\l@english 
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel-portuges/portuges.ldf
+Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
+\l@brazilian = a dialect from \language\l@portuges 
+Package babel Info: Making " an active character on input line 145.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/appendix/appendix.sty
+Package: appendix 2009/09/02 v1.2b extra appendix facilities
+\c@@pps=\count101
+\c@@ppsavesec=\count102
+\c@@ppsaveapp=\count103
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2014/04/30 v1.2b Input encoding file
+\inpenc@prehook=\toks25
+\inpenc@posthook=\toks26
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2014/04/30 v1.2b Input encoding file
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/eucal.sty
+Package: eucal 2009/06/22 v3.00 Euler Script fonts
+LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
+(Font)                  U/eus/m/n --> U/eus/b/n on input line 33.
+) (./abntcite.sty
+(/usr/share/texmf/tex/latex/abntex/cvs-id.def)
+Package: abntcite 2003/10/13 v1.26 Chamadas de referencias no texto (NBR10520)
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count104
+\calc@Bcount=\count105
+\calc@Adimen=\dimen114
+\calc@Bdimen=\dimen115
+\calc@Askip=\skip49
+\calc@Bskip=\skip50
+LaTeX Info: Redefining \setlength on input line 75.
+LaTeX Info: Redefining \addtolength on input line 76.
+\calc@Ccount=\count106
+\calc@Cskip=\skip51
+)
+(/usr/share/texmf/tex/latex/abntex/abntex-abrev.sty
+(/usr/share/texmf/tex/latex/abntex/cvs-id.def)
+Package: abntex-abrev 2005/11/14 v1.4 Abreviacoes
+
+(/usr/share/texmf/tex/latex/abntex/nbr10522-1988.def
+(/usr/share/texmf/tex/latex/abntex/cvs-id.def)
+File: nbr10522-1988.def 2003/10/13 v1.2 Abreviacoes bibliograficas (NBR10522:19
+88)
+)
+(/usr/share/texmf/tex/latex/abntex/abntex-abrev-pt_BR.def
+(/usr/share/texmf/tex/latex/abntex/cvs-id.def)
+File: abntex-abrev-pt_BR.def 2005/11/14 v1.3 definicao de abntex-abrev, traduca
+o de termos en_US/pt_BR
+))
+(/usr/share/texmf/tex/latex/abntex/nbr10520-2002.def
+(/usr/share/texmf/tex/latex/abntex/cvs-id.def)
+File: nbr10520-2002.def 2006/04/25 v1.4 Definicoes para abntcite (NBR10520:2002
+)
+)
+\minimumbiblabelwidth=\skip52
+\ABCIauxlen=\skip53
+\c@ABCIaux=\count107
+\c@ABCImax=\count108
+
+(/usr/share/texlive/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+\biblabelsep=\skip54
+LaTeX Info: Redefining \newblock on input line 562.
+LaTeX Info: Redefining \cite on input line 589.
+\ABCItoken=\toks27
+)
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip55
+\subfigcapskip=\skip56
+\subfigcaptopadj=\dimen116
+\subfigbottomskip=\skip57
+\subfigcapmargin=\dimen117
+\subfiglabelskip=\skip58
+\c@subfigure=\count109
+\c@lofdepth=\count110
+\c@subtable=\count111
+\c@lotdepth=\count112
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip59
+\subfig@bottom=\skip60
+)
+(./isoaccent.sty
+Document Style Option `isoaccent' -- Released 12 April 1994
+) (/usr/share/texlive/texmf-dist/tex/latex/textcase/textcase.sty
+Package: textcase 2004/10/07 v0.07 Text only upper/lower case changing (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen118
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/04/25 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/05/08 v1.15 key=value parser (DPC)
+\KV@toks@=\toks28
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count113
+))
+\Gin@req@height=\dimen119
+\Gin@req@width=\dimen120
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count114
+\lst@gtempboxa=\box28
+\lst@token=\toks29
+\lst@length=\count115
+\lst@currlwidth=\dimen121
+\lst@column=\count116
+\lst@pos=\count117
+\lst@lostspace=\dimen122
+\lst@width=\dimen123
+\lst@newlines=\count118
+\lst@lineno=\count119
+\lst@maxwidth=\dimen124
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
+\c@lstnumber=\count120
+\lst@skipnumbers=\count121
+\lst@framebox=\box29
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2014/09/06 1.5e listings configuration
+))
+Package: listings 2014/09/06 1.5e (Carsten Heinz)
+
+(/usr/share/texlive/texmf-dist/tex/latex/acronym/acronym.sty
+Package: acronym 2014/09/29 v1.40 Support for acronyms (Tobias Oetiker)
+
+(/usr/share/texlive/texmf-dist/tex/latex/bigfoot/suffix.sty
+Package: suffix 2006/07/15 1.5 Variant command support
+)
+(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex
+\@xs@message=\write3
+\integerpart=\count122
+\decimalpart=\count123
+)
+Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
+)
+\AC@clearlist=\toks30
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2014/10/28 v1.1c Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup7
+\symboldletters=\mathgroup8
+\symboldsymbols=\mathgroup9
+\symboldlasy=\mathgroup10
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 137.
+LaTeX Info: Redefining \bm on input line 203.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2014/09/06 1.5e listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2014/09/06 1.5e listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
+)
+\@indexfile=\write4
+\openout4 = `tccudesc.idx'.
+
+
+Writing index file tccudesc.idx
+(./tccudesc.aux)
+\openout1 = `tccudesc.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+ (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count124
+\scratchdimen=\dimen125
+\scratchbox=\box30
+\nofMPsegments=\count125
+\nofMParguments=\count126
+\everyMPshowfont=\toks31
+\MPscratchCnt=\count127
+\MPscratchDim=\dimen126
+\MPnumerator=\count128
+\makeMPintoPDFobject=\count129
+\everyMPtoPDFconversion=\toks32
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+\c@lstlisting=\count130
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Try loading font information for U+msa on input line 56.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 56.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+lasy on input line 56.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 56.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 56.
+ [1] [1]
+Overfull \hbox (0.50272pt too wide) in paragraph at lines 60--64
+\OT1/cmr/m/n/12 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AA-A-A-A-
+ []
+
+
+Overfull \hbox (0.50272pt too wide) in paragraph at lines 60--64
+\OT1/cmr/m/n/12 A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-AAA AA-A-
+A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-
+ []
+
+
+Overfull \hbox (0.50272pt too wide) in paragraph at lines 60--64
+\OT1/cmr/m/n/12 A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-AAA AA-A-A-A-A-A-A-
+A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-
+ []
+
+
+Overfull \hbox (0.50272pt too wide) in paragraph at lines 60--64
+\OT1/cmr/m/n/12 A-A-A-A-A-A-AAA AA-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-
+A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-
+ []
+
+
+Overfull \hbox (0.50272pt too wide) in paragraph at lines 60--64
+\OT1/cmr/m/n/12 A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A
+-AAA AA-A-A-A-A-A-A-A-A-A-A-A-A-A-A-
+ []
+
+
+Overfull \hbox (0.50272pt too wide) in paragraph at lines 60--64
+\OT1/cmr/m/n/12 A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-AAA AA-A-
+A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-A-
+ []
+
+[1
+
+] [2] (./resumo.tex
+Package acronym Info: Label `acro:TA' newly defined as it shall be overridden
+although it is yet undefined on input line 1.
+Package acronym Info: Label `acro:PC' newly defined as it shall be overridden
+although it is yet undefined on input line 3.
+Package acronym Info: Label `acro:ADEJ' newly defined as it shall be overridden
+
+although it is yet undefined on input line 13.
+Package acronym Info: Label `acro:UDESC' newly defined as it shall be overridde
+n
+although it is yet undefined on input line 13.
+) [3
+
+] (./abstract.tex) [4
+
+] (./tccudesc.lof [5
+
+])
+\tf@lof=\write5
+\openout5 = `tccudesc.lof'.
+
+ [6]
+(./tccudesc.lot)
+\tf@lot=\write6
+\openout6 = `tccudesc.lot'.
+
+ (./acronimos.tex [7
+
+]) [8
+
+] (./tccudesc.toc [9
+
+] [10])
+\tf@toc=\write7
+\openout7 = `tccudesc.toc'.
+
+
+(./introducao.tex [11]
+Cap\'{\i }tulo 1.
+Package acronym Info: Label `acro:CAA' newly defined as it shall be overridden
+although it is yet undefined on input line 9.
+[12
+
+] [13]
+Cap\'{\i }tulo 2.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 22.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 22.
+[14
+
+]
+Package acronym Info: Label `acro:PC' overridden on input line 63.
+ [15] [16]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 118.
+
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 118.
+
+[17]
+Package acronym Info: Label `acro:W3C' newly defined as it shall be overridden
+although it is yet undefined on input line 145.
+Package acronym Info: Label `acro:eMAG' newly defined as it shall be overridden
+
+although it is yet undefined on input line 145.
+ [18]
+Package acronym Info: Label `acro:TA' overridden on input line 155.
+Package acronym Info: Label `acro:ADA' newly defined as it shall be overridden
+although it is yet undefined on input line 155.
+ [19]
+Package acronym Info: Label `acro:CAA' overridden on input line 177.
+Package acronym Info: Label `acro:CAT' newly defined as it shall be overridden
+although it is yet undefined on input line 177.
+ (./classificacao.tex [20]
+<imagens/talher.jpg, id=83, 1003.75pt x 673.51625pt>
+File: imagens/talher.jpg Graphic file (type jpg)
+ <use imagens/talher.jpg>
+Package pdftex.def Info: imagens/talher.jpg used on input line 14.
+(pdftex.def)             Requested size: 142.26378pt x 95.45293pt.
+
+<imagens/prancha.jpg, id=84, 320.19624pt x 240.9pt>
+File: imagens/prancha.jpg Graphic file (type jpg)
+ <use imagens/prancha.jpg>
+Package pdftex.def Info: imagens/prancha.jpg used on input line 31.
+(pdftex.def)             Requested size: 142.26378pt x 107.0329pt.
+
+<imagens/teclado.jpg, id=85, 534.99875pt x 401.5pt>
+File: imagens/teclado.jpg Graphic file (type jpg)
+ <use imagens/teclado.jpg>
+Package pdftex.def Info: imagens/teclado.jpg used on input line 48.
+(pdftex.def)             Requested size: 113.81102pt x 85.40797pt.
+
+[21 <./imagens/talher.jpg> <./imagens/prancha.jpg>]
+<imagens/controle.jpg, id=89, 346.29375pt x 238.64156pt>
+File: imagens/controle.jpg Graphic file (type jpg)
+
+<use imagens/controle.jpg>
+Package pdftex.def Info: imagens/controle.jpg used on input line 66.
+(pdftex.def)             Requested size: 113.81102pt x 78.42787pt.
+ <imagens/rampa.jpg, id=90, 275.0275pt x 184.69pt>
+File: imagens/rampa.jpg Graphic file (type jpg)
+
+<use imagens/rampa.jpg>
+Package pdftex.def Info: imagens/rampa.jpg used on input line 83.
+(pdftex.def)             Requested size: 113.81102pt x 76.42792pt.
+ [22 <./imagens/teclado.jpg> <./imagens/controle.jpg> <./imagens/rampa.jpg>] <i
+magens/protese.jpg, id=95, 178.6675pt x 261.97874pt>
+File: imagens/protese.jpg Graphic file (type jpg)
+
+<use imagens/protese.jpg>
+Package pdftex.def Info: imagens/protese.jpg used on input line 100.
+(pdftex.def)             Requested size: 85.35826pt x 125.16074pt.
+ <imagens/cadeira.jpg, id=96, 200.75pt x 235.88126pt>
+File: imagens/cadeira.jpg Graphic file (type jpg)
+
+<use imagens/cadeira.jpg>
+Package pdftex.def Info: imagens/cadeira.jpg used on input line 117.
+(pdftex.def)             Requested size: 113.81102pt x 133.73026pt.
+
+<imagens/cadeiramotorizada.jpg, id=97, 455.45157pt x 465.23813pt>
+File: imagens/cadeiramotorizada.jpg Graphic file (type jpg)
+
+<use imagens/cadeiramotorizada.jpg>
+Package pdftex.def Info: imagens/cadeiramotorizada.jpg used on input line 134.
+(pdftex.def)             Requested size: 99.58464pt x 101.72089pt.
+ [23 <./imagens/protese.jpg> <./imagens/cadeira.jpg>] <imagens/aparelhosurdez.j
+pg, id=101, 301.125pt x 301.125pt>
+File: imagens/aparelhosurdez.jpg Graphic file (type jpg)
+
+<use imagens/aparelhosurdez.jpg>
+Package pdftex.def Info: imagens/aparelhosurdez.jpg used on input line 152.
+(pdftex.def)             Requested size: 99.58464pt x 99.5829pt.
+
+<imagens/carro.jpg, id=102, 1505.625pt x 1092.08pt>
+File: imagens/carro.jpg Graphic file (type jpg)
+ <use imagens/carro.jpg>
+Package pdftex.def Info: imagens/carro.jpg used on input line 169.
+(pdftex.def)             Requested size: 113.81102pt x 82.53569pt.
+
+[24 <./imagens/cadeiramotorizada.jpg> <./imagens/aparelhosurdez.jpg> <./imagens
+/carro.jpg>]) [25] [26] [27]
+Package acronym Info: Label `acro:EUSTAT' newly defined as it shall be overridd
+en
+although it is yet undefined on input line 260.
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 272.
+Package acronym Info: Label `acro:HEART' newly defined as it shall be overridde
+n
+although it is yet undefined on input line 280.
+ [28]
+Underfull \hbox (badness 10000) in paragraph at lines 297--297
+[]\OT1/cmr/m/n/8 Ca-te-go-ri-as re-la-ti-vas
+ []
+
+[29]
+Package acronym Info: Label `acro:CA' newly defined as it shall be overridden
+although it is yet undefined on input line 315.
+ [30]) (./capitulos.tex [31]
+Cap\'{\i }tulo 3.
+<imagens/prancha.png, id=130, 252.945pt x 143.03438pt>
+File: imagens/prancha.png Graphic file (type png)
+
+<use imagens/prancha.png>
+Package pdftex.def Info: imagens/prancha.png used on input line 15.
+(pdftex.def)             Requested size: 142.26378pt x 80.44789pt.
+Package acronym Info: Label `acro:ARCD' newly defined as it shall be overridden
+
+although it is yet undefined on input line 24.
+ [32
+
+ <./imagens/prancha.png>]
+Package acronym Info: Label `acro:ACE' newly defined as it shall be overridden
+although it is yet undefined on input line 41.
+Package acronym Info: Label `acro:ADEJ' overridden on input line 41.
+Package acronym Info: Label `acro:APAE' newly defined as it shall be overridden
+
+although it is yet undefined on input line 41.
+ [33]
+Overfull \hbox (5.08456pt too wide) in paragraph at lines 52--53
+[]\OT1/cmr/m/n/12 A solu^^Xc~ao de-ver^^Sa vo-ca-li-zar a frase pr^^Se-estabele
+cida re-la-ci-o-nada ao pic-to-grama, quando
+ []
+
+[34] [35] [36]
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
+[]\OT1/cmr/m/n/8 Prancha Mul-ti-pla-ta-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--144
+[]\OT1/cmr/m/n/8 Prancha Mul-ti-pla-ta-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 146--146
+[]\OT1/cmr/m/n/8 N.A.(Software Pro-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 146--146
+[]\OT1/cmr/m/n/8 N.A.(Software Pro-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 149--149
+[]\OT1/cmr/m/n/8 OK (Pos-sui li-cen^^Xca
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 149--149
+[]\OT1/cmr/m/n/8 N.A. (Li-cen^^Xca pro-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 149--149
+[]\OT1/cmr/m/n/8 N.A. (Li-cen^^Xca Pro-
+ []
+
+
+Underfull \hbox (badness 3907) in paragraph at lines 150--150
+[]\OT1/cmr/m/n/8 N.A.(Sistema exe-cuta
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 150--150
+\OT1/cmr/m/n/8 ape-nas em sis-te-mas
+ []
+
+
+Overfull \hbox (33.7736pt too wide) in paragraph at lines 140--154
+ [][] 
+ []
+
+[37] [38]
+Cap\'{\i }tulo 4.
+
+LaTeX Warning: Reference `cap:definicao_problema' on page 39 undefined on input
+ line 169.
+
+Package acronym Info: Label `acro:PC' overridden on input line 169.
+Package acronym Info: Label `acro:JVM' newly defined as it shall be overridden
+although it is yet undefined on input line 173.
+Package acronym Info: Label `acro:APIS' newly defined as it shall be overridden
+
+although it is yet undefined on input line 174.
+[39
+
+]
+Package acronym Info: Label `acro:ARASSAC' newly defined as it shall be overrid
+den
+although it is yet undefined on input line 190.
+ <imagens/arvore.pdf, id=156, 597.50786pt x 845.04686pt>
+File: imagens/arvore.pdf Graphic file (type pdf)
+
+<use imagens/arvore.pdf>
+Package pdftex.def Info: imagens/arvore.pdf used on input line 197.
+(pdftex.def)             Requested size: 170.71652pt x 241.43399pt.
+ [40] [41 <./imagens/arvore.pdf>]
+Underfull \hbox (badness 4156) in paragraph at lines 230--230
+[]\OT1/cmr/m/n/8 Disposi^^Xc~ao de ar-qui-
+ []
+
+
+Overfull \hbox (21.77362pt too wide) in paragraph at lines 218--242
+ [][] 
+ []
+
+[42] [43] [44]
+Overfull \hbox (15.44044pt too wide) in paragraph at lines 313--350
+ [][] 
+ []
+
+[45]
+Package acronym Info: Label `acro:UDESC' overridden on input line 365.
+Package acronym Info: Label `acro:TA' overridden on input line 368.
+ [46] <imagens/estrutura.jpg, id=206, 813.5193pt x 349.5459pt>
+File: imagens/estrutura.jpg Graphic file (type jpg)
+
+<use imagens/estrutura.jpg>
+Package pdftex.def Info: imagens/estrutura.jpg used on input line 388.
+(pdftex.def)             Requested size: 488.11536pt x 209.72916pt.
+
+Overfull \hbox (32.87128pt too wide) in paragraph at lines 388--388
+ [] 
+ []
+
+[47 <./imagens/estrutura.jpg>]
+<imagens/layout.jpg, id=210, 564.6696pt x 351.4731pt>
+File: imagens/layout.jpg Graphic file (type jpg)
+ <use imagens/layout.jpg>
+Package pdftex.def Info: imagens/layout.jpg used on input line 409.
+(pdftex.def)             Requested size: 338.80437pt x 210.88548pt.
+
+[48 <./imagens/layout.jpg>]
+<imagens/diagrama_classe.jpg, id=214, 581.92406pt x 351.56343pt>
+File: imagens/diagrama_classe.jpg Graphic file (type jpg)
+
+<use imagens/diagrama_classe.jpg>
+Package pdftex.def Info: imagens/diagrama_classe.jpg used on input line 435.
+(pdftex.def)             Requested size: 465.53987pt x 281.25111pt.
+
+Overfull \hbox (10.29579pt too wide) in paragraph at lines 435--435
+ [] 
+ []
+
+
+Overfull \hbox (38.41635pt too wide) in paragraph at lines 446--447
+[]\OT1/cmr/m/n/12 Pictogramas() : Fun^^Xc~ao cons-tru-tura, que in-voca as fun^
+^Xc~oes se-tar[]imagem(), gere[]vocaliza^^Xc~ao
+ []
+
+[49 <./imagens/diagrama_classe.jpg>]
+Overfull \hbox (4.27643pt too wide) in paragraph at lines 472--473
+[]\OT1/cmr/m/n/12 excluiPictogramas : in-voca a fun^^Xc~ao da in-ter-face per-s
+iste[]dados ex-clui[]Pictogramas(); 
+ []
+
+
+Overfull \hbox (5.52084pt too wide) in paragraph at lines 491--492
+[]\OT1/cmr/m/n/12 salva[]copia[]imagem: salva c^^Sopia do ar-quivo de ima-gem e
+m uma pasta pr^^Se-selecionada; 
+ []
+
+[50] [51] <imagens/caso_incluir.jpg, id=224, 545.03625pt x 386.19281pt>
+File: imagens/caso_incluir.jpg Graphic file (type jpg)
+
+<use imagens/caso_incluir.jpg>
+Package pdftex.def Info: imagens/caso_incluir.jpg used on input line 542.
+(pdftex.def)             Requested size: 272.51746pt x 193.09592pt.
+
+<imagens/sequencia_adiciona.jpg, id=225, 741.52031pt x 803.25093pt>
+File: imagens/sequencia_adiciona.jpg Graphic file (type jpg)
+
+<use imagens/sequencia_adiciona.jpg>
+Package pdftex.def Info: imagens/sequencia_adiciona.jpg used on input line 558.
+
+(pdftex.def)             Requested size: 504.22714pt x 546.2034pt.
+
+Overfull \hbox (48.98306pt too wide) in paragraph at lines 558--558
+ [] 
+ []
+
+[52 <./imagens/caso_incluir.jpg>]
+<imagens/Adicionar/1.jpg, id=230, 698.61pt x 435.12563pt>
+File: imagens/Adicionar/1.jpg Graphic file (type jpg)
+
+<use imagens/Adicionar/1.jpg>
+Package pdftex.def Info: imagens/Adicionar/1.jpg used on input line 574.
+(pdftex.def)             Requested size: 227.62204pt x 141.77267pt.
+
+<imagens/Adicionar/2.jpg, id=231, 700.11563pt x 437.38406pt>
+File: imagens/Adicionar/2.jpg Graphic file (type jpg)
+
+<use imagens/Adicionar/2.jpg>
+Package pdftex.def Info: imagens/Adicionar/2.jpg used on input line 581.
+(pdftex.def)             Requested size: 227.62204pt x 142.20152pt.
+
+<imagens/Adicionar/3.jpg, id=232, 701.62125pt x 437.38406pt>
+File: imagens/Adicionar/3.jpg Graphic file (type jpg)
+
+<use imagens/Adicionar/3.jpg>
+Package pdftex.def Info: imagens/Adicionar/3.jpg used on input line 588.
+(pdftex.def)             Requested size: 227.62204pt x 141.89452pt.
+
+<imagens/Adicionar/4.jpg, id=233, 701.62125pt x 437.38406pt>
+File: imagens/Adicionar/4.jpg Graphic file (type jpg)
+
+<use imagens/Adicionar/4.jpg>
+Package pdftex.def Info: imagens/Adicionar/4.jpg used on input line 595.
+(pdftex.def)             Requested size: 227.62204pt x 141.89452pt.
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 571--599
+[][] []
+ []
+
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 571--599
+[] [] 
+ []
+
+[53 <./imagens/sequencia_adiciona.jpg>]
+<imagens/caso_executar.jpg, id=237, 470.50781pt x 298.11375pt>
+File: imagens/caso_executar.jpg Graphic file (type jpg)
+
+<use imagens/caso_executar.jpg>
+Package pdftex.def Info: imagens/caso_executar.jpg used on input line 614.
+(pdftex.def)             Requested size: 235.25333pt x 149.0565pt.
+ [54 <./imagens/Adicionar/1.jpg> <./imagens/Adicionar/2.jpg> <./imagens/Adicion
+ar/3.jpg> <./imagens/Adicionar/4.jpg>]
+<imagens/sequencia_executa.jpg, id=241, 443.40656pt x 397.485pt>
+File: imagens/sequencia_executa.jpg Graphic file (type jpg)
+
+<use imagens/sequencia_executa.jpg>
+Package pdftex.def Info: imagens/sequencia_executa.jpg used on input line 627.
+(pdftex.def)             Requested size: 310.38248pt x 278.2376pt.
+
+<imagens/Executar/1.jpg, id=242, 706.89093pt x 443.40656pt>
+File: imagens/Executar/1.jpg Graphic file (type jpg)
+
+<use imagens/Executar/1.jpg>
+Package pdftex.def Info: imagens/Executar/1.jpg used on input line 641.
+(pdftex.def)             Requested size: 227.62204pt x 142.77931pt.
+
+<imagens/Executar/2.jpg, id=243, 704.6325pt x 444.15938pt>
+File: imagens/Executar/2.jpg Graphic file (type jpg)
+
+<use imagens/Executar/2.jpg>
+Package pdftex.def Info: imagens/Executar/2.jpg used on input line 648.
+(pdftex.def)             Requested size: 227.62204pt x 143.4758pt.
+ [55 <./imagens/caso_executar.jpg> <./imagens/sequencia_executa.jpg>] <imagens/
+caso_tamanho.jpg, id=247, 502.12593pt x 313.17pt>
+File: imagens/caso_tamanho.jpg Graphic file (type jpg)
+
+<use imagens/caso_tamanho.jpg>
+Package pdftex.def Info: imagens/caso_tamanho.jpg used on input line 668.
+(pdftex.def)             Requested size: 200.84682pt x 125.26576pt.
+
+<imagens/sequencia_tamanho.jpg, id=248, 326.72063pt x 365.11406pt>
+File: imagens/sequencia_tamanho.jpg Graphic file (type jpg)
+
+<use imagens/sequencia_tamanho.jpg>
+Package pdftex.def Info: imagens/sequencia_tamanho.jpg used on input line 682.
+(pdftex.def)             Requested size: 196.03387pt x 219.07011pt.
+
+<imagens/Troca/1.jpg, id=249, 704.6325pt x 442.65375pt>
+File: imagens/Troca/1.jpg Graphic file (type jpg)
+
+<use imagens/Troca/1.jpg>
+Package pdftex.def Info: imagens/Troca/1.jpg used on input line 697.
+(pdftex.def)             Requested size: 227.62204pt x 142.98944pt.
+
+<imagens/Troca/2.jpg, id=250, 704.6325pt x 441.90094pt>
+File: imagens/Troca/2.jpg Graphic file (type jpg)
+
+<use imagens/Troca/2.jpg>
+Package pdftex.def Info: imagens/Troca/2.jpg used on input line 704.
+(pdftex.def)             Requested size: 227.62204pt x 142.74626pt.
+
+<imagens/Troca/3.jpg, id=251, 706.13812pt x 443.40656pt>
+File: imagens/Troca/3.jpg Graphic file (type jpg)
+
+<use imagens/Troca/3.jpg>
+Package pdftex.def Info: imagens/Troca/3.jpg used on input line 711.
+(pdftex.def)             Requested size: 227.62204pt x 142.92816pt.
+ [56 <./imagens/Executar/1.jpg> <./imagens/Executar/2.jpg> <./imagens/caso_tama
+nho.jpg>] [57 <./imagens/sequencia_tamanho.jpg> <./imagens/Troca/1.jpg> <./imag
+ens/Troca/2.jpg> <./imagens/Troca/3.jpg>]
+<imagens/caso_excluir.jpg, id=258, 469.00218pt x 335.00156pt>
+File: imagens/caso_excluir.jpg Graphic file (type jpg)
+
+<use imagens/caso_excluir.jpg>
+Package pdftex.def Info: imagens/caso_excluir.jpg used on input line 734.
+(pdftex.def)             Requested size: 328.29929pt x 234.49948pt.
+
+<imagens/sequencia_exclui.jpg, id=259, 657.95813pt x 760.34062pt>
+File: imagens/sequencia_exclui.jpg Graphic file (type jpg)
+
+<use imagens/sequencia_exclui.jpg>
+Package pdftex.def Info: imagens/sequencia_exclui.jpg used on input line 751.
+(pdftex.def)             Requested size: 493.46739pt x 570.25406pt.
+
+Overfull \hbox (38.22331pt too wide) in paragraph at lines 751--751
+ [] 
+ []
+
+[58 <./imagens/caso_excluir.jpg>]
+<imagens/Excluir/1.jpg, id=264, 703.87968pt x 439.6425pt>
+File: imagens/Excluir/1.jpg Graphic file (type jpg)
+
+<use imagens/Excluir/1.jpg>
+Package pdftex.def Info: imagens/Excluir/1.jpg used on input line 769.
+(pdftex.def)             Requested size: 227.62204pt x 142.17102pt.
+
+<imagens/Excluir/2.jpg, id=265, 703.87968pt x 439.6425pt>
+File: imagens/Excluir/2.jpg Graphic file (type jpg)
+
+<use imagens/Excluir/2.jpg>
+Package pdftex.def Info: imagens/Excluir/2.jpg used on input line 776.
+(pdftex.def)             Requested size: 227.62204pt x 142.17102pt.
+
+<imagens/Excluir/3.jpg, id=266, 701.62125pt x 440.39531pt>
+File: imagens/Excluir/3.jpg Graphic file (type jpg)
+
+<use imagens/Excluir/3.jpg>
+Package pdftex.def Info: imagens/Excluir/3.jpg used on input line 783.
+(pdftex.def)             Requested size: 227.62204pt x 142.87141pt.
+
+<imagens/Excluir/4.jpg, id=267, 701.62125pt x 440.39531pt>
+File: imagens/Excluir/4.jpg Graphic file (type jpg)
+
+<use imagens/Excluir/4.jpg>
+Package pdftex.def Info: imagens/Excluir/4.jpg used on input line 790.
+(pdftex.def)             Requested size: 227.62204pt x 142.87141pt.
+
+<imagens/Excluir/5.jpg, id=268, 704.6325pt x 441.14813pt>
+File: imagens/Excluir/5.jpg Graphic file (type jpg)
+
+<use imagens/Excluir/5.jpg>
+Package pdftex.def Info: imagens/Excluir/5.jpg used on input line 797.
+(pdftex.def)             Requested size: 227.62204pt x 142.5031pt.
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 766--801
+[][] []
+ []
+
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 766--801
+[] []
+ []
+
+[59 <./imagens/sequencia_exclui.jpg>]
+<imagens/diagrama_estados.jpg, id=272, 589.4522pt x 340.27126pt>
+File: imagens/diagrama_estados.jpg Graphic file (type jpg)
+
+<use imagens/diagrama_estados.jpg>
+Package pdftex.def Info: imagens/diagrama_estados.jpg used on input line 814.
+(pdftex.def)             Requested size: 353.67404pt x 204.16432pt.
+ [60 <./imagens/Excluir/1.jpg> <./imagens/Excluir/2.jpg> <./imagens/Excluir/3.j
+pg> <./imagens/Excluir/4.jpg> <./imagens/Excluir/5.jpg>] [61 <./imagens/diagram
+a_estados.jpg>]
+Cap\'{\i }tulo 5.
+<imagens/solucao.jpg, id=279, 749.04843pt x 630.10406pt>
+File: imagens/solucao.jpg Graphic file (type jpg)
+
+<use imagens/solucao.jpg>
+Package pdftex.def Info: imagens/solucao.jpg used on input line 841.
+(pdftex.def)             Requested size: 284.52756pt x 239.34589pt.
+
+
+LaTeX Warning: Reference `conceitos' on page 62 undefined on input line 849.
+
+[62
+
+ <./imagens/solucao.jpg>] [63] [64] [65]
+Cap\'{\i }tulo 6.
+
+LaTeX Warning: Reference `cap:definicao_problema' on page 66 undefined on input
+ line 956.
+
+
+LaTeX Warning: Reference `cap:definicao_problema' on page 66 undefined on input
+ line 958.
+
+[66
+
+] [67]
+Overfull \hbox (7.45761pt too wide) in paragraph at lines 990--992
+[]\OT1/cmr/m/n/12 Revis~ao de con-cei-tos no pro-jeto do soft-ware. Fun-da-ment
+a^^Xc~ao ne-cess^^Saria para execu^^Xc~ao
+ []
+
+[68]) (./tccudesc.bbl [69] [70
+
+]
+Underfull \hbox (badness 2229) in paragraph at lines 108--113
+[]\OT1/cmr/m/n/12 CENSO. Car-ti-lha do censo 2010, pes-soas com de- 
+ []
+
+
+Underfull \hbox (badness 1253) in paragraph at lines 108--113
+\OT1/cmr/m/n/12 fici^encia. 2010. Vi-si-tado em (10/04/2014). Dis-pon^^S^^Pvel 
+em: 
+ []
+
+[71] [72] [73] [74]) (./anexo.tex [75]
+Ap\^endice .
+[76
+
+] <artigos/iso9999.pdf, id=331, page=1, 597.23125pt x 845.1575pt>
+File: artigos/iso9999.pdf Graphic file (type pdf)
+
+<use artigos/iso9999.pdf, page 1>
+Package pdftex.def Info: artigos/iso9999.pdf, page1 used on input line 38.
+(pdftex.def)             Requested size: 418.05902pt x 591.60622pt.
+ [77 <./artigos/iso9999.pdf>]
+<imagens/termo.pdf, id=340, 597.55246pt x 845.19763pt>
+File: imagens/termo.pdf Graphic file (type pdf)
+ <use imagens/termo.pdf>
+Package pdftex.def Info: imagens/termo.pdf used on input line 46.
+(pdftex.def)             Requested size: 478.04262pt x 676.15903pt.
+) (./apendice.tex
+Overfull \hbox (22.79854pt too wide) in paragraph at lines 46--1
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--1
+
+ []
+
+
+Overfull \vbox (3.0471pt too high) has occurred while \output is active []
+
+
+[78 <./imagens/termo.pdf>]
+Ap\^endice .
+[79
+
+] [80] <imagens/entrevista.jpg, id=378, 614.295pt x 844.8363pt>
+File: imagens/entrevista.jpg Graphic file (type jpg)
+
+<use imagens/entrevista.jpg>
+Package pdftex.def Info: imagens/entrevista.jpg used on input line 97.
+(pdftex.def)             Requested size: 491.43666pt x 675.86996pt.
+)
+Overfull \hbox (36.19258pt too wide) in paragraph at lines 97--103
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--103
+
+ []
+
+
+Overfull \vbox (2.75804pt too high) has occurred while \output is active []
+
+
+[81 <./imagens/entrevista.jpg>] (./tccudesc.aux)
+
+LaTeX Warning: There were undefined references.
+
+ )
+(\end occurred inside a group at level 1)
+
+### simple group (level 1) entered at line 99 ({)
+### bottom level 
+Here is how much of TeX's memory you used:
+ 7036 strings out of 494996
+ 97034 string characters out of 6180485
+ 176550 words of memory out of 5000000
+ 10001 multiletter control sequences out of 15000+600000
+ 20227 words of font info for 78 fonts, out of 8000000 for 9000
+ 16 hyphenation exceptions out of 8191
+ 38i,13n,58p,1345b,576s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
+i8.pfb>
+Output written on tccudesc.pdf (84 pages, 5717855 bytes).
+PDF statistics:
+ 427 PDF objects out of 1000 (max. 8388607)
+ 267 compressed objects within 3 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 211 words of extra memory for PDF output out of 10000 (max. 10000000)
+

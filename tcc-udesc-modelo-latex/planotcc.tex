@@ -1,0 +1,166 @@
+\chapter{Plano de Trabalho de Conclusão de Curso}
+
+\begin{center}
+
+{\large {\bf Plano de Trabalho de Conclusão de Curso \\
+Rastreamento de Objetos Baseado em Casamento de Árvores de Componentes}} \linebreak
+
+{\large UDESC - Centro de Ciências Tecnológicas \\
+Departamento de Ciência da Computação \\
+Bacharelado em Ciência da Computação - Integral\\
+Turma - 2007/02 - Joinville - Santa Catarina } \linebreak
+
+{\large {\bf André Körbes - andre.korbes@gmail.com \\
+Orientador: Alexandre Gonçalves Silva - dcc2ags@joinville.udesc.br}}\\
+
+\end{center}
+
+{\bf Resumo -}Este plano apresenta uma proposta de desenvolvimento de uma ferramenta de rastreamento de objetos rígidos em vídeos digitais. O trabalho visa à união de técnicas e conceitos já existentes, tais como a representação hierárquica de imagens digitais em árvores, e a avaliação de casamento de grafos em comparações entre estes. Assim, será proposto o estudo de diversas técnicas relacionadas e necessárias, bem como o desenvolvimento de um índice comparativo de correlação da região encontrada com a que se deseja buscar, e dos algoritmos necessários para a implementação. Ao final, a ferramenta será avaliada em sua eficácia em estudos de caso de possíveis aplicações práticas.
+\\
+
+\noindent \textbf{Palavras-chaves:} rastreamento de objetos, segmentação de vídeo, Max-tree.
+
+\section*{1. Introdução e Justificativa}
+
+O processamento de imagens e, por conseqüência de vídeos, tornou-se uma área de grande interesse e pesquisa, devido às suas utilidades práticas em diversas aplicações. Com a propagação dos vídeos digitais através de equipamentos acessíveis, há cada vez mais vídeos sendo armazenados, juntando-se à já grande massa de dados, e outros mais sendo gravados e divulgados através da Internet. Em paralelo a esse desenvolvimento ocorreu um significativo aumento na capacidade de processamento dos computadores, permitindo que aplicações cuja carga de trabalho é alta, tal como a análise de quadros de vídeo em tempo real ou ao menos aceitável dentro dos parâmetros necessários, seja possível.
+
+Assim, mostra-se a abertura de um espaço para técnicas que supram essa demanda de forma semi-automática, ou seja, a análise de vídeos através de alguma interação com o usuário para prover informação inicial, no caso específico deste trabalho, o rastreamento de um objeto ao longo dos quadros. Esta necessidade pode ser observada em diversas aplicações, como monitoramento em câmeras de segurança, rastreando-se o movimento de carros em estacionamentos, obtenção de informações semânticas em vídeos esportivos, tais como a distância percorrida por um jogador de futebol visto de um ângulo superior, onde seu movimento não produz grandes alterações na imagem final, o auto-posicionamento da câmera em aplicações de tempo real onde se deseja manter um alvo em foco, como robôs programados para seguirem determinados objetos, onde através da câmera é feito seu redirecionamento. Para atender estas necessidades, deve-se pensar no desenvolvimento de técnicas específicas para tal, ou a utilização de técnicas já conhecidas em conjunto, que é o foco deste trabalho, na integração de ferramentas consolidadas de representação de imagens por meio de estruturas hierárquicas, passíveis de filtragem e análise através de modelos algorítmicos e de heurísticas de avaliação da qualidade dos resultados encontrados. 
+
+Há na literatura diversas formas de se analisar vídeos, através de vários métodos, com regras próprias para avaliação de imagens, traduzindo-se em classes de segmentação, baseadas em {\it pixels}, regiões, conteúdo, contornos, semântica  entre outras \cite{zhang06}. Estas representações buscam dividir a imagem em elementos que contenham significado e que possam ser trabalhados.  De forma diferente do uso de estruturas para cada quadro, pode-se avaliar vídeos, e por conseqüência rastrear objetos, através de técnicas de detecção de movimento, e para isto há operadores especiais de segmentação de seqüências de imagens que isolam aqueles objetos que tiveram significativa alteração entre os quadros, como por exemplo, um barco em movimento \cite{salembier96}. Outros autores propõem um método de detecção de alteração da cena em vídeos, avaliando-os sintaticamente e semanticamente, de forma que este possa ser classificado, baseado em informações pré-definidas e em uma linha temporal \cite{gunsel98}. Estudos mais avançados na área e voltados para monitoramento de segurança propõem o uso de várias câmeras apontando para o mesmo cenário por ângulos diferentes, evitando a oclusão de objetos, de forma que é possível a criação de um ambiente 3D e o rastreamento de objetos utilizando algoritmos específicos para este tipo de cenário, como os filtros de Kalman \cite{black05}. Este estudo obteve sucesso considerável em seus estudos de caso como pode ser visto na figura \ref{fig:black-ellis-plano}, onde os retângulos destacam os objetos (veículos) sendo rastreados.
+ 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=90mm]{imagens/black-ellis.png}
+\caption{Estudo de caso bem sucedido de rastreamento \cite{black05}.}
+\label{fig:black-ellis-plano}
+\end{figure}
+
+Na figura \ref{fig:black-ellis-plano} pode-se ver seis quadros obtidos a partir de câmeras distintas para os mesmos instantes de tempo. Este trabalho está direcionado em utilizar apenas uma câmera, visando obter resultados similares, ou seja, destacando o objeto rastreado ao longo do vídeo.
+
+Através do mesmo recurso de filtragem, há métodos para rastreamento do objeto baseado em pontos de referência em um objeto 3D simples, calculando automaticamente sua posição a cada quadro, e utilizando primitivas gráficas simples para tornar o algoritmo mais confiável quando ocorre a oclusão \cite{armstrong95}. Aproximando-se do enfoque deste trabalho, há estudos de uso de representações hierárquicas para extração de informações em vídeos, com ênfase na {\it max-tree}, além de diversas técnicas de avaliação, filtragem e segmentação baseadas em árvores \cite{garrido02}. Isto demonstra a qualidade das árvores como formas de representação hierárquica bem estabelecidas, já usadas e estudadas em trabalhos de implementação destas onde o enfoque é a detecção de formas \cite{cassol05}. Pode ser verificado também o desempenho atingido pelos algoritmos existentes para construção da {\it max-tree} na figura \ref{fig:grafico-max-tree-plano}.
+
+\begin{figure}[ht]
+	\centering
+    \subfigure[]{
+        \includegraphics[width=70mm]{imagens/grafico-max-tree.png}
+    }
+    \hspace{0.05\hsize}
+    \subfigure[]{
+         \includegraphics[width=70mm]{imagens/imagem-teste.png}
+    }    
+	\caption{Gráfico de tempo para construção da {\it max-tree} para a mesma imagem redimensionada em vários tamanhos.}
+   \label{fig:grafico-max-tree-plano}
+\end{figure}
+  
+O gráfico da figura \ref{fig:grafico-max-tree-plano} em (a) mostra na linha inferior o desempenho ideal do algoritmo, na intermediária o desempenho real alcançado pela implementação existente e na superior um segundo algoritmo para a mesma implementação. A imagem de teste, em (b), é uma fotografia digital em níveis de cinza, representada no eixo horizontal por números inteiros, em ordem crescente de número de {\it pixels}.
+
+Além da representação em árvore, há a transformada {\it watershed} para segmentação e análise de imagens, com grande sucesso na detecção e recuperação de objetos ao unir características de outros métodos de segmentação porém produzindo resultados mais confiáveis e estáveis \cite{gonzalez02}. Esta transformada é usada em estudos de comparação de regiões de imagens em vídeos utilizando casamento de grafos através de grafos associativos e do Clique máximo \cite{carvalho04}. 
+
+Tais técnicas citadas anteriormente estão inseridas em três áreas: processamento de imagens, sistemas multimídia e teoria de grafos. Dentro do escopo de processamento de imagens, será estudada a segmentação de imagens, com sua terminologia, descritores e transformadas pertinentes, assim como a representação hierárquica através de árvores, principalmente a {\it max-tree} e a análise de seus atributos e topologia em cada nó. De forma correlata será feita a revisão de formas e padrões de vídeos, visando apenas à compreensão necessária para este trabalho, sem os detalhes de implementações, ou seja, simplesmente a organização dos quadros no decorrer do vídeo e a predição do movimento dos objetos nas cenas, para assim chegar ao rastreamento de objetos rígidos. Em teoria de grafos será estudada a problemática do casamento de grafos, necessária para a identificação de sub-árvores dentro da estrutura principal da imagem, apresentando uma das formas de busca do alvo nos quadros do vídeo.
+
+Dessa forma, este trabalho irá apresentar todas as limitações das técnicas anteriores, tais como as da capacidade de representação e segmentação da {\it max-tree}, a disponibilidade de atributos em cada nó da árvore para serem analisados, as limitações das soluções existentes para o casamento de grafos além daquelas inerentes aos padrões de armazenamento de imagens e vídeos. Porém a maior limitação estará no foco principal do trabalho, que é a necessidade do objeto a ser rastreado manter seus contornos, ou com pequena variação, e principalmente seus níveis de cinza, permitindo que sua sub-árvore mantenha certo grau de similaridade ao longo dos quadros de modo que este possa ser detectado e rastreado corretamente.
+
+A ferramenta será então desenvolvida em ambiente de programação C++ e multiplataforma, utilizando bibliotecas de apoio para leitura de imagens e vídeos, bem como para a construção da representação hierárquica, mantendo seu foco no rastreamento através do casamento de árvores. Pode-se ver o funcionamento geral do programa na figura \ref{fig:proposta-plano}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=120mm]{imagens/proposta-plano.png}
+\caption{Seqüência de passos de funcionamento da ferramenta.}
+\label{fig:proposta-plano}
+\end{figure}
+
+Nos passos apresentados na figura \ref{fig:proposta-plano}, mostra-se o vídeo puro de entrada do sistema, que é então convertido através do uso de bibliotecas em uma seqüência de imagens. Esta seqüência é processada utilizando as técnicas citadas anteriormente e o casamento de árvores é feito, tendo como resultado uma seqüência de imagens processada e com o objeto rastreado demarcado, que é então convertida em um vídeo de saída, apresentável ao usuário. Deve-se ressaltar o uso das bibliotecas de conversão de vídeo em imagens, cuja confiabilidade e disponibilidade serão verificadas no cumprimento das necessidades esperadas, e, caso contrário, o sistema trabalhará diretamente com uma seqüência de imagens, afetando apenas a experiência de uso, mas não as funcionalidades.
+
+Mostra-se então que há diversos estudos de rastreamento de objetos e várias técnicas para isto, utilizando diversas representações, métodos de comparação e obtendo bons resultados \cite{armstrong95, black05, carvalho04, salembier96}. Este trabalho tem sua importância na medida em que busca a utilização destes conceitos existentes de representação hierárquica, filtragem, segmentação de imagens e vídeos, busca e casamento de grafos e análise de características, unindo-os em uma aplicação capaz de rastrear objetos. Com isto, pretende-se a evolução da pesquisa na área através de estudos de avaliação da eficácia desta ferramenta, além do conhecimento para desenvolvimento e melhoria, buscando-se o refinamento das operações necessárias em aplicações práticas, além de outros usos para as informações geradas por esta. Assim, como benefício prático final, será produzida uma ferramenta interativa, semi-automática, de rastreamento de objetos rígidos em vídeos.
+
+\section*{2. Objetivos}
+
+Objetivo Geral: produzir uma ferramenta capaz de rastrear objetos em um vídeo, selecionados pelo usuário e identificados por um processo de segmentação, mostrando, quadro a quadro, onde este se encontra. Os objetivos específicos são listados abaixo:
+
+\begin{itemize}
+    \item Estudar técnicas de representação e armazenamento de imagens e vídeos digitais;
+    \item Analisar as representações hierárquicas de imagens;
+    \item Estudar operadores morfológicos, descritores e transformadas pertinentes à segmentação e correlação de imagens;
+    \item Investigar sobre a predição de movimento em vídeos;
+    \item Investigar sobre técnicas de casamento de grafos;
+    \item Desenvolver um índice representativo da correlação do nó da árvore com o nó sendo procurado;
+    \item Desenvolver um projeto detalhado da ferramenta, incluindo os algoritmos necessários;
+    \item Desenvolver e avaliar a ferramenta através de estudos de caso.
+\end{itemize}
+
+\section*{3. Metodologia}
+
+Primeiramente será feita uma revisão bibliográfica dos conceitos relacionados à representação de imagens digitais e vídeos e seus padrões de armazenamento. A seguir será revisado o método de representação hierárquica, a análise e casamento de grafos e análise das características aplicáveis para comparação de nós das árvores. Após este estudo, será desenvolvido o método utilizando as técnicas citadas anteriormente que se mostrem mais apropriadas para a aplicação e que atinjam o objetivo esperado, baseado em um índice de correlação entre a região selecionada e as segmentadas nos quadros sendo analisados. A seguir, com base neste método e nos conceitos de armazenamento e padrões de imagens e vídeos, será desenvolvida a ferramenta que cumprirá o objetivo geral do trabalho. Por último serão feitos estudos de caso em aplicações práticas, avaliando sua eficácia.
+
+\noindent{Discriminação das Etapas:}
+
+\begin{enumerate}
+    \item Revisão bibliográfica dos conceitos em imagens digitais e vídeos, formas e padrões de armazenamento;
+    \item Revisão do casamento de grafos e métodos de correlação de imagens;
+    \item Estudo dos descritores de imagens, como área, perímetro, retângulo mínimo, dos descritores de Fourier e de descritores morfológicos;
+    \item Estudo da predição de movimento;
+    \item Revisão da representação hierárquica de imagens;
+    \item Descrição das características (atributos e topologia) dos nós da árvore Max-Tree;
+    \item Desenvolvimento do índice de correlação;
+    \item Desenvolvimento dos algoritmos;
+    \item Implementação da ferramenta;
+    \item Estudos de caso em aplicações práticas, analisando resultados e desempenho;
+    \item Divulgação do material escrito e implementação através de meio digital;
+    \item Escrita do Trabalho de Conclusão de Curso.
+\end{enumerate}
+
+\section*{4. Cronograma Proposto}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=130mm]{imagens/cronograma.pdf}
+\label{fig:cronograma}
+\end{figure}
+
+\section*{5. Linha e Grupo de pesquisa}
+
+Este trabalho está no escopo do grupo de pesquisa LAPIS (Laboratório de Processamento de Imagens e Sinais) na linha de pesquisas de segmentação de vídeos e imagens.
+
+\section*{6. Forma de Acompanhamento/Orientação}
+
+Serão feitas reuniões semanais entre aluno e orientador, sendo que pode haver algumas exceções de acordo com a disponibilidade do aluno e/ou orientador. Também será utilizado o correio eletrônico para esclarecer dúvidas.
+
+\begin{thebibliography2}{9}
+\bibitem[Armstrong e Zisserman 1995]{armstrong95-plano}
+ARMSTRONG, M.; ZISSERMAN, A. Robust Object Tracking. {\it Proc. Asian Conference on Computer Vision}, 1995.
+
+\bibitem[Black e Ellis 2005]{black05-plano}
+BLACK, J.; ELLIS, T. Multi camera object tracking. {\it Image and Vision
+Computing}, 2005.
+
+\bibitem[Carvalho 2004]{carvalho04-plano}
+CARVALHO, M. A. G. d. {\it Análise Hierárquica de Imagens Através da Árvore dos Lagos Críticos}. Dissertação (Mestrado) -- Universidade Estadual de Campinas, Campinas, 2004.
+
+\bibitem[Cassol 2005]{cassol05-plano}
+CASSOL, G. L. F. {\it Detecção de Formas Usando Representação Hierárquica de Regiões para Imagens em Níveis de Cinza}. Trabalho de Conclusão de Curso (Graduação em Ciência da Computação) -- Universidade Estadual de Santa Catarina. Joinville, 2005.
+
+\bibitem[Garrido 2002]{garrido02-plano}
+GARRIDO, L. {\it Hierarchical Region Based Processing of Images and Video Sequences: Application to Filtering, Segmentation and Information Retrieval}. Tese (Doutorado) -- Universitat Politècnica de Catalunya, Barcelona, April 2002.
+
+\bibitem[Günsel, Ferman e Tekalp 1998]{gunsel98-plano}
+GÜNSEL, B.; FERMAN, M. A.; TEKALP, M. A. Temporal video segmentation using unsupervised clustering and semantic object tracking. {\it Journal of Electronic Imaging}, 1998.
+
+\bibitem[Gonzalez e Woods 2002]{gonzalez02-plano}
+GONZALEZ, R. C.; WOODS, R. E. {\it Digital Image Processing}. 2. ed. New Jersey: Prentice Hall, 2002.
+
+\bibitem[Salembier, Oliveras e Garrido 1996]{salembier96-plano}
+SALEMBIER, P.; OLIVERAS, A.; GARRIDO, L. Motion connected operators for image sequences. {\it European Signal Processing Conference (EUSIPCO)}, v. 2, p. 1083-1086, Set. 1996.
+
+\bibitem[Zhang 2006]{zhang06-plano}
+ZHANG, Y. J. Advances in Image and Video Segmentation. 1. ed. London: IRM Press, 2006.
+
+\end{thebibliography2}
+
+\noindent
+\rule{7.5cm}{0.1mm}
+\hskip 1.2cm \hfill \rule{7.5cm}{0.1mm}
+
+\noindent \hskip 0.3cm {\large {\bf {\textit {Alexandre Gonçalves Silva
+\hskip 3.4cm André Körbes }}}}
+
+\hskip 0.8cm Orientador \hskip 6.5cm Orientando
