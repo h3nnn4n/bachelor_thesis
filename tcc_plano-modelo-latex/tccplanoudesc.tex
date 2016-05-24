@@ -8,17 +8,17 @@
 \usepackage{epsfig}
 \usepackage[pdftex]{hyperref}
 \usepackage{multirow}
-\usepackage{fancyhdr} 
+\usepackage{fancyhdr}
 
-%\oddsidemargin -0.7cm 
+%\oddsidemargin -0.7cm
 %\evensidemargin -0.7cm
-\topmargin -2.0cm 
-%\headheight 0  cm 
-\headsep 1.5cm   
+\topmargin -2.0cm
+%\headheight 0  cm
+\headsep 1.5cm
 %\hoffset -1.0cm
 %\footskip 40pt
 %\textheight = 235mm \textwidth 185mm
-\oddsidemargin 0.4cm 
+\oddsidemargin 0.4cm
 \evensidemargin 0.4cm
 \textheight = 235mm \textwidth 165mm
 
@@ -72,31 +72,50 @@ Turma 20XX/X -- Joinville/SC
 
 
 \begin{abstract}
-$<$Descrever de modo resumido a importância da temática do trabalho a ser desenvolvido, o que vai ser 
-explorado no TCC-I e TCC-II, as atividades necessárias e os resultados esperados. \underline{Deve ter,
-no máximo, 10 linhas}$>$\\
-~\\
-\textbf{Palavras-chave:} \textit{$<$especificar as palavras-chave do trabalho$>$}
+    Grande parte dos problemas encontrados na prática são difíceis de serem
+    resolvidos e possuem muitas variáveis (na ordem dos milhares ou milhões),
+    de modo ótimo em uma escala de tempo plausível. Sendo assim, torna-se
+    necessário o emprego de algoritmos cada vez mais complexos e que unem
+    soluções exatas e heuristicas. Neste trabalho é apresentado uma abordagem
+    baseada em programação linear inteira, onde será utilizado os métodos de
+    \textit{Branch and Bounbd} e \textit{Branch and Cut} para solução exata e
+    o algoritmo genético para obter-se uma solução heuristica.
+\\
+\textbf{Palavras-chave:} \textit{Programação linear inteira, otimização combinatoria, cobertura de conjunto, agendamento de tripulação}
 \end{abstract}
 
 %------------------------------------------------
 \section{Introdução e Justificativa}
 \label{sec:int}
-$<$Apresentação do estado da arte sobre o tema do TCC. Descrever objetivamente, com o 
-\underline{apoio da} \underline{li\-te\-ra\-tu\-ra}, o problema a ser tratado, citando trabalhos importantes 
-desenvolvidos na mesma linha da abordada no TCC, focalizando sua relevância no contexto da 
-área em questão, a importância específica de sua proposta para o avanço ou consolidação do 
-conhecimento. Identificação de conceitos, métodos e técnicas pertinentes ao tema do trabalho. 
-Descrição geral do trabalho, apontando fins teóricos (pesquisa, publicações, conhecimento a ser 
-adquirido) e práticos (benefícios gerados, produto final). Definir claramente os assuntos 
-do trabalho, apresentando as limitações do mesmo.$>$
+Este trabalho aborda o Problema de Programação de Tripulantes - PPT (\textit{Airline Crew Scheduling}).
+O problema consiste em estabelecer um plano de alocação de tarefas para os integrantes da tripulação
+de modo a minimizar o custo operacional e respeitar as leis trabalhistas. O problema em questão
+é fundamental para o gerenciamento de custos operacionais de empresas de voo e o melhor aproveitamento
+de seus recursos financeiros.
+
+O planejamento operacional de de uma empresa aérea é dividida em 5 diferente etapas: Programação de voo,
+atribuição da frota, atribuição das aeronaves, determinação das viagens e atribuição de escalas (Gopalakrishnan e Johnson, 2005).
+A divisão em 5 diferentes problemas justifica-se devido a complexidade combinatoria do problema como um todo
+e do grande número de regras e regularmentações envolvidas em cada etapa, de modo que a solução do problema como
+um todo torna-se inviável em casos práticos.
+
+A programação de voo consiste em analisar o mercado e determinar quantos e quais voos disponibilisar em um determinado
+espaço de tempo, de modo a maximizar o lucro da empresa. Em seguida ocorre a atribuição da frota, que consiste em
+determinar quais aeronaves seram utilizadas em cada em cada voo, considerando informações como capacidade da aeronave,
+custos de manutenção e fluxo de passageiros. Na etapa seguinte é determinado a sequencia de voo de cada aeronave,
+garantindo que haja tempo hábil para a manutenção da aeronave conforme previsto por lei. O objetivo de minizar os custos
+de manutenção. Na quarta etapa é efetuada a programação da tripulação, determinando que tipo de equipe é necessário para
+cada voo. E por fim, na quinta etapa é determinado a escala individual de cada funcionário, de modo a atender restrições
+legais relacionadas a jornada de trabalho e se possível, preferencias pessoais.
+
+O QUE MAIS ESCREVER??
 
 %------------------------------------------------
 \section{Objetivos}
 \label{obj}
 $<$Objetivo Geral: Defina qual é a validação do trabalho -- ``onde se quer chegar?''.
 
-Objetivos Específicos: quais resultados parciais devem ser alcançados para o objetivo geral 
+Objetivos Específicos: quais resultados parciais devem ser alcançados para o objetivo geral
 ser atingido.$>$
 
 
@@ -104,19 +123,29 @@ ser atingido.$>$
 %------------------------------------------------
 \section{Metodologia}
 \label{met}
-$<$Método de desenvolvimento adotado (divisão de tarefas, modularização, ciclo de vida, 
-etc.) -- descrever como os objetivos vão ser alcançados. Ferramentas utilizadas (quais são 
-ou como serão definidas). Etapas de desenvolvimento do trabalho (atividades a serem 
-desenvolvidas) -- não colocar sobre entregas burocráticas da disciplina. Especificar 
-horas/atividades para cada etapa de desenvolvimento.$>$
+Inicialmente estudar-se-á em detalhe o problema proposto e será realizado uma revisão bibliografica do assunto,
+incluindo as diversas modelagens para o problema. Em seguida será considerado algoritmos que foram utilizados
+na literatura para resolver o problema e será analisado suas caracteristicas funcionais e desempenho, com o objetivo
+de elencar 3 algortimos para estudo. Após está etapa será procurado problemas práticos reais de PPT com o objetivo
+de realizar um estudo da eficiência dos modelos estudados. Por fim será realizado uma comparação dos resultados
+obtidos para averiguar a relevância dos algoritmos estudados e suas implementações.
+
 
 %------------------------------------------------
 \section{Cronograma proposto}
 \label{cro}
-$<$Definir um cronograma com as etapas especificadas no Item \ref{met}. O cronograma deve estar 
-escalonado na forma de Mês/Ano. Se necessário, divida cada mês em 4 semanas para maior 
-detalhamento. Obs.: O cronograma deve abranger as datas entre a aprovação do Plano de 
-TCC e as Bancas (último mês letivo).$>$
+Estapas:
+\begin{enumerate}
+        \item Revisão bibliografica e análise da problemática.
+        \item Escolha dos métodos de modelagem.
+        \item Estudo de algoritmos exatos aplicáveis para a solução da problemática.
+        \item Estudo de algoritmos heuristicos aplicáveis para a solução da problemática.
+        \item Eleição de algoritmos para estudo.
+        \item Desenvolvimento de prototipos para testes.
+        \item Experimentação com os algoritmos escolhidos.
+        \item Coleta e análise dos experimentos.
+        \item Escrita do trabalho de conclusão de curso.
+\end{enumerate}
 
 \vspace{0.5cm}
 {\tiny
@@ -152,28 +181,28 @@ TCC e as Bancas (último mês letivo).$>$
 
 %------------------------------------------------
 \section{Linha e Grupo de Pesquisa}
-$<$Explicitar a linha de pesquisa do TCC, os grupos de pesquisa do DCC envolvidos especificando 
-o grupo a qual pertence seu trabalho, \underline{se for o caso}.$>$ Caso o TCC não pertença a um grupo, 
-especificar somente as linhas de pesquisa relacionadas.
-O envolvimento com um grupo de pesquisa se dá pela afinidade do orientador ao grupo, 
-se o mesmo atua neste grupo em questão e se o professor pesquisa nas linhas de trabalho 
-deste grupo. Nada impede que um professor que atue em um grupo possua um tema de TCC fora 
-do grupo relacionado. Para que o TCC seja caracterizado dentro de um grupo (se tiver um), 
-além de especificar aqui, deve conter a assinatura do líder do grupo para que o mesmo 
-esteja ciente da proposta encaminhada.$>$
+%$<$Explicitar a linha de pesquisa do TCC, os grupos de pesquisa do DCC envolvidos especificando
+%o grupo a qual pertence seu trabalho, \underline{se for o caso}.$>$ Caso o TCC não pertença a um grupo,
+%especificar somente as linhas de pesquisa relacionadas.
+%O envolvimento com um grupo de pesquisa se dá pela afinidade do orientador ao grupo,
+%se o mesmo atua neste grupo em questão e se o professor pesquisa nas linhas de trabalho
+%deste grupo. Nada impede que um professor que atue em um grupo possua um tema de TCC fora
+%do grupo relacionado. Para que o TCC seja caracterizado dentro de um grupo (se tiver um),
+%além de especificar aqui, deve conter a assinatura do líder do grupo para que o mesmo
+%esteja ciente da proposta encaminhada.$>$
 
 %------------------------------------------------
 \section{Forma de Acompanhamento/Orientação}
-$<$Descrever como será realizado o acompanhamento por parte do orientador do trabalho a 
-ser desenvolvido. Indicar qual a frequência das reuniões entre aluno e orientador, 
-especificando se a frequência muda conforme as etapas do cronograma. Indicar como 
-será registrado o acompanhamento feito (relatório de reunião, entrega de relatórios 
-por parte do aluno, controle de presença, etc.), se necessário, anexar ao presente 
-Plano de TCC o formato de ficha de controle ou relatório exigido do aluno.$>$
+O acompanhamento será realizado principalmente através de reuniões semanais. O controle das tarefas a fazer
+seram feitas baseadas em uma ata gerada a cada reunião.
 
 %------------------------------------------------
 \section{Referências Bibliográficas}
-$<$Colocar aqui apenas os trabalhos referenciados no texto do Plano de TCC, nas normas da ABNT.$>$
+TODO
+TODO
+TODO
+TODO
+
 
 %------------------------------------------------
 \section{Instruções básicas \LaTeX}
@@ -193,13 +222,13 @@ $<$Colocar aqui apenas os trabalhos referenciados no texto do Plano de TCC, nas 
     \begin{minipage} {0.49\linewidth}
       \centering
       \includegraphics[height=0.2\columnwidth]{figuras/logo_dcc.pdf}
-    
+
       \small{(a)}
     \end{minipage}
     \begin{minipage} {0.49\linewidth}
       \centering
       \includegraphics[height=0.2\columnwidth]{figuras/logo_udescjlle.pdf}
-    
+
       \small{(b)}
     \end{minipage}
 
@@ -222,7 +251,7 @@ $<$Colocar aqui apenas os trabalhos referenciados no texto do Plano de TCC, nas 
 \subsection{Ambiente matemático}
 
 \begin{itemize}
-  \item \begin{verbatim}$k \cdot \left( \sqrt{ \frac{1}{x+1} } \right) ^{(n-1)}$\end{verbatim} $\hookrightarrow$ 
+  \item \begin{verbatim}$k \cdot \left( \sqrt{ \frac{1}{x+1} } \right) ^{(n-1)}$\end{verbatim} $\hookrightarrow$
   $k \cdot \left( \sqrt{ \frac{1}{x+1} } \right) ^{(n-1)}$
 \end{itemize}
 
