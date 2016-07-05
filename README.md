@@ -1,6 +1,7 @@
 # Template-TCC-UDESC
-Modelo baseado no ABNT2. Seguindo completamente as normas da UDESC.
-Obs: A quem ficou curioso... A UDESC e muitas outras instituições não seguem completamente a ABNT2 \o/
+_Modelo baseado no ABNT2. Seguindo completamente as normas da UDESC._
 
+Obs: A quem ficou intrigado, a UDESC não segue completamente a ABNT2
 
-necessário ter instalados abntex e abntex2 para compilar
+# Dependências
+_necessário ter instalados abntex e abntex2 ou equivalentes para o seu uso_
