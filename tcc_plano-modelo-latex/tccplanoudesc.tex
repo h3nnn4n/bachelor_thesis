@@ -50,18 +50,18 @@
 
 \title{
 Plano de Trabalho de Conclusão de Curso\\
-$<$Título do Projeto$>$
+Título do Projeto
 }
 
 \author{
-$<$Nome do Aluno -- \texttt{email@aluno}$>$\\
-$<$Nome do Orientador -- \texttt{email@orientador} {\it (orientador)}$>$\\
-$<$Nome do Coorientador -- \texttt{email@coorientador} {\it (coorientador)}$>$ (se for o caso)\\
+Renan Samuel da Silva -- \texttt{renan.samuel.da.silva@gmail.com}\\
+Omir Alves -- \texttt{omir.alves@udesc.br} {\it (orientador)}\\
+%$<$Nome do Coorientador -- \texttt{email@coorientador} {\it (coorientador)}$>$ (se for o caso)\\
 ~\\
-Turma 20XX/X -- Joinville/SC
+Turma 2016/2 -- Joinville/SC
 }
 
-\date{23 de agosto de 2012}
+\date{02 de Julho de 2016}
 
 \maketitle
 
@@ -73,42 +73,50 @@ Turma 20XX/X -- Joinville/SC
 
 \begin{abstract}
     Grande parte dos problemas encontrados na prática são difíceis de serem
-    resolvidos e possuem muitas variáveis (na ordem dos milhares ou milhões),
-    de modo ótimo em uma escala de tempo plausível. Sendo assim, torna-se
-    necessário o emprego de algoritmos cada vez mais complexos e que unem
-    soluções exatas e heuristicas. Neste trabalho é apresentado uma abordagem
-    baseada em programação linear inteira, onde será utilizado os métodos de
-    \textit{Branch and Bounbd} e \textit{Branch and Cut} para solução exata e
-    o algoritmo genético para obter-se uma solução heuristica.
-\\
+    resolvidos e possuem um grande número de variáveis (na ordem dos milhares
+    ou milhões), fazendo com que seja impossivel resolver ótimamente em uma
+    escala de tempo plausível. Sendo assim, torna-se necessário o emprego de
+    algoritmos cada vez mais complexos e que unem soluções exatas e heuristicas.
+    O objetivo desde trabalho é pesquisar, identificar e especificar um método
+    para resolver o problema de agendamento de tripulação (\textit{crew scheduling}).\\
 \textbf{Palavras-chave:} \textit{Programação linear inteira, otimização combinatoria, cobertura de conjunto, agendamento de tripulação}
 \end{abstract}
 
 %------------------------------------------------
 \section{Introdução e Justificativa}
 \label{sec:int}
-Este trabalho aborda o Problema de Programação de Tripulantes - PPT (\textit{Airline Crew Scheduling}).
-O problema consiste em estabelecer um plano de alocação de tarefas para os integrantes da tripulação
-de modo a minimizar o custo operacional e respeitar as leis trabalhistas. O problema em questão
-é fundamental para o gerenciamento de custos operacionais de empresas de voo e o melhor aproveitamento
-de seus recursos financeiros.
 
-O planejamento operacional de de uma empresa aérea é dividida em 5 diferente etapas: Programação de voo,
-atribuição da frota, atribuição das aeronaves, determinação das viagens e atribuição de escalas (Gopalakrishnan e Johnson, 2005).
-A divisão em 5 diferentes problemas justifica-se devido a complexidade combinatoria do problema como um todo
-e do grande número de regras e regularmentações envolvidas em cada etapa, de modo que a solução do problema como
-um todo torna-se inviável em casos práticos.
+Cada vez mais as empresas buscam otimizar suas atividades, de modo a reduzir o custo e maximizar o lucro final.
+As empresas de transporte urbano tem que tomar decisões a cada momento: Quais veiculos renovar, quando fazer manutenção preventiva, quais horários
+disponibilisar, onde cada rota deve passar, onde alocar cada funcionário, como reagir diante de imprevistos
+temporais e climaticos, etc. Todas estas decisões podem ser otimizadas através de recursos
+de pesquisa operacional, seja uma escolha a curto prazo, como escalar um substituto para um motorista que entrou de
+licença médica ou a longo prazo, como criar uma nova rota de onibûs.
 
-A programação de voo consiste em analisar o mercado e determinar quantos e quais voos disponibilisar em um determinado
-espaço de tempo, de modo a maximizar o lucro da empresa. Em seguida ocorre a atribuição da frota, que consiste em
-determinar quais aeronaves seram utilizadas em cada em cada voo, considerando informações como capacidade da aeronave,
-custos de manutenção e fluxo de passageiros. Na etapa seguinte é determinado a sequencia de voo de cada aeronave,
-garantindo que haja tempo hábil para a manutenção da aeronave conforme previsto por lei. O objetivo de minizar os custos
-de manutenção. Na quarta etapa é efetuada a programação da tripulação, determinando que tipo de equipe é necessário para
-cada voo. E por fim, na quinta etapa é determinado a escala individual de cada funcionário, de modo a atender restrições
-legais relacionadas a jornada de trabalho e se possível, preferencias pessoais.
+Este trabalho visa em específico, tratar do problema de alocação de tripulação.
 
-O QUE MAIS ESCREVER??
+%Este trabalho aborda o Problema de Programação de Tripulantes - PPT (\textit{Airline Crew Scheduling}).
+%O problema consiste em estabelecer um plano de alocação de tarefas para os integrantes da tripulação
+%de modo a minimizar o custo operacional e respeitar as leis trabalhistas. O problema em questão
+%é fundamental para o gerenciamento de custos operacionais de empresas de voo e o melhor aproveitamento
+%de seus recursos financeiros.
+
+%O planejamento operacional de de uma empresa aérea é dividida em 5 diferente etapas: Programação de voo,
+%atribuição da frota, atribuição das aeronaves, determinação das viagens e atribuição de escalas (Gopalakrishnan e Johnson, 2005).
+%A divisão em 5 diferentes problemas justifica-se devido a complexidade combinatoria do problema como um todo
+%e do grande número de regras e regularmentações envolvidas em cada etapa, de modo que a solução do problema como
+%um todo torna-se inviável em casos práticos.
+
+%A programação de voo consiste em analisar o mercado e determinar quantos e quais voos disponibilisar em um determinado
+%espaço de tempo, de modo a maximizar o lucro da empresa. Em seguida ocorre a atribuição da frota, que consiste em
+%determinar quais aeronaves seram utilizadas em cada em cada voo, considerando informações como capacidade da aeronave,
+%custos de manutenção e fluxo de passageiros. Na etapa seguinte é determinado a sequencia de voo de cada aeronave,
+%garantindo que haja tempo hábil para a manutenção da aeronave conforme previsto por lei. O objetivo de minizar os custos
+%de manutenção. Na quarta etapa é efetuada a programação da tripulação, determinando que tipo de equipe é necessário para
+%cada voo. E por fim, na quinta etapa é determinado a escala individual de cada funcionário, de modo a atender restrições
+%legais relacionadas a jornada de trabalho e se possível, preferencias pessoais.
+
+%O QUE MAIS ESCREVER??
 
 %------------------------------------------------
 \section{Objetivos}
