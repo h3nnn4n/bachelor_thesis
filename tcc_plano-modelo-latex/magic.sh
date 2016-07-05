@@ -1,9 +1,9 @@
 #!/bin/bash
 
-COMP=lualatex
+COMP=pdflatex
 BIB_COMP=bibtex
-MAIN=sbc-template
-MAIN_BIB=sb-template
+MAIN=tccplanoudesc
+MAIN_BIB=tccplanoudesc
 
 ${COMP}       ${MAIN}
 ${BIB_COMP}   ${MAIN}
