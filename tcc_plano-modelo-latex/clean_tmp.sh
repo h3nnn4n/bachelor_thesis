@@ -1,3 +1,3 @@
 #!/bin/bash
 
-rm *.{bbl,blg,aux,log} -v
+rm *.{bbl,blg,aux,log,out} -v
