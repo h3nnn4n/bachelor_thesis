@@ -52,7 +52,7 @@
 
 \title{
 Plano de Trabalho de Conclusão de Curso\\
-Título do Projeto
+Algoritmo hibrido para solução do \textit{Crew Scheduling Problem}
 }
 
 \author{
@@ -95,31 +95,27 @@ temporais e climaticos, etc. Todas estas decisões podem ser otimizadas através d
 de pesquisa operacional, seja uma escolha a curto prazo, como escalar um substituto para um motorista que entrou de
 licença médica ou a longo prazo, como criar uma nova rota de onibûs.
 
-Este trabalho visa em específico, tratar do problema de alocação de tripulação, ou em inglês \textit{crew scheduling problem} (CSP).
-O CSP consiste em escolhar quais funcionários deve realizar quais funções durante um dado periodo de tempo \cite{Bergh}.
+Este trabalho visa em específico tratar do problema de alocação de tripulação, ou em inglês \textit{crew scheduling problem} (CSP).
+O CSP consiste em escolher quais funcionários deve realizar quais funções durante um dado periodo de tempo \cite{Bergh}. O processo
+de escolha esta sujeito a diversas restrições. Existem restrições do sindicato, regras definidas pela empresa, leis trabalhistas,
+e até mesmo preferencias pessoas dos motoristas. Dentro destas restrições deve-se encontrar o conjunto de designações que reduzem
+ao máximo o custo. O CSP assume que já tenha sido determinado as rotas ondem a tripulação irá trabalhar, assim como quais veiculos
+seram utilizados, quais os horários de partida e chegada e os pontos de troca.
 
-%Este trabalho aborda o Problema de Programação de Tripulantes - PPT (\textit{Airline Crew Scheduling}).
-%O problema consiste em estabelecer um plano de alocação de tarefas para os integrantes da tripulação
-%de modo a minimizar o custo operacional e respeitar as leis trabalhistas. O problema em questão
-%é fundamental para o gerenciamento de custos operacionais de empresas de voo e o melhor aproveitamento
-%de seus recursos financeiros.
+Uma viagem consiste no deslocamento entre dois pontos pré-determinados com horários de partida e chega já determinados. Uma jornada
+consiste na sequencia de viagens realizadas por uma dada tripulação durante o seu turno de trabalho. Portanto, conhecendo todas
+as possíveis jornadas válidas sobre o conjunto de regras pré-estabelicido, o CSP consiste em escolher quais jornadas cobrem todas
+as viagems que devem ser realizadas. Colocando de outra forma, dado o conjunto de jornadas válidas, escolha o subconjunto que cubra todas
+as viagems pelo menos uma vez, minimizando o custo final. Este problema é referenciado na literatura como sendo o problema de cobertura
+de conjuntos, ou \textit{set covering problem} (SCP). Onde dado um conjunto de linhas a serem cobertas, e um conjunto de colunas com custos
+associados que cobrem as linhas, escolher o subconjunto de colunas que cubra todas as linhas minimizando o custo final. Como o SCP
+define que cada linha deve ser coberta pelo menos uma vez, isso implica que se o CSP for modelado como uma instancia de SCP, pode ocorrer
+de mais de um tripulante ser designado para a mesma viagem. Isso ná pratica consiste de um motorista ir de carona até o início de outra viagem,
+por exemplo.
 
-%O planejamento operacional de de uma empresa aérea é dividida em 5 diferente etapas: Programação de voo,
-%atribuição da frota, atribuição das aeronaves, determinação das viagens e atribuição de escalas (Gopalakrishnan e Johnson, 2005).
-%A divisão em 5 diferentes problemas justifica-se devido a complexidade combinatoria do problema como um todo
-%e do grande número de regras e regularmentações envolvidas em cada etapa, de modo que a solução do problema como
-%um todo torna-se inviável em casos práticos.
+Outra abordagem para a modelagem consiste em determinar que exatamente um tripulante deve ser associado com uma viagem. Esta restrição
+extra transforma o problema de SCP em um problema de particionamento de conjuntos, \textit{set covering problem} (SPP).
 
-%A programação de voo consiste em analisar o mercado e determinar quantos e quais voos disponibilisar em um determinado
-%espaço de tempo, de modo a maximizar o lucro da empresa. Em seguida ocorre a atribuição da frota, que consiste em
-%determinar quais aeronaves seram utilizadas em cada em cada voo, considerando informações como capacidade da aeronave,
-%custos de manutenção e fluxo de passageiros. Na etapa seguinte é determinado a sequencia de voo de cada aeronave,
-%garantindo que haja tempo hábil para a manutenção da aeronave conforme previsto por lei. O objetivo de minizar os custos
-%de manutenção. Na quarta etapa é efetuada a programação da tripulação, determinando que tipo de equipe é necessário para
-%cada voo. E por fim, na quinta etapa é determinado a escala individual de cada funcionário, de modo a atender restrições
-%legais relacionadas a jornada de trabalho e se possível, preferencias pessoais.
-
-%O QUE MAIS ESCREVER??
 
 %------------------------------------------------
 \section{Objetivos}
