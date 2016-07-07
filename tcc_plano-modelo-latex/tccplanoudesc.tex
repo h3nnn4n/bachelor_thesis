@@ -124,7 +124,13 @@ para o SCP, porém o reciproco não é verdadeiro.
 Modelando-se o CSP como sendo um SCP ou SPP, pode-se utilizar algoritmos específicos do SCP e SPP para obter a solução
 do CSP. Um dos primeiros algoritmos para o SCP consiste em uma heuristica por~\cite{chvatal1979greedy}, que é uma heuristica
 gulosa. A heuristica consiste em a cada passo escolher a coluna que cobre o maior número possível de linhas. O algoritmo
-é na prática rápido, porém tende a não gerar soluções tão boas quanto outros algoritmos modernos.
+é na prática rápido, porém tende a não gerar soluções tão boas quanto outros algoritmos modernos.~\cite{balas1980set} propos
+um algoritmo baseado em \textit{branch and bound} e que utiliza heuristicas duais. Este algoritmo, com o poder computacional
+disponível na data da publicação do artigo, foi capaz de resolver instancias até de dimensões 200 $\times$ 2000.~\cite{beasley1987algorithm}
+melhorou o algoritmo proposto por Balas e Ho, utilizando relaxações lagrangeanas e remoção de linhas e colunas. Este algoritmo, segundo
+o autor, chegou a marca de problemas de dimensões $400 \times 4000$.~\cite{fisher1990optimal} utilizou \textit{branch and bound} com
+diversas heuristicas duais para encountrar o limite superior de otimalidade do problema.~\cite{ceria1997},~\cite{caprara2000algorithms},
+~\cite{ernst2004staff} e~\cite{van2013personnel} possuem mais detalhes sobre os algoritmos utilizados para resolver o SCP, SPP e CSP.
 
 %------------------------------------------------
 \section{Objetivos}
