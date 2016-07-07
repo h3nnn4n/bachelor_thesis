@@ -114,8 +114,17 @@ de mais de um tripulante ser designado para a mesma viagem. Isso ná pratica cons
 por exemplo.
 
 Outra abordagem para a modelagem consiste em determinar que exatamente um tripulante deve ser associado com uma viagem. Esta restrição
-extra transforma o problema de SCP em um problema de particionamento de conjuntos, \textit{set covering problem} (SPP).
+extra transforma o problema de SCP em um problema de particionamento de conjuntos, \textit{set covering problem} (SPP). A principal diferença
+entre o SCP e o SPP consiste a impossibilidade de ter uma mesma linha coberta por mais de uma coluna. No contexto do CSP, isto implica
+em não ter uma tarefa sendo coberta por mais de uma jornada. Devido a restrição extra de não sobreposição, um CSP modelado como um SPP
+pode ser significativamente mais complexo de resolver, porém mais interessante do ponto de vista prático, já que diminui a ociosidade
+dos tripulantes. Sabe-se que tanto o SPP quanto o SCP são problemas NP-Hard~\cite{karp1972}. Note que toda solução do SPP é uma solução
+para o SCP, porém o reciproco não é verdadeiro.
 
+Modelando-se o CSP como sendo um SCP ou SPP, pode-se utilizar algoritmos específicos do SCP e SPP para obter a solução
+do CSP. Um dos primeiros algoritmos para o SCP consiste em uma heuristica por~\cite{chvatal1979greedy}, que é uma heuristica
+gulosa. A heuristica consiste em a cada passo escolher a coluna que cobre o maior número possível de linhas. O algoritmo
+é na prática rápido, porém tende a não gerar soluções tão boas quanto outros algoritmos modernos.
 
 %------------------------------------------------
 \section{Objetivos}
