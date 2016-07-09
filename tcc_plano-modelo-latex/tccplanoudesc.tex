@@ -4,9 +4,10 @@
 \usepackage[latin1]{inputenc}
 %\usepackage[utf8]{inputenc}
 
-%\usepackage[alf]{abntcite}
+\usepackage[alf]{abntcite}
 
 \usepackage{setspace}
+\usepackage{amsmath}
 \usepackage{epsfig}
 \usepackage[pdftex]{hyperref}
 \usepackage{multirow}
@@ -131,6 +132,29 @@ melhorou o algoritmo proposto por Balas e Ho, utilizando relaxações lagrangeanas
 o autor, chegou a marca de problemas de dimensões $400 \times 4000$.~\cite{fisher1990optimal} utilizou \textit{branch and bound} com
 diversas heuristicas duais para encountrar o limite superior de otimalidade do problema.~\cite{ceria1997},~\cite{caprara2000algorithms},
 ~\cite{ernst2004staff} e~\cite{van2013personnel} possuem mais detalhes sobre os algoritmos utilizados para resolver o SCP, SPP e CSP.
+
+Conhecendo-se todas as possíveis jornadas, pode-se modelar o problema utilizando-se programação linear inteira. A modelagem utilizando-se
+o SPP e o SCP é apresentada em~\eqref{spp} e~\eqref{scp}, respectivamente. O conjunto de todas as jornadas possíveis esta condificado
+na matrix $a$. O tamanho desta matriz é tipicamente grande e para casos práticos é muitas vezes inviável armazena-la. O número de
+jornadas possíveis cresce exponencialmente, de modo que a enumeração de todas as jornadas possíveis não é viavel.
+\apud{barnhart1998branch}{vance1993crew} reportou que para uma isntancia de CSP com 253 tarefas, mais de 5 milhões de jornadas
+são possíveis. De todas as jornadas possíveis, apenas algumas são de fato utilizadas na solução final, as demais não são interessantes.
+Portanto, é interessante que apenas jornadas que podem vir a ser uteis sejam utilizadas. A programação linear inteira conta um recurso
+capaz de fazer justamente isto, a geração de colunas~\cite{desrosiers2005primer}.
+
+O método de geração de colunas consiste em um processo.
+
+\begin{align} \label{spp}
+    \text{min} \: \Sigma_{j \in J} c_j x_j \\
+    \Sigma_{j \in J} a_{tj} x_j = 1, \forall t \in T \nonumber \\
+    x_j \in \{0, 1\}, \forall j \in J \nonumber
+\end{align}
+
+\begin{align} \label{scp}
+    \text{min} \: \Sigma_{j \in J} c_j x_j \\
+    \Sigma_{j \in J} a_{tj} x_j \ge 1, \forall t \in T \nonumber \\
+    x_j \in \{0, 1\}, \forall j \in J \nonumber
+\end{align}
 
 %------------------------------------------------
 \section{Objetivos}
