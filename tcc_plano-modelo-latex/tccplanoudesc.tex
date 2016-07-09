@@ -4,7 +4,7 @@
 \usepackage[latin1]{inputenc}
 %\usepackage[utf8]{inputenc}
 
-\usepackage[alf]{abntcite}
+%\usepackage[alf]{abntcite}
 
 \usepackage{setspace}
 \usepackage{amsmath}
@@ -12,6 +12,8 @@
 \usepackage[pdftex]{hyperref}
 \usepackage{multirow}
 \usepackage{fancyhdr}
+
+%\usepackage{bibtex}
 
 %\oddsidemargin -0.7cm
 %\evensidemargin -0.7cm
@@ -31,6 +33,7 @@
 \usepackage{multicol}
 \addtolength\columnsep{2pt}
 
+%\newcommand{\apud}[4]{\citeauthor{#1} \mkbibparens{\citeyear{#1},\space{#2} apud \cite{#3},\space{#4}}}
 
 \begin{document}
 
@@ -137,12 +140,11 @@ Conhecendo-se todas as possíveis jornadas, pode-se modelar o problema utilizando
 o SPP e o SCP é apresentada em~\eqref{spp} e~\eqref{scp}, respectivamente. O conjunto de todas as jornadas possíveis esta condificado
 na matrix $a$. O tamanho desta matriz é tipicamente grande e para casos práticos é muitas vezes inviável armazena-la. O número de
 jornadas possíveis cresce exponencialmente, de modo que a enumeração de todas as jornadas possíveis não é viavel.
-\apud{barnhart1998branch}{vance1993crew} reportou que para uma isntancia de CSP com 253 tarefas, mais de 5 milhões de jornadas
+%\apud{barnhart1998branch}{vance1993crew}
+\cite{barnhart1998branch} (FAZER APUD) \cite{vance1993crew} reportou que para uma isntancia de CSP com 253 tarefas, mais de 5 milhões de jornadas
 são possíveis. De todas as jornadas possíveis, apenas algumas são de fato utilizadas na solução final, as demais não são interessantes.
 Portanto, é interessante que apenas jornadas que podem vir a ser uteis sejam utilizadas. A programação linear inteira conta um recurso
-capaz de fazer justamente isto, a geração de colunas~\cite{desrosiers2005primer}.
-
-O método de geração de colunas consiste em um processo.
+capaz de fazer justamente isto: geração de colunas~\cite{desrosiers2005primer}.
 
 \begin{align} \label{spp}
     \text{min} \: \Sigma_{j \in J} c_j x_j \\
@@ -156,14 +158,31 @@ O método de geração de colunas consiste em um processo.
     x_j \in \{0, 1\}, \forall j \in J \nonumber
 \end{align}
 
+O método de geração de colunas consiste em um processo onde o problema com um grande número de variaveis é decomposto em
+dois problemas. O problema mestre, que é igual ao original, porém com um conjunto reduzido de variaveis. E o sub-problema,
+que é utilizado para identificar quais varíaveis são necessárias para obter-se a solução ótima do problema original. O processo
+de solução com geração de colunas consiste em criar-se um problema mestre, otimizar a sua relaxação linear, e utilizar
+as varáveis duais do problema mestre juntamente com o sub-problema para indentificar se o problema metre necessita da geração
+de novas colunas ou se ele corresponde ao ótimo do problema original.
+
+Outros métodos também foram utilizados largamente na literatura, tais como: algoritmos genéticos~\cite{doalgoritmos},
+\textit{multi-start randomized heuristic}~\cite{de2016multi}, \textit{particle swarm optimization}~\cite{limlawan2014hybrid},
+\textit{simulated annealing}~\cite{hanafi2014hybrid} e \textit{ant colony optimization}~\cite{deng2011ant}.
+
 %------------------------------------------------
 \section{Objetivos}
 \label{obj}
-$<$Objetivo Geral: Defina qual é a validação do trabalho -- ``onde se quer chegar?''.
-
-Objetivos Específicos: quais resultados parciais devem ser alcançados para o objetivo geral
-ser atingido.$>$
-
+Objetivo Geral: Este trabalho tem como objetivo análisar os métodos disponíveis na literatura para solução do CSP com
+a finalidade de propor um novo algoritmo ou melhorar um já existente.
+\\
+Objetivos Específicos:
+\begin{itemize}
+    \item Pesquisar e identificar os principais algortimos presentes na literatura.
+    \item Coletar instancias de benchmark utilizadas na literatura.
+    \item Selecionar alguns dos algoritmos estudados e tentar reproduzir os resultados encontrados na literatura.
+    \item Propor uma melhoria para algum dos algoritmos estudados.
+    \item Manter/tornar o algoritmo exato.
+\end{itemize}
 
 
 %------------------------------------------------
@@ -226,7 +245,7 @@ Estapas:
 
 
 %------------------------------------------------
-\section{Linha e Grupo de Pesquisa}
+%\section{Linha e Grupo de Pesquisa}
 %$<$Explicitar a linha de pesquisa do TCC, os grupos de pesquisa do DCC envolvidos especificando
 %o grupo a qual pertence seu trabalho, \underline{se for o caso}.$>$ Caso o TCC não pertença a um grupo,
 %especificar somente as linhas de pesquisa relacionadas.
