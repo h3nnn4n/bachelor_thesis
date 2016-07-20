@@ -109,21 +109,21 @@ seram utilizados, quais os horários de partida e chegada e os pontos de troca.
 Uma viagem consiste no deslocamento entre dois pontos pré-determinados com horários de partida e chega já determinados. Uma jornada
 consiste na sequencia de viagens realizadas por uma dada tripulação durante o seu turno de trabalho. Portanto, conhecendo todas
 as possíveis jornadas válidas sobre o conjunto de regras pré-estabelicido, o CSP consiste em escolher quais jornadas cobrem todas
-as viagems que devem ser realizadas. Colocando de outra forma, dado o conjunto de jornadas válidas, escolha o subconjunto que cubra todas
+as viagems que devem ser realizadas~\cite{Bergh}. Colocando de outra forma, dado o conjunto de jornadas válidas, escolha o subconjunto que cubra todas
 as viagems pelo menos uma vez, minimizando o custo final. Este problema é referenciado na literatura como sendo o problema de cobertura
-de conjuntos, ou \textit{set covering problem} (SCP). Onde dado um conjunto de linhas a serem cobertas, e um conjunto de colunas com custos
+de conjuntos, ou \textit{set covering problem} (SCP)~\cite{nemhauser1988integer}. Onde dado um conjunto de linhas a serem cobertas, e um conjunto de colunas com custos
 associados que cobrem as linhas, escolher o subconjunto de colunas que cubra todas as linhas minimizando o custo final. Como o SCP
 define que cada linha deve ser coberta pelo menos uma vez, isso implica que se o CSP for modelado como uma instancia de SCP, pode ocorrer
 de mais de um tripulante ser designado para a mesma viagem. Isso ná pratica consiste de um motorista ir de carona até o início de outra viagem,
 por exemplo.
 
 Outra abordagem para a modelagem consiste em determinar que exatamente um tripulante deve ser associado com uma viagem. Esta restrição
-extra transforma o problema de SCP em um problema de particionamento de conjuntos, \textit{set covering problem} (SPP). A principal diferença
-entre o SCP e o SPP consiste a impossibilidade de ter uma mesma linha coberta por mais de uma coluna. No contexto do CSP, isto implica
-em não ter uma tarefa sendo coberta por mais de uma jornada. Devido a restrição extra de não sobreposição, um CSP modelado como um SPP
-pode ser significativamente mais complexo de resolver, porém mais interessante do ponto de vista prático, já que diminui a ociosidade
-dos tripulantes. Sabe-se que tanto o SPP quanto o SCP são problemas NP-Hard~\cite{karp1972}. Note que toda solução do SPP é uma solução
-para o SCP, porém o reciproco não é verdadeiro.
+extra transforma o problema de SCP em um problema de particionamento de conjuntos, \textit{set partitioning problem} (SPP)~/cite{garfinkel1969set}.
+A principal diferença entre o SCP e o SPP consiste a impossibilidade de ter uma mesma linha coberta por mais de uma coluna.
+No contexto do CSP, isto implica em não ter uma tarefa sendo coberta por mais de uma jornada. Devido a restrição extra de não
+sobreposição, um CSP modelado como um SPP pode ser significativamente mais complexo de resolver, porém mais interessante do
+ponto de vista prático, já que diminui a ociosidade dos tripulantes. Sabe-se que tanto o SPP quanto o SCP são problemas
+NP-Hard~\cite{karp1972}. Note que toda solução do SPP é uma solução para o SCP, porém o reciproco não é verdadeiro.
 
 Modelando-se o CSP como sendo um SCP ou SPP, pode-se utilizar algoritmos específicos do SCP e SPP para obter a solução
 do CSP. Um dos primeiros algoritmos para o SCP consiste em uma heuristica por~\cite{chvatal1979greedy}, que é uma heuristica
@@ -133,29 +133,36 @@ um algoritmo baseado em \textit{branch and bound} e que utiliza heuristicas duai
 disponível na data da publicação do artigo, foi capaz de resolver instancias até de dimensões 200 $\times$ 2000.~\cite{beasley1987algorithm}
 melhorou o algoritmo proposto por Balas e Ho, utilizando relaxações lagrangeanas e remoção de linhas e colunas. Este algoritmo, segundo
 o autor, chegou a marca de problemas de dimensões $400 \times 4000$.~\cite{fisher1990optimal} utilizou \textit{branch and bound} com
-diversas heuristicas duais para encountrar o limite superior de otimalidade do problema.~\cite{ceria1997},~\cite{caprara2000algorithms},
+diversas heuristicas duais para encountrar o limite superior de otimalidade do problema. Trabalhos como~\cite{de2011algoritmo}
+e~\cite{dos2008metodo} utilizam soluções híbridas para a solução do problema.~\cite{ceria1997},~\cite{caprara2000algorithms},
 ~\cite{ernst2004staff} e~\cite{van2013personnel} possuem mais detalhes sobre os algoritmos utilizados para resolver o SCP, SPP e CSP.
 
 Conhecendo-se todas as possíveis jornadas, pode-se modelar o problema utilizando-se programação linear inteira. A modelagem utilizando-se
 o SPP e o SCP é apresentada em~\eqref{spp} e~\eqref{scp}, respectivamente. O conjunto de todas as jornadas possíveis esta condificado
-na matrix $a$. O tamanho desta matriz é tipicamente grande e para casos práticos é muitas vezes inviável armazena-la. O número de
-jornadas possíveis cresce exponencialmente, de modo que a enumeração de todas as jornadas possíveis não é viavel.
+na matrix $A$. O vetor $J$ corresponde a todas as jornadas e o vetor $T$ a todas as tarefas, por fim $a_{tj}$ é $1$ se a tarefa
+$t$ é coberta pela jornada $j$ e $0$ caso contrário. A restrição~\eqref{spp2} garante que cada tarefa $t \in T$ é coberta exatamente
+uma única vez pelas jornadas selecionadas. A restrição~\eqref{scp2} funciona de modo análogo, porém a restrição deixa de ser uma igualdade
+e passa a ser uma desigualdade, fazendo com que cada tarefa seja coberta pelo menos uma vez. O vetor $X$ determina que jornadas
+seram utilizadas. Se $x_j = 1$, então a $j-$ésima é utilizada, caso contrário $x_j = 0$. As restrições~\eqref{spp3} e~\eqref{scp3}
+garantem que a varável de decisão $x$ possuirá um valor válido. O tamanho desta matriz é tipicamente grande e para casos práticos
+é muitas vezes inviável armazena-la. O número de jornadas possíveis cresce exponencialmente, de modo que a enumeração de todas as
+jornadas possíveis não é viavel.
 %\apud{barnhart1998branch}{vance1993crew}
 \cite{barnhart1998branch} (FAZER APUD) \cite{vance1993crew} reportou que para uma isntancia de CSP com 253 tarefas, mais de 5 milhões de jornadas
 são possíveis. De todas as jornadas possíveis, apenas algumas são de fato utilizadas na solução final, as demais não são interessantes.
 Portanto, é interessante que apenas jornadas que podem vir a ser uteis sejam utilizadas. A programação linear inteira conta um recurso
 capaz de fazer justamente isto: geração de colunas~\cite{desrosiers2005primer}.
 
-\begin{align} \label{spp}
-    \text{min} \: \Sigma_{j \in J} c_j x_j \\
-    \Sigma_{j \in J} a_{tj} x_j = 1, \forall t \in T \nonumber \\
-    x_j \in \{0, 1\}, \forall j \in J \nonumber
+\begin{align}
+    \label{spp} \text{min} \: \sum_{j \in J} c_j x_j \\
+    \label{spp2} \sum_{j \in J} a_{tj} x_j = 1, \forall t \in T \\
+    \label{spp3} x_j \in \{0, 1\}, \forall j \in J
 \end{align}
 
-\begin{align} \label{scp}
-    \text{min} \: \Sigma_{j \in J} c_j x_j \\
-    \Sigma_{j \in J} a_{tj} x_j \ge 1, \forall t \in T \nonumber \\
-    x_j \in \{0, 1\}, \forall j \in J \nonumber
+\begin{align}
+    \label{scp} \text{min} \: \sum_{j \in J} c_j x_j \\
+    \label{scp2} \sum_{j \in J} a_{tj} x_j \ge 1, \forall t \in T \\
+    \label{scp3} x_j \in \{0, 1\}, \forall j \in J
 \end{align}
 
 O método de geração de colunas consiste em um processo onde o problema com um grande número de variaveis é decomposto em
@@ -168,6 +175,11 @@ de novas colunas ou se ele corresponde ao ótimo do problema original.
 Outros métodos também foram utilizados largamente na literatura, tais como: algoritmos genéticos~\cite{doalgoritmos},
 \textit{multi-start randomized heuristic}~\cite{de2016multi}, \textit{particle swarm optimization}~\cite{limlawan2014hybrid},
 \textit{simulated annealing}~\cite{hanafi2014hybrid} e \textit{ant colony optimization}~\cite{deng2011ant}.
+
+Estre trabalho propõe-se a estudar os diferentes métodos presentes na literatura com o objetivo de selecionar um
+método para estudo mais aprofundado. Em seguida, tem-se como objetivo apresentar uma modificação ao mesmo, visando
+um ganho de velocidade do algoritmo. Um dos objetivos deste trabalho é desenvolver um método híbrido, capaz de prover
+soluções exatas e tirar proveito de heuristicas ou meta-heuristicas para prover soluções factiveis mais rapidamente.
 
 %------------------------------------------------
 \section{Objetivos}
