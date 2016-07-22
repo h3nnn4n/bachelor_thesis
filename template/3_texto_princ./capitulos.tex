@@ -1,0 +1,1038 @@
+\chapter{Definição do Problema}
+
+
+Após a análise das pesquisas realizadas no capítulo \ref{cap:introducao}, nota-se que o estudo de \ac{TA} é recente, e que ainda não há meios suficientes para possibilitar a inclusão de uma parte considerável de pessoas com deficiência. A \ac{CAA} pode ser utilizada junto à população de paralisados cerebrais, pessoas com deficiência mental e autistas \cite{darcy}. Contudo, a Comunicação Alternativa no contexto específico do trabalho, pretende apenas atender o problema que as pessoas com \ac{PC} nos quadros clínicos 1, 3, 4 ,5 e 6, tem ao se comunicar com seus terapeutas. Uma das soluções encontradas pelos terapeutas é a prancha de comunicação mencionada na seção \ref{classificacao} e que utiliza a comunicação através de imagens e texto.
+
+\section{Prancha de Comunicação}
+
+A prancha de comunicação é formada por um conjunto de símbolos, no qual o paciente aponta o símbolo que representa o que ele deseja expressar. Os símbolos são as formas de representação de objetos, pessoas, ações, relações e conceitos \cite{darcy,bersch}. 
+
+\begin{figure}[bth!]
+  \begin{center}
+    \caption{Prancha de Comunicação}\vspace{.2cm}
+			
+      \centering
+      \includegraphics[width=5cm]{../figuras/prancha.png}\\
+			Fonte: \cite{assistiva}.
+    \vspace{-1cm}
+    \label{pranchaa}
+  \end{center}
+\end{figure}
+
+As pranchas devem ser personalizadas de acordo com as possibilidades de ação da pessoa com deficiência, ou seja, o terapeuta é responsável por avaliar cada caso e escolher as categorias de símbolos, e outras configurações (e.g., tamanho dos símbolos, complexidade de frases e quantidade de símbolos). Os critérios para escolha das pessoas que utilizaram a solução não são abordados neste trabalho, pois não fazem parte do escopo.
+
+No sentido de compreender os requisitos do usuário, que é específico\cite{bersch} foi elaborado um questionário, que foi respondido na entrevista concedida pela psicóloga responsável pelo atendimento psicológico focalizado na reabilitação e inclusão social, escolar e no trabalho, de pessoas com deficiência física na \ac{ARCD} \cite{juliane}. Analisando o questionário (Apêndice \ref{apendice2}) podem ser mencionados como problemas da solução prancha de comunicação:
+
+\begin{itemize}
+\item Como a prancha pode conter muitos símbolos, as pessoas têm dificuldade em manuseá-la;
+\item A alteração dos símbolos depende de novas impressões de páginas, que geram novos custos, deslocamentos e tempo na agenda do terapeuta;
+\item Os softwares para desenvolvimento de pranchas tem um custo elevado;
+\item Limitação a percepção e memória visual;
+\item Pacientes, familiares ou funcionários da escola tendem a perder as pranchas;
+\item Como é feita de papel, a deterioração das páginas acontecem com o tempo; e
+\item Tamanho dos símbolos, dependendo do grau de lesão da pessoa com \ac{PC}, ela tem maior dificuldade em apontar os símbolos quando estes são pequenos, ocasionando em páginas com poucos símbolos, maior número de páginas a serem impressas, maior custo de impressão a cada vez que a prancha for alterada, e a não reutilização da prancha com outras pessoas.
+\end{itemize}
+
+Não foi encontrado na literatura outros problemas em relação a solução prancha de comunicação. A solução proposta consiste em emular a prancha de comunicação em um software, que ofereça as mesmas características que uma prancha de comunicação tradicional em papel, porém com as facilidades de estar em uma plataforma digital. Uma funcionalidade que é adicionada é a vocalização da frase relacionada ao pictograma\footnote{Pictogramas são símbolos gráficos de utilidade pública; comunicam informações, instruções, advertências e prescrições por meio de desenhos concisos e esquematizados \cite{pictograma}}, com o propósito de aumentar o processo cognitivo do usuário com mais um sentido a ser trabalhado.
+\vspace{2cm}
+\section{Identificação dos requisitos}
+\label{req}
+
+Para que a proposta atenda as necessidades e restrições do problema, alguns requisitos\footnote{Requisitos de um sistema são descrições dos serviços que devem ser fornecidos por esse sistema e as suas restrições operacionais. Os requisitos podem ser classificados como requisitos funcionais que são declarações de serviços que o sistema deve prover, descrevendo o que o sistema deve fazer, e os requisitos não-funcionais que descrevem restrições sobre os serviços ou funções oferecidos pelo sistema \cite{som2007}} funcionais e outros não funcionais foram levantados com o auxílio do Grupo Assistiva\footnote{Assistiva Tecnologia para a Inclusão Social, é um grupo que visa sanar problemas enfrentados por deficientes e dificuldades dos terapeutas ocupacionais que cuidam destes, nas associações de Joinville, SC. http://www.assistiva.joinville.udesc.br}. Através do grupo foram feitos contatos com parceiros, como a \ac{ACE}, a \ac{ADEJ} e a \ac{APAE}. Através desses contatos foram levantados alguns requisitos fundamentais para que a solução proposta abranja o escopo do problema.
+
+\noindent
+Requisitos Funcionais:
+
+\begin{enumerate}
+\item A solução proposta deve apresentar uma grade de pictogramas;
+\item A solução deve aceitar diferentes formatos de símbolos e cores;
+\item A solução deve aceitar símbolos criados pelo terapeuta;
+\item Novos símbolos devem ser adicionados a grade de pictogramas sem que o usuário tenha experiência no uso da solução;
+\item A exclusão de símbolos deve ser facilitada, ou seja, mesmo que a experiência do usuário na solução seja pequena, ele deve conseguir realizar a tarefa;
+\item A solução deverá vocalizar a frase pré-estabelecida relacionada ao pictograma, quando este for selecionado;
+\item O usuário mesmo com deficiência deve conseguir executar os pictogramas da solução; 
+\item A solução deve representar o que o usuário está querendo expressar da melhor maneira possível (e.g., entonação e pontuação);
+\item Todos os símbolos devem ser acessados de uma forma simples, ou seja, sem categorias e arquiteturas complexas; e
+\item Os símbolos devem ter tamanhos editáveis.
+\end{enumerate}
+
+\noindent
+Requisitos Não Funcionais:
+
+\begin{enumerate}
+\item A solução tem que ser permanente, ou seja, guardar os símbolos e sua sequência;
+\item A solução deve estar disponível e deve ser acessível a todas as pessoas, através do software disponibilizado em repositórios públicos;
+\item O tempo de resposta da solução não deve causar frustração ao usuário, ou seja, a vocalização da frase deve ser em um tempo menor a dois segundos;
+\item A utilização da solução não deve depender do uso da Internet;
+\item A  licença da solução deverá permitir que outros pesquisadores possam aprimorá-la; 
+\item A solução deve ser intuitiva sem necessitar de um longo aprendizado para manuseá-la; e
+\item A solução deve estar em uma plataforma que aceite diferentes tipos de interface de entrada (e.g., mouse alternativo, acelerômetros e dispositivos específicos de uma deficiência).
+\end{enumerate}
+
+
+
+Como abordado no capítulo \ref{cap:introducao}, a legislação não define critérios obrigatórios para soluções de \ac{CAA}. Contudo, o trabalho seguirá as recomendações mencionadas sobre \ac{TA} na seção \ref{Tecnologia Assistiva}. Após a análise de requisitos funcionais e não funcionais, uma alternativa encontrada é a informatização da solução. Para o melhor compreendimento do escopo do trabalho, foi elaborada uma pesquisa sobre o problema e suas possíveis soluções e foram identificados trabalhos correlatos.
+
+\vspace{4cm}
+
+
+\section{Trabalhos Correlatos}
+
+Durante a pesquisa foram encontrados trabalhos e iniciativas de \ac{TA} e a \ac{CAA}, citados na seção \ref{iniciativas}, porém apenas uma parte abrange o escopo do problema, os trabalhos correlatos identificados foram:
+
+\begin{enumerate}
+
+\item{Prancha Multiplataforma Livre\cite{puc} (prancha pictográfica virtual), projeto desenvolvido por alunos da Pontífica Universidade Católica do Paraná, projeto desenvolvido em 2010, de código livre licença GPL\footnote{Licença GPL é uma licença que permite que os programas sejam distribuídos e 
+reaproveitados mantendo os direitos do autor.}, e utilizado em computadores pessoais;}
+
+\item{Livox\cite{livox}, é um produto de licença proprietária, que pode ser utilizado em {\it tablets} com sistema Android, da empresa Agora Eu Consigo Tecnologias de Inclusão Social Ltda, empresa do segmento de Negócios Sociais, voltada para o desenvolvimento de produtos, soluções, serviços e treinamentos que viabilizem a inclusão social e a acessibilidade de pessoas com necessidades especiais ao convício familiar e social; e}
+
+\item{Que-Fala\cite{quefala}, é um produto de licença proprietária, que pode ser utilizado em sistemas Android e Computadores Pessoais, da empresa Métodos Soluções Inteligentes cujo o objetivo principal é dar acessibilidade e possibilitar a inclusão das pessoas com deficiência na sociedade, facilitando o cotidiano dessas pessoas através de soluções tecnológicas.}
+
+\end{enumerate}
+
+Os trabalhos correlatos identificados são de tipos de instituições diferentes (e.g., públicas e privadas), trabalham em plataformas diferentes (e.g., {\it smartphones} e computador pessoal) e utilizam abordagens diferentes em relação ao usuário e ao contexto no qual está inserido. Porém, todos foram feitos para problemas semelhantes ao escopo do trabalho.   
+\vspace{3cm}
+\subsection{Comparação de trabalhos correlatos com requisitos}
+
+Para o maior entendimento em relação aos requisitos da solução e ao trabalhos correlatos encontrados, a tabela \ref{tabela_correlatos} apresenta quais requisitos funcionais que os trabalhos correlatos contemplam, e a tabela \ref{tabela_correlatos2}, apresenta os requisitos não funcionais, que os trabalhos correlatos contemplam.
+
+\begin{table}[bth!]
+\centering
+\scriptsize
+\caption{Tabela da comparação de requisitos funcionais com trabalhos correlatos}\vspace{.2cm}
+
+	
+    \begin{tabular}{ |p{6.5cm}|p{3cm}|p{1.5cm}|p{3cm}| }
+		
+    \hline
+		
+    Trabalho & Prancha Multiplataforma Livre & Livox & Que-Fala   \\ \hline \hline
+		A solução proposta deve apresentar uma grade de pictogramas & OK  & OK  & OK \\ \hline 
+		A solução deve aceitar diferentes formatos de símbolos e cores & OK & OK  & OK\\ \hline  
+		A solução deve aceitar símbolos criados pelo terapeuta & N.A. (Apenas símbolos já estabelecidos) & OK  & N.A. (Apenas símbolos já estabelecidos)\\ \hline 
+		Novos símbolos\- devem ser adicionados a grade \- sem que o usuário tenha \-experiência no uso \-da solução & OK & N.A. & N.A. \\ \hline 
+		 A exclusão de símbolos deve ser facilitada, ou seja, mesmo que a experiência do usuário na solução seja pequena, ele deve conseguir realizar a tarefa & OK  & N.A.  & N.A. \\ \hline 
+		A solução deve representar o que o usuário está querendo expressar da melhor maneira possível (e.g., entonação e pontuação) & N.A. (Na versão disponível a máquina de vocalização não funciona)  & OK  & OK  \\ \hline 
+		O usuário mesmo com deficiência deve conseguir apertar nos símbolos da solução & OK & OK  & OK \\ \hline 
+		Todos os símbolos devem ser acessados de uma forma simples, ou seja, sem categorias e arquiteturas complexas & OK  & OK  & N.A. \\ \hline 
+		Os símbolos devem ter tamanhos editáveis & N.A.  & OK  & N.A.\\ \hline 
+		
+    \end{tabular}
+    \label{tabela_correlatos}
+		
+		Fonte: o próprio autor (N.A. Não atendem).
+		\vspace{-0.5cm}
+
+\end{table}
+
+
+Na tabela \ref{tabela_correlatos}, o software Livox não atende alguns requisitos funcionais por se tratar de uma solução em que necessita uma configuração específica por parte da empresa para cada usuário. Além disso um treinamento para o cuidador/cliente que adquire a licença do software é necessário. O software Que-Fala na versão em que foi identificada não atende boa parte dos requisitos funcionais identificados, principalmente em relação aos pictogramas. O software Prancha Multiplataforma Livre, apesar de ser um trabalho acadêmico, não foi encontrado quantidade expressiva de literatura a seu respeito e há não conformidades em suas tarefas, como a não vocalização das palavras ou travamento da solução.
+
+\vspace{1cm}
+
+\begin{table}[bth!]
+\centering
+\scriptsize
+\caption{Tabela da comparação de requisitos não funcionais com trabalhos correlatos}\vspace{.2cm}
+
+	
+    \begin{tabular}{ |p{6.5cm}|p{3cm}|p{3cm}|p{3cm}| }
+		
+    \hline
+		
+    Trabalho & Prancha Multiplataforma Livre & Livox & Que-Fala   \\ \hline \hline
+		A solução tem que ser permanente, ou seja, guardar os símbolos e sua sequencia & OK & OK  & OK \\ \hline 
+		A solução deve estar disponível e deve ser acessível a todas as pessoas, através do software disponibilizado em repositórios públicos & OK (Licença GPL) & N.A.(Software Proprietário)  & N.A.(Software Proprietário)  \\ \hline  
+		 O tempo de resposta da solução não deve causar frustração ao usuário, ou seja, a vocalização da frase deve ser em um tempo menor a dois segundos & N.A.(Tempo de espera superior) & OK  & OK \\ \hline 
+		A utilização da solução não deve depender do uso da Internet & OK  & OK  & OK \\ \hline 
+		 A licença da solução deverá permitir que outros pesquisadores possam aprimorá-la & OK (Possui licença GPL)  & N.A. (Licença proprietária) & N.A. (Licença Proprietária) \\ \hline 
+		A solução deve estar em uma plataforma que aceite diferentes tipos de interface de entrada (e.g., mouse alternativo, acelerômetros e dispositivos específicos de uma deficiência) &  OK &  N.A.(Sistema executa apenas em sistemas Android) & OK \\ \hline 
+		
+    \end{tabular}
+    \label{tabela_correlatos2}
+		\\Fonte: o próprio autor (N.A. Não atendem).
+		
+
+\end{table}
+
+As tabelas \ref{tabela_correlatos} e \ref{tabela_correlatos2} possibilitam comparar todos os requisitos com os trabalhos correlatos, e é possível perceber que nem todos os requisitos são cumpridos por apenas um trabalho. Principalmente porque dois dos três trabalhos encontrados, possuem licença proprietária, ou executam eu uma plataforma, que não aceite diferentes tipos de interface de entrada. Sendo assim, justifica-se a criação de uma proposta alternativa as que foram encontradas, e que atenda especificamente o problema definido e seus requisitos. 
+
+
+\section{Conclusões do Capítulo}
+
+Como os trabalhos correlatos possuem contextos diferentes do contexto baseado na entrevista \cite{juliane}, fica evidente que uma nova alternativa é necessária para o estímulo de pessoas com \ac{PC}. Principalmente as pessoas que não tem recursos financeiros o suficiente para a compra de uma solução proprietária, ou utilizam algum tipo alternativo de interface (e.g., mouse inclusivo) para entrada de dados nos sistemas. Fica evidenciado também, que os terapeutas necessitam de uma solução, com mais estímulos ao usuário, que não gaste tanto tempo na preparação e que seja permanente.
+
+\chapter{Proposta}
+\label{cap:proposta}
+\acresetall
+Segundo a análise de requisitos do problema e dos trabalhos correlatos do capítulo \ref{cap:definicao_problema}, nota-se a necessidade de uma proposta que abranja também os requisitos não atendidos mencionados. Uma proposta que possibilite facilidade, do terapeuta e do usuário, que seja acessível, porém sem perder suas funcionalidades principais. A ideia principal é desenvolver um software livre, de licença GPL que a interface seja intuitiva para a pessoa com \ac{PC}, e que leve em consideração a experiência de uso de softwares do terapeuta. A solução deve cumprir todos os requisitos funcionais e não funcionais identificados, e deverá ser desenvolvida considerando o ambiente de terapia ocupacional, no qual atuam a pessoa com deficiência e o terapeuta.
+
+\section{Especificação da Proposta}
+\label{esp}
+A solução será desenvolvida em Java, para que atenda o requisito não funcional número sete no qual fala que a solução  deve estar em uma plataforma que aceite diferentes tipos de entradas, pois Java pode ser executada em diferentes plataformas desde que comportem uma \ac{JVM}. Além disso, como Java segundo a Tiobe\cite{tiobe} é uma das linguagens mais populares do mundo, o código poderá ser compreendido mais facilmente por outros programadores, podendo se utilizar da lógica para ser migrado para outras plataformas (e.g., Android). 
+Outro benefício da linguagem Java, é a fácil adaptação de \ac{APIS} e bibliotecas para a manipulação de áudios e imagens que serão necessários para contemplar os requisitos funcionais de um, dois, três e dez. Mesmo outras opções de linguagens, que deixariam o programa com melhor desempenho e menor uso de memória, como a linguagem C \cite{daniel}, a linguagem Java foi escolhida pela proximidade do desenvolvedor (autor) com a tecnologia.
+
+A interface escolhida dentro da tecnologia Java, é a JFrame que já implementa algumas funcionalidades (e.g., minimização, maximização, erros, botões, etc.). Neste interface será implementada uma grade de pictogramas para que atenda o requisito funcional número um. Para que a proposta cumpra os requisitos funcionais quatro a seis e não funcionais três e seis a solução será desenvolvida visando algumas metas de usabilidade como \cite{nielsen,iso2}:
+
+\begin{itemize}
+\item Facilidade de Aprendizado: a solução deve ser fácil de assimilar pelo usuário, para que este possa começar a trabalhar rapidamente. 
+\item Eficiência: a solução deve ser eficiente para que o usuário, depois de a saber usar, possa atingir uma boa produtividade;
+
+\item Facilidade de Memorização: a solução deve ser facilmente memorizada, para que depois de algum tempo sem a utilizar, o usuário se recorde como usá-la;
+\item Erros: mensagens de erro claras, prevenção. Eliminar as condições passíveis de erros ou verificá-las, apresentado aos usuários uma opção de confirmação antes de se comprometerem com uma determinada ação; e
+
+\item Satisfação: conforto e aceitabilidade da solução. 
+\end{itemize}
+
+Para que a vocalização expresse o texto atribuído aos pictogramas de melhor maneira possível, foram pesquisadas algumas máquinas de vocalização de texto,(e.g., IVONA Speech Cloud \cite{ivona} e AT\&T Natural Voices® Text-to-Speech\cite{att}). Porém, a única encontrada que atende os requisitos da solução, é a máquina {\it Text-to-Speech} do Google. As outras máquinas supracitadas são de licenças proprietárias, que impossibilitam a solução de cumprir o requisito não funcional número dois ou não estão disponíveis na língua portuguesa, que descumpririam o requisito não funcional número oito. Como a máquina do Google só funciona se o dispositivo que a estiver executando estiver conectado a Internet, a solução salvará o áudio dos pictogramas quando adicionados, permitindo que a solução possa ser utilizada quando o dispositivo estiver sem conexão com a Internet. 
+
+Com o intuito da solução cumprir o requisito funcional número sete, a apresentação dos pictogramas na grade estão dispostos em árvore. Disposição utilizada na solução prancha de comunicação \cite{darcy}. Sendo assim, após a execução de um pictograma, a solução apresenta novos pictogramas relacionados ao anterior. Para a maior compreensão a figura \ref{arvore} representa um exemplo de pictogramas retirados do \ac{ARASSAC}\cite{arassac}, que é o vencedor do prêmio de acessibilidade universal de 2010, e oferece pictogramas sobre a licença {\it Creative Commons} CC BY-NC-SA\footnote{Esta licença permite que outros remixem, adaptem e criem a partir do seu trabalho para fins não comerciais, desde que atribuam a você o devido crédito e que licenciem as novas criações sob termos idênticos.}. 
+
+\begin{figure}[bth!]
+  \begin{center}
+    \caption{Figura que representa exemplo da disposição de pictogramas}\vspace{.2cm}
+			
+      \centering
+      \includegraphics[width=6cm]{../figuras/arvore.pdf}\\
+			Fonte: o próprio autor.
+    \vspace{-1cm}
+    \label{arvore}
+  \end{center}
+\end{figure}
+
+A Figura \ref{arvore}, mesmo que contendo poucos pictogramas, ilustra a disposição dos pictogramas em árvore que permite a formação de frases mais naturalmente, e reduz o número de pictogramas, em relação a pictogramas com frases completas. Exemplo: o usuário clica no pictograma ``eu'', após isso a solução vocaliza a palavra ``eu'', e apresenta na grade os dois pictogramas ``quero'' e ``não tenho a palavra'' e assim subsequentemente. Quando o usuário, excluir um pictograma, a solução irá excluir todos os seus pictogramas relacionados, ou seja, seus filhos na árvore.
+
+O requisito não funcional número um trata da permanência de dados da solução, alguns métodos podem ser citados, como banco de dados e gravação em arquivos. Como o método de gravação em banco de dados, requer instalação do banco de dados, e a versão e modelo do banco dependerá da plataforma em que a solução executará, para que a solução cumpra o requisito funcional número seis e não funcional número sete, o método adotado será a gravação de dados em arquivos. Para que haja uma melhor organização dos dados, os arquivos serão utilizados no formato XML({\it eXtensible Markup Language}), que possuem suporte em Java a partir de \ac{APIS}.
+
+O requisito não funcional número dois, que diz respeito a disponibilidade, será cumprido após a conclusão do desenvolvimento da solução, quando será disponibilizado o projeto no ambiente {\it{Sourceforge}}\cite{sourceforge} que é um ambiente de disponibilização de códigos fontes, e projetos utilizados na Internet. O {\it{Sourceforge}} é um serviço gratuito e é disponibilizado no endereço http://sourceforge.net/.
+
+Para que o usuário utilize a solução como foi planejada, a resolução da tela deve ser de 1366 x 768, que é padrão de tela mais vendida nos computadores desktop \cite{monitor}. A sensibilidade irá depender totalmente das interfaces que o usuário utilizará (e.g., mouse inclusivo, acelerômetros e emuladores).
+
+Para facilitar o compreendimento de satisfação dos requisitos, a tabela \ref{todos_requisitos} relaciona todos os requisitos (seção \ref{req}) e como cada um foi cumprido nesta seção. Sendo F. para os funcionais e N.F. não funcionais.
+\begin{table}[bth!]
+\centering
+\scriptsize
+\caption{Tabela de requisitos e de como são cumpridos}\vspace{.2cm}
+
+ \begin{tabular}{ |p{2cm}|p{10.5cm}|p{3cm}|}
+		
+    \hline
+		
+    Tipo & Requisito & Solução proposta   \\ \hline \hline
+		\multirow{8}{*}{Funcionais}& 1-A solução proposta deve apresentar uma grade de pictogramas & JFrame Java   \\ \cline{2-3} 
+		&2-A solução deve aceitar diferentes formatos de símbolos e cores & \ac{APIS} Java \\ \cline{2-3}  
+		&3-A solução deve aceitar símbolos criados pelo terapeuta & \ac{APIS} Java \\ \cline{2-3}  
+		&4-Novos símbolos\- devem ser adicionados a grade \- sem que o usuário tenha \-experiência no uso \-da solução & Métrica de usabilidade (Apreensibilidade) \\ \cline{2-3}   
+		&5-A exclusão de símbolos deve ser facilitada, ou seja, mesmo que a experiência do usuário na solução seja pequena, ele deve conseguir realizar a tarefa & Métrica de usabilidade (Apreensibilidade) \\ \cline{2-3}   
+		&6-A solução deve representar o que o usuário está querendo expressar da melhor maneira possível (e.g., entonação, e pontuação) & Google {\it Text-to-Speech}  \\ \cline{2-3}   
+		&7-O usuário mesmo com deficiência deve conseguir apertar nos símbolos da solução & Metas de usabilidade  \\ \cline{2-3}   
+		&8-Todos os símbolos devem ser acessados de uma forma simples, ou seja, sem categorias e arquiteturas complexas & Disposição de arquitetura de pictogramas em árvore \\ \cline{2-3}   
+		&9-Os símbolos devem ter tamanhos editáveis & JFrame Java\\ \cline{2-3}   \hline
+		\multirow{5}{*}{Não Funcionais}&1-A solução tem que ser permanente, ou seja, guardar os símbolos e sua sequencia & Arquivos XML \\ \cline{2-3}
+		&2-A solução deve estar disponível e deve ser acessível a todas as pessoas, através do software disponibilizado em repositórios públicos & {\it Sourceforge} \\ \cline{2-3} 
+		&3-O tempo de resposta da solução não deve causar frustração ao usuário, ou seja, a vocalização da frase deve ser em um tempo menor a dois segundos & Google {\it Text-to-Speech}  \\ \cline{2-3} 
+		&4-A utilização da solução não deve depender do uso da internet & Gravação de Arquivos de Áudio \\ \cline{2-3} 
+		&5-A licença da solução deverá permitir que outros pesquisadores possam aprimorá-la & Licença GPL \\ \cline{2-3} 
+		&6-A solução deve estar em uma plataforma que aceite diferentes tipos de interface de entrada (e.g., mouse alternativo, acelerômetros e dispositivos específicos de uma deficiência) & Java \\ \cline{2-3} \hline
+		
+    \end{tabular}
+    \label{todos_requisitos}
+		\vspace{0.3cm}
+		\\Fonte: o próprio autor.
+
+\end{table}
+
+A tabela \ref{todos_requisitos} indica que foram encontrados métodos para satisfazer todos os requisitos levantados. Apesar de todos os métodos satisfazerem os requisitos, os métodos possuem limitações que são importantes mencionar.
+
+\section{Limitadores}
+
+Apesar da prancha de comunicação, quando criada por Roxana Mayer Johnson em 1980 \cite{darcy}, ajudar no estímulo de cognição e reabilitação de outras tipos de deficiências (e.g., deficiência cerebral, autismo e crianças sem deficiência), neste trabalho serão considerados apenas usuários com \ac{PC}, já que outros tipos de deficiência tem condições específicas não abordados no escopo do trabalho. Algumas outras limitações da solução podem ser citadas:
+\begin{enumerate}
+\item  O trabalho não abordará dispositivos de entradas alternativos (e.g., mouse inclusivo, acelerômetros e acionadores) que podem ser usados em conjunto com a solução, pois os dispositivos podem variar dependendo de do grau de \ac{PC} de cada usuário;
+\item A escolha dos pictogramas e do paciente que usará a solução será um papel desempenhado apenas pelo terapeuta, já que estas escolhas dependem de fatores distintos não abordados neste trabalho (e.g., evolução, grau de lesão e percepção);
+\item Sobre a plataforma em que a solução estiver sendo executada; e
+\begin{enumerate}
+\item A memória que será consumida por arquivos de áudio gravados pela solução para execuções futuras, dependerá da quantidade de memória que a plataforma possui; e
+\item A conexão com a Internet é necessária para adicionar novos pictogramas a solução, porém não é necessária para a utilização de pictogramas previamente adicionados.
+\end{enumerate}
+\item Não é possível adicionar novos pictogramas sem o uso da Internet, devido a vocalização depender da conexão com o serviço do Google.
+\end{enumerate}
+
+Sendo assim, os limitadores estarão atrelados aos limitadores da plataforma em que a solução executa. Também é necessário que o terapeuta, escolha os seus pacientes de acordo com o grau de deficiência e sua evolução, para que a solução seja bem aproveitada.
+
+
+\section{Plano de teste}
+\label{testes}
+Os testes da solução estão divididos em três etapas: Os testes internos, quando serão executados testes com docentes e discente da Universidade do Estado de Santa Catarina (UDESC), para a verificação das funcionalidade da solução. Os testes externos, que serão feitos com terapeutas das instituições ACE e ADEJ, a fim de verificar as funcionalidades e a complexidade das tarefas com base em suas experiências em relação a pessoas com \ac{PC}. Na terceira etapa serão feitos testes com pessoas que possuem \ac{PC}, a realização destes testes serão feitos pelos terapeutas responsáveis por cada paciente, na intenção de levantar não conformidades com a solução ao seu usuário final. Todas as etapas serão precedidas por um preenchimento do termo de consentimento conforme o anexo \ref{apendice2}. Como os usuários finais da solução possuem diferentes graus de \ac{PC}, evolução cognitiva e maturidade, não serão realizados testes em função do tempo de realização de cada tarefa. Algumas tarefas que foram consideradas principais de acordo com os requisitos determinados da solução serão testadas, são elas:
+
+
+Tarefa número um (Executar pictograma):
+\vspace{-0.6cm}
+\begin{enumerate}
+\item{Abrir a solução;}
+\item{Executar um pictograma previamente adicionado;}
+\item{Escutar a vocalização da frase; e}
+\item{Voltar a grade principal.}
+\end{enumerate}
+
+
+Tarefa número dois (Adicionar pictograma):
+\vspace{-0.6cm}
+\begin{enumerate}
+\item{Adicionar um pictograma grade principal;}
+\item{Atribuir uma frase ao pictograma;}
+\item{Atribuir uma imagem ao pictograma; e}
+\item{Escutar a vocalização da frase.}
+\end{enumerate}
+
+Tarefa número três (Mudar o tamanho dos pictogramas):
+\vspace{-0.6cm}
+\begin{enumerate}
+\item{Fechar a solução;}
+\item{Abrir a solução;}
+\item{Verificar se o pictograma adicionado na tarefa dois esta na grade principal; e}
+\item{Mudar o tamanho dos símbolos da grade.}
+\end{enumerate}
+
+Tarefa número quatro (Excluir Pictograma):
+\vspace{-0.6cm}
+\begin{enumerate}
+\item{Excluir um pictograma;}
+\item{Verificar se o pictograma foi excluído; e}
+\item{Fechar a solução.}
+\end{enumerate}
+
+Após a execução das tarefas, alguns itens serão avaliados em forma de um questionário para medir a usabilidade, funcionalidade, eficiência e confiabilidade da solução. Os itens do questionário (Tabela \ref{questionario}) foram baseados no \citeonline{rogers2002}, pois é amplamente utilizado na literatura.
+
+\begin{table}[bth!]
+\centering
+\scriptsize
+\caption{Questionário}\vspace{.2cm}
+
+    \begin{tabular}{ |p{2.5cm}|p{11.6cm}|l| }
+		
+    \hline
+		
+    Tarefa & Item  & Resposta  \\ \hline \hline
+		\multirow{4}{*}{\parbox{2.5cm}{Tarefa um: Executar Pictograma}}& 1- Qual foi o grau de dificuldade encontrado na realização da tarefa?\newline
+		(Sendo 1 = fácil, 2 = O.k., 3= difícil ou 4 = precisou de ajuda) &   \\ \cline{2-3}
+		 & 2- Os passos da tarefa estavam claros?\newline
+		(Sendo 1 = fácil, 2 = O.k., 3= difícil ou 4 = precisou de ajuda) &   \\ \cline{2-3}
+		 & 3- Quantos erros foram cometidos na realização da tarefa? &   \\ \cline{2-3}
+		 & 4- Após a realização da tarefa o objetivo foi cumprido?\newline
+		(Sendo 1 = Totalmente Cumprido, 2= Apenas Parcialmente, 3 = Não foi cumprida.) &   \\ \cline{2-3} \hline 
+		\multirow{4}{*}{\parbox{2.5cm}{Tarefa dois: Adicionar Pictograma}}& 1- Qual foi o grau de dificuldade encontrado na realização da tarefa?\newline
+		(Sendo 1 = fácil, 2 = O.k., 3= difícil ou 4 = precisou de ajuda) &   \\ \cline{2-3}
+		 & 2- Os passos da tarefa estavam claros?\newline
+		(Sendo 1 = fácil, 2 = O.k., 3= difícil ou 4 = precisou de ajuda) &   \\ \cline{2-3}
+		 & 3- Quantos erros foram cometidos na realização da tarefa?  &   \\ \cline{2-3}
+		 & 4- Após a realização da tarefa o objetivo foi cumprido? \newline
+		(Sendo 1 = Totalmente Cumprido, 2= Apenas Parcialmente, 3 = Não foi cumprida.) &   \\ \cline{2-3} \hline
+	\multirow{4}{*}{\parbox{2.5cm}{Tarefa três: Mudar o tamanho dos Pictogramas}}& 1- Qual foi o grau de dificuldade encontrado na realização da tarefa?\newline
+	  (Sendo 1 = fácil, 2 = O.k., 3= difícil ou 4 = precisou de ajuda) &   \\ \cline{2-3}
+		 & 2- Os passos da tarefa estavam claros? \newline
+		(Sendo 1 = fácil, 2 = O.k., 3= difícil ou 4 = precisou de ajuda) &   \\ \cline{2-3}
+		 & 3- Quantos erros foram cometidos na realização da tarefa?  &   \\ \cline{2-3}
+		 & 4- Após a realização da tarefa o objetivo foi cumprido?\newline
+		(Sendo 1 = Totalmente Cumprido, 2= Apenas Parcialmente, 3 = Não foi cumprida.) &   \\ \cline{2-3} \hline
+		\multirow{4}{*}{\parbox{2.5cm}{Tarefa quatro: Excluir Pictograma}}& 1- Qual foi o grau de dificuldade encontrado na realização da tarefa?\newline (Sendo 1 = fácil, 2 = O.k., 3= difícil ou 4 = precisou de ajuda) &   \\ \cline{2-3}
+		 & 2- Os passos da tarefa estavam claros? \newline
+		(Sendo 1 = fácil, 2 = O.k., 3= difícil ou 4 = precisou de ajuda) &   \\ \cline{2-3}
+		 & 3- Quantos erros foram cometidos na realização da tarefa?  &   \\ \cline{2-3}
+		 & 4- Após a realização da tarefa o objetivo foi cumprido?\newline
+		(Sendo 1 = Totalmente Cumprido, 2= Apenas Parcialmente, 3 = Não foi cumprida.) &   \\ \cline{2-3} \hline
+
+    \end{tabular}
+    \label{questionario}
+		\vspace{0.3cm}
+		Fonte: o próprio autor.
+		
+
+\end{table}
+
+Após cada fase as notas dos questionários serão contabilizadas, e as tarefas serão revistas se classificadas como:
+\begin{itemize}
+\item Item 1 - ``Difícil'' ou ``precisou de ajuda'';
+\item Item 2 - ``Difícil'' ou ``precisou de ajuda'';
+\item Item 3 - maior que 0; e
+\item Item 4 - ``apenas parcialmente'' ou ``não foi cumprida''.
+\end{itemize}
+
+Como trata-se de uma pesquisa qualitativa, o fechamento amostral ocorrerá por critérios de seleção, ou seja, a saturação da amostra, é feita por um processo contínuo da análise de dados coletados, e este processo é feito até o momento que pouco de substancialmente novo aparece\cite{amostra}. No contexto do trabalho, será considerado a saturação da amostra, no momento que haja no máximo um ponto de variação na média, para cada categoria. Na primeira fase de testes, os testes internos, serão realizados com usuários que possuem os seguintes critérios de seleção:
+
+\begin{itemize}
+\item Docentes e Discente da \ac{UDESC};
+\item Conhecimento ou experiência;
+\begin{itemize}
+\item na área de \acf{TA}; e/ou 
+\item na área de Engenharia de Software.
+\end{itemize}
+\item Conhecimento em informática; e
+\item Conhecimento de como funciona uma prancha de comunicação.
+\end{itemize}
+
+Na segunda fase de testes, serão feitos os mesmos testes com o questionário \ref{questionario} com, psicólogos e terapeutas, que já utilizam a solução prancha de comunicação com seus pacientes, com o propósito de encontrar não conformidades com a solução. Por fim na terceira fase, serão refeitos os teste com os mesmos terapeutas e psicólogos, após o uso da solução junto aos seus pacientes, para que os psicólogis e terapeutas apontem problemas e sugiram melhoras da solução.
+
+
+\section{Estrutura da Solução}
+
+A estrutura da solução é feita de modo hierárquico porque é considerada mais simples e desde que a organização hierárquica não seja muito profunda, esta estrutura favorece a criação de um modelo mental de navegação por parte dos usuários \cite{goncalves}. A estrutura de modo hierárquico foi escolhida também para manter o padrão da solução, já que os pictogramas estão também organizados da mesma forma. A estrutura é aconselhada para usuários principiantes, e é caracterizada por organizar o fluxo de tarefas de modo hierárquico (ou em árvore), respeitando um fluxo único e comum desde a tarefa principal até as tarefas que dela dependem hierarquicamente e assim sucessivamente. Isto é, do topo para a base, as informações vão sendo detalhadas através de vários níveis uma vez que, de cada tarefa secundária, podem sair múltiplas ligações para outras tarefas de nível inferior na hierarquia\cite{goncalves}. A Figura \ref{estrutura} representa a estrutura da solução e suas tarefas.
+
+
+\begin{figure}[bth!]
+  \begin{center}
+    \caption{Estrutura da solução}\vspace{.4cm}
+			
+      \centering
+      \includegraphics[scale=0.6]{../figuras/estrutura.jpg}\\
+			Fonte: o próprio autor.
+    
+    \label{estrutura}
+  \end{center}
+\end{figure}
+
+A Figura \ref{estrutura} ilustra as principais tarefas do programa e sua disposição. A disposição das tarefas em modo hierárquico auxilia a meta de usabilidade no quesito de facilidade de aprendizagem, pois respeita um fluxo único de informações ao navegar a solução.
+
+
+
+\section{Protótipo}
+\label{prototipo}
+
+Após feito a especificação da proposta, foi elaborado um protótipo de baixa fidelidade\footnote{Protótipos de baixa fidelidades, são protótipos da representação artística da solução com detalhes omissos do funcionamento.}, com a finalidade de encontrar recursos faltantes no projeto teórico. A Figura \ref{layout} representa o protótipo da tela inicial da solução.
+
+\begin{figure}[bth!]
+  \begin{center}
+    \caption{Protótipo}
+			
+      \centering
+      \includegraphics[scale=0.6]{../figuras/layout.jpg}\\
+			Fonte: o próprio autor.
+    
+    \label{layout}
+  \end{center}
+\end{figure}
+\vspace{-0.4cm}
+
+A Figura \ref{layout} representa um protótipo da solução. Na parte superior foram adicionado quatro botões, são eles, ``Adicionar Pictograma'', ``Excluir Pictograma'', ``Grade Inicial'' e ``4X4''. Os botões possuem as seguintes funcionalidades:
+\begin{itemize}
+\item O botão ``Adicionar Pictograma'', é referente a tarefa de adicionar um pictograma ao nó atual, não definido anteriormente ;
+\item O botão ``Excluir Pictograma'', é referente a tarefa excluir pictograma, do nó atual e apagar suas informações como áudio e imagem, além disso a solução exclui as informações dos pictogramas relacionados ao pictograma excluído;
+\item O botão ``Grade Inicial'', faz com que a grade apresente os pictogramas do primeiro nó da árvore de pictogramas mencionada na seção \ref{esp}; e
+\item O botão ``4X4'' é referente a troca de tamanhos dos pictogramas na grade, ele representa a quantidade de pictogramas atualmente na grade.
+\end{itemize}
+Os botões adicionados nas laterais, representando flechas para esquerda e direita, são para a navegação de botões relacionados ao nó anterior caso, a lista de botões relacionados seja maior que a quantidade de botões apresentada atualmente na grade. O botão no lado inferior direito, com a legenda de grade anterior, é para que o usuário possa subir um nível na árvore de pictogramas. Exemplificando, com o tamanho da grade 4x4 os 15 botões em branco retangulares ao centro, são onde vão ficar os pictogramas da solução.
+
+\section{Diagrama de Classes}
+\label{funcao}
+Com base nos requisitos e interface, foram definidas as principais classes com seus métodos e atributos da solução. A Figura \ref{diagrama_classes} representa o diagrama de classes da solução proposta.
+
+\begin{figure}[bth!]
+  \begin{center}
+    \caption{Diagrama de Classes}
+			
+      \centering
+      \includegraphics[scale=0.8]{../figuras/diagrama_classe.jpg}\\
+			\vspace{0.15cm}
+			Fonte: o próprio autor.
+    \vspace{0.15cm}
+    \label{diagrama_classes}
+  \end{center}
+\end{figure}
+
+A solução contém 31 funções divididas em quatro grupos, a classe pictograma, Interface\_gráfica, grava\_dados e persiste\_dados. As funções da classe pictograma são:
+
+\begin{itemize}
+\item Pictogramas() : Função construtura, que invoca as funções setar\_imagem(), gere\_vocalização e seta\_audio();
+
+\item retornaListaPic : A função retorna os Pictogramas relacionados ao objeto;
+
+\item retornaAudio : A função retorna o caminho do arquivo de áudio relacionado ao objeto;
+
+\item retornaImagem : A função retorna o caminho do arquivo de Imagem relacionado ao objeto;
+
+\item setarImagem: Atribui ao Objeto o caminho da Imagem relacionada;
+
+\item salvaImagem: Salva cópia da imagem na pasta da solução;
+
+\item seta\_audio: Atribui ao Objeto o caminho do áudio relacionado; 
+
+\item executaAudio: executa o arquivo de áudio relacionado ao objeto;
+
+\item gerar\_vocalizacao: Se conecta com a máquina {\it Text-to-Speech} do Google para receber arquivo de áudio e usa a função setar\_audio() para gravar o caminho do arquivo; e
+
+\item salva\_pictograma: invoca a função salva\_pictograma da interface persiste\_dados.
+
+\end{itemize}
+
+As funções da classe Interface\_Grafica são:
+\begin{itemize}
+\item adicionaPictogramas :  instancia um novo pictograma através do construtor Pictograma();
+
+\item excluiPictogramas : invoca a função da interface persiste\_dados exclui\_Pictogramas();
+
+\item trocaTamanho : troca a quantidade de botões na grade da solução;
+
+\item exclui\_botao\_grade : retira pictograma da grade da solução;
+
+\item atualiza\_grade\_usuario : redesenha a grade da solução para o usuário quando há uma modificação;
+
+\item executa\_pictograma : executa o arquivo de áudio atribuído ao pictograma;
+
+\item limpa\_grade: retira todos os botões da grade da solução; e
+
+\item adiciona\_botao\_grade : adiciona um novo botão na grade.
+
+\end{itemize}
+
+As funções da classe grava\_dados são:
+
+\begin{itemize}
+\item salva\_copia\_imagem: salva cópia do arquivo de imagem em uma pasta pré-selecionada;
+
+\item exclui\_audio\_xml: exclui no arquivo XML o caminho do áudio referente ao pictograma;
+
+\item exclui\_imagem\_xml: exclui no arquivo XML o caminho da imagem referente ao pictograma;
+
+\item exclui\_arquivo\_imagem: exclui a cópia do arquivo de imagem referente ao pictograma;
+
+\item exclui\_arquivo\_audio: exclui arquivo de áudio referente ao pictograma;
+
+\item salva\_audio\_xml: salva em arquivo XML o caminho do áudio referente ao pictograma;
+
+\item salva\_imagem\_xml: salva em arquivo XML o caminho da imagem referente ao pictograma
+
+\item salva\_Pictograma: invoca as funções: salva\_copia\_imagem(), salva\_audio\_xml() e salva\_imagem\_xml(); e
+
+\item exclui\_Pictograma: invoca as funções: exclui\_audio\_xml, exclui\_imagem\_xml, exclui\_arquivo\_imagem e exclui\_arquivo\_audio.
+
+\end{itemize}
+
+As funções da interface persiste\_dados como são funções de uma interface não implementam nenhum tipo de código:
+\begin{itemize}
+\item salva\_Pictograma; e
+
+\item exclui\_Pictograma.
+\end{itemize}
+
+
+Definidas as funções é necessário definir as interações do usuário com a solução, com base na exceção das tarefas padrões que se espera do sistema. Além disso, a definição das tarefas permite identificar se o diagrama de classe é satisfeito.
+
+\section{Diagramas das Tarefas}
+\label{diagramas}
+Para melhor compreensão das tarefas da solução, após a descrição da solução e de como cada requisito será cumprido foram definidos os casos de uso, diagramas de sequência e sequência de telas para cada tarefa da solução. As tarefas descritas são:
+\begin{itemize}
+\item Incluir Pictograma;
+\item Excluir Pictograma;
+\item Alterar Tamanho dos pictogramas na grade; e 
+\item Executar Pictogram.
+\end{itemize}
+
+Essas tarefas foram consideradas principais na solução de acordo com os requisitos levantados. Para maior compreensão foi elaborado diagramas e sequências de telas que explicam a interação do usuário em cada tarefa.
+
+\subsection{Tarefa Incluir Pictograma}
+
+Após definir os métodos para satisfação dos requisitos, foi descrita a tarefa de incluir pictograma. A Figura \ref{caso_incluir} representa o caso de uso da tarefa incluir pictograma.
+\vspace{-0.3cm}
+\begin{figure}[bth!]
+  \begin{center}
+    \caption{Caso de uso incluir pictograma}
+
+      \centering
+      \includegraphics[scale=0.5]{../figuras/caso_incluir.jpg}\\
+
+			Fonte: o próprio autor.
+   \vspace{-1cm}
+    \label{caso_incluir}
+  \end{center}
+\end{figure}
+
+
+O caso de uso da tarefa incluir pictograma definido na Figura \ref{caso_incluir}, se reflete no diagrama de sequência da figura \ref{sequencia_adiciona}. Para a elaboração do diagrama de sequência foram usadas as funções descritas na seção \ref{funcao}.
+
+\begin{figure}[bth!]
+  \begin{center}
+    \caption{Diagrama de sequência da tarefa incluir pictograma}
+			\vspace{1cm}
+      \centering
+      \includegraphics[scale=0.68]{../figuras/sequencia_adiciona.jpg}\\
+			\vspace{0.3cm}
+			Fonte: o próprio autor.
+    \vspace{0.3cm}
+    \label{sequencia_adiciona}
+  \end{center}
+\end{figure}
+
+Para melhor compreensão foi elaborado uma sequência de telas representadas por passos nas Figuras \ref{adiciona_1}, \ref{adiciona_2}, \ref{adiciona_3} e \ref{adiciona_4} que representam a tarefa incluir pictograma e os eventos realizados pelo usuário para concluir a tarefa. 
+
+
+\begin{figure}[ht] 
+  \label{agrup_adicionar} 
+  \begin{minipage}[b]{0.5\linewidth}
+    \centering
+		\caption{Passo um} 
+    \includegraphics[width=1\linewidth]{../figuras/Adicionar/1.jpg} 
+		\label{adiciona_1}
+	
+  \end{minipage} %%
+  \begin{minipage}[b]{0.5\linewidth}
+    \centering
+		\caption{Passo dois} 
+    \includegraphics[width=1\linewidth]{../figuras/Adicionar/2.jpg} 
+		\label{adiciona_2}
+	
+  \end{minipage} %% 
+  \begin{minipage}[b]{0.5\linewidth}
+    \centering
+		\caption{Passo três} 
+    \includegraphics[width=1\linewidth]{../figuras/Adicionar/3.jpg} 
+		\label{adiciona_3}
+
+  \end{minipage} %% 
+  \begin{minipage}[b]{0.5\linewidth}
+    \centering
+		\caption{Passo quatro} 
+    \includegraphics[width=1\linewidth]{../figuras/Adicionar/4.jpg} 
+		\label{adiciona_4}
+
+  \end{minipage} %% 
+	\center{Fonte: próprio autor.}
+\end{figure}
+
+O passo um (Figura \ref{adiciona_1}) representa o clique do mouse do usuário no botão Adicionar Pictograma. Percebe-se que é feito, através do movimento do cursor inicialmente, podendo ser reconfigurado por teclas de atalho. O passo dois (Figura \ref{adiciona_2}) consiste no usuário escolher a imagem relacionada ao pictograma, através de uma caixa de escolha de arquivos na plataforma do usuário. No passo três (Figura \ref{adiciona_3}) o usuário irá inserir o texto que ele deseja ser vocalizado quando o pictograma for executado. Por fim, o passo quatro (Figura \ref{adiciona_4}) é a resposta ao usuário de que o pictograma foi adicionado com sucesso.
+
+\subsection{Tarefa Executar Pictograma}
+
+A tarefa principal da solução é a tarefa de executar os pictogramas. A Figura \ref{caso_executar} representa o caso de uso da tarefa executar um pictograma.
+\vspace{0.5cm}
+
+\begin{figure}[bth!]
+  \begin{center}
+    \caption{Caso de uso da execução de um pictograma}
+			
+      \centering
+      \includegraphics[scale=0.5]{../figuras/caso_executar.jpg}\\
+			Fonte: o próprio autor.
+    
+    \label{caso_executar}
+  \end{center}
+\end{figure}
+
+A Figura \ref{sequencia_executa} representa o diagrama de sequência da tarefa executar um pictograma refletida pelo seu caso de uso. Na definição do diagrama de sequência foi usada as funções definidas na seção \ref{funcao}.
+
+\begin{figure}[bth!]
+  \begin{center}
+    \caption{Diagrama de sequência da execução de um pictograma}
+      \centering
+      \includegraphics[scale=0.7]{../figuras/sequencia_executa.jpg}\\
+			Fonte: o próprio autor.
+    
+    \label{sequencia_executa}
+  \end{center}
+\end{figure}
+
+Para o melhor compreendimento foi feito uma sequência de passos representados pelas Figuras \ref{executar_1} e \ref{executar_2} que representam de executar um pictograma e os eventos realizados pelo usuário para concluir a tarefa.
+\vspace{1cm}
+\begin{figure}[ht] 
+  \label{agrup_executar} 
+  \begin{minipage}[b]{0.5\linewidth}
+    \centering
+		\caption{Passo um} 
+    \includegraphics[width=1\linewidth]{../figuras/Executar/1.jpg} 
+		\label{executar_1}
+		\vspace{-1cm}
+  \end{minipage}%%
+  \begin{minipage}[b]{0.5\linewidth}
+    \centering
+		\caption{Passo dois} 
+    \includegraphics[width=1\linewidth]{../figuras/Executar/2.jpg} 
+		\label{executar_2}
+		\vspace{-1cm}
+  \end{minipage} %% 
+		\vspace{-1cm}
+	\center{Fonte: próprio autor.}
+\end{figure}
+
+O passo (Figura \ref{executar_1}) um representa o clique do usuário no pictograma ``EU''. Após o clique, a solução vocalizará a palavra ``EU'' e apresentará seus pictogramas relacionados representados no passo dois (Figura \ref{executar_2}), e a tarefa estará concluída. 
+
+
+\subsection{Tarefa Alterar Tamanho dos Pictogramas na Grade}
+
+Como o tamanho dos botões devem ser editáveis, a tarefa alterar tamanho dos pictogramas é necessária. A Figura \ref{caso_tamanho} representa o caso de uso da tarefa alterar o tamanho dos pictogramas na grade.
+
+\begin{figure}[bth!]
+  \begin{center}
+    \caption{Caso de troca de tamanhos dos pictogramas}
+			
+      \centering
+      \includegraphics[scale=0.4]{../figuras/caso_tamanho.jpg}\\
+			Fonte: o próprio autor.
+    
+    \label{caso_tamanho}
+  \end{center}
+\end{figure}
+
+A Figura \ref{sequencia_tamanho} representa o diagrama de sequência da tarefa alterar o tamanho dos pictogramas na grade. Na definição do diagrama de sequência foram empregadas funções definidas na seção \ref{funcao}.
+
+\begin{figure}[bth!]
+  \begin{center}
+    \caption{Diagrama de sequência de troca de tamanhos dos pictogramas}
+			\vspace{0.2cm}
+      \centering
+      \includegraphics[scale=0.6]{../figuras/sequencia_tamanho.jpg}\\
+				\vspace{-0.3cm}
+			Fonte: o próprio autor.
+    \vspace{-0.5cm}
+    \label{sequencia_tamanho}
+  \end{center}
+\end{figure}
+
+Para o melhor compreendimento foi feito uma sequência de passos representados pelas Figuras \ref{troca_1}, \ref{troca_2} e \ref{troca_3}, que representam a tarefa alterar tamanho dos pictogramas na grade e os eventos realizados pelo usuário para concluir a tarefa.
+\vspace{-0.4cm}
+\begin{figure}[ht] 
+  \label{agrup_troca} 
+  \begin{minipage}[b]{0.5\linewidth}
+    \centering
+		\caption{Passo um} 
+    \includegraphics[width=1\linewidth]{../figuras/Troca/1.jpg} 
+		\label{troca_1}
+		\vspace{-1.0cm}
+  \end{minipage}%%
+  \begin{minipage}[b]{0.5\linewidth}
+    \centering
+		\caption{Passo dois} 
+    \includegraphics[width=1\linewidth]{../figuras/Troca/2.jpg} 
+		\label{troca_2}
+		\vspace{-1.0cm}
+  \end{minipage} %% 
+  \begin{minipage}[b]{0.5\linewidth}
+    \centering
+		\caption{Passo três} 
+    \includegraphics[width=1\linewidth]{../figuras/Troca/3.jpg} 
+		\label{troca_3}
+		\vspace{-1.1cm}
+  \end{minipage}%% 
+	\vspace{-0.4cm}
+	\center{Fonte: próprio autor.}
+	\vspace{-2cm}
+\end{figure}
+
+\vspace{2cm}
+O passo um (Figura \ref{troca_1}) representa o clique do usuário no botão ``4X4''. A solução mudará a quantidade e tamanho de botões na tela e apresentará a configuração demonstrada no passo dois. O passo dois (Figura \ref{troca_2}) representa um clique do usuário no botão ``3X3'' , a solução mudará novamente a quantidade e tamanho de botões na tela e apresentará a configuração demonstrada no passo três (Figura \ref{troca_3}), caso o usuário clique no botão ``2X2'' a solução voltará a mostrar a configuração do passo um.
+
+
+	
+\subsection{Tarefa Excluir Pictograma}
+
+Após definir os métodos para satisfação dos requisitos, foi descrita a tarefa de excluir um pictograma. A Figura \ref{caso_excluir} representa o caso de uso da tarefa excluir pictograma. 
+\begin{figure}[bth!]
+  \begin{center}
+    \caption{Caso de uso da tarefa excluir pictograma}
+		\vspace{1cm}
+			
+      \centering
+      \includegraphics[scale=0.7]{../figuras/caso_excluir.jpg}\\
+			
+			Fonte: o próprio autor.
+			
+    
+    \label{caso_excluir}
+  \end{center}
+\end{figure}
+
+Após definido o caso de uso da tarefa incluir pictograma, definido na Figura \ref{caso_excluir}, foi definido o diagrama de sequência da tarefa incluir pictograma representada pela Figura \ref{sequencia_excluir}. Na definição do diagrama de sequência foram usada funções definidas na seção \ref{funcao}.
+\vspace{3cm}
+
+\begin{figure}[bth!]
+  \begin{center}
+    \caption{Diagrama de sequencia da tarefa excluir pictograma}
+			
+      \centering
+      \includegraphics[scale=0.75]{../figuras/sequencia_exclui.jpg}\\
+			
+			Fonte: o próprio autor.
+			
+    
+    \label{sequencia_excluir}
+  \end{center}
+\end{figure}
+
+
+Para o melhor compreendimento foi elaborado uma sequência de passos representados pelas figuras \ref{exclui_1}, \ref{exclui_2}, \ref{exclui_3}, \ref{exclui_4} e \ref{exclui_5}. As figuras representam a tarefa excluir pictograma e os eventos realizados pelo usuário para concluir a tarefa.
+
+\vspace{2cm}
+\begin{figure}[ht] 
+  \label{agrup_excluir} 
+  \begin{minipage}[b]{0.5\linewidth}
+    \centering
+		\caption{Passo um} 
+    \includegraphics[width=1\linewidth]{../figuras/Excluir/1.jpg} 
+		\label{exclui_1}
+		\vspace{-1cm}
+  \end{minipage} %%
+  \begin{minipage}[b]{0.5\linewidth}
+    \centering
+		\caption{Passo dois} 
+    \includegraphics[width=1\linewidth]{../figuras/Excluir/2.jpg} 
+		\label{exclui_2}
+		\vspace{-1cm}
+  \end{minipage} %% 
+  \begin{minipage}[b]{0.5\linewidth}
+    \centering
+		\caption{Passo três} 
+    \includegraphics[width=1\linewidth]{../figuras/Excluir/3.jpg} 
+		\label{exclui_3}
+		\vspace{-1cm}
+  \end{minipage} %% 
+  \begin{minipage}[b]{0.5\linewidth}
+    \centering
+		\caption{Passo quatro} 
+    \includegraphics[width=1\linewidth]{../figuras/Excluir/4.jpg} 
+		\label{exclui_4}
+		\vspace{-1cm}
+  \end{minipage} %% 
+	\begin{minipage}[b]{0.5\linewidth}
+    \centering
+		\caption{Passo cinco} 
+    \includegraphics[width=1\linewidth]{../figuras/Excluir/5.jpg} 
+		\label{exclui_5}
+		\vspace{-1cm}
+  \end{minipage} %% 
+	\center{Fonte: próprio autor.}
+\end{figure}
+
+O passo um (Figura \ref{exclui_1}) representa o clique do mouse do usuário no botão Excluir pictograma, através de movimentos do cursor. O passo dois (Figura \ref{exclui_2}) consiste na solução informar o próximo passo ou dar opção de cancelar a tarefa caso o usuário tenha apertado o botão por engano. No passo três (Figura \ref{exclui_3}) o usuário irá selecionar o pictograma a ser excluído. No passo quatro (Figura \ref{exclui_4}) a solução confirma se o usuário deseja realmente excluir o pictograma selecionado. O passo cinco (Figura \ref{exclui_5}) representa um {\it feedback} ao usuário de que o pictograma foi excluído com sucesso. Concluídas as definições das tarefas e o papel do usuário em cada uma delas, a solução pode ser representada pelo seu atual estado em um diagrama de estados.
+
+\section{Diagrama de Estados}
+
+Após definido os casos de uso e diagramas de sequência da solução, afim de definir os estados da solução no decorrer da execução dos processos, foi elaborado um diagrama de estados da solução representado pela Figura \ref{diagrama_estados}. O diagrama representa as entradas de dados feitas pelos usuários e as ações realizadas pela solução.
+\vspace{-0.4cm}
+\begin{figure}[bth!]
+  \begin{center}
+    \caption{Diagrama de estados}
+      \centering
+      \includegraphics[scale=0.6]{../figuras/diagrama_estados.jpg}\\
+			\vspace{-0.3cm}
+			Fonte: o próprio autor.
+    \vspace{-0.9cm}
+    \label{diagrama_estados}
+  \end{center}
+\end{figure}
+
+A Figura \ref{diagrama_estados} ilustra as interações do usuário nas caixas de {\it signal receipt}, e as demais caixas representam as ações da solução. O início e o fim da execução são marcados por círculos pretos, o fim com uma auréola preta ao redor do círculo.
+
+\section{Considerações do Capítulo}
+
+Os requisitos possibilitaram uma solução limpa e objetiva, que facilitam o uso da solução tanto por pessoas com \ac{PC} como pelo seu terapeuta. Os testes foram descritos afim de encontrar não conformidades com a solução e tornar a solução com alta simplicidade nas tarefas, tendo sempre em mente que o usuário final é uma pessoa que possui \ac{PC}.
+
+A estrutura da solução, assim como, os casos de uso e iterações do usuário, são realizados com base nas diretrizes de usabilidade descritas na seção \ref{esp}, afim da solução ser facilmente memorizada e aprendida, eficiente, objetiva e principalmente que haja um conforto e aceitabilidade do usuário ao utilizá-la. Por fim, o capítulo no seu total, tem como objetivo especificar a solução e as iterações do usuário, e principalmente constatar a sua viabilidade.
+
+\chapter{Implementação e Testes}
+\label{cap:captestes}
+
+Durante todo o desenvolvimento da solução foram utilizadas as orientações e diagramas do capítulo \ref{cap:proposta}. A solução
+foi baseada no protótipo desenhado na secção \ref{prototipo}. A figura \ref{fig:solucao} representa a solução implementada.
+
+\begin{figure}[bth!]
+  \begin{center}
+    \caption{A solução implementada}\vspace{.2cm}
+			
+      \centering
+      \includegraphics[width=10cm]{../figuras/solucao.jpg}\\
+			Fonte:\cite{vivere}
+    
+    \label{fig:solucao}
+  \end{center}
+\end{figure}
+
+
+Os ícones foram desenhados pelo autor, e cada um foi desenhado com o intuito de representar as ações de uma maneira intuitiva, e baseados no desenho universal visando a acessibilidade. Além disso foi implementado uma nova funcionalidade a solução. É de senso comum na informática que os ícones de um aplicativo, software ou ferramenta, sejam navegados através das teclas TAB e SHIFT+TAB do teclado. Porém os dispositivos alternativos de teclado em sua maioria, como o que foi exemplificado no capítulo \ref{conceitos}não possuem essas teclas. Por esse motivo na solução a funcionalidade foi trocada para as teclas de seta para direita e seta para esquerda, e além disso o sombreado tradicional na tecla em que se encontra a navegação foi substituída por vermelho, por ser considerada sutil pelo autor. Os conceitos de desenho universal tem como pressupostos\cite{desenho}:
+
+\begin{itemize}
+\item Equiparação nas possibilidades de uso;
+\item Flexibilidade no uso;
+\item Uso simples e intuitivo;
+\item Captação da informação;
+\item Tolerância para o erro; e
+\item Dimensão e espaço para uso e interação.
+\end{itemize}
+
+
+Após a implementação da proposta foram realizados alguns testes, com os objetivos de:
+
+\begin{enumerate}
+
+\item Melhorar a usabilidade da solução;
+\item Envolver usuários;
+\item Observar usuários e suas ações durante o uso da solução; e
+\item Mensurar ações permitindo o planejamento de mudanças.
+
+\end{enumerate}
+
+\section{Testes}
+
+Os testes foram divididos em duas etapas, afim de separar o experimento para dois públicos distintos.
+O primeiro pessoas que possuem conhecimento focado em computação e a segunda com pessoas que possuem o conhecimento focado
+na saúde. O objetivo de separa-lo foi a tentativa de abranger as funcionalidades com visões distintas sobre a solução.
+
+
+\section{Fase Um}
+
+Na primeira fase os testes foram realizados com um grupo de 10 pessoas que atendem os requisitos mencionados na
+no capítulo \ref{cap:proposta}. Os testes foram realizados em um ambiente controlado e com os mesmos equipamentos,
+após o usuário receber a tarefa, o usuário a realiza, e em seguida responde as perguntas do questionário \ref{questionario}
+relacionadas aquela tarefa. Ao final dos testes o usuário deixa um comentário sobre a aplicação e seu funcionamento.
+A tabela \ref{resultadosfaseum} representa os resultados obtidos na primeira fase dos testes. A tabela representa a média obtida em cada pergunta para cada tarefa.
+
+\begin{table}[bth!]
+\centering
+\scriptsize
+\caption{Resultados da primeira fase dos testes.}\vspace{.2cm}
+
+	
+    \begin{tabular}{ | l | l | l | l | l |}
+		
+    \hline
+    Atividades & Tarefa 1 & Tarefa 2 & Tarefa 3 & Tarefa 4\\ \hline \hline
+    Qual foi o grau de dificuldade encontrado na realização da tarefa? & 1,2 & 1,4 & 1,3 & 1,5\\ \hline
+		Os passos da tarefa estavam claros? & 1,5 & 1,1 & 1,2 & 1\\ \hline
+		Quantos erros foram cometidos na realização da tarefa? & 0 & 0 & 0 & 0\\ \hline
+		Após a realização da tarefa o objetivo foi cumprido? & 1 & 1 & 1.1 & 1\\ \hline
+		
+    \end{tabular}
+    \label{resultadosfaseum}
+		\vspace{0.1cm}\\Fonte: o próprio autor.
+
+\end{table}
+
+Nenhuma tarefa obteve resultados que infringissem o critério de revisão descrito no capítulo \ref{cap:proposta}. Por tanto a solução não passou por nenhuma revisão antes dos testes passarem para a segunda fase dos testes.
+
+
+\section{Fase Dois}
+
+
+Na fase dois os testes foram realizados com pessoas que trabalham na área da saúde, mais especificamente com pessoas que trabalham
+com pessoas que possuem \ac{PC}. Nesta fase foram realizados os testes com 3 profissionais da saúde, sendo um psicólogo, dois terapeutas ocupacionais. A tabela \ref{resultadosfasedois} representam os resultados do questionário aplicados. 
+
+\begin{table}[bth!]
+\centering
+\scriptsize
+\caption{Resultados da segunda fase dos testes.}\vspace{.2cm}
+
+	
+    \begin{tabular}{ | l | l | l | l | l |}
+		
+    \hline
+    Atividades & Tarefa 1 & Tarefa 2 & Tarefa 3 & Tarefa 4\\ \hline \hline
+    Qual foi o grau de dificuldade encontrado na realização da tarefa? & 1,34 & 1 & 1,34 & 1\\ \hline
+		Os passos da tarefa estavam claros? & 1,67 & 1,34 & 1,34 & 1\\ \hline
+		Quantos erros foram cometidos na realização da tarefa? & 1 & 0 & 0 & 0\\ \hline
+		Após a realização da tarefa o objetivo foi cumprido? & 1,67 & 1 & 1 & 1\\ \hline
+		
+    \end{tabular}
+    \label{resultadosfasedois}
+		\vspace{0.1cm}\\Fonte: o próprio autor.
+
+\end{table}
+
+Apesar de resultados semelhantes a primeira etapa, na Tarefa 1 (Executar um pictograma) infringiu o critério de revisão em duas perguntas. Foi encontrado que o termo grade inicial, mencionado nos passos para realização da tarefa um, não foi compreendido. A alteração na escrita dos passos foram alterados.
+
+
+\section{Considerações do Capítulo}
+
+Os projetos definidos nos capítulos anteriores, foram fundamentais para a implementação da solução. Com o projeto definido
+a implementação foi facilitada e possibilitou a implementação de uma nova funcionalidade. Os testes também foram igualmente importantes, pois demonstraram ao autor a reação das pessoas em relação as tarefas e interface.
+
+\chapter{Considerações Finais}
+\label{cap:finais}
+
+O objetivo do trabalho estipulado para o TCC-I e TCC-II foi parcialmente alcançado, a maneira utilizada para mensurar essa conclusão, foi a do cumprimento de objetivos específicos definidos previamente no plano do trabalho. Os objetivos específicos podem ser citados através de dez etapas descritas no plano do trabalho:
+\begin{enumerate}
+\item Definição do Problema:
+\begin{enumerate}
+\item Contextualizar as necessidades do trabalho: que foi realizada através de pesquisa referenciada, descrita no capítulo \ref{cap:introducao}. Foram contextualizadas as necessidades de recursos que supram ou compensem suas deficiências para que possam ser inseridas na sociedade;
+\item As regulamentações: são contextualizadas também no capítulo \ref{cap:introducao}, concluindo que o escopo do trabalho pertence a uma legislação recente e pouco específica;
+\item Limitações: são mencionadas ao final do capítulo \ref{cap:introducao}, na qual o trabalho defini os quadros de pessoas portadoras de \ac{PC} que pertencerão ao escopo do trabalho; e
+\item Definição do problema: A definição do problema, contextualizado no capítulo {\ref{cap:definicao_problema}}, foi elaborada após o levantamento dos problemas da solução utilizada por terapeutas, foi realizada através de uma entrevista\cite{juliane} com uma psicóloga especialista na reabilitação de crianças com \ac{PC}.
+\end{enumerate}
+\item Especificação de requisitos funcionais e não funcionais: A especificação dos requisitos foi elaborada a partir da definição do problema e dos problemas com a prancha de comunicação utilizada por terapeutas e psicólogos definidas na seção \ref{req} capítulo \ref{cap:definicao_problema};
+\item Casos de uso: Os casos de uso definidos na seção \ref{diagramas}, foram elaborados a partir da definição dos métodos que são utilizados para o cumprimento dos requisitos. Os casos de uso também foram elaborados a partir de algumas diretrizes de usabilidade definidas na especificação da proposta;
+\item Plano de testes: Os planos de testes foram definidos na seção \ref{testes}, os planos foram divididos em etapas com a finalidade de quando chegar a última etapa, que é a etapa realizada com usuários finais, a solução já ter um amadurecimento maior para conseguir alcançar os objetivos esperados;
+\item Análise de alternativas: Foram feitas análises de alternativas para os principais problemas contextualizado na seção \ref{esp}, comparando os métodos encontrados com os requisitos para obter um método que se suprisse os requisitos levantados;
+\item Trabalhos Correlatos: Foi elaborado uma pesquisa para encontrar os trabalhos correlatos, e após isso foram comparados com os requisitos levantados, a tabela \ref{tabela_correlatos} e \ref{tabela_correlatos} possibilitam comparar todos os requisitos com os trabalhos correlatos, e é possível perceber que nem todos os requisitos são cumpridos por apenas um trabalho;
+\item Projeto de Aplicação;
+\begin{enumerate}
+\item Limitações: as limitações da solução proposta estão atrelados aos métodos de solução de requisitos definidos e consequentemente pela plataforma que executará a execução; e 
+\item Proposta: a proposta foi elaborada através de um protótipo de baixa fidelidade da solução e a definição das interações do usuário, através de diagramas de sequência, estado e representações de telas através de imagens.
+
+\end{enumerate}
+\item Implementação. Desenvolvimento da proposta de solução;
+\item Testes. Consiste em verificar se o software proposto cumpre seu objetivo, testando e avaliando
+os resultados; e
+\item Escrita do TCC-II.
+\end{enumerate}
+
+As conclusões e considerações do trabalho certamente foram sobre as poucas opções de ferramentas que psicólogos e terapeutas possuem a sua disposição para o trabalho com pessoas com \ac{PC}. A \ac{TA} por ser recente ainda não é muito conhecida e por consequência pouco utilizada. Com esses fatores a importância de ressaltar as iniciativas e legislações, além de propor uma nova alternativa foram intensificadas. Outro fator que contribuiu com o cumprimento do objetivo foi a especificação detalhada da solução, e principalmente o entusiasmo das pessoas que foram apresentadas ao projeto. 
+
+As principais dificuldades encontradas foram a forma correta de expor as ideias encontradas na literatura, com a finalidade de exemplificar as necessidades do trabalho. Outra dificuldade encontrada foi a elaboração dos diagramas e telas dos sistema com o propósito de não deixar nenhuma dúvida quanto aos objetivos e propósitos da solução. Ainda em relação as dificuldades, o tempo de preparação de uma pessoa com paralisia cerebral para a realização da terceira etapa dos testes, descritas no capítulos \ref{cap:proposta} segundo o próprio terapeuta, tornou inviável a documentação neste trabalho.
+
+As atividades previstas no cronograma proposto no plano do trabalho até o presente momento são:
+\begin{enumerate}
+\item{Formulação do plano de TCC;}
+\item{Levantamento e fichamento de referências. Consiste na pesquisa de
+fontes para cada objetivo específico citado na segunda seção;}
+\item{Consolidação das referências. Fornece a fundamentação necessária para
+poder compreender o objeto do trabalho e realizar o objetivo do TCC-I;}
+\item{Análise. Analisar pontos específicos levantados na pesquisa referencial;}
+\item{Escrita do TCC-I;}
+\item{Apresentação da proposta do software. Consiste em apresentar propostas de solução e justificar a proposta
+escolhida;}
+\item{Revisão de conceitos no projeto do software. Fundamentação necessária
+para execução do projeto;}
+\item {Implementação. Desenvolvimento da proposta de solução;}
+\item {Testes. Consiste em verificar se o software proposto cumpre seu objetivo, testando e avaliando
+os resultados; e}
+\item {Escrita do TCC-II.}
+\end{enumerate}
+
+A tabela \ref{etapas} representa a conclusão das tarefas de acordo com os meses do ano de 2014:
+
+\vspace{3.0cm}
+\begin{table}[bth!]
+\begin{center}
+\scriptsize
+\caption{Tabela de conclusão das tarefas do TCC-I e II.}
+\vspace{0.3cm}
+ \begin{tabular}{|c||c|c|c|c|c|c|c|c|c|c|c|c| }
+  \hline
+  \multirow{2}{*}{\textbf{\small{Etapas}}} & \multicolumn{12}{|c||}{\textbf{\small{2014}}}  \\
+  \cline{2-13}
+   & \textbf{J} & \textbf{F} & \textbf{M} & \textbf{A} & \textbf{M} & \textbf{J} & \textbf{J} & \textbf{A} & \textbf{S} & \textbf{O} & \textbf{N} & \textbf{D}  \\
+  \hline \hline
+  \textbf{\small{1}} & &X & & & & & & & & & & \\
+  \hline
+  \textbf{\small{2}} & &X&X& & & & & & & & & \\
+  \hline
+  \textbf{\small{3}} & & &X& & & & & & & & &  \\
+  \hline
+  \textbf{\small{4}} & & &X&X& & & & & & & &  \\
+  \hline
+  \textbf{\small{5}} & & &X&X&X&X& & & & & &  \\
+  \hline
+  \textbf{\small{6}} & & & & &X&X&& & & & &  \\
+  \hline
+  \textbf{\small{7}} & & & & & &X& & & & & &  \\
+	\hline
+	\textbf{\small{8}} & & & & & & X & X& X& & & & \\
+  \hline
+  \textbf{\small{9}} & & & & & & & & X& X & & & \\
+  \hline
+  \textbf{\small{10}} & & & & & & & & &X &X &X &  \\
+	\hline
+\end{tabular}
+\label{etapas}
+\end{center}
+\end{table}
+
+A tabela \ref{etapas} representa o cronograma do trabalho cumprido até o momento. Os períodos de execução das tarefas diferem dos apresentados no plano do trabalho, por falta de experiência e de planejamento do autor. Cumpridas as tarefas descritas para o TCC-I e II. Para trabalho futuros, são indicados a continuação dos testes que não foram possíveis a realização, já firmados com o Grupo Assistiva da UDESC e a implantação e testes da solução em outras plataformas.
+

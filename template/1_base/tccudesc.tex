@@ -1,0 +1,111 @@
+%**************************************************************************************************
+%*  Nome: Nicolas P. Lane                                                                         *
+%*  Data: 13/10/2015                                                                              *
+%*  Dúvidas ou contribuições: lambdox@gmail.com                                                   *
+%*  Modelo de monografia para TCC - UDESC de acordo com o manual de trabalhos acadêmicos da UDESC *                                     *
+%*  									                          *
+%*  Licença GPL:              						                          *
+%*  Permission to use, copy, modify, and distribute this protocol and its                         *
+%*  documentation for any purpose, without fee, and without written                               *
+%*  agreement is hereby granted, provided that the above copyright notice,                        *
+%*  and the author appear in all copies of this protocol.                                         *
+%**************************************************************************************************
+
+\NeedsTeXFormat{LaTeX2e}
+%-----------------------------------------------------------
+\documentclass[a4paper,12pt]{monografia}
+\usepackage{amsmath, amsthm, amsfonts, amssymb}
+\usepackage[english, brazilian]{babel}
+\usepackage[titletoc]{appendix}
+\usepackage[latin1]{inputenc}
+\usepackage[mathcal]{eucal}
+\usepackage[alf]{abntcite}
+\usepackage{subfigure}
+\usepackage{isoaccent}
+\usepackage{textcase}
+\usepackage{multirow}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{acronym}
+\usepackage{bm}
+\lstset{basicstyle=\tiny, language=C++}
+\makeindex			
+%-----------------------------------------------------------Começa documento
+\begin{document}
+%----------------- Título e Dados do Autor -----------------
+\titulo{Seu t\'itulo}
+\autor{Seu nome}
+\nome{Seu nome do meio}
+\ultimonome{Seu \'ultimo nome}
+
+%---------- Informe o Curso e Grau -----
+\bacharelado \curso{Ci\^encia da Computa\c{c}\~ao} \mes{Junho} \ano{2015} 
+\data{\today} % data da aprovação
+\cidade{Joinville}
+
+%----------Informações sobre a Institução -----------------
+\instituicao{Universidade do Estado de Santa Catarina}
+\sigla{UDESC} \unidadeacademica{Centro de Ci\^encias Tecnol\'ogicas}
+
+%------Nomes do Orientador, 1o. Examinador e 2o. Examinador-
+\orientador{Nome completo do orientador 1}
+\examinadorum{Nome completo do orientador 2}
+\examinadordois{Nome completo do orientador 3}
+%\examinadorquatro{Nome do Examinador 4}
+
+%--------- Títulos do Orientador 1o. e 2o. Examinadores ----
+\ttorientador{T\'itulo do orientador 1}
+\ttexaminadorum{T\'itulo do orientador 2}
+\ttexaminadordois{T\'itulo do orientador 3}
+%\ttexaminadorquatro{Título do Examinador 4}
+
+\maketitle
+%---------------------- AGRADECIMENTO --------------
+\agradecimento{Agradecimentos}
+
+  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+\newpage
+%---------------------- EPÍGRAFE --------------
+\begin{epigrafe}
+
+  Disce Docendo Adhuc
+
+\end{epigrafe}
+%--------Digite aqui o seu resumo em Português--------------
+\resumo{Resumo}
+\input{../2_pre_texto/resumo}%chamada de arquivo resumo.tex
+
+\noindent Palavras-chaves: Comunicação Alternativa, Paralisia Cerebral, deficiência na fala, software livre
+%-----------Digite aqui o seu resumo em Inglês--------------
+\resumo{Abstract}
+\input{../2_pre_texto/abstract}     %chamada de arquivo abstract.tex
+
+\noindent Keywords: Alternative Comunication, Cerebral Palsy, speech deficiency, open source
+%-----------------------------------------------------------
+
+\listoffigures       %gera página com lista de figuras a partir de todas as entradas feitas no documento
+
+% lista de abreviações
+\listoftables        %gera página com lista de tabelas a partir de todas as entradas feitas no documento
+\input{../2_pre_texto/acronimos}    %chamada de arquivo acronimos.tex
+
+%----Sumário, lista de figura e de tabela ------------
+\tableofcontents      %gera página com sumário a partir de todas as entradas feitas no documento
+
+%--------------Início do Conteúdo---------------------------
+\pagestyle{ruledheader} %estilo abnt2
+\input{../3_texto_princ./introducao}     %chamada de arquivo introducao.tex
+\input{../3_texto_princ./capitulos}      %chamada de arquivo capitulos.tex (desenvolvimento de seu TCC efetivamente)
+
+\input{../3_texto_princ./conclusao}      %chamada de arquivo conclusao.tex 
+%--------------Bibliografia e apêndices--------------------
+\bibliographystyle{abnt-alf}
+\bibliography{../4_pos_texto/bibliografia}     %chamada de arquivo bibliografia.bib
+\input{../4_pos_texto/anexo}		       %chamada de arquivo anexo.tex
+\input{../4_pos_texto/apendice}	               %chamada de arquivo apendice.tex
+\end{document}

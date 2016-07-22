@@ -1,0 +1,328 @@
+\chapter{Introdução}
+\label{cap:introducao1}
+
+
+A acessibilidade é a possibilidade de qualquer pessoa, independentemente de suas capacidades físico-motoras e perceptivas, culturais e sociais, usufruir os benefícios de uma vida. Além disso, a acessibilidade tem como objetivo possibilitar o acesso de pessoas com deficiência permanente ou temporária (e.g., físicas, auditivas, etc.) na sociedade afim de que todas possam participar ativamente.
+
+Para que o objetivo da acessibilidade seja cumprido, é necessário o estudo e criação de alternativas, para que estas pessoas possam contornar ou compensar algum tipo de deficiência que as impeça a sua inserção. Essa demanda motivou o surgimento da \acf{TA}, uma parte da tecnologia que deve ser entendida como um auxílio que promove a ampliação de uma habilidade funcional deficitária ou possibilitar a realização da função desejada e que se encontra impedida. Contudo, ainda são encontradas muitas dificuldades, principalmente pelo tema ser consideravelmente novo, a quantidade de trabalhos científicos relacionado ao tema ainda é pouco expressivo.
+
+Nas diferentes classificações da \ac{TA}, existe a \acf{CAA} que pode ser definida como uma alternativa a comunicação escrita e oral. A \ac{CAA} inicialmente era composta apenas de sistemas sem tecnologia, como libras, cartões e livros. Porém, com o avanço da tecnologia nas últimas décadas, sistemas analógicos e sistemas com recursos computacionais foram aumentando o escopo e as alternativas de \ac{CAA}.
+
+Com uma quantidade expressiva de pessoas com algum tipo de paralisia no Brasil e no mundo, meios alternativos de inclusão são necessários, principalmente meios alternativos disponíveis a população com baixa renda. Um dos objetivos específicos do trabalho é analisar e diferenciar soluções de \ac{CAA} que possibilitam a estimulação cognitiva de pessoas com \acf{PC} em especial as pessoas que possuem habilidades locomotoras limitadas em conjunto com dificuldades na fala. Após esta análise, verificar se é necessária a implementação de uma solução alternativa a essas pessoas. Contudo, esta só pode ser atingida através de estudos sobre \ac{PC} e os requisitos que estas soluções demandam. O principal objetivo do trabalho resume-se em implementar um software para computador alternativo de \ac{CAA} de licença GPL, para que pessoas com \ac{PC} possam ter seus cérebros estimulados cognitivamente. 
+
+A organização deste trabalho está dividida em quatro capítulos, ``Conceitos Básicos'', ''Definição do Problema'', ``Proposta'' e ``Considerações''. No primeiro capítulo são apresentados a quantidade de pessoas com deficiência no Brasil e no mundo, definições e legislação sobre \ac{TA} e \ac{TA} dentro da informática, também é abordado as pessoas que possuem \ac{PC} e seus diferentes casos. Além disso, também estuda-se as principais iniciativas de \ac{TA} pelo mundo e seus termos e classificações. Ao final do capítulo é apresentado as definições de \ac{CAA} os seus recursos e estratégias e quais os termos e classificação que serão utilizados no trabalho.
+
+No segundo capítulo, é definido o problema e os usuários finais da solução. O trabalho nesta parte levanta problemas com a prancha de comunicação, que é a solução atual dos terapeutas, e após isso identifica os requisitos necessários para o desenvolvimento da solução através de entrevista com uma psicóloga especialista em reabilitação de pessoas com \ac{PC}. Ao final são identificados trabalhos correlatos e apresentado uma comparação com base nos requisitos levantados.
+
+No terceiro capítulo, é elaborado uma especificação da proposta, determinando os métodos que serão utilizados para cumprir os requisitos levantados. Através de diagramas das tarefas, diagramas de classe e de estados da solução o trabalho indica quais serão as interações do usuário com a solução. São mencionados também os limitadores e e plano de teste que tem como objetivo fazer com que a solução evolua no decorrer do trabalho. 
+
+\chapter{Conceitos}
+\label{cap:introducao}
+\acresetall
+Ao longo da história em relação às pessoas com deficiência, é possível encontrar uma variedade de termos que foram se modificando ao longo dos anos: ``Inválidos'', ``incapacitados'', ``defeituosos'', ``excepcionais'' são alguns exemplos de termos atribuídos às pessoas com deficiência em diferentes épocas. Os termos são considerados corretos em função de valores e conceitos vigentes em cada sociedade e em cada época, portanto, os termos supracitados foram aceitos, usados e, em dados momentos da história, substituídos. No estudo da evolução do conceito da deficiência encontra-se que, em 1980, a Organização Mundial de Saúde propôs a utilização da CIDID - Classificação das Deficiências, Incapacidades e Desvantagens\cite{cidid} ({\it Handicaps})\footnote{Termo em inglês traduzido como deficiência} com intuito de organizar uma linguagem universal a respeito das deficiências. A implementação de uma nova terminologia, ``pessoas deficientes'', passou a atribuir o valor de pessoa a aqueles que até então eram desconsiderados como tais pela sociedade. Ressalta-se que a revisão dessas nominatas teve a preocupação de centrar-se na pessoa e não na deficiência \cite{fiquene,chagas}.
+
+Segundo a \citeonline{onu}, existem no mundo 1 bilhão de pessoas que possuem algum tipo de deficiência. Segundo o Censo de 2010 \cite{censo} a ocorrência de pessoas com deficiência na população brasileira é de 23,9\% da população. A tabela \ref{tabela_pop} apresenta a distribuição dos tipos de deficiência no Brasil.
+
+
+\begin{table}[bth!]
+\centering
+\scriptsize
+\caption{Distribuição dos tipos de deficiência no Brasil.}\vspace{.2cm}
+
+	
+    \begin{tabular}{ | l | l |}
+		
+    \hline
+    Condição & Porção da População\\ \hline \hline
+    Deficiência Visual & 18,6\%\\ \hline
+		Deficiência Motora & 7\%\\ \hline
+		Deficiência Auditiva & 5,1\%\\ \hline
+		Deficiência Mental ou Intelectual & 1,4\%\\ \hline
+		
+    \end{tabular}
+    \label{tabela_pop}
+		\vspace{0.1cm}\\Fonte: o próprio autor com base no Censo de 2010\cite{censo}.
+
+\end{table}
+
+
+
+A tabela \ref{tabela_pop} mostra que na população brasileira, 18,6\% da população possuem deficiência visual sendo a deficiência mais recorrente entre os brasileiros. A deficiência motora, a segunda com maior recorrência, é apresentada em 7\% da população, seguida da deficiência auditiva com 5,1\%, e das pessoas com deficiência mental que apresentam 1,4\%. Na tabela \ref{tabela_pop} a soma das porcentagens não é igual a 23,9\% pois algumas pessoas possuem mais de uma deficiência citada. Outro fator importante é que 65\% das pessoas que possuem algum tipo de deficiência recebem menos de dois salários mínimos no Brasil\cite{censo}, sendo que 10\% dessas pessoas tem renda de menos da metade de um salário mínimo. 
+
+As pessoas que possuem algum tipo de deficiência sofrem dificuldades ao acesso das necessidades básicas conquistadas pelo ser humano, segundo o Programa de Ação Mundial para Pessoas Deficientes da ONU\cite[p.~11]{onu},
+
+\begin{quotation}''[...] a experiência tem demonstrado que, em grande medida, é o meio que determina o efeito de uma
+incapacidade sobre a vida cotidiana da pessoa. A pessoa vê-se relegada à invalidez quando
+lhe são negadas as oportunidades de que dispõe, em geral, a comunidade, e que são
+necessárias aos aspectos fundamentais da vida, inclusive a vida familiar, a educação, o
+trabalho, a habitação, a segurança econômica e pessoal, a participação em grupos sociais e
+políticos, as atividades religiosas, os relacionamentos afetivos e sexuais, o acesso às
+instalações públicas, a liberdade de movimentação e o estilo geral da vida diária [...]''.
+\end{quotation} 
+
+Neste trabalho é dada ênfase a pessoas com deficiência motoras, mais especificamente as pessoas que possuem \ac{PC}.  A Encefalopatia Crônica da Infância (E.C.I.), também conhecida como \ac{PC}, é uma doença crônica de caráter não evolutivo, que em 90\% das vezes possuem deficiência física. O curso natural das lesões é de longa duração, necessitando a criança de tratamento prolongado. Tem efeitos não apenas sobre o crescimento e o desenvolvimento físico, mas também sobre a destreza, a personalidade, a capacidade cognitiva, as atitudes pessoais e sociais do paciente, as emoções e as interações da família\cite{leite,sa}. Como a \ac{PC} possui diferentes tipos de manifestações e graus da doença, para maior compreendimento das necessidades de pessoas com \ac{PC}, é necessário conhecer os diferentes quadros clínicos da doença. 
+
+
+\section{Quadro Clínico: \acf{PC}}
+
+Existem vários quadros clínicos de pessoas, que possuem \ac{PC}, e podem ser beneficiadas por algum recurso que facilite a sua comunicação com outras pessoas. Neste sentido alguns quadros se encaixam melhor ou pior a determinadas facilidades de comunicação. As possíveis causas da \ac{PC} (e.g., causas pré-natais, perinatais e pós-natais) não serão tratadas, pois não pertencem ao escopo deste trabalho.
+Na observação clínica da \ac{PC}, deve-se levar em consideração a extensão do distúrbio motor, sua intensidade e, principalmente, a caracterização semiológica\footnote{Caracterização semiológica, refere-se a caracterização dos sinais e sintomas da doença.} desse distúrbio\cite{leite}. Assim, a paralisia cerebral apresenta várias formas clínicas que são apresentadas na tabela \ref{tabela}.
+
+\begin{table}[bth!]
+\centering
+\scriptsize
+\caption{Tabela com os diferentes casos de \ac{PC}.}\vspace{.2cm}
+
+	
+    \begin{tabular}{ | l |  p{7cm} | p{5cm} |}
+		
+    \hline
+    Quadro & Descrição das Limitações  & Aplicável recurso de comunicação\\ \hline \hline
+    Hemiplegia &   Sinais de liberação tais como espasticidade , hiper reflexia e sinal de Babinski & Aplicável em alguns graus \\ \hline
+    Hemiplegia bilateral & Tetra ou quadriplagia, dependendo do grau deficiência mental e epilepsia & Aplicável a pacientes com menor grau de lesão \\ \hline
+    Diplegia & Com\-pro\-me\-ti\-men\-to dos membros inferiores, co\-mu\-men\-te evidenciando uma acentuada hipertonia dos adutores & Aplicável em alguns graus \\
+    \hline
+		Discinesia & Movimentos involuntários, ondulantes e repetidos com grande amplitude de movimento e incoordenação motora &  Aplicável em alguns graus \\
+    \hline
+		Ataxia &  Perda de coordenação dos movimentos musculares voluntários & Aplicável em alguns graus \\
+    \hline
+		Formas mistas & Combinação dos quadros anteriores & Casos avaliados individualmente \\
+    \hline
+		
+    \end{tabular}
+    \label{tabela}
+		Fonte: o próprio autor com base \citeonline{leite}.
+
+\end{table}
+
+
+A Tabela {\ref{tabela}} apresenta os diferentes quadros de \ac{PC}. Através dela pode-se perceber que independente do quadro, o grau da lesão de cada paciente com \ac{PC} tem que ser avaliado individualmente, para que se identifique quais são as necessidades de acessibilidade de cada um deles.  Para maiores informações sobre cada quadro clínico, ver Apêndice {\ref{apendice1}.
+
+
+
+%No Brasil existem diversos movimentos sociais, dos mais variados âmbitos,voltados a ajudar as pessoas com deficiências. Tratando-se das pessoas com \ac{PC} os movimentos sociais também são decisivos. No entanto, os recursos normas e leis de acessibilidade ainda que claros, são parcialmente esquecidos pela sociedade e pela falta de investimento e pesquisa na área.As dificuldades encontradas são grandes, pois são poucas as literaturas especializadas e faltam equipamentos acessíveis a esse grupo da população.
+
+\section{Acessibilidade}
+
+A acessibilidade é a possibilidade de qualquer pessoa, independentemente de suas capacidades físico-motoras e perceptivas, culturais e sociais, usufruir os benefícios de uma vida em sociedade. É a possibilidade de participar de todas as atividades, até as que incluem o uso de produtos, serviços e informação, com o mínimo de restrições possível \apud{nicholl,nbr}{unirio}.
+
+As discussões sobre acessibilidade vêm crescendo no Brasil e no mundo \cite{donatangelo}.
+O termo acessibilidade é muito amplo e, de certa forma, complexo de ser definido,
+pois não pode ser entendido apenas como a facilidade de se ter acesso. Contudo, pode-se
+caracterizar, de um modo geral, acessibilidade como sendo um processo dinâmico que visa à
+eliminação de barreiras para que se tenha acesso.
+
+A acessibilidade também é conhecida por ser a possibilidade e condição de alcance para a utilização, com autonomia, simplicidade, eficiência e segurança, dos espaços, mobiliários, das edificações, dos equipamentos urbanos, dos transportes, dos sistemas e meios
+de comunicação e da informática, por qualquer pessoa, sejam elas crianças, adultos, idosos, contendo, ou não, necessidades especiais devido alguma deficiência ou mobilidade reduzida \apud{torres}{donatangelo}. No Brasil há legislação que trata de questões de acessibilidade aos portadores de necessidades especiais. A legislação mais relevante no contexto deste trabalho são:
+\begin{itemize}
+\item Portaria nº 1.679, de dezembro de 1999, dispõe sobre requisitos de acessibilidade de 
+pessoas portadoras de deficiências, para instruir os processos de autorização e de 
+reconhecimento de cursos, e de credenciamento de instituições. 
+ \cite{mec};
+\item Lei nº 10.098, de dezembro de 2000, que, entre outras coisas, estabelece
+normas gerais e critérios básicos para que seja promovida a acessibilidade
+para pessoas com deficiência \cite{brasil}; e
+\item Decreto nº 3.294, de dezembro de 1999, que instituiu o programa
+Sociedade da Informação, na qual um dos objetivos é a universalização do
+acesso à Internet \cite{brasil1}.
+\end{itemize}
+
+
+Com a legislação presente, principalmente pelo decreto nº 3.294 a Acessibilidade ultrapassa as barreiras do espaço físico e chega ao espaço digital. No espaço digital são encontradas muitas dificuldades, entre elas podem ser citadas a falta de
+recursos tecnológicos, a falta de acesso aos recursos existentes e a falta de preocupação em
+disponibilizar a informação de forma clara\apud{torres1}{donatangelo}. A utilização de dispositivos eletrônicos (e.g., computadores, {\it tablets} e { \it smart\-pho\-nes}) e o acesso à Internet permitem aos cidadãos acessarem um conjunto considerável de fontes de informação, estabelecerem contatos e trocarem
+informações, exercerem uma atividade social e encontrarem formas alternativas de lazer e de
+divertimento \apud{abra}{donatangelo}. Para que ocorra o mesmo com pessoas portadoras de algum tipo de deficiência, a acessibilidade na informática é necessária.
+
+
+
+\subsection{Acessibilidade na Informática}
+
+Para que a acessibilidade na informática ocorra, é necessário levar em consideração a redundância, a simplicidade e a facilidade para compreensão da informação\cite{torres}. A web desempenha um papel fundamental no avanço que a Internet representa no cotidiano das pessoas com deficiência, facilitando a vida deles; ela permite que eles criem novas formas de relacionamento, encontrem oportunidades de trabalho e formas alternativas de diversão \cite{torres}.
+
+Atualmente a maioria dos web sites têm barreiras de acessibilidade que dificultam ou mesmo tornam impossível para estas pessoas acessarem sites. Contudo, se os web sites e softwares forem projetados levando em consideração a acessibilidade, estas pessoas poderão usar os sites efetivamente\cite{wc}.
+
+Em maio de 1999 os membros do \ac{W3C} elaboraram o ``Estatuto de Recomendação do \ac{W3C}'' (WCAG 1.0), esse documento constitui a primeira versão das Diretrizes para a Acessibilidade ao Conteúdo da web. Além disso, no Brasil o governo disponibiliza em seu site oficial o \ac{eMAG} \cite{emag} que consiste em um conjunto de recomendações a ser considerado para que o processo de acessibilidade dos sites e portais do governo brasileiro seja conduzido de forma padronizada e de fácil implementação. O \ac{eMAG} é coerente com as necessidades brasileiras e em conformidade com os padrões internacionais. Foi formulado para orientar profissionais que tenham contato com publicação de informações ou serviços na Internet a desenvolver, alterar e ou adequar páginas, web sites e portais, tornando-os acessíveis ao maior número de pessoas possível. 
+
+Apesar de importante, a acessibilidade digital e na web não é tão simples \cite{harrison}. Por exemplo, pessoas com deficiência possuem limitações sensoriais e motoras que devem ser compensadas de alguma forma, a fim de viabilizar o acesso dessas pessoas aos recursos computacionais e, para isso, as organizações necessitam adaptar seu hardware e seus sistemas, a fim de fazer com que um computador possa ser usado por pessoas com deficiência \cite{harrison}. 
+
+A acessibilidade digital, faz com que pessoas, que possuem algum tipo de deficiência, tenham acesso ao conteúdo disponibilizado na web. Porém, ainda existem barreiras em web sites, softwares, e algumas deficiências fazem com que as pessoas tenham limitações sensoriais e/ou motoras. Sendo assim, é necessário um meio de compensar estas dificuldades para garantir o acesso a essas informações.
+
+
+\section{Tecnologia Assistiva}
+\label{Tecnologia Assistiva}
+
+O termo {\it Assistive Technology}, traduzido no Brasil como \ac{TA} ou também conhecido como Ajudas Técnicas, foi adotado no Brasil após ser criado em 1988, como importante elemento jurídico dentro da legislação norte-americana conhecida como {\it Public Law 100-407} e foi renovado em 1998 com o {\it Assistive Technology Act} de 1998. Compõe, com outras leis, o \ac{ADA}, que regula os direitos dos cidadãos com deficiência nos Estado Unidos da América, além de regulamentar o uso de verbas para incentivos e projetos de auxílio a pessoas com deficiências \cite{romeu,lima}.
+
+A \ac{TA} deve ser entendida como um auxílio que promove a ampliação de uma habilidade funcional deficitária ou possibilitar a realização da função desejada e que se encontra impedida por circunstância de deficiência, limitações ou pelo envelhecimento. A \ac{TA} está inserida como uma diretriz da tecnologia, possibilitando que pessoas com deficiência possam interagir com  a sociedade não apenas se comunicando, mas participando ativamente do meio em que vivem \cite{radabaugh,bersch}. Para que esses objetivos sejam alcançados o serviço de Tecnologia Assistiva necessita contemplar\cite{bersch}:
+\begin{itemize}
+\item A avaliação do caso clínico de cada paciente;
+\item A seleção do recurso mais apropriado a cada caso;
+\item O ensino do usuário sobre a utilização de seu recurso;
+\item O acompanhamento durante a implementação da TA no contexto de vida real; e
+\item As reavaliações e ajustes no processo. 
+\end{itemize}
+
+Como existem vários recursos de \ac{TA} no mercado, é atribuição do prestador de serviço de \ac{TA} conhecer e orientar o usuário quanto aos recursos gratuitos e oferecidos pelo governo, e recursos particulares, os oferecidos por empresas que atuam no desenvolvimento de recursos de \ac{TA}. A equipe de profissionais envolvidos na coordenação do serviço de TA pode variar, dependendo da característica deste serviço, da modalidade de TA que se é proposto a orientar e colocar em prática, e também do local o qual o paciente está inserido\cite{bersch}:
+
+\begin{itemize} 
+\item Sala de recursos multifuncionais dentro de uma escola;
+\item Centro de reabilitação;
+\item Universidade com serviço especializado e pesquisa na área da comunicação alternativa;
+\item Serviço de arquitetura especializado em acessibilidade ambiental;
+\item Centro formador de para-atletas; e
+\item Um serviço de reabilitação profissional. 
+\end{itemize}
+
+A \ac{TA} engloba as áreas de \ac{CAA}, mobilidade alternativa, adaptações ao acesso ao computador,  equipamentos de auxílio a visão e au\-di\-ção, a\-da\-pta\-ções de jogos e brincadeiras, adaptações da postura sentada, próteses e a integração dessa tecnologia nos diferentes ambientes (e.g., casa, escola e trabalho)\apud{gill}{pelosi1}. O Brasil utiliza as diretrizes da \ac{ADA} como base para a classificação de \ac{TA}, e utiliza também a classificação da norma ISO 9999:2011(Anexo~\ref{iso9999}), porém o \ac{CAT} concluiu que não existe uma única forma de classificar Tecnologia Assistiva. As várias classificações existentes são aplicadas de acordo com os objetivos de catalogação de recursos, ensino, trocas de informação, organização de serviços de aconselhamento e concessão \cite{corde}. O importante é ter claro o conceito de \ac{TA} supracitada e os objetivos para os quais as classificações foram criadas. Existem diferentes tipos de equipamentos para auxílio de pessoas com deficiência separados em algumas categorias pelas diretrizes da \ac{ADA} \cite{pelosi1}:
+
+\input{../3_texto_princ./classificacao}
+
+Já segundo a norma ISO 9999:2011(Anexo~\ref{iso9999}), a classificação das \ac{TA} se divide em categorias semelhante as diretrizes da \ac{ADA} porém são mais específicas. Para fins teóricos, é utilizado no trabalho a classificação com base nas diretrizes da \ac{ADA} porque além da ISO 9999:2011 não incluir produtos e equipamentos usados exclusivamente por profissionais de saúde e dispositivos implantados, a classificação \ac{ADA} apresenta um grupo de serviços de \ac{TA} que promove o apoio à avaliação da pessoa com deficiência, o desenvolvimento e personalização de recursos, a integração da \ac{TA} com ação e objetivos educacionais e de reabilitação, e os apoios legais de concessão \cite{corde}.
+
+
+Uma pesquisa do \ac{W3C} \cite{wc} brasileiro aponta que das pessoas que usam aparelhos de \ac{TA}, 85\% é o computador o dispositivo mais usado, seguido do celular, {\it smarthphone} com 9\%, {\it tablet} com 2\%, e outros dispositivos com 4\%. Sendo cada vez mais necessário que existam opções para esse tipo de público dentro do acesso a informação.
+
+A \ac{TA} faz parte da tecnologia, é a parte que auxilia a integração das pessoas que possuem algum tipo de deficiência. É uma área que envolve grandes porções da população, e que necessita de um cuidado especial, pois envolve além da pessoa com deficiência, as pessoas nos ambientes em que ela está inserida.
+
+\subsection{Legislação específica de \acf{TA}}
+
+Em relação a legislação de \ac{TA} alguns decretos são relevantes, entre eles a promulgação do Decreto 3.298 
+de 1999, que no artigo 19, fala do direito do cidadão brasileiro com deficiência às \ac{TA}. 
+Nele consta que\cite{lima} (ver anexo {\ref{decreto1}}): 
+\begin{quotation}
+``Consideram-se ajudas técnicas, para os efeitos deste Decreto, os elementos que permitem 
+compensar uma ou mais limitações funcionais motoras, sensoriais ou mentais da pessoa 
+portadora de deficiência, com o objetivo de permitir-lhe superar as barreiras da comunicação e da 
+mobilidade e de possibilitar sua plena inclusão social. 
+Parágrafo único. São ajudas técnicas:[...]elementos especiais para facilitar a comunicação, a informação e a sinalização para 
+pessoa portadora de deficiência[...]``
+\end{quotation}
+
+O artigo 19 generaliza o termo Ajudas Técnicas a todos os elementos que compensam limitações do ser humano, porém sem caracterização ou classificação objetiva de tais ajudas. Também relevante, o decreto 5.296 de 2002, que dá prioridade de atendimento e estabelece normas gerais e critérios básicos para a promoção da acessibilidade das pessoas com deficiência ou com 
+mobilidade reduzida, possui um capítulo específico sobre as ajudas técnicas no qual descreve 
+várias intenções governamentais na área da \ac{TA}, além de referir a constituição do 
+\ac{CAT}. Neste decreto encontra-se que\cite{lima}: 
+\begin{quotation}
+``Consideram-se ajudas técnicas os produtos, instrumentos, equipamentos ou tecnologia 
+adaptados ou especialmente projetados para melhorar a funcionalidade de pessoas portadoras de  
+deficiência, com habilidade reduzida favorecendo autonomia pessoal, total ou assistida" .
+\end{quotation}
+
+No decreto 5.296\cite{cata} a legislação cita ao invés da compensação como no artigo 19, a autonomia total ou assistida das pessoas com deficiência. Embora esse Comitê leve a expressão ``Ajudas Técnicas'' em sua 
+denominação, também porque é a expressão prevista na legislação brasileira, 
+os estudos desenvolvidos apontam e sugerem que as expressões 
+``Tecnologia Assistiva'', ``Ajudas Técnicas'' e ``Tecnologia de Apoio'', neste 
+momento, continuem sendo entendidas como sinônimos e que correspondam 
+às bases conceituais aprovadas pelo Comitê. Entretanto, estabelece a 
+utilização única da expressão ``Tecnologia Assistiva'' em seus documentos, 
+como a mais apropriada, pelos seguintes motivos \apud{cata}{galvao}: 
+\begin{itemize}
+ 
+\item Por ser uma tendência nacional já firmada no meio acadêmico, nas 
+organizações de pessoas com deficiência, em setores governamentais 
+(Ministério MEC da Educação, Ministério da Ciência e Tecnologia (MCT), Conselho Nacional de Desenvolvimento Científico e Tecnológico CNPq), Institutos de Pesquisa (ITS Brasil) e no mercado de produtos; 
+ 
+\item Pelo primeiro objetivo do Comitê de Ajudas Técnicas, explícito no Artigo 
+66 do Decreto 5296/2004, relativo à estruturação das diretrizes da área 
+do conhecimento. A expressão Tecnologia Assistiva seria a mais 
+compatível como a denominação de uma área de conhecimento, a ser 
+oficialmente reconhecida; e
+ 
+\item Por ser uma expressão bastante específica ao conceito ao qual 
+representa, diferentemente das expressões ``Ajudas Técnicas'' e 
+``Tecnologia de Apoio'', que são mais genéricas e também utilizadas para 
+referirem-se a outros conceitos e realidades diferentes. 
+\end{itemize}
+
+Conforme votado e aprovado por unanimidade na quinta Reunião desse Comitê, além da determinação de utilização única da expressão Tecnologia Assistiva, foi decidido também que essa expressão seja utilizada no singular, por referir-se a uma área do conhecimento e sugere-se que se façam os possíveis encaminhamentos para a revisão da nomenclatura em 
+instrumentos legais no país. Este mesmo Comitê de Ajudas Técnicas também aprovou, na sua terceira Reunião de abril de 2007, as bases conceituais que situam a Tecnologia Assistiva nos seguintes marcos \cite{cata,catb}: 
+
+\begin{itemize}
+\item Área do Conhecimento;
+\item Multidisciplinariedade;
+\item Objetivos: promover a funcionalidade (atividade, participação) de 
+pessoas com deficiência, mobilidade reduzida, ou idosas, visando sua 
+autonomia, independência, qualidade de vida e inclusão social; 
+\item Composição: produtos, recursos, estratégias, práticas, processos, 
+métodos e serviços; e 
+\item Ter presente os princípios do {\it Universal Design}\footnote{O conceito de Desenho Universal, ou ``{\it Universal Design}'', ou também chamado ``Desenho para todos'', é estudado a partir de alguns princípios tais como: equiparação nas possibilidades de uso; flexibilidade no uso; uso simples e intuitivo; captação da informação; tolerância ao erro: mínimo esforço físico; dimensão e espaço para uso e interação \cite{sepro}} e ITS BRASIL (Instituto de Tecnologia Social).
+
+\end{itemize}
+
+Apesar de uma iniciativa e uma legislação recente os assuntos acessibilidade e ajudas técnicas vem entrando no cotidiano dos brasileiros, pois há uma cobrança da parte governamental. Porém, ainda existe uma deficiência em normas e na própria legislação que regulamente as \ac{TA} principalmente na parte de classificação e exigências.
+
+\subsection{Iniciativas de \ac{TA}}
+\label{iniciativas}
+
+Existem várias iniciativas de \ac{TA} pelo mundo, como a  Fundação SIDAR\cite{sidar} ({\it Seminario Iberoamericano sobre Diversidad y Accesibilidad en la Red}) que é uma instituição de observação e recomendação na área da acessibilidade e inclusão digital para os territórios ibero-americanos, a ATI\cite{ati} ({\it Assistive Technology Initiative}) na Universidade De George Mason na Virgínia nos Estado Unidos, o INCNESI\cite{incnesi} (Iniciativa Nacional para os Cidadãos com Necessidades Especiais na Sociedade da Informação) que incentiva o uso de equipamentos para pessoas com deficiência em Portugal. 
+
+Ainda no âmbito europeu, em 1999 foi organizado o Consório \ac{EUSTAT} que desenvolveu um estudo entre 1997 e 1999, no contexto do Programa de Aplicações Telemáticas da Comissão Europeia, destinado a formação de usuários finais de \ac{TA}, envolvendo pessoas com deficiência ou idosos, seus familiares e profissionais assistentes pessoais, para que os mesmos pudessem fazer escolhas informadas, adequadas e responsáveis em relação a essas tecnologias. Esse estudo parte do princípio de que é fundamental a participação de usuário final como parceiro ativo na escolha das \ac{TA} que utiliza\cite{galvao}.
+
+São parceiros do Consórcio \ac{EUSTAT} as seguintes organizações \cite{eustat}:
+
+\begin{itemize}
+
+\item SIVA {\it Servizio Informacione e Valutazione Ausili da Fondazione Dom Carlo Ghocchi Onlus}, da Itália. Possui um centro de Inovação e Transferência de Tecnologia, que incentiva projetos para autonomia de pessoas com deficiências;
+
+\item CAPS  Centro de Análise e Processamento de Sinais, do Instituto Superior Técnico de Lisboa, Portugal;
+
+\item \it{Association Nationale pour le Logement des personnes handicapées}, da Bélgica;
+
+\item \it{Groupement pour l´insertion des personnes handicapées physiques}, da França;
+
+\item \it{Danish Centre for Technical Aids for Rehabilitation and Education}, da Dinamarca; e
+
+\item \it{Centro Studi Prisma}, da Itália.
+
+\end{itemize}
+
+Os estudos que são parceiros do consórcio, são centros de referência em \ac{TA} na Europa, juntas são responsáveis por uma parte considerável de publicações, dispositivos, sobre \ac{TA}. O Consórcio EUSTAT recomenda a classificação \ac{HEART} que propõe três grandes áreas de formação em 
+relação às \ac{TA}:
+\begin{itemize} 
+\item Componentes técnicos;
+\item Componentes humanos; e
+\item Componentes socioeconômicos.
+\end{itemize}
+
+Essa classificação tem ganhado força na atualidade, principalmente em decorrência do paradigma inclusivo, o qual desloca as limitações de funcionalidade e possibilidades de participação do âmbito restrito à deficiência em si, para situá-las a partir das barreiras impostas pelo ambiente físico e social\cite{rodrigues}. Como não foi encontrado uma padronização mundial para a definição de \ac{TA} as diferentes iniciativas encontradas se relacionam na tabela \ref{tabeladois}.
+
+\begin{table}[bth!]
+\centering
+\scriptsize
+\caption{Tabela com as diferenças de Iniciativas de \ac{TA} encontradas.}\vspace{.2cm}
+ \begin{tabular}{|p{2cm} |  p{3.9cm} | p{3cm} | p{4cm}| }
+    \hline
+    País & Termo Utilizado (Tradução) & Classificação & Definição \\ \hline
+    Brasil & Tecnologia Assistiva, Ajudas Técnicas &Ca\-te\-go\-ri\-as relativas aos e\-qui\-pa\-men\-tos & Melhorar as pessoas com deficiência e mobilidade re\-du\-zi\-da \\ \hline
+    EUTSTAT & Ajudas Técnicas e Tecnologia de Apoio & Classificação por componentes& Compensar as pessoas com deficiência e idosas \\ \hline
+    ADA & {\it Assistive Technology} (Tecnologia Assistiva) & Trata as situações & Ajudas aos indivíduos com deficiência em situações es\-pe\-cí\-fi\-cas \\ \hline	
+		\end{tabular}
+    \label{tabeladois}
+		\\Fonte: o próprio autor.
+
+\end{table}
+
+A tabela {\ref{tabeladois}} mostra as diferenças das três iniciativas mais relevantes encontradas. Apesar da mudança de termos, as iniciativas não possuem grandes diferenças entre si. A classificação da \ac{TA} é o único fator que diferencia nas iniciativas. Porém, a relevância da mudança é pequena, em relação a as ajudas às pessoas com deficiência.
+
+
+\section{Comunicação Alternativa Ampliada (CAA)}
+
+Na \ac{TA}, como mencionado anteriormente na seção {\ref{Tecnologia Assistiva}} se divide em algumas classificações, dentro delas temos a \ac{CAA}, que é linha de pesquisa adotada neste trabalho. A \ac{CAA} abrange qualquer meio de comunicação que suplemente ou substitua os métodos naturais de fala ou escrita. É um meio que auxilia a comunicação de um indivíduo com outras pessoas. Os sistemas de \ac{CAA} podem ser divididos em pictoriais\footnote{Os sistemas pictoriais representam os referentes por analogia física e não por convenção arbitrária, o que lhes confere iconicidade e clareza denotativa, sendo bem compreendidos, aprendidos e lembrados por crianças, estrangeiros e cérebro-lesados. Contudo, o universo de significados que podem representar restringe-se ao imaginável \cite{fernando}.} e simbólicos\footnote{Os sistemas simbólicos representam referentes por convenções arbitrárias, usando regras de recombinação e sintaxe específica, o que resulta em opacidade denotativa, mas lhes permite representar virtualmente qualquer conceito, imaginável ou não \cite{fernando}.} podendo ser de alta tecnologia (e.g., sistemas computadorizados, e softwares especiais) e baixa tecnologia (e.g., simples, e não elétricos) \cite{leydi}.
+
+A \ac{CAA} é definida como uma maneira alternativa à comunicação oral e escrita que compreende o uso de gestos, sinais manuais, expressões faciais, pranchas com símbolos pictográficos, pranchas de alfabeto, comunicadores de voz gravada ou sintetizada até sistemas sofisticados de computador \apud{glennen}{correia}. Inicialmente eram utilizados sistemas sem tecnologia, recorrendo apenas ao corpo humano, como a linguagem por sinais (e.g., libras) passando pelos sistemas analógicos ou de baixa tecnologia (e.g., cartões e livros com símbolos e imagens) até sistemas baseados em recursos computacionais (e.g., vocalizadores, e softwares para computador com síntese de voz) \apud{worthy}{correia}.
+
+O trabalho da \ac{CAA} engloba uma série de símbolos, recursos, estratégias e técnicas para auxiliar o desenvolvimento de uma comunicação complementar. Os símbolos são as representações visuais, auditivas ou táteis de um conceito; os recursos são os objetos ou equipamentos utilizados para transmitir as mensagens que podem ser pranchas de comunicação, os comunicadores ou o computador; as técnicas são as formas como as mensagens são transmitidas e as estratégias referem-se ao modo como os recursos da \ac{CA} são utilizados \apud{king}{pelosi2}.
+
+Como o foco deste trabalho é encontrar uma solução alternativa a pessoas que possuem deficiência na fala, em conjunto com deficiência motora (quadros tabela clínicos), a \ac{CAA} é a abordagem encontrada que melhor se encaixa neste contexto. Pois a \ac{CAA} utiliza estratégias e técnicas para o desenvolvimento de uma comunicação complementar, que auxiliam a suplementação ou substituição da forma natural de comunicação.
+
+
+\section{Considerações do Capítulo}
+
+Com a pesquisa realizada no capítulo {\ref{cap:introducao}}, fica evidenciado que pessoas com necessidades especiais, precisam de recursos que supram ou compensem suas deficiências para que possam ser inseridas na sociedade. Apesar de uma porção considerável da população mundial possuir algum tipo de deficiência, os estudos e legislação sobre a \ac{TA} são consideravelmente recentes.
+	
+Além disso, vale ressaltar a importância de que se desenvolva mais soluções de \ac{TA}, principalmente acessíveis, e que os desenvolvedores, se preocupem com o ambiente em que esta pessoa está inserida e as pessoas com as quais ela irá interagir. Foram necessários conhecimentos sobre \ac{TA}, \ac{CAA} e acessibilidade para que se entenda o foco deste trabalho que visa encontrar uma solução alternativa de \ac{CAA} para pessoas que possuem \ac{PC} que apresentam deficiência motora e de fala.
+	
+Este trabalho se enquadra na Lei no 10.098, de dezembro de 2000 que estabelece critérios como o artigo 17 que garante direito de comunicação e expressão por mecanismos, ou alternativas técnicas. Além disso, se enquadra também, no Decreto 5296/2004, Artigo 66 do Comitê de Ajudas Técnicas, no qual estabelece o termo \acf{TA} como a denominação mais compatível ao tema.
+
+O trabalho também pode ser classificado nas diretrizes da \ac{ADA} como um trabalho no contexto de \acf{CAA}. Já na norma ISO 9999:2011 na subcategoria, Produtos de Apoio para Treino de Comunicação Alternativa e Aumentativa, código 05 06 27, categoria Produtos de apoio para treino de comunicação com imagens e desenhos.

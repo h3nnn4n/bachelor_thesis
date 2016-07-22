@@ -1,0 +1,3 @@
+ 
+Para melhor acompanhamento do trabalho desenvolvido pelo acadêmico em conjunto com o seu orientador. Use como base a sugestão presente nesta pasta para os capítulos. 
+Fazendo-os separadamente para que fique assim mais fácil revisar as partes do projeto e organizar o trabalho como um todo.
