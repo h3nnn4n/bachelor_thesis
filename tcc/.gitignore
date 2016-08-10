@@ -5,3 +5,7 @@
 *.bbl
 *.blg
 *.out
+*.toc
+*.idx
+*.lot
+*.lof
