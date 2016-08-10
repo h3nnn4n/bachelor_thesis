@@ -1,10 +1,26 @@
 \documentclass[11pt]{article}
 
+\usepackage{luatextra}
+\defaultfontfeatures{Ligatures=TeX}
+%\usepackage{fontspec}
+
+
 \usepackage[portuges]{babel}
-\usepackage[latin1]{inputenc}
+%\usepackage{fontspec}
+%\usepackage[T1]{fontenc}
+%\usepackage[latin1]{inputenc}
 %\usepackage[utf8]{inputenc}
 
 \usepackage{microtype}
+
+% GRAPH STUFF
+\usepackage{tikz}
+\usetikzlibrary{graphdrawing}
+\usetikzlibrary{graphs}
+\usetikzlibrary{shapes}
+\usetikzlibrary{snakes}
+\usegdlibrary{trees}
+% END OF GRAPH STUFF
 
 %\usepackage[alf]{abntcite}
 
@@ -176,11 +192,112 @@ capaz de sequencialmente reduzir o número de colunas a serem utilizados: \textbf
 \end{align}
 
 O método de geração de colunas consiste em um processo onde o problema com um grande número de variáveis é decomposto em
-dois problemas. O problema mestre, que é igual ao original, porém com um conjunto reduzido de variáveis. E o sub-problema,
+dois problemas. O problema mestre, que é igual ao original, porém, com um conjunto reduzido de variáveis. E o sub-problema,
 que é utilizado para identificar quais varíaveis são necessárias para obter-se a solução ótima do problema original. O processo
 de solução com geração de colunas consiste em criar-se um problema mestre, otimizar a sua relaxação linear, e utilizar
 as varáveis duais do problema mestre juntamente com o sub-problema para indentificar se o problema mestre necessita da geração
 de novas colunas ou se ele corresponde ao ótimo do problema original.
+
+Para a geração de colunas, dado o conjunto $J$ de todas as jornadas (que na prática está codificado na matriz $A$),
+utiliza-se um conjunto reduzido $\tilde{J} \subseteq J$. O problema mestre é dado por~\eqref{sppm1},~\eqref{sppm2} e~\eqref{sppm3}.
+Após a solução da relaxação linear do problema mestre, utiliza-se as variáveis duais em um subproblema para determinar
+se alguma jornada pode melhorar o resultado atual. Este processo é denominado de \textit{pricing}. No caso do CSP, pode-se
+apresentar o conjunto de tarefas como vértices em um grafo e liga-los com arestas direcionadas para indicar a ordem
+que as tarefas podem ser executadas. Toda jornada é então um caminho neste grafo. A tabela~\ref{tab_csp} contém uma
+instância de CSP e a figura~\ref{fig_csp} apresenta o grafo associado ao problema.
+
+\begin{align}
+    \label{sppm1} \text{min} \: \sum_{j \in \tilde{J}} c_j x_j \\
+    \label{sppm2} \sum_{j \in \tilde{J}} a_{tj} x_j = 1, \forall t \in T \\
+    \label{sppm3} x_j \in \{0, 1\}, \forall j \in \tilde{J}
+\end{align}
+
+\begin{table}[htpb]
+    \centering
+    \begin{tabular}{|c|c|c|} \hline
+        tarefa   & Início & Fim \\ \hline
+        tarefa 1 & 1      & 10 \\ \hline
+        tarefa 2 & 1      & 4  \\ \hline
+        tarefa 3 & 11     & 14 \\ \hline
+        tarefa 4 & 6      & 10 \\ \hline
+        tarefa 5 & 11     & 15 \\ \hline
+    \end{tabular}
+    \caption{Instância do CSP}
+    \label{tab_csp}
+\end{table}
+
+\tikzstyle{block}    = [draw, rectangle]
+\tikzstyle{circloas} = [circle, draw=black]
+\tikzstyle{nome}     = [anchor=west]
+
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}
+        \tikzstyle{every node}=[font=\small]
+        %\draw [help lines] (0,0) grid (10,8);
+        % nodes %
+        \node[block]                at ( 5,  7) (a) { Problema };
+
+        \node[block]                at ( 3,  6) (b) { \'Unico objetivo };
+        \node[block]                at ( 7,  6) (c) { Multiplos objetivos };
+
+        \node[block]                at ( 3,  5) (d) { Restrito };
+        \node[block]                at ( 7,  5) (e) { Irrestrito };
+
+        \node[block]                at ( 2,  4) (f) { Continuo };
+        \node[block]                at ( 5,  4) (g) { Discreto };
+        \node[block]                at ( 8,  4) (h) { Misto };
+
+        \node[block, align=center]  at ( 2,   2.5) (i) { Linear  };
+        \node[block, align=center]  at ( 3.9, 2) (j) { N\~ao linear };
+        \node[block, align=center]  at ( 6.1, 2) (k) { Convexo } ;
+        \node[block, align=center]  at ( 8,   2.5) (l) { N\~ao convexo};
+        %\node[block, align=center]  at ( 8, -1) (k) { Diferenci\'avel ou \\ n\~ao diferenci\'avel };
+
+        \node[circloas]             at ( 5,  3) (z) {};
+
+        \node[nome, align=left]     at (-3,  7) (m) { N\'ivel 1: Problema\\ Geral};
+        \node[nome, align=left]     at (-3,  6) (n) { N\'ivel 2: Classifica\c{c}\~ao\\ do objetivo};
+        \node[nome, align=left]     at (-3,  5) (o) { N\'ivel 3: Classifica\c{c}\~ao\\ do problema};
+        \node[nome, align=left]     at (-3,  4) (p) { N\'ivel 4: Classifica\c{c}\~ao\\ da vari\'avel};
+        \node[nome, align=left]     at (-3,  2.35) (q) { N\'ivel 5: Classifica\c{c}\~ao\\ da fun\c{c}\~ao};
+
+        %\node[nome, align=left]     at (-3,  8) (m) { N\'ivel 1: Problema\\ Geral};
+        %\node[nome, align=left]     at (-3,  6) (n) { N\'ivel 2: Classifica\c{c}\~ao\\ do objetivo};
+        %\node[nome, align=left]     at (-3,  4) (o) { N\'ivel 3: Classifica\c{c}\~ao\\ do problema};
+        %\node[nome, align=left]     at (-3,  2) (p) { N\'ivel 4: Classifica\c{c}\~ao\\ da vari\'avel};
+        %\node[nome, align=left]     at (-3, -1) (q) { N\'ivel 5: Classifica\c{c}\~ao\\ da fun\c{c}\~ao};
+
+        % edges %
+        \draw[        ->, line width = 2] (a) -- node[above,font=\footnotesize]{$ $} (b);
+        \draw[dashed, ->, line width = 1] (a) -- node[above,font=\footnotesize]{$ $} (c);
+
+        \draw[        ->, line width = 2] (b) -- node[above,font=\footnotesize]{$ $} (d);
+        \draw[dashed, ->, line width = 1] (b) -- node[above,font=\footnotesize]{$ $} (e);
+        \draw[dashed, ->, line width = 1] (c) -- node[above,font=\footnotesize]{$ $} (d);
+        \draw[dashed, ->, line width = 1] (c) -- node[above,font=\footnotesize]{$ $} (e);
+
+        \draw[dashed, ->, line width = 1] (d) -- node[above,font=\footnotesize]{$ $} (f);
+        \draw[        ->, line width = 2] (d) -- node[above,font=\footnotesize]{$ $} (g);
+        \draw[        ->, line width = 2] (d) -- node[above,font=\footnotesize]{$ $} (h);
+
+        \draw[dashed, ->, line width = 1] (e) -- node[above,font=\footnotesize]{$ $} (f);
+        \draw[dashed, ->, line width = 1] (e) -- node[above,font=\footnotesize]{$ $} (g);
+        \draw[dashed, ->, line width = 1] (e) -- node[above,font=\footnotesize]{$ $} (h);
+
+        \draw[dashed, ->, line width = 1] (f) -- node[above,font=\footnotesize]{$ $} (z);
+        \draw[        ->, line width = 2] (g) -- node[above,font=\footnotesize]{$ $} (z);
+        \draw[        ->, line width = 2] (h) -- node[above,font=\footnotesize]{$ $} (z);
+
+        \draw[        ->, line width = 2] (z) -- node[above,font=\footnotesize]{$ $} (i);
+        \draw[dashed, ->, line width = 1] (z) -- node[above,font=\footnotesize]{$ $} (j);
+        \draw[        ->, line width = 2] (z) -- node[above,font=\footnotesize]{$ $} (k);
+        \draw[dashed, ->, line width = 1] (z) -- node[above,font=\footnotesize]{$ $} (l);
+
+    \end{tikzpicture}
+    \caption{Name}
+    \label{fig_csp}
+\end{figure}
 
 Alem do método de geração de colunas, outros métodos também são utilizados na literatura, tais como: algoritmos genéticos~\cite{doalgoritmos},
 \textit{multi-start randomized heuristic}~\cite{de2016multi}, \textit{particle swarm optimization}~\cite{limlawan2014hybrid},
