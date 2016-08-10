@@ -1,8 +1,8 @@
 \documentclass[11pt]{article}
 
-\usepackage{luatextra}
-\defaultfontfeatures{Ligatures=TeX}
-\usepackage{fontspec}
+%\usepackage{luatextra}
+%\defaultfontfeatures{Ligatures=TeX}
+%\usepackage{fontspec}
 
 
 \usepackage[portuges]{babel}
@@ -14,12 +14,12 @@
 \usepackage{microtype}
 
 % GRAPH STUFF
-\usepackage{tikz}
-\usetikzlibrary{graphdrawing}
-\usetikzlibrary{graphs}
-\usetikzlibrary{shapes}
-\usetikzlibrary{snakes}
-\usegdlibrary{trees}
+%\usepackage{tikz}
+%\usetikzlibrary{graphdrawing}
+%\usetikzlibrary{graphs}
+%\usetikzlibrary{shapes}
+%\usetikzlibrary{snakes}
+%\usegdlibrary{trees}
 % END OF GRAPH STUFF
 
 %\usepackage[alf]{abntcite}
@@ -226,78 +226,13 @@ instância de CSP e a figura~\ref{fig_csp} apresenta o grafo associado ao problem
     \label{tab_csp}
 \end{table}
 
-\tikzstyle{block}    = [draw, rectangle]
-\tikzstyle{circloas} = [circle, draw=black]
-\tikzstyle{nome}     = [anchor=west]
-
-\begin{figure}[h!]
+\begin{figure}[htpb]
     \centering
-    \begin{tikzpicture}
-        \tikzstyle{every node}=[font=\small]
-        %\draw [help lines] (0,0) grid (10,8);
-        % nodes %
-        \node[block]                at ( 5,  7) (a) { Problema };
-
-        \node[block]                at ( 3,  6) (b) { \'Unico objetivo };
-        \node[block]                at ( 7,  6) (c) { Multiplos objetivos };
-
-        \node[block]                at ( 3,  5) (d) { Restrito };
-        \node[block]                at ( 7,  5) (e) { Irrestrito };
-
-        \node[block]                at ( 2,  4) (f) { Continuo };
-        \node[block]                at ( 5,  4) (g) { Discreto };
-        \node[block]                at ( 8,  4) (h) { Misto };
-
-        \node[block, align=center]  at ( 2,   2.5) (i) { Linear  };
-        \node[block, align=center]  at ( 3.9, 2) (j) { N\~ao linear };
-        \node[block, align=center]  at ( 6.1, 2) (k) { Convexo } ;
-        \node[block, align=center]  at ( 8,   2.5) (l) { N\~ao convexo};
-        %\node[block, align=center]  at ( 8, -1) (k) { Diferenci\'avel ou \\ n\~ao diferenci\'avel };
-
-        \node[circloas]             at ( 5,  3) (z) {};
-
-        \node[nome, align=left]     at (-3,  7) (m) { N\'ivel 1: Problema\\ Geral};
-        \node[nome, align=left]     at (-3,  6) (n) { N\'ivel 2: Classifica\c{c}\~ao\\ do objetivo};
-        \node[nome, align=left]     at (-3,  5) (o) { N\'ivel 3: Classifica\c{c}\~ao\\ do problema};
-        \node[nome, align=left]     at (-3,  4) (p) { N\'ivel 4: Classifica\c{c}\~ao\\ da vari\'avel};
-        \node[nome, align=left]     at (-3,  2.35) (q) { N\'ivel 5: Classifica\c{c}\~ao\\ da fun\c{c}\~ao};
-
-        %\node[nome, align=left]     at (-3,  8) (m) { N\'ivel 1: Problema\\ Geral};
-        %\node[nome, align=left]     at (-3,  6) (n) { N\'ivel 2: Classifica\c{c}\~ao\\ do objetivo};
-        %\node[nome, align=left]     at (-3,  4) (o) { N\'ivel 3: Classifica\c{c}\~ao\\ do problema};
-        %\node[nome, align=left]     at (-3,  2) (p) { N\'ivel 4: Classifica\c{c}\~ao\\ da vari\'avel};
-        %\node[nome, align=left]     at (-3, -1) (q) { N\'ivel 5: Classifica\c{c}\~ao\\ da fun\c{c}\~ao};
-
-        % edges %
-        \draw[        ->, line width = 2] (a) -- node[above,font=\footnotesize]{$ $} (b);
-        \draw[dashed, ->, line width = 1] (a) -- node[above,font=\footnotesize]{$ $} (c);
-
-        \draw[        ->, line width = 2] (b) -- node[above,font=\footnotesize]{$ $} (d);
-        \draw[dashed, ->, line width = 1] (b) -- node[above,font=\footnotesize]{$ $} (e);
-        \draw[dashed, ->, line width = 1] (c) -- node[above,font=\footnotesize]{$ $} (d);
-        \draw[dashed, ->, line width = 1] (c) -- node[above,font=\footnotesize]{$ $} (e);
-
-        \draw[dashed, ->, line width = 1] (d) -- node[above,font=\footnotesize]{$ $} (f);
-        \draw[        ->, line width = 2] (d) -- node[above,font=\footnotesize]{$ $} (g);
-        \draw[        ->, line width = 2] (d) -- node[above,font=\footnotesize]{$ $} (h);
-
-        \draw[dashed, ->, line width = 1] (e) -- node[above,font=\footnotesize]{$ $} (f);
-        \draw[dashed, ->, line width = 1] (e) -- node[above,font=\footnotesize]{$ $} (g);
-        \draw[dashed, ->, line width = 1] (e) -- node[above,font=\footnotesize]{$ $} (h);
-
-        \draw[dashed, ->, line width = 1] (f) -- node[above,font=\footnotesize]{$ $} (z);
-        \draw[        ->, line width = 2] (g) -- node[above,font=\footnotesize]{$ $} (z);
-        \draw[        ->, line width = 2] (h) -- node[above,font=\footnotesize]{$ $} (z);
-
-        \draw[        ->, line width = 2] (z) -- node[above,font=\footnotesize]{$ $} (i);
-        \draw[dashed, ->, line width = 1] (z) -- node[above,font=\footnotesize]{$ $} (j);
-        \draw[        ->, line width = 2] (z) -- node[above,font=\footnotesize]{$ $} (k);
-        \draw[dashed, ->, line width = 1] (z) -- node[above,font=\footnotesize]{$ $} (l);
-
-    \end{tikzpicture}
-    \caption{Name}
-    \label{fig_csp}
+    \includegraphics[width=0.8\linewidth]{graph.pdf}
+    \caption{Graph}
+    \label{fig:graph}
 \end{figure}
+
 
 Alem do método de geração de colunas, outros métodos também são utilizados na literatura, tais como: algoritmos genéticos~\cite{doalgoritmos},
 \textit{multi-start randomized heuristic}~\cite{de2016multi}, \textit{particle swarm optimization}~\cite{limlawan2014hybrid},
