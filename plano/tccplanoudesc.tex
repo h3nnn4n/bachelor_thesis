@@ -212,27 +212,28 @@ instância de CSP e a figura~\ref{fig_csp} apresenta o grafo associado ao problem
     \label{sppm3} x_j \in \{0, 1\}, \forall j \in \tilde{J}
 \end{align}
 
-\begin{table}[htpb]
+\begin{figure}[!htb]
     \centering
-    \begin{tabular}{|c|c|c|} \hline
-        tarefa   & Início & Fim \\ \hline
-        tarefa 1 & 1      & 10 \\ \hline
-        tarefa 2 & 1      & 4  \\ \hline
-        tarefa 3 & 11     & 14 \\ \hline
-        tarefa 4 & 6      & 10 \\ \hline
-        tarefa 5 & 11     & 15 \\ \hline
-    \end{tabular}
-    \caption{Instância do CSP}
-    \label{tab_csp}
-\end{table}
-
-\begin{figure}[htpb]
-    \centering
-    \includegraphics[width=0.8\linewidth]{graph.pdf}
-    \caption{Graph}
-    \label{fig:graph}
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \begin{tabular}{|c|c|c|} \hline
+            tarefa   & Início & Fim \\ \hline
+            tarefa 1 & 1      & 10 \\ \hline
+            tarefa 2 & 1      & 4  \\ \hline
+            tarefa 3 & 11     & 14 \\ \hline
+            tarefa 4 & 6      & 10 \\ \hline
+            tarefa 5 & 11     & 15 \\ \hline
+        \end{tabular}
+        \caption{Instância do CSP}
+        \label{tab_csp}
+    \end{minipage}%
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=0.8\linewidth]{graph.pdf}
+        \caption{Graph}
+        \label{fig:graph}
+    \end{minipage}
 \end{figure}
-
 
 Alem do método de geração de colunas, outros métodos também são utilizados na literatura, tais como: algoritmos genéticos~\cite{doalgoritmos},
 \textit{multi-start randomized heuristic}~\cite{de2016multi}, \textit{particle swarm optimization}~\cite{limlawan2014hybrid},
