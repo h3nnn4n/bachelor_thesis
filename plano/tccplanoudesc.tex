@@ -7,11 +7,13 @@
 
 \usepackage[portuges]{babel}
 %\usepackage{fontspec}
-%\usepackage[T1]{fontenc}
-%\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
 %\usepackage[utf8]{inputenc}
 
 \usepackage{microtype}
+
+\usepackage[font=small,labelfont=bf,tableposition=top]{caption}
 
 % GRAPH STUFF
 %\usepackage{tikz}
@@ -98,12 +100,12 @@ Turma 2016/2 -- Joinville/SC
 \begin{abstract}
     Grande parte dos problemas encontrados na prática são difíceis de serem
     resolvidos e possuem um grande número de variáveis (na ordem dos milhares
-    ou milhões), fazendo com que seja impossivel resolver ótimamente em uma
+    ou milhões), fazendo com que seja impossível resolver otimamente em uma
     escala de tempo plausível. Sendo assim, torna-se necessário o emprego de
-    algoritmos cada vez mais complexos e que unem soluções exatas e heuristícas.
+    algoritmos cada vez mais complexos e que unem soluções exatas e heurísticas.
     O objetivo desde trabalho é pesquisar, identificar e especificar um método
     para resolver o problema de agendamento de tripulação (\textit{crew scheduling}).\\
-\textbf{Palavras-chave:} \textit{Programação linear inteira, otimização combinatoria, cobertura de conjunto, agendamento de tripulação, Geração de Colunas}
+\textbf{Palavras-chave:} \textit{Programação linear inteira, otimização combinatória, cobertura de conjunto, agendamento de tripulação, Geração de Colunas}
 \end{abstract}
 
 %------------------------------------------------
@@ -125,18 +127,18 @@ e até mesmo preferencias pessoas dos motoristas. Dado o conjunto de restrições, 
 ao máximo o custo da operação. O CSP assume que já tenha sido determinado as rotas ondem a tripulação irá trabalhar, assim como quais veículos
 serão utilizados, quais os horários de partida e chegada e os pontos de troca.
 
-A definição de muitos termos relacionados à problematica do CSP faz-se necessária e são apresentadas a segui: uma \textbf{viagem} consiste
+A definição de muitos termos relacionados à problemática do CSP faz-se necessária e são apresentadas a segui: uma \textbf{viagem} consiste
 no deslocamento entre dois pontos pré-determinados com horários de partida e chega já determinados. Uma \textbf{jornada}
 consiste na sequencia de viagens realizadas por uma dada tripulação durante o seu turno de trabalho. Conhecendo todas as possíveis
-jornadas válidas sobre o conjunto de regras pré-estabelicidos, a solução do CSP consiste em escolher quais jornadas cobrem todas
-as viagems que devem ser realizadas~\cite{Bergh}. Ou seja, dado o conjunto de jornadas válidas, escolhe-se um subconjunto que cubra todas
-as viagems pelo menos uma vez, minimizando assim o custo final.
+jornadas válidas sobre o conjunto de regras pré-estabelecidos, a solução do CSP consiste em escolher quais jornadas cobrem todas
+as viagens que devem ser realizadas~\cite{Bergh}. Ou seja, dado o conjunto de jornadas válidas, escolhe-se um subconjunto que cubra todas
+as viagens pelo menos uma vez, minimizando assim o custo final.
 
 O problema do CSP é referenciado na literatura como sendo o problema de \textbf{cobertura de conjuntos}, ou \textit{set covering problem} (SCP)~\cite{nemhauser1988integer}.
 Onde dado um conjunto de linhas a serem cobertas, e um conjunto de colunas com custos
 associados que cobrem as linhas, escolhe-se o subconjunto de colunas que cubra todas as linhas minimizando o custo final. Como o SCP
 define que cada linha deve ser coberta pelo menos uma vez, isso implica que se o CSP for modelado como uma instância de SCP, pode ocorrer
-de mais de um tripulante ser designado para a mesma viagem. Isso ná pratica consiste de um motorista ir de carona até o início de outra viagem,
+de mais de um tripulante ser designado para a mesma viagem. Isso na pratica consiste de um motorista ir de carona até o início de outra viagem,
 por exemplo.
 
 Outra forma de modelar-se o CSP consiste em determinar que exatamente uma tripulação deve ser associado a uma viagem. Esta restrição
@@ -147,34 +149,32 @@ sobreposição, um CSP modelado como um SPP pode ser significativamente mais compl
 ponto de vista prático, já que diminui a ociosidade dos tripulantes. Sabe-se que tanto o SPP quanto o SCP são problemas
 NP-Hard~\cite{karp1972}. Note que toda solução do SPP é uma solução para o SCP, porém o reciproco não é verdadeiro.
 
-Um dos primeiros algoritmos propostos para o SCP consiste em uma heuristíca gulosa proposta por~\cite{chvatal1979greedy}.
+Um dos primeiros algoritmos propostos para o SCP consiste em uma heurística gulosa proposta por~\cite{chvatal1979greedy}.
 A cada passo o algoritmo escolhe a coluna que cobre o maior número possível de linhas. O algoritmo
-é na prática rápido, porém tende a não gerar soluções tão boas quanto outros algoritmos modernos.~\cite{balas1980set} propos
-um algoritmo baseado em \textit{branch and bound} e que utiliza heuristícas duais. Este algoritmo (com o poder computacional
+é na prática rápido, porém tende a não gerar soluções tão boas quanto outros algoritmos modernos.~\cite{balas1980set} propôs
+um algoritmo baseado em \textit{branch and bound} e que utiliza heurísticas duais. Este algoritmo (com o poder computacional
 disponível na data da publicação do artigo) foi capaz de resolver instâncias de dimensões até 200 $\times$ 2000.~\cite{beasley1987algorithm}
-melhorou o algoritmo proposto por Balas e Ho, utilizando relaxações lagrangeanas e remoção de linhas e colunas. Este algoritmo, segundo
+melhorou o algoritmo proposto por Balas e Ho, utilizando relaxações lagrangianas e remoção de linhas e colunas. Este algoritmo, segundo
 o autor, chegou a marca de problemas de dimensões $400 \times 4000$.~\cite{fisher1990optimal} utilizou \textit{branch and bound} com
-diversas heuristícas duais para assim encontrar o limite superior de otimalidade do problema. Trabalhos como~\cite{de2011algoritmo}
+diversas heurísticas duais para assim encontrar o limite superior de otimalidade do problema. Trabalhos como~\cite{de2011algoritmo}
 e~\cite{dos2008metodo} utilizam soluções híbridas para a solução do problema.~\cite{ceria1997},~\cite{caprara2000algorithms},
 ~\cite{ernst2004staff} e~\cite{van2013personnel} apresentam um estudo mais detalhado sobre os algoritmos utilizados para resolver o SCP, SPP e CSP.
 
 Conhecendo-se todas as possíveis jornadas de uma instância de CSP, pode-se modela-lo utilizando programação linear inteira (PLI). A modelagem utilizando-se
-o SPP e o SCP é apresentada em~\eqref{spp} e~\eqref{scp}, respectivamente. O conjunto de todas as jornadas possíveis está condificado
-na matrix $A$. O vetor $J$ corresponde a todas as jornadas, e o vetor $T$ a todas as tarefas. A variável $a_{tj}$ é $1$ se a tarefa
+o SPP e o SCP é apresentada em~\eqref{spp} e~\eqref{scp}, respectivamente. O conjunto de todas as jornadas possíveis está codificado
+na matriz $A$. O vetor $J$ corresponde a todas as jornadas, e o vetor $T$ a todas as tarefas. A variável $a_{tj}$ é $1$ se a tarefa
 $t$ é coberta pela jornada $j$ e $0$ caso contrário. A restrição~\eqref{spp2} garante que cada tarefa $t \in T$ é coberta exatamente
 uma única vez pelas jornadas selecionadas.
 
 A restrição~\eqref{scp2} funciona de modo análogo, porém, a restrição deixa de ser uma igualdade
 e passa a ser uma desigualdade, fazendo com que cada tarefa seja coberta pelo menos uma vez. O vetor $X$ determina que jornadas
-seram utilizadas. Se $x_j = 1$, então a $j-$ésima é utilizada, caso contrário $x_j = 0$. As restrições~\eqref{spp3} e~\eqref{scp3}
+serão utilizadas. Se $x_j = 1$, então a $j-$ésima é utilizada, caso contrário $x_j = 0$. As restrições~\eqref{spp3} e~\eqref{scp3}
 garantem que a varável de decisão $x$ possuirá um valor válido.
 
 Dado o problema em questão, o tamanho da matriz é tipicamente grande, e para casos práticos
 é muitas vezes inviável de tratá-la. O número de jornadas possíveis cresce exponencialmente, de modo que a enumeração de todas as
-jornadas possíveis não é viavel.
-%\apud{barnhart1998branch}{vance1993crew}
-%\cite{barnhart1998branch} (FAZER APUD)
-\cite{vance1993crew} reportou que para uma isntancia de CSP com 253 tarefas, mais de 5 milhões de jornadas
+jornadas possíveis não é viável.
+\cite{vance1993crew} reportou que para uma instância de CSP com 253 tarefas, mais de 5 milhões de jornadas
 são possíveis. De todas as jornadas possíveis, apenas algumas são de fato utilizadas na solução final, as demais não são interessantes.
 Portanto, é interessante que apenas jornadas que podem vir a ser úteis sejam uteis de fato. A programação linear inteira dispõe-se um recurso
 capaz de sequencialmente reduzir o número de colunas a serem utilizados: \textbf{geração de colunas}~\cite{desrosiers2005primer}.
@@ -193,9 +193,9 @@ capaz de sequencialmente reduzir o número de colunas a serem utilizados: \textbf
 
 O método de geração de colunas consiste em um processo onde o problema com um grande número de variáveis é decomposto em
 dois problemas. O problema mestre, que é igual ao original, porém, com um conjunto reduzido de variáveis. E o sub-problema,
-que é utilizado para identificar quais varíaveis são necessárias para obter-se a solução ótima do problema original. O processo
+que é utilizado para identificar quais variáveis são necessárias para obter-se a solução ótima do problema original. O processo
 de solução com geração de colunas consiste em criar-se um problema mestre, otimizar a sua relaxação linear, e utilizar
-as varáveis duais do problema mestre juntamente com o sub-problema para indentificar se o problema mestre necessita da geração
+as varáveis duais do problema mestre juntamente com o sub-problema para identificar se o problema mestre necessita da geração
 de novas colunas ou se ele corresponde ao ótimo do problema original.
 
 Para a geração de colunas, dado o conjunto $J$ de todas as jornadas (que na prática está codificado na matriz $A$),
@@ -224,49 +224,49 @@ instância de CSP e a figura~\ref{fig_csp} apresenta o grafo associado ao problem
             tarefa 4 & 6      & 10 \\ \hline
             tarefa 5 & 11     & 15 \\ \hline
         \end{tabular}
-        \caption{Instância do CSP}
+        \captionof{table}{Instância do CSP}
         \label{tab_csp}
     \end{minipage}%
     \begin{minipage}{0.5\textwidth}
         \centering
         \includegraphics[width=0.8\linewidth]{graph.pdf}
-        \caption{Graph}
-        \label{fig:graph}
+        \caption{Jornadas modeladas como grafo}
+        \label{fig_csp}
     \end{minipage}
 \end{figure}
 
-Alem do método de geração de colunas, outros métodos também são utilizados na literatura, tais como: algoritmos genéticos~\cite{doalgoritmos},
+A interpretação do grafo da figura~\ref{fig_csp} ocorre da seguinte forma, após realizar a tarefa 2, pode-se realizar a tarefa 4 com um custo
+4 ou a tarefa 3 com custo 3, e assim por diante. Conforme a tabela~\ref{tab_csp}, a tarefa 5 começa após a 4, portanto existe uma aresta que leva
+do vértice 4 ao 5. Já a tarefa 4 começa antes do fim da tarefa 1, logo não há uma aresta ligando-as. Os pesos associados as arestas
+indicam o custo ao mudar de tarefa, 
+
+Além do método de geração de colunas, outros métodos também são utilizados na literatura, tais como: algoritmos genéticos~\cite{doalgoritmos},
 \textit{multi-start randomized heuristic}~\cite{de2016multi}, \textit{particle swarm optimization}~\cite{limlawan2014hybrid},
 \textit{simulated annealing}~\cite{hanafi2014hybrid} e \textit{ant colony optimization}~\cite{deng2011ant}.
 
 Na literatura pesquisada até o momento, identificou-se que vários autores a fim de resolver o CSP de forma eficiente
 (que apresentam um melhor desempenho computacional), utilizaram o método de geração de colunas ou um conjunto de outros métodos,
-podendo ser heuristicos ou hibridos.
+podendo ser heurísticos ou híbridos.
 
-Porém, dada a pesquisa que pode-se realizar, não foi possível concluir que identificou-se um método (híbrido ou heuristico)
+Porém, dada a pesquisa que pode-se realizar, não foi possível concluir que identificou-se um método (híbrido ou heurístico)
 que apresenta-se o melhor desempenho computacional dentre todos os métodos que foram propostos. Especialmente considerando
-que o CSP apresenta diversas modelagens que variam entre sí, de modo que o bom desempenho para um conjunto de modelos
+que o CSP apresenta diversas modelagens que variam entre si, de modo que o bom desempenho para um conjunto de modelos
 não transfere-se para outro.
 
 Dado o exposto acima, este trabalho tem o objetivo de especificar e propor um método para a solução do CSP que, a princípio seja capaz de prover
-soluções de modo exato e seja competitivo, e preferencialmete mais eficiente, com outros algoritmos pesquisados na literatura.
-
-%Estre trabalho propõe-se a estudar os diferentes métodos presentes na literatura com o objetivo de selecionar um
-%método para estudo mais aprofundado. Em seguida, tem-se como objetivo apresentar uma modificação ao mesmo, visando
-%um ganho de velocidade do algoritmo. Um dos objetivos deste trabalho é desenvolver um método híbrido, capaz de prover
-%soluções exatas e tirar proveito de heuristícas ou meta-heuristícas para prover soluções factiveis mais rapidamente.
+soluções de modo exato e seja competitivo, e preferencialmente mais eficiente, com outros algoritmos pesquisados na literatura.
 
 %------------------------------------------------
 \section{Objetivos}
 \label{obj}
-Objetivo Geral: Este trabalho tem como objetivo análisar os métodos disponíveis na literatura para solução do CSP com
+Objetivo Geral: Este trabalho tem como objetivo analisar os métodos disponíveis na literatura para solução do CSP com
 a finalidade de propor um novo algoritmo ou melhorar um já existente.
 \\
 Objetivos Específicos:
 \begin{itemize}
     %\item ???
-    \item Pesquisar e identificar os principais algortimos presentes na literatura que resolvam o CSP.
-    \item Coletar instâncias de benchmark utilizadas na literatura.
+    \item Pesquisar e identificar os principais algoritmos presentes na literatura que resolvam o CSP.
+    \item Coletar instâncias de \textit{benchmark} utilizadas na literatura.
     \item Selecionar alguns dos algoritmos pesquisados.
     \item Especificar o método proposto.
     \item Realizar testes para avaliação do método proposto.
@@ -276,10 +276,10 @@ Objetivos Específicos:
 %------------------------------------------------
 \section{Metodologia}
 \label{met}
-Inicialmente estudar-se-á em detalhe o problema proposto e será realizado uma revisão bibliografica do assunto,
+Inicialmente estudar-se-á em detalhe o problema proposto e será realizado uma revisão bibliográfica do assunto,
 incluindo as diversas modelagens para o problema. Em seguida será considerado algoritmos que foram utilizados
-na literatura para resolver o problema e será analisado suas caracteristicas funcionais e desempenho, com o objetivo
-de elencar 3 algortimos para estudo. Após está etapa será procurado problemas práticos reais de PPT com o objetivo
+na literatura para resolver o problema e será analisado suas características funcionais e desempenho, com o objetivo
+de elencar 3 algoritmos para estudo. Após está etapa será procurado problemas práticos reais de CSP com o objetivo
 de realizar um estudo da eficiência dos modelos estudados. Por fim será realizado uma comparação dos resultados
 obtidos para averiguar a relevância dos algoritmos estudados e suas implementações.
 
@@ -287,14 +287,14 @@ obtidos para averiguar a relevância dos algoritmos estudados e suas implementaçõ
 %------------------------------------------------
 \section{Cronograma proposto}
 \label{cro}
-Estapas:
+Etapas:
 \begin{enumerate}
-        \item Revisão bibliografica e análise da problemática.
+        \item Revisão bibliográfica e análise da problemática.
         \item Escolha dos métodos de modelagem.
         \item Estudo de algoritmos exatos aplicáveis para a solução da problemática.
-        \item Estudo de algoritmos heuristicos aplicáveis para a solução da problemática.
+        \item Estudo de algoritmos heurísticos aplicáveis para a solução da problemática.
         \item Eleição de algoritmos para estudo.
-        \item Desenvolvimento de prototipos para testes.
+        \item Desenvolvimento de protótipos para testes.
         \item Experimentação com os algoritmos escolhidos.
         \item Coleta e análise dos experimentos.
         \item Escrita do trabalho de conclusão de curso.
@@ -331,41 +331,12 @@ Estapas:
 \end{tabular}
 }
 
-
-%------------------------------------------------
-%\section{Linha e Grupo de Pesquisa}
-%$<$Explicitar a linha de pesquisa do TCC, os grupos de pesquisa do DCC envolvidos especificando
-%o grupo a qual pertence seu trabalho, \underline{se for o caso}.$>$ Caso o TCC não pertença a um grupo,
-%especificar somente as linhas de pesquisa relacionadas.
-%O envolvimento com um grupo de pesquisa se dá pela afinidade do orientador ao grupo,
-%se o mesmo atua neste grupo em questão e se o professor pesquisa nas linhas de trabalho
-%deste grupo. Nada impede que um professor que atue em um grupo possua um tema de TCC fora
-%do grupo relacionado. Para que o TCC seja caracterizado dentro de um grupo (se tiver um),
-%além de especificar aqui, deve conter a assinatura do líder do grupo para que o mesmo
-%esteja ciente da proposta encaminhada.$>$
-
-%------------------------------------------------
 \section{Forma de Acompanhamento/Orientação}
 O acompanhamento será realizado principalmente através de reuniões semanais. O controle das tarefas a fazer
-seram feitas baseadas em uma ata gerada a cada reunião.
-
-%------------------------------------------------
+serão feitas baseadas em uma ata gerada a cada reunião.
 
 \bibliographystyle{abnt-alf}
 \bibliography{tccplanoudesc}
-
-%\begin{thebibliography}{9}
-
-%\bibitem[Gonzalez e Woods 2002]{gonzalez:02}
-%GONZALEZ, R. C.; WOODS, R. E. {\it Digital Image Processing}. 2$^{nd}$ ed. New Jersey: Prentice Hall, 2002.
-
-%\bibitem[BERGH et. al. 2013]{Bergh}
-%Jorne Van den Bergh, Jeroen Beliën, Philippe De Bruecker, Erik Demeulemeester e Liesje De Boeck \it{Personnel scheduling: A literature review}. European Journal of Operations Research, 2013.
-
-
-%\end{thebibliography}
-
-%------------------------------------------------
 
 \vskip 1.5cm
 
