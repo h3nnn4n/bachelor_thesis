@@ -4,7 +4,7 @@ cd 1_base
 
 pdflatex tccudesc && \
 pdflatex tccudesc && \
-bibtec   tccudesc && \
+bibtex   tccudesc && \
 pdflatex tccudesc
 
 cd ..
