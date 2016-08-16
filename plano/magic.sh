@@ -11,7 +11,4 @@ do
     ${COMP} $i
 done
 
-${COMP}       ${MAIN}
-${BIB_COMP}   ${MAIN}
-${COMP}       ${MAIN}
-${COMP}       ${MAIN}
+${COMP} ${MAIN} && ${BIB_COMP} ${MAIN} && ${COMP} ${MAIN} && ${COMP} ${MAIN}
