@@ -116,22 +116,22 @@ Turma 2016/2 -- Joinville/SC
 
 Cada vez mais as empresas buscam otimizar suas atividades, de modo a reduzir o custo e maximizar o lucro final.
 As empresas do segmento de transporte urbano de ônibus deparam-se com o desafio que precisam ser abordados
-a fim de viabilizar o negócio, dentre as quais pode-se citar: quais veículos da frota devem ser renovados;
-quando realizar manutenção preventiva na frota; quais horários do serviço de ônibus devem ser disponibilizados;
-identificar as rodas do serviço de transporte; como alocar os funcionários; como tratar imprevistos
+a fim de viabilizar o negócio, dentre as quais pode-se citar: renovação da frota de veículos;
+realização da manutenção preventiva da frota; disponibilização de quais horários do serviço de ônibus;
+identificação as rotas de serviço de transporte; alocação de funcionários; tratamento de imprevistos
 temporais e climáticos, dentre outras. Estes questionamentos podem ser resolvidos e otimizadas através da utilização de recursos
 de pesquisa operacional.
 
-Especificamente o problema de alocação de funcionários ou tripulação, em inglês \textit{crew scheduling problem} (CSP),
-consiste em escolher quais funcionários deve realizar quais funções durante um dado período de tempo \cite{Bergh}. O processo
-de escolha está sujeito à diversas restrições. Existem restrições devido a regras definidas pela empresa, leis trabalhistas e sindicais,
-e até mesmo preferencias pessoas dos motoristas. Dado o conjunto de restrições, deve-se encontrar as designações que reduzem
+Especificamente, o problema de alocação de funcionários ou tripulação, em inglês \textit{crew scheduling problem} (CSP),
+consiste em escolher quais funcionários devem realizar quais funções durante um dado período de tempo \cite{Bergh}. O processo
+de escolha está sujeito à diversas restrições. Existem restrições devido à regras definidas pela empresa, leis trabalhistas, sindicais
+ou preferências dos motoristas de ônibus. Dado o conjunto de restrições, deve-se encontrar as designações que reduzem
 ao máximo o custo da operação. O CSP assume que já tenha sido determinado as rotas ondem a tripulação irá trabalhar, assim como quais veículos
 serão utilizados, quais os horários de partida e chegada e os pontos de troca.
 
-A definição de muitos termos relacionados à problemática do CSP faz-se necessária e são apresentadas a segui: uma \textbf{viagem} consiste
+A definição termos relacionados à problemática do CSP faz-se necessária e são apresentadas a segui: uma \textbf{viagem} consiste
 no deslocamento entre dois pontos pré-determinados com horários de partida e chega já determinados. Uma \textbf{jornada}
-consiste na sequencia de viagens realizadas por uma dada tripulação durante o seu turno de trabalho. Conhecendo todas as possíveis
+consiste na sequencia de viagens realizadas por uma dada tripulação durante o seu turno de trabalho. Conhecendo-se todas as possíveis
 jornadas válidas sobre o conjunto de regras pré-estabelecidos, a solução do CSP consiste em escolher quais jornadas cobrem todas
 as viagens que devem ser realizadas~\cite{Bergh}. Ou seja, dado o conjunto de jornadas válidas, escolhe-se um subconjunto que cubra todas
 as viagens pelo menos uma vez, minimizando assim o custo final.
@@ -140,16 +140,16 @@ O problema do CSP é referenciado na literatura como sendo o problema de \textbf{
 Onde dado um conjunto de linhas a serem cobertas, e um conjunto de colunas com custos
 associados que cobrem as linhas, escolhe-se o subconjunto de colunas que cubra todas as linhas minimizando o custo final. Como o SCP
 define que cada linha deve ser coberta pelo menos uma vez, isso implica que se o CSP for modelado como uma instância de SCP, pode ocorrer
-de mais de um tripulante ser designado para a mesma viagem. Isso na pratica consiste de um motorista ir de carona até o início de outra viagem,
+de mais de um tripulante ser designado para a mesma viagem. Isso na prática consiste no fato deum motorista ir de carona até o início de outra viagem,
 por exemplo.
 
-Outra forma de modelar-se o CSP consiste em determinar que exatamente uma tripulação deve ser associado a uma viagem. Esta restrição
+Outra forma de modelar-se o CSP consiste em determinar qual tripulação deve ser associado a uma viagem. Esta restrição
 transforma o problema de SCP em um problema de \textbf{particionamento de conjuntos}, \textit{set partitioning problem} (SPP)~\cite{garfinkel1969set}.
 A principal diferença entre o SCP e o SPP consiste a impossibilidade de te-ser uma mesma linha coberta por mais de uma coluna.
 No contexto do CSP, isto implica em não ter uma tarefa sendo coberta por mais de uma jornada. Devido a restrição de não
 sobreposição, um CSP modelado como um SPP pode ser significativamente mais complexo de resolver, porém, mais interessante do
 ponto de vista prático, já que diminui a ociosidade dos tripulantes. Sabe-se que tanto o SPP quanto o SCP são problemas
-NP-Hard~\cite{karp1972}. Note que toda solução do SPP é uma solução para o SCP, porém o reciproco não é verdadeiro.
+NP-Hard~\cite{karp1972}.
 
 Um dos primeiros algoritmos propostos para o SCP consiste em uma heurística gulosa proposta por~\cite{chvatal1979greedy}.
 A cada passo o algoritmo escolhe a coluna que cobre o maior número possível de linhas. O algoritmo
@@ -158,7 +158,7 @@ um algoritmo baseado em \textit{branch and bound} e que utiliza heurísticas duai
 disponível na data da publicação do artigo) foi capaz de resolver instâncias de dimensões até 200 $\times$ 2000.~\cite{beasley1987algorithm}
 melhorou o algoritmo proposto por Balas e Ho, utilizando relaxações lagrangianas e remoção de linhas e colunas. Este algoritmo, segundo
 o autor, chegou a marca de problemas de dimensões $400 \times 4000$.~\cite{fisher1990optimal} utilizou \textit{branch and bound} com
-diversas heurísticas duais para assim encontrar o limite superior de otimalidade do problema. Trabalhos como~\cite{de2011algoritmo}
+diversas heurísticas duais, para assim encontrar o limite superior de otimalidade do problema. Trabalhos como~\cite{de2011algoritmo}
 e~\cite{dos2008metodo} utilizam soluções híbridas para a solução do problema.~\cite{ceria1997},~\cite{caprara2000algorithms},
 ~\cite{ernst2004staff} e~\cite{van2013personnel} apresentam um estudo mais detalhado sobre os algoritmos utilizados para resolver o SCP, SPP e CSP.
 
@@ -178,8 +178,8 @@ Dado o problema em questão, o tamanho da matriz é tipicamente grande, e para cas
 jornadas possíveis não é viável.
 \cite{vance1993crew} reportou que para uma instância de CSP com 253 tarefas, mais de 5 milhões de jornadas
 são possíveis. De todas as jornadas possíveis, apenas algumas são de fato utilizadas na solução final, as demais não são interessantes.
-Portanto, é interessante que apenas jornadas que podem vir a ser úteis sejam uteis de fato. A programação linear inteira dispõe-se um recurso
-capaz de sequencialmente reduzir o número de colunas a serem utilizados: \textbf{geração de colunas}~\cite{desaulniers2006column}.
+Portanto, é interessante que apenas jornadas que podem vir a ser úteis sejam utilizadas de fato. A programação linear inteira dispõe-se um recurso
+capaz de sequencialmente reduzir o número de colunas a serem utilizados, denominado de \textbf{geração de colunas}~\cite{desaulniers2006column}.
 
 \begin{align}
     \label{spp} \text{min} \: \sum_{j \in J} c_j x_j \\
@@ -194,19 +194,22 @@ capaz de sequencialmente reduzir o número de colunas a serem utilizados: \textbf
 \end{align}
 
 O método de geração de colunas consiste em um processo onde o problema com um grande número de variáveis é decomposto em
-dois problemas. O problema mestre, que é igual ao original, porém, com um conjunto reduzido de variáveis. E o sub-problema,
+dois problemas. O problema mestre, que é igual ao original, porém, com um conjunto reduzido de variáveis, e o sub-problema,
 que é utilizado para identificar quais variáveis são necessárias para obter-se a solução ótima do problema original. O processo
 de solução com geração de colunas consiste em criar-se um problema mestre, otimizar a sua relaxação linear, e utilizar
-as varáveis duais do problema mestre juntamente com o sub-problema para identificar se o problema mestre necessita da geração
+as varáveis duais do problema mestre juntamente com o sub-problema,  para identificar se o problema mestre necessita da geração
 de novas colunas ou se ele corresponde ao ótimo do problema original.
 
-Para a geração de colunas, dado o conjunto $J$ de todas as jornadas (que na prática está codificado na matriz $A$),
+Dado um conjunto $J$ de todas as jornadas (que na prática está codificado na matriz $A$), na geração de colunas,
 utiliza-se um conjunto reduzido $\tilde{J} \subseteq J$. O problema mestre é dado por~\eqref{sppm1},~\eqref{sppm2} e~\eqref{sppm3}.
-Após a solução da relaxação linear do problema mestre, utiliza-se as variáveis duais em um subproblema para determinar
-se alguma jornada pode melhorar o resultado atual. Este processo é denominado de \textit{pricing}. No caso do CSP, pode-se
-apresentar o conjunto de tarefas como vértices em um grafo e liga-los com arestas direcionadas para indicar a ordem
-que as tarefas podem ser executadas. Toda jornada é então um caminho neste grafo. A tabela~\ref{tab_csp} contém uma
-instância de CSP e a figura~\ref{fig_csp} apresenta o grafo associado ao problema.
+Após a solução da relaxação linear do problema mestre, utiliza-se as variáveis duais, obtidas a partir da relaxação linear
+do problema mestre, no subproblema, para determinar se alguma jornada pode melhorar o resultado atual obtido. Este processo é
+denominado de \textit{pricing}~\cite{barnhart1998branch}. O \textit{pricing} consiste na solução do problema da separação~\cite{nemhauser1988integer}
+para o problema dual do problema mestre~\cite{lubbecke2005selected}. No caso do CSP, pode-se apresentar o conjunto de tarefas como
+vértices de um grafo e ligá-los com arestas direcionadas para indicar a ordem que as tarefas podem ser executadas. Cada tarefa tem
+um tempo fixo de início e fim, e se uma tarefa inicia após o termino de outra, então ela pode ser realizada em sequencia. Toda jornada é
+então um caminho neste grafo. A tabela~\ref{tab_csp} contém uma instância de CSP e a figura~\ref{fig_csp} apresenta o grafo
+associado ao problema.
 
 \begin{align}
     \label{sppm1} \text{min} \: \sum_{j \in \tilde{J}} c_j x_j \\
@@ -243,18 +246,18 @@ do vértice 4 ao 5. Já a tarefa 4 começa antes do fim da tarefa 1, logo não há um
 indicam o custo ao mudar de tarefa. Na prática, este custo pode corresponder ao tempo gasto para realizar o preparo para a tarefa ou algum
 outro custo que deseja-se minimizar.
 
-O subproblema, cujo objetivo é escolher qual coluna será inserida no problema mestre, para o CSP consiste em determinar um caminho entre os nós
-de origem e destino. Os nós de origem quando aplicados ao transporte via ônibus pode ser considerado como garagens, assim como os nós finais.
-Considerando que as jornadas são executadas por tripulações, é desejável que elas não ultrapassem uma determinada carga horária. Por
-outro lado, caminhos de custo mínimo oferecem uma minimização no custo final, portanto o subproblema deve ser capaz de encontrar o caminho
-de menor custo dentro de um limite arbitrário de tempo e que possa oferecer melhoras no problema mestre.
+O subproblema para o CSP consiste em determinar um caminho entre os nós de origem e destino. Os nós de origem quando aplicados ao
+transporte via ônibus, podem ser considerado como garagens, assim como os nós finais.  Considerando que as jornadas são executadas
+por tripulações, é desejável que elas não ultrapassem uma determinada carga horária. Por outro lado, caminhos de custo mínimo
+oferecem uma minimização no custo final. Portanto, o subproblema deve ser capaz de encontrar o caminho de menor custo dentro de
+um limite arbitrário de tempo, e que possa oferecer melhoras na solução do problema mestre.
 
 A modelagem do subproblema dá-se segundo a função objetivo~\eqref{sp1} e as restrições~\eqref{sp2},~\eqref{sp3},~\eqref{sp4} e~\eqref{sp5}.
 São utilizadas dois vetores de variáveis de decisão. O vetor $v$ corresponde aos vértices e o vetor $y$ as arestas que vão fazer parte do caminho.
 A seleção da coluna que será inserida no problema mestre dá-se através do uso das variáveis do problema mestre, que são representadas no vetor $\pi$.
 Obtém-se assim uma solução que possui o custo mínimo e oferece melhoras no problema mestre. O vetor $d$ presente na restrição~\eqref{sp4} faz com que
 o custo do caminho seja limitado a um valor arbitrário $MaxW$, sendo que $d_t$ é a duração da jornada $t$. Ignorando-se a restrição~\eqref{sp4} tem-se
-o problema do custo mínimo, no entanto, com o uso da restrição o subproblema passar a ser um problema de caminho mínimo com restrição de
+o problema do custo mínimo. No entanto, com o uso desta restrição o subproblema passar a ser um problema de caminho mínimo com restrição de
 recursos~\cite{desaulniers2006column}, que é NP-\textit{Hard}~\cite{garey1979computers}. \cite{hassin1992approximation} apresentou um
 algoritmo de aproximação de complexidade $\mathcal{O}((n^3/\epsilon) * (log n/\epsilon))$. Existem ainda bordagens baseadas em \textit{labeling}
 \cite{dumitrescu2003improved}, limites duais~\cite{handler1980dual} e relaxação lagrangiana~\cite{beasley1989algorithm}.
@@ -277,8 +280,8 @@ Na literatura pesquisada até o momento, identificou-se que vários autores a fim 
 (que apresentam um melhor desempenho computacional), utilizaram o método de geração de colunas ou um conjunto de outros métodos,
 podendo ser heurísticos ou híbridos.
 
-Porém, dada a pesquisa que pode-se realizar, não foi possível concluir que identificou-se um método (híbrido ou heurístico)
-que apresenta-se o melhor desempenho computacional dentre todos os métodos que foram propostos. Especialmente considerando
+Porém, dada a pesquisa que realizou-se, não foi possível concluir que identificou-se um método (híbrido ou heurístico)
+que apresenta o melhor desempenho computacional dentre todos os métodos que foram propostos. Especialmente considerando
 que o CSP apresenta diversas modelagens que variam entre si, de modo que o bom desempenho para um conjunto de modelos
 não transfere-se para outro.
 
