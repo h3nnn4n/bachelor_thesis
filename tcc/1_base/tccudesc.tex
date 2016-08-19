@@ -1,18 +1,5 @@
-%**************************************************************************************************
-%*  Nome: Nicolas P. Lane                                                                         *
-%*  Data: 13/10/2015                                                                              *
-%*  Dúvidas ou contribuições: lambdox@gmail.com                                                   *
-%*  Modelo de monografia para TCC - UDESC de acordo com o manual de trabalhos acadêmicos da UDESC *                                     *
-%*  									                          *
-%*  Licença GPL:              						                          *
-%*  Permission to use, copy, modify, and distribute this protocol and its                         *
-%*  documentation for any purpose, without fee, and without written                               *
-%*  agreement is hereby granted, provided that the above copyright notice,                        *
-%*  and the author appear in all copies of this protocol.                                         *
-%**************************************************************************************************
-
 \NeedsTeXFormat{LaTeX2e}
-%-----------------------------------------------------------
+
 \documentclass[a4paper,12pt]{monografia}
 \usepackage{amsmath, amsthm, amsfonts, amssymb}
 \usepackage[english, brazilian]{babel}
@@ -31,81 +18,67 @@
 \usepackage{bm}
 \lstset{basicstyle=\tiny, language=C++}
 \makeindex
-%-----------------------------------------------------------Começa documento
-\begin{document}
-%----------------- Título e Dados do Autor -----------------
-\titulo{Seu t\'itulo}
-\autor{Seu nome}
-\nome{Seu nome do meio}
-\ultimonome{Seu \'ultimo nome}
 
-%---------- Informe o Curso e Grau -----
-\bacharelado \curso{Ci\^encia da Computa\c{c}\~ao} \mes{Junho} \ano{2015}
-\data{\today} % data da aprovação
+\begin{document}
+
+\titulo{Proposta de um algoritmo hibrido para a solução do Problema de Escalonamento de Tripulação}
+\autor{Renan Samuel da Silva}
+\nome{Samuel}
+\ultimonome{da Silva}
+
+\bacharelado \curso{Ci\^encia da Computa\c{c}\~ao} \mes{Junho} \ano{2016}
+\data{\today}
 \cidade{Joinville}
 
-%----------Informações sobre a Institução -----------------
 \instituicao{Universidade do Estado de Santa Catarina}
 \sigla{UDESC} \unidadeacademica{Centro de Ci\^encias Tecnol\'ogicas}
 
-%------Nomes do Orientador, 1o. Examinador e 2o. Examinador-
-\orientador{Nome completo do orientador 1}
-\examinadorum{Nome completo do orientador 2}
-\examinadordois{Nome completo do orientador 3}
-%\examinadorquatro{Nome do Examinador 4}
+\orientador{Omir Correia Alves Junior}
+\examinadorum{Cristiano Damiani Vasconcellos}
+\examinadordois{Cláudio César de Sá}
 
-%--------- Títulos do Orientador 1o. e 2o. Examinadores ----
-\ttorientador{T\'itulo do orientador 1}
-\ttexaminadorum{T\'itulo do orientador 2}
-\ttexaminadordois{T\'itulo do orientador 3}
-%\ttexaminadorquatro{Título do Examinador 4}
+\ttorientador{Doutor}
+\ttexaminadorum{Doutor}
+\ttexaminadordois{Doutor}
 
 \maketitle
-%---------------------- AGRADECIMENTO --------------
-\agradecimento{Agradecimentos}
 
-  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+\agradecimento{Agradecimentos}
+  Agradeço a minha perna, por ter me levado a muitos lugares. Aos meus braços, que sempre estiveram ao meu lado e aos meus dedos, o qual eu sempre pude contar com.
 
 \newpage
-%---------------------- EPÍGRAFE --------------
+
 \begin{epigrafe}
 
-  Kappa
+  ``We must know - We will know'' - David Hilbert
 
 \end{epigrafe}
-%--------Digite aqui o seu resumo em Português--------------
+
 \resumo{Resumo}
-\input{../2_pre_texto/resumo}%chamada de arquivo resumo.tex
+\input{../2_pre_texto/resumo}
 
-\noindent Palavras-chaves: Comunicação Alternativa, Paralisia Cerebral, deficiência na fala, software livre
-%-----------Digite aqui o seu resumo em Inglês--------------
+\noindent Palavras-chaves: Programação linear inteira, otimização combinatória, cobertura de conjunto, agendamento de tripulação, geração de colunas.
+
 \resumo{Abstract}
-\input{../2_pre_texto/abstract}     %chamada de arquivo abstract.tex
+\input{../2_pre_texto/abstract}
 
-\noindent Keywords: Alternative Comunication, Cerebral Palsy, speech deficiency, open source
-%-----------------------------------------------------------
+\noindent Keywords: Integer linear programming, combinatorial optimization, set covering, crew scheduling, column generation.
 
-\listoffigures       %gera página com lista de figuras a partir de todas as entradas feitas no documento
+\listoffigures
 
-% lista de abreviações
-\listoftables        %gera página com lista de tabelas a partir de todas as entradas feitas no documento
-\input{../2_pre_texto/acronimos}    %chamada de arquivo acronimos.tex
+\listoftables
+\input{../2_pre_texto/acronimos}
 
-%----Sumário, lista de figura e de tabela ------------
-\tableofcontents      %gera página com sumário a partir de todas as entradas feitas no documento
+\tableofcontents
 
-%--------------Início do Conteúdo---------------------------
-\pagestyle{ruledheader} %estilo abnt2
-\input{../3_texto_princ./introducao}     %chamada de arquivo introducao.tex
-\input{../3_texto_princ./capitulos}      %chamada de arquivo capitulos.tex (desenvolvimento de seu TCC efetivamente)
+\pagestyle{ruledheader}
+\input{../3_texto_princ./introducao}
+\input{../3_texto_princ./capitulos}
 
-\input{../3_texto_princ./conclusao}      %chamada de arquivo conclusao.tex
-%--------------Bibliografia e apêndices--------------------
+\input{../3_texto_princ./conclusao}
+
 \bibliographystyle{abnt-alf}
-\bibliography{../4_pos_texto/bibliografia}     %chamada de arquivo bibliografia.bib
-\input{../4_pos_texto/anexo}		       %chamada de arquivo anexo.tex
-\input{../4_pos_texto/apendice}	               %chamada de arquivo apendice.tex
+\bibliography{../4_pos_texto/bibliografia}
+\input{../4_pos_texto/anexo}
+\input{../4_pos_texto/apendice}
 \end{document}
