@@ -11,6 +11,7 @@
 \usepackage[latin1]{inputenc}
 \usepackage[mathcal]{eucal}
 \usepackage[alf]{abntcite}
+\usepackage[font=small,labelfont=bf,tableposition=top]{caption}
 \usepackage{subfigure}
 \usepackage{isoaccent}
 \usepackage{textcase}
@@ -48,7 +49,7 @@
 \maketitle
 
 \agradecimento{Agradecimentos}
-  Agradeço a minha perna, por ter me levado a muitos lugares. Aos meus braços, que sempre estiveram ao meu lado e aos meus dedos, o qual eu sempre pude contar com.
+  Agradeço a minha perna, por ter me levado a muitos lugares. Aos meus braços, que sempre estiveram ao meu lado e aos meus dedos, o qual eu sempre pude contar.
 
 \newpage
 
@@ -71,18 +72,21 @@
 \listoffigures
 
 \listoftables
+
 \input{../2_pre_texto/acronimos}
 
 \tableofcontents
 
 \pagestyle{ruledheader}
+
 \input{../3_texto_princ./introducao}
 \input{../3_texto_princ./capitulos}
-
 \input{../3_texto_princ./conclusao}
 
 \bibliographystyle{abnt-alf}
 \bibliography{../4_pos_texto/bibliografia}
+
 \input{../4_pos_texto/anexo}
 \input{../4_pos_texto/apendice}
+
 \end{document}
