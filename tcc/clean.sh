@@ -7,6 +7,6 @@ do
     for j in *
     do
         #echo '$j/.$i'
-        rm -v $j/*.$i || true
+        rm -v $j/*.$i 2> /dev/null || true
     done
 done
