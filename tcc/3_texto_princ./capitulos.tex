@@ -1,8 +1,92 @@
-\chapter{Definição do Problema}
+\chapter{Fundamentação Teórica}
+Neste capitulo são apresentados os conceitos básicos e a fundamentação teórica necessária para
+o entendimento e abordagem ao problema do escalonamento de tripulações.
 
+\section{Programação Linear}
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.
+A programação linear consiste na modelagem e solução de problemas descritos com uma função
+objetivo linear sujeita a múltiplas restrições lineares. A forma genérica de um problema de programação
+linear é:
+
+\begin{equation} \label{funcao_obj}
+    \text{maximizar} \: z = \sum_{j=1}^{p} c_jx_j,
+\end{equation}
+
+sujeito a:
+
+\begin{align}
+    \label{restricoes} \sum_{j=1}^{p} a_{ij} x_j \leq b_i, i = 1, 2, \ldots, q \\
+    \label{restricoes_triviais} x_j \geq 0, j = 1, 2, \ldots, p,
+\end{align}
+
+onde $c_j, a_{ij}$ e $b_i$ são números reais que definem o problema e $x_j$ para $j=1, 2, \ldots, p$ são as variáveis
+de decisão. A função~\eqref{funcao_obj} é denominada de função objetivo, a qual deve ser maximizada. Note que
+maximizar $f(x)$ equivale a minimizar $-f(x)$. As inequações em~\eqref{restricoes} representam um conjunto de
+$q$ restrições lineares que restringem o espaço de busca para um poliedro convexo. O máximo da função deve estar
+contido dentro deste poliedro. As desigualdades em~\eqref{restricoes_triviais} são denominadas
+de restrições triviais ou de não negatividade.
+
+Cada restrição em~\eqref{restricoes} pode ser convertida para restrição de de igualdade utilizando-se
+uma variável extra, denominada de variável de folga. A utilização dá-se por:
+
+\[
+\label{restricoes} \sum_{j=1}^{p} a_{ij} x_j \leq b_i \Leftrightarrow
+  \begin{cases}
+    \Sigma_{j=1}^{p} a_{ij} x_j + x_{p+i} = b_i\\
+    x_{p+i} \geq 0
+  \end{cases}
+\]
+
+é possível ainda utilizar duas igualdades para representar uma igualdade:
+
+\[
+\label{restricoes} \sum_{j=1}^{p} a_{ij} x_j = b_i \Leftrightarrow
+  \begin{cases}
+    \Sigma_{j=1}^{p} a_{ij} x_j \leq b_i\\
+    \Sigma_{j=1}^{p} a_{ij} x_j \geq b_i
+  \end{cases}
+\]
+
+Para um problema qualquer de programação linear com restrições de desigualdades e igualdades, sempre é possível
+reestrutura-lo através da adição de variáveis de folga para que o problema passe a ter apenas igualdades. Portanto
+todo e qualquer problema de programação linear pode ser expresso como:
+
+\begin{equation} \label{fo}
+    \text{maximizar} \: z = \sum_{j=1}^{n} c_jx_j
+\end{equation}
+
+sujeito a:
+
+\begin{align}
+    \label{res} \sum_{j=1}^{n} a_{ij} x_j \leq b_i, i = 1, 2, \ldots, m \\
+    \label{res_t} x_j \geq 0, j = 1, 2, \ldots, n
+\end{align}
+
+que é equivalente a:
+
+\begin{equation} \label{fo2}
+    \text{maximizar} \: z = cx
+\end{equation}
+
+sujeito a:
+
+\begin{align}
+    \label{res2} Ax = b \\
+    \label{res_t2} x \geq 0,
+\end{align}
+
+onde $c^T \in \mathbb{R}^n$, $x \in \mathbb{R}^n$, $b \in \mathbb{R}^m$, $A \in \mathbb{R}^{m \times n}$ e $a_j \in \mathbb{R}^m$.
+
+Baseado nas restrições~\eqref{res2} e~\eqref{res_t2}, pode-se descrever o problema como encontrar $x \in X$, onde $X = \{ x \in \mathbb{R}^n | Ax = b, x \geq 0 \}$,
+tal que $cx$ seja maximizado. Ao conjunto $X$ dá-se o nome de região factivel ou espaço de busca. Para um $x \in X$ qualquer, diz-se que $x$ é uma solução factível.
+Para um $x^* \in X$, se $cx^* \geq cx \forall x \in X$, então $x^*$ é a solução ótima do problema.
+
+\subsection{Dualidade}
+texto
+
+\section{Programação Linear Inteira}
+texto
+
+\section{Geração de Colunas}
+texto
 
