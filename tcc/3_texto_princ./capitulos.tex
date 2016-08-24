@@ -1,3 +1,8 @@
+\setlength\abovedisplayskip{0pt}
+\setlength\belowdisplayskip{0pt}
+\setlength\abovedisplayshortskip{0pt}
+\setlength\belowdisplayshortskip{0pt}
+
 \chapter{Fundamentação Teórica}
 Neste capitulo são apresentados os conceitos básicos e a fundamentação teórica necessária para
 o entendimento e abordagem ao problema do escalonamento de tripulações.
@@ -8,23 +13,19 @@ A programação linear consiste na modelagem e solução de problemas descritos com 
 objetivo linear sujeita a múltiplas restrições lineares. A forma genérica de um problema de programação
 linear é:
 
-\begin{equation} \label{funcao_obj}
-    \text{maximizar} \: z = \sum_{j=1}^{p} c_jx_j,
-\end{equation}
-
-sujeito a:
-
-\begin{align}
-    \label{restricoes} \sum_{j=1}^{p} a_{ij} x_j \leq b_i, i = 1, 2, \ldots, q \\
-    \label{restricoes_triviais} x_j \geq 0, j = 1, 2, \ldots, p,
+\begin{align} \label{funcao_obj}
+    \text{maximizar} \: z &= \sum_{j=1}^{p} c_jx_j,
+    \intertext{sujeito a:}
+    \label{restricoes} \sum_{j=1}^{p} a_{ij} x_j \leq b_i, i &= 1, 2, \ldots, q \\
+    \label{restricoes_triviais} x_j \geq 0, j &= 1, 2, \ldots, p,
 \end{align}
 
 onde $c_j, a_{ij}$ e $b_i$ são números reais que definem o problema e $x_j$ para $j=1, 2, \ldots, p$ são as variáveis
 de decisão. A função~\eqref{funcao_obj} é denominada de função objetivo, a qual deve ser maximizada. Note que
-maximizar $f(x)$ equivale a minimizar $-f(x)$. As inequações em~\eqref{restricoes} representam um conjunto de
-$q$ restrições lineares que restringem o espaço de busca para um poliedro convexo. O máximo da função deve estar
-contido dentro deste poliedro. As desigualdades em~\eqref{restricoes_triviais} são denominadas
-de restrições triviais ou de não negatividade.
+o máximo de $f(x)$ é o mínimo de $-f(x)$ com o sinal oposto (max $f(x) = - \text{min} f(x)$. As inequações
+em~\eqref{restricoes} representam um conjunto de $q$ restrições lineares que restringem o espaço de busca para um
+poliedro convexo. O máximo da função deve estar contido dentro deste poliedro. As desigualdades em~\eqref{restricoes_triviais}
+são denominadas de restrições triviais ou de não negatividade.
 
 Cada restrição em~\eqref{restricoes} pode ser convertida para restrição de de igualdade utilizando-se
 uma variável extra, denominada de variável de folga. A utilização dá-se por:
@@ -51,38 +52,113 @@ Para um problema qualquer de programação linear com restrições de desigualdades 
 reestrutura-lo através da adição de variáveis de folga para que o problema passe a ter apenas igualdades. Portanto
 todo e qualquer problema de programação linear pode ser expresso como:
 
-\begin{equation} \label{fo}
-    \text{maximizar} \: z = \sum_{j=1}^{n} c_jx_j
-\end{equation}
-
-sujeito a:
-
 \begin{align}
-    \label{res} \sum_{j=1}^{n} a_{ij} x_j \leq b_i, i = 1, 2, \ldots, m \\
-    \label{res_t} x_j \geq 0, j = 1, 2, \ldots, n
-\end{align}
-
-que é equivalente a:
-
-\begin{equation} \label{fo2}
-    \text{maximizar} \: z = cx
-\end{equation}
-
-sujeito a:
-
-\begin{align}
-    \label{res2} Ax = b \\
-    \label{res_t2} x \geq 0,
+    \label{fo} \text{maximizar} \: z &= \sum_{j=1}^{n} c_jx_j
+    \intertext{sujeito a:}
+    \label{res} \sum_{j=1}^{n} a_{ij} x_j \leq b_i, i &= 1, 2, \ldots, m \\
+    \label{res_t} x_j \geq 0, j &= 1, 2, \ldots, n
+    \intertext{que é equivalente a:}
+    \label{fo2} \text{maximizar} \: z &= cx
+    \intertext{sujeito a:}
+    \label{res2} Ax &= b \\
+    \label{res_t2} x &\geq 0,
 \end{align}
 
 onde $c^T \in \mathbb{R}^n$, $x \in \mathbb{R}^n$, $b \in \mathbb{R}^m$, $A \in \mathbb{R}^{m \times n}$ e $a_j \in \mathbb{R}^m$.
 
 Baseado nas restrições~\eqref{res2} e~\eqref{res_t2}, pode-se descrever o problema como encontrar $x \in X$, onde $X = \{ x \in \mathbb{R}^n | Ax = b, x \geq 0 \}$,
 tal que $cx$ seja maximizado. Ao conjunto $X$ dá-se o nome de região factivel ou espaço de busca. Para um $x \in X$ qualquer, diz-se que $x$ é uma solução factível.
-Para um $x^* \in X$, se $cx^* \geq cx \forall x \in X$, então $x^*$ é a solução ótima do problema.
+Para um $x^* \in X$, se $cx^* \geq cx \forall x \in X$, então $x^*$ é a solução ótima do problema. O espaço de busca para um problema de programação linear é sempre
+um poliedro convexo, se interpretado geometricamente, e a solução ótima para o mesmo sempre está em um vértice do poliedro.
+
+\subsection{Métodos de solução}
+
+Considerando o conjunto $X$ descrito na seção anterior, o objetivo de efetuar a modelagem de um problema utilizando-se programação linear é utilizar recursos
+mátematicos e algorítmicos para resolver o modelo, e por conseguinte o problema original. Esta seção apresenta os três principais métodos encontrados na literatura durante
+o desenvolvimento deste trabalho: o método simplex; o método dos elipsoides; o método do ponto interior.
+
+%\subsubsection{Simplex}
+
+O método Simplex~\cite{dantzig1990origins} foi apresentado em 1947 por George B. Dantzig com o objetivo de resolver o problema de programação linear. O método consiste em encontrar uma solução
+factível ao problema, e iterativamente mover para uma solução melhor ou igual que a atual. Considerando que a solução está e um vértice do poliedro, é necessesário
+apenas explorar os vértices. Tendo em vista que existe um número finito de vertices para um poliedro descrito por um conjunto finito de restrições lineares (que
+geometricamente correspondem a hiperplanos), fica claro que o simplex converge em um número finito de passos. Apesar de que na média o simplex
+resolve o problema em um número polinomial de passos, em 1972 foi apresentado uma prova de que o método simplex no seu pior caso é exponencial~\cite{klee1972good}.
+Klee e Minty apresentaram um politopo especialmente projetado para que o método simplex leve um número exponenencial de passos, o politopo é
+denominado de Cubo de Kleen-minty.
+
+%\subsubsection{Método dos elipsoides}
+
+Em decorrência da descoberta do cubo de Klee-Mint, diversos pesquisadores iniciaram um estudo em busca de um método capaz de resolver o problema
+de programação linear em tempo polinomial. Um dos primeiros trabalhos apresentados na literatura propondo um algoritmo polinomial foi o método
+dos elipsoides~\cite{khachian}. O método consiste em criar um elipsoide que englobe a solução otíma e reduzilo-lo sequencialmente de modo que
+a solução ótima sempre esteja dentro do elipsoide. O método possui, em teoria, convergencia garantida em tempo polinomial. No entanto, na prática
+o método possui um desempenho inferior ao simplex e apresenta problemas de instabilidade numérica. O método dos elipisoides demonstrou que diversos
+problemas podem ser resolvidos em tempo polinomial~\cite{Grotschel1981}.
+
+%\subsubsection{Método do ponto interior}
+
+Em 1984 foi proposto um novo método polinomial para a solução do problema da programação linear, denominado de método do ponto interior.
+O método consiste em a partir de uma solução factível centro do politopo, perturba-la até que a mesma convirja para o ponto ótimo. O método
+do ponto interior também é referenciado na literatura como método das barreiras, já que as restrições lineares são reescritas como funções
+assintóticas que tendem ao infinito quando a restrição linear original é violada. O método do ponto interior apresentou um desempenho comparável
+ao do simplex, e é especialmente aplicado em problemas de larga escala.
+
 
 \subsection{Dualidade}
-texto
+
+Considerando o problema de programação linear apresentado em~\eqref{funcao_obj},~\eqref{restricoes} e~\eqref{restricoes_triviais}, que
+a partir de agora será denominado de problema primal,
+
+\begin{align}
+    \text{maximizar} \: z = \sum_{j=1}^{p} c_jx_j,
+    \intertext{sujeito a:}
+    \label{rp} \sum_{j=1}^{p} a_{ij} x_j \leq b_i, i = 1, 2, \ldots, q \\
+    \label{} x_j \geq 0, j = 1, 2, \ldots, p,
+\end{align}
+
+o problema dual é construído atribuindo-se uma variável $u_i, i = 1, 2, ..\ldots, q$ a cada restrição em~\eqref{rp} e definindo o problema como:
+
+\begin{align}
+    \text{minimizar} \: d = \sum_{i=1}^{q} b_iu_i,
+    \intertext{sujeito a:}
+    \label{} \sum_{i=1}^{q} a_{ij} u_i \leq c_j, i = 1, 2, \ldots, p \\
+    \label{} u_i \geq 0, i = 1, 2, \ldots, q,
+\end{align}
+
+O problema primal e dual em sua forma matricial são:
+
+\begin{align}
+    \label{} \text{maximizar} \: z &= cx
+    \intertext{sujeito a:}
+    \label{prnt} Ax &= b \\
+    \label{prt} x &\geq 0,
+    \intertext{e}
+    \label{} \text{minimizar} \: d &= ub
+    \intertext{sujeito a:}
+    \label{drnt} uA &= c \\
+    \label{drt} u &\geq 0,
+\end{align}
+
+A partir do problema primal e dual, conforme demonstrado em~\cite{maculan2006otimizaccao}, segue que:
+
+\begin{enumerate}
+    \label{x} \item Se $\overline{x}$ satisfaz~\eqref{prnt} e~\eqref{prt} e $\overline{u}$ satisfaz~\eqref{drnt} e~\eqref{drt}, então $c\overline{x} \leq \overline{u}b$;
+    \item Se $\overline{x}$ e $\overline{u}$ forem soluções factíveis do problema primal e dual, respectivamente, e $c\overline{x} = \overline{u}b$, então
+$\overline{x}$ é a solução ótima do problema primal e $\overline{u}$ é a solução ótima do problema dual;
+    %\item Se o problema primal tiver seu espaço de busca ilimitado, então o problema dual é infactível, e vice-versa;
+    \item Se $\tilde{x}$ é a solução ótima do problema primal e $\tilde{u}$ é a solução ótima do problema dual, então $c\tilde{x} = \tilde{u}b$.
+\end{enumerate}
+
+O primeiro item é conhecido como teorema da dualidade fraca, e sua implicação é que uma solução dual é um limite superior de otimalidade para o problema primal.
+O segundo e terceiro item constituem o teorema da dualidade forte, que pode ser utilizado para provar que uma solução de um problema primal é a ótima.
+Segue ainda que apenas uma das três alternativas abaixo é verdadeira para um problema primal e o seu problema dual associado:
+
+\begin{itemize}
+    \item Ambos os problems tem um espaço de busca vazio;
+    \item Um deles tem o seu espaço de busca vazio e o outro ilimitado;
+    \item Ambos possuem o mesmo valor na função objetivo e possuem soluções ótimas finitas;
+\end{itemize}
 
 \section{Programação Linear Inteira}
 texto
