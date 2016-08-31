@@ -67,33 +67,33 @@ todo e qualquer problema de programação linear pode ser expresso como:
 onde $c^T \in \mathbb{R}^n$, $x \in \mathbb{R}^n$, $b \in \mathbb{R}^m$, $A \in \mathbb{R}^{m \times n}$ e $a_j \in \mathbb{R}^m$.
 
 Baseado nas restrições~\eqref{res2} e~\eqref{res_t2}, pode-se descrever o problema como encontrar $x \in X$, onde $X = \{ x \in \mathbb{R}^n | Ax = b, x \geq 0 \}$,
-tal que $cx$ seja maximizado. Ao conjunto $X$ dá-se o nome de região factivel ou espaço de busca. Para um $x \in X$ qualquer, diz-se que $x$ é uma solução factível.
+tal que $cx$ seja maximizado. Ao conjunto $X$ dá-se o nome de região factível ou espaço de busca. Para um $x \in X$ qualquer, diz-se que $x$ é uma solução factível.
 Para um $x^* \in X$, se $cx^* \geq cx \forall x \in X$, então $x^*$ é a solução ótima do problema. O espaço de busca para um problema de programação linear é sempre
 um poliedro convexo, se interpretado geometricamente, e a solução ótima para o mesmo sempre está em um vértice do poliedro.
 
 \subsection{Métodos de solução}
 
 Considerando o conjunto $X$ descrito na seção anterior, o objetivo de efetuar a modelagem de um problema utilizando-se programação linear é utilizar recursos
-mátematicos e algorítmicos para resolver o modelo, e por conseguinte o problema original. Esta seção apresenta os três principais métodos encontrados na literatura durante
+matemáticos e algorítmicos para resolver o modelo, e por conseguinte o problema original. Esta seção apresenta os três principais métodos encontrados na literatura durante
 o desenvolvimento deste trabalho: o método simplex; o método dos elipsoides; o método do ponto interior.
 
 %\subsubsection{Simplex}
 
 O método Simplex~\cite{dantzig1990origins} foi apresentado em 1947 por George B. Dantzig com o objetivo de resolver o problema de programação linear. O método consiste em encontrar uma solução
-factível ao problema, e iterativamente mover para uma solução melhor ou igual que a atual. Considerando que a solução está e um vértice do poliedro, é necessesário
-apenas explorar os vértices. Tendo em vista que existe um número finito de vertices para um poliedro descrito por um conjunto finito de restrições lineares (que
+factível ao problema, e iterativamente mover para uma solução melhor ou igual que a atual. Considerando que a solução está e um vértice do poliedro, é necessário
+apenas explorar os vértices. Tendo em vista que existe um número finito de vértices para um poliedro descrito por um conjunto finito de restrições lineares (que
 geometricamente correspondem a hiperplanos), fica claro que o simplex converge em um número finito de passos. Apesar de que na média o simplex
 resolve o problema em um número polinomial de passos, em 1972 foi apresentado uma prova de que o método simplex no seu pior caso é exponencial~\cite{klee1972good}.
-Klee e Minty apresentaram um politopo especialmente projetado para que o método simplex leve um número exponenencial de passos, o politopo é
-denominado de Cubo de Kleen-minty.
+Klee e Minty apresentaram um politopo especialmente projetado para que o método simplex leve um número exponencial de passos, o politopo é
+denominado de Cubo de Kleen-Minty.
 
 %\subsubsection{Método dos elipsoides}
 
-Em decorrência da descoberta do cubo de Klee-Mint, diversos pesquisadores iniciaram um estudo em busca de um método capaz de resolver o problema
+Em decorrência da descoberta do cubo de Klee-Minty, diversos pesquisadores iniciaram um estudo em busca de um método capaz de resolver o problema
 de programação linear em tempo polinomial. Um dos primeiros trabalhos apresentados na literatura propondo um algoritmo polinomial foi o método
-dos elipsoides~\cite{khachian}. O método consiste em criar um elipsoide que englobe a solução otíma e reduzilo-lo sequencialmente de modo que
-a solução ótima sempre esteja dentro do elipsoide. O método possui, em teoria, convergencia garantida em tempo polinomial. No entanto, na prática
-o método possui um desempenho inferior ao simplex e apresenta problemas de instabilidade numérica. O método dos elipisoides demonstrou que diversos
+dos elipsoides~\cite{khachian}. O método consiste em criar um elipsoide que englobe a solução ótima e reduzi-lo sequencialmente de modo que
+a solução ótima sempre esteja dentro do elipsoide. O método possui, em teoria, convergência garantida em tempo polinomial. No entanto, na prática
+o método possui um desempenho inferior ao simplex e apresenta problemas de instabilidade numérica. O método dos elipsoides demonstrou que diversos
 problemas podem ser resolvidos em tempo polinomial~\cite{Grotschel1981}.
 
 %\subsubsection{Método do ponto interior}
@@ -117,7 +117,7 @@ a partir de agora será denominado de problema primal,
     \label{} x_j \geq 0, j = 1, 2, \ldots, p,
 \end{align}
 
-o problema dual é construído atribuindo-se uma variável $u_i, i = 1, 2, ..\ldots, q$ a cada restrição em~\eqref{rp} e definindo o problema como:
+o problema dual é construído atribuindo-se uma variável $u_i, i = 1, 2, \ldots, q$ a cada restrição em~\eqref{rp} e definindo o problema como:
 
 \begin{align}
     \text{minimizar} \: d = \sum_{i=1}^{q} b_iu_i,
@@ -155,13 +155,90 @@ O segundo e terceiro item constituem o teorema da dualidade forte, que pode ser 
 Segue ainda que apenas uma das três alternativas abaixo é verdadeira para um problema primal e o seu problema dual associado:
 
 \begin{itemize}
-    \item Ambos os problems tem um espaço de busca vazio;
+    \item Ambos os problemas tem um espaço de busca vazio;
     \item Um deles tem o seu espaço de busca vazio e o outro ilimitado;
     \item Ambos possuem o mesmo valor na função objetivo e possuem soluções ótimas finitas;
 \end{itemize}
 
 \section{Programação Linear Inteira}
-texto
+
+Na prática a programação inteira não é o suficiente para representar diversos problemas, visto que o valor fracionário das variáveis pode não ser condizente
+com o que deseja-se resolver. Considerando um grafo, por exemplo, pode-se modelar um problema onde $x_{ij} = 1$ se um vértice $i$ esta ligada a um vértice
+$j$ e $0$ caso contrário.  Ao resolver o modelo, pode ocorrer que o valor da variável venha a ser algo entre $0$ e $1$, que não possui representação no problema.
+Em um caso prático, uma variável com um valor fracionário pode indicar que é necessário que $3.19$ ônibus devem ser alocados para uma determinada rota, algo
+que não faz sentido. Fica claro então que são necessários recursos extras para representar problemas onde pelo menos uma variável deve ser inteira.
+
+A Programação Linear Inteira (PLI) trata de modelar problemas onde existem variáveis inteiras. A forma genérica de um problema
+dá-se de forma análoga a de um problema de programação linear:
+
+\begin{align}
+    \text{} \: z = \sum_{j=1}^{p} c_jx_j,
+    \intertext{sujeito a:}
+    \label{} \sum_{j=1}^{p} a_{ij} x_j \leq b_i, i &= 1, 2, \ldots, q \\
+    \label{interg} x_j \geq 0 \text{ e } x_j \in \mathbb{Z}, j &= 1, 2, \ldots, p,
+\end{align}
+
+Nota-se que o modelo acima é exatamente igual a um problema genérico de programação linear, exceto pela restrição em~\eqref{interg}, que faz com que
+os valores de $x_j$ sejam inteiros. Esta restrição é denominada de restrição de integralidade.
+
+Outros problemas podem precisar de variáveis inteiras e fracionárias, estes problemas são denominados de problemas de programação linear mista (PLIM) e possuem
+uma forma genérica de:
+
+\begin{align}
+    \text{} \: z = \sum_{j=1}^{p} c_jx_j,
+    \intertext{sujeito a:}
+    \label{plim_r} \sum_{j=1}^{p} a_{ij} x_j \leq b_i, i &= 1, 2, \ldots, q \\
+    \label{plim_v} \sum_{j=1}^{r} g_{ij} y_j \leq d_i, i &= 1, 2, \ldots, q \\
+    \label{} x_j \geq 0, j &= 1, 2, \ldots, p, \\
+    \label{plim_int} y_j \geq 0 \text{ e } y_j \in \mathbb{Z}, j &= 1, 2, \ldots, r
+\end{align}
+
+A restrição~\eqref{plim_r} representa as variáveis fracionárias do modelo, a restrição~\eqref{plim_v} as variáveis inteiras e~\eqref{plim_int} é a restrição
+de integralidade.
+
+Existem ainda problemas na qual é utilizado apenas variáveis binárias, a estes problemas dá-se o nome de problema de programação linear inteira binária (PLIB).
+Eles possuem a forma genérica de:
+
+\begin{align}
+    \text{} \: z = \sum_{j=1}^{p} c_jx_j,
+    \intertext{sujeito a:}
+    \label{} \sum_{j=1}^{p} a_{ij} x_j \leq b_i, i &= 1, 2, \ldots, q \\
+    \label{pbin} x_j \in \{0, 1\}, j &= 1, 2, \ldots, p,
+\end{align}
+
+As restrições são iguais a de um problema de programação linear, exceto para a restrição~\eqref{pbin}, que restringe o domínio das variáveis para valores
+de $0$ ou $1$.
+
+A PLI e suas variantes (PLIM e PLIB) são problemas $\mathcal{NP}$-completos, conforme demonstrados por~\cite{karp1972} e~\cite{papadimitriou1981complexity}.
+Sabe-se ainda que a PLI é um problema $\mathcal{NP}$-completo forte, portanto é improvável que exista um algoritmo pseudo-polinomial para resolve-lo~\cite{garey1978strong}.
+
+Considere o problema de PLI a seguir:
+
+\begin{equation} \label{pli_example}
+    A = \begin{pmatrix} -1 &  2 \\ 5 &  1 \\ -2 & -2 \end{pmatrix}, \quad b = \begin{pmatrix} 4 \\ 20 \\ -7 \end{pmatrix}, \quad c^T = \begin{pmatrix} 1 \\ 1 \end{pmatrix}
+\end{equation}
+
+Resolvendo-o obtém-se o seguinte resultado:
+\begin{table}[htpb]
+    \centering
+    \begin{tabular}{r l}
+        função objetivo &= $6.9090\ldots$ \\
+        $x_1$ &= $3.2727\ldots$ \\
+        $x_2$ &= $3.6363\ldots$
+    \end{tabular}
+\end{table}
+
+Considerando que o problema de PLI admite apenas variáveis com valores inteiros, o resultado acima é invalido como resposta para o problema. Observando-se a figura~\ref{fig:name},
+que contém o espaço de busca do problema em questão, pode-se observar que os pontos que são factíveis ao problema de PLI são um subconjunto do espaço de busca de um problema de
+programação linear com as mesmas restrições. Observa-se ainda que a solução ótima do problema de PLI não coincide com a solução ótima do problema de programação linear. Portanto
+é necessário métodos específicos para resolver problemas de PLI.
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.4\linewidth]{../figuras/pli.pdf}
+    \caption{Espaço de busca do problema \eqref{pli_example}}
+    \label{fig:name}
+\end{figure}
 
 \section{Geração de Colunas}
 texto

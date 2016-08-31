@@ -3,6 +3,7 @@
 cd figuras
 
 pdflatex graph
+pdflatex pli.tex
 
 cd ..
 
