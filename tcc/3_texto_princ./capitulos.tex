@@ -219,26 +219,31 @@ Considere o problema de PLI a seguir:
 \end{equation}
 
 Resolvendo-o obtém-se o seguinte resultado:
-\begin{table}[htpb]
+
+\begin{figure}[!htb]
     \centering
-    \begin{tabular}{r l}
-        função objetivo &= $6.9090\ldots$ \\
-        $x_1$ &= $3.2727\ldots$ \\
-        $x_2$ &= $3.6363\ldots$
-    \end{tabular}
-\end{table}
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \begin{tabular}{r l}
+            função objetivo &= $6.9090\ldots$ \\
+            $x_1$ &= $3.2727\ldots$ \\
+            $x_2$ &= $3.6363\ldots$
+        \end{tabular}
+        \captionof{table}{Instância do CSP}
+        \label{tab_csp}
+    \end{minipage}%
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{../figuras/pli.pdf}
+        \caption{Espaço de busca do problema \eqref{pli_example}}
+        \label{fig:name}
+    \end{minipage}
+\end{figure}
 
 Considerando que o problema de PLI admite apenas variáveis com valores inteiros, o resultado acima é invalido como resposta para o problema. Observando-se a figura~\ref{fig:name},
 que contém o espaço de busca do problema em questão, pode-se observar que os pontos que são factíveis ao problema de PLI são um subconjunto do espaço de busca de um problema de
 programação linear com as mesmas restrições. Observa-se ainda que a solução ótima do problema de PLI não coincide com a solução ótima do problema de programação linear. Portanto
 é necessário métodos específicos para resolver problemas de PLI.
-
-\begin{figure}[htpb]
-    \centering
-    \includegraphics[width=0.4\linewidth]{../figuras/pli.pdf}
-    \caption{Espaço de busca do problema \eqref{pli_example}}
-    \label{fig:name}
-\end{figure}
 
 \section{Geração de Colunas}
 texto
