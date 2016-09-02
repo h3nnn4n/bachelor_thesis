@@ -1,276 +1,308 @@
-\setlength\abovedisplayskip{0pt}
-\setlength\belowdisplayskip{0pt}
-\setlength\abovedisplayshortskip{0pt}
-\setlength\belowdisplayshortskip{0pt}
+\setlength\abovedisplayskip{0pt} \setlength\belowdisplayskip{0pt}
+\setlength\abovedisplayshortskip{0pt} \setlength\belowdisplayshortskip{0pt}
 
-\chapter{Fundamentação Teórica}
-Neste capitulo são apresentados os conceitos básicos e a fundamentação teórica necessária para
-o entendimento e abordagem ao problema do escalonamento de tripulações.
+\chapter{Fundamentação Teórica} Neste capitulo são apresentados os conceitos
+básicos e a fundamentação teórica necessária para o entendimento e abordagem ao
+problema do escalonamento de tripulações.
 
 \section{Programação Linear}
 
-A programação linear consiste na modelagem e solução de problemas descritos com uma função
-objetivo linear sujeita a múltiplas restrições lineares. A forma genérica de um problema de programação
-linear é:
+A programação linear consiste na modelagem e solução de problemas descritos com
+uma função objetivo linear sujeita a múltiplas restrições lineares. A forma
+genérica de um problema de programação linear é:
 
-\begin{align} \label{funcao_obj}
-    \text{maximizar} \: z &= \sum_{j=1}^{p} c_jx_j,
-    \intertext{sujeito a:}
-    \label{restricoes} \sum_{j=1}^{p} a_{ij} x_j \leq b_i, i &= 1, 2, \ldots, q \\
-    \label{restricoes_triviais} x_j \geq 0, j &= 1, 2, \ldots, p,
-\end{align}
+\begin{align} \label{funcao_obj} \text{maximizar} \: z &= \sum_{j=1}^{p}
+    c_jx_j, \intertext{sujeito a:} \label{restricoes} \sum_{j=1}^{p} a_{ij} x_j
+    \leq b_i, i &= 1, 2, \ldots, q \\ \label{restricoes_triviais} x_j \geq 0, j
+    &= 1, 2, \ldots, p, \end{align}
 
-onde $c_j, a_{ij}$ e $b_i$ são números reais que definem o problema e $x_j$ para $j=1, 2, \ldots, p$ são as variáveis
-de decisão. A função~\eqref{funcao_obj} é denominada de função objetivo, a qual deve ser maximizada. Note que
-o máximo de $f(x)$ é o mínimo de $-f(x)$ com o sinal oposto (max $f(x) = - \text{min} f(x)$. As inequações
-em~\eqref{restricoes} representam um conjunto de $q$ restrições lineares que restringem o espaço de busca para um
-poliedro convexo. O máximo da função deve estar contido dentro deste poliedro. As desigualdades em~\eqref{restricoes_triviais}
-são denominadas de restrições triviais ou de não negatividade.
+onde $c_j, a_{ij}$ e $b_i$ são números reais que definem o problema e $x_j$
+para $j=1, 2, \ldots, p$ são as variáveis de decisão. A
+função~\eqref{funcao_obj} é denominada de função objetivo, a qual deve ser
+maximizada. Note que o máximo de $f(x)$ é o mínimo de $-f(x)$ com o sinal
+oposto (max $f(x) = - \text{min} f(x)$. As inequações em~\eqref{restricoes}
+representam um conjunto de $q$ restrições lineares que restringem o espaço de
+busca para um poliedro convexo. O máximo da função deve estar contido dentro
+deste poliedro. As desigualdades em~\eqref{restricoes_triviais} são denominadas
+de restrições triviais ou de não negatividade.
 
-Cada restrição em~\eqref{restricoes} pode ser convertida para restrição de de igualdade utilizando-se
-uma variável extra, denominada de variável de folga. A utilização dá-se por:
+Cada restrição em~\eqref{restricoes} pode ser convertida para restrição de de
+igualdade utilizando-se uma variável extra, denominada de variável de folga. A
+utilização dá-se por:
 
-\[
-\label{restricoes} \sum_{j=1}^{p} a_{ij} x_j \leq b_i \Leftrightarrow
-  \begin{cases}
-    \Sigma_{j=1}^{p} a_{ij} x_j + x_{p+i} = b_i\\
-    x_{p+i} \geq 0
-  \end{cases}
-\]
+\[ \label{restricoes} \sum_{j=1}^{p} a_{ij} x_j \leq b_i \Leftrightarrow
+\begin{cases} \Sigma_{j=1}^{p} a_{ij} x_j + x_{p+i} = b_i\\ x_{p+i} \geq 0
+\end{cases} \]
 
 é possível ainda utilizar duas igualdades para representar uma igualdade:
 
-\[
-\label{restricoes} \sum_{j=1}^{p} a_{ij} x_j = b_i \Leftrightarrow
-  \begin{cases}
-    \Sigma_{j=1}^{p} a_{ij} x_j \leq b_i\\
-    \Sigma_{j=1}^{p} a_{ij} x_j \geq b_i
-  \end{cases}
-\]
+\[ \label{restricoes} \sum_{j=1}^{p} a_{ij} x_j = b_i \Leftrightarrow
+\begin{cases} \Sigma_{j=1}^{p} a_{ij} x_j \leq b_i\\ \Sigma_{j=1}^{p} a_{ij}
+x_j \geq b_i \end{cases} \]
 
-Para um problema qualquer de programação linear com restrições de desigualdades e igualdades, sempre é possível
-reestrutura-lo através da adição de variáveis de folga para que o problema passe a ter apenas igualdades. Portanto
-todo e qualquer problema de programação linear pode ser expresso como:
+Para um problema qualquer de programação linear com restrições de desigualdades
+e igualdades, sempre é possível reestrutura-lo através da adição de variáveis
+de folga para que o problema passe a ter apenas igualdades. Portanto todo e
+qualquer problema de programação linear pode ser expresso como:
 
-\begin{align}
-    \label{fo} \text{maximizar} \: z &= \sum_{j=1}^{n} c_jx_j
-    \intertext{sujeito a:}
-    \label{res} \sum_{j=1}^{n} a_{ij} x_j \leq b_i, i &= 1, 2, \ldots, m \\
-    \label{res_t} x_j \geq 0, j &= 1, 2, \ldots, n
-    \intertext{que é equivalente a:}
-    \label{fo2} \text{maximizar} \: z &= cx
-    \intertext{sujeito a:}
-    \label{res2} Ax &= b \\
-    \label{res_t2} x &\geq 0,
+\begin{align} \label{fo} \text{maximizar} \: z &= \sum_{j=1}^{n} c_jx_j
+    \intertext{sujeito a:} \label{res} \sum_{j=1}^{n} a_{ij} x_j \leq b_i, i &=
+    1, 2, \ldots, m \\ \label{res_t} x_j \geq 0, j &= 1, 2, \ldots, n
+    \intertext{que é equivalente a:} \label{fo2} \text{maximizar} \: z &= cx
+\intertext{sujeito a:} \label{res2} Ax &= b \\ \label{res_t2} x &\geq 0,
 \end{align}
 
-onde $c^T \in \mathbb{R}^n$, $x \in \mathbb{R}^n$, $b \in \mathbb{R}^m$, $A \in \mathbb{R}^{m \times n}$ e $a_j \in \mathbb{R}^m$.
+onde $c^T \in \mathbb{R}^n$, $x \in \mathbb{R}^n$, $b \in \mathbb{R}^m$, $A \in
+\mathbb{R}^{m \times n}$ e $a_j \in \mathbb{R}^m$.
 
-Baseado nas restrições~\eqref{res2} e~\eqref{res_t2}, pode-se descrever o problema como encontrar $x \in X$, onde $X = \{ x \in \mathbb{R}^n | Ax = b, x \geq 0 \}$,
-tal que $cx$ seja maximizado. Ao conjunto $X$ dá-se o nome de região factível ou espaço de busca. Para um $x \in X$ qualquer, diz-se que $x$ é uma solução factível.
-Para um $x^* \in X$, se $cx^* \geq cx \forall x \in X$, então $x^*$ é a solução ótima do problema. O espaço de busca para um problema de programação linear é sempre
-um poliedro convexo, se interpretado geometricamente, e a solução ótima para o mesmo sempre está em um vértice do poliedro.
+Baseado nas restrições~\eqref{res2} e~\eqref{res_t2}, pode-se descrever o
+problema como encontrar $x \in X$, onde $X = \{ x \in \mathbb{R}^n | Ax = b, x
+\geq 0 \}$, tal que $cx$ seja maximizado. Ao conjunto $X$ dá-se o nome de
+região factível ou espaço de busca. Para um $x \in X$ qualquer, diz-se que $x$
+é uma solução factível.  Para um $x^* \in X$, se $cx^* \geq cx \forall x \in
+X$, então $x^*$ é a solução ótima do problema. O espaço de busca para um
+problema de programação linear é sempre um poliedro convexo, se interpretado
+geometricamente, e a solução ótima para o mesmo sempre está em um vértice do
+poliedro.
 
-Um problema de programação linear pode ser ainda expresso em uma forma matricial ou em forma de conjunto. Suas representações são respectivamente:
+Um problema de programação linear pode ser ainda expresso em uma forma
+matricial ou em forma de conjunto. Suas representações são respectivamente:
 
-\begin{align}
-    \label{lp_fo} \text{maximizar} \: z &= cx
-    \intertext{sujeito a:}
-    \label{lp_r} Ax &= b \\
-    \label{lp_tr} x &\geq 0
-    \intertext{}
-    \label{lp_set} \text{max } \{ cx : Ax &\leq b, x \geq 0 \}
-\end{align}
+\begin{align} \label{lp_fo} \text{maximizar} \: z &= cx \intertext{sujeito a:}
+\label{lp_r} Ax &= b \\ \label{lp_tr} x &\geq 0 \intertext{} \label{lp_set}
+\text{max } \{ cx : Ax &\leq b, x \geq 0 \} \end{align}
 
 \subsection{Métodos de solução}
 
-Considerando o conjunto $X$ descrito na seção anterior, o objetivo de efetuar a modelagem de um problema utilizando-se programação linear é utilizar recursos
-matemáticos e algorítmicos para resolver o modelo, e por conseguinte o problema original. Esta seção apresenta os três principais métodos encontrados na literatura durante
-o desenvolvimento deste trabalho: o método simplex; o método dos elipsoides; o método do ponto interior.
+Considerando o conjunto $X$ descrito na seção anterior, o objetivo de efetuar a
+modelagem de um problema utilizando-se programação linear é utilizar recursos
+matemáticos e algorítmicos para resolver o modelo, e por conseguinte o problema
+original. Esta seção apresenta os três principais métodos encontrados na
+literatura durante o desenvolvimento deste trabalho: o método simplex; o método
+dos elipsoides; o método do ponto interior.
 
 %\subsubsection{Simplex}
 
-O método Simplex~\cite{dantzig1990origins} foi apresentado em 1947 por George B. Dantzig com o objetivo de resolver o problema de programação linear. O método consiste em encontrar uma solução
-factível ao problema, e iterativamente mover para uma solução melhor ou igual que a atual. Considerando que a solução está e um vértice do poliedro, é necessário
-apenas explorar os vértices. Tendo em vista que existe um número finito de vértices para um poliedro descrito por um conjunto finito de restrições lineares (que
-geometricamente correspondem a hiperplanos), fica claro que o simplex converge em um número finito de passos. Apesar de que na média o simplex
-resolve o problema em um número polinomial de passos, em 1972 foi apresentado uma prova de que o método simplex no seu pior caso é exponencial~\cite{klee1972good}.
-Klee e Minty apresentaram um politopo especialmente projetado para que o método simplex leve um número exponencial de passos, o politopo é
-denominado de Cubo de Kleen-Minty.
+O método Simplex~\cite{dantzig1990origins} foi apresentado em 1947 por George
+B. Dantzig com o objetivo de resolver o problema de programação linear. O
+método consiste em encontrar uma solução factível ao problema, e iterativamente
+mover para uma solução melhor ou igual que a atual. Considerando que a solução
+está e um vértice do poliedro, é necessário apenas explorar os vértices. Tendo
+em vista que existe um número finito de vértices para um poliedro descrito por
+um conjunto finito de restrições lineares (que geometricamente correspondem a
+hiperplanos), fica claro que o simplex converge em um número finito de passos.
+Apesar de que na média o simplex resolve o problema em um número polinomial de
+passos, em 1972 foi apresentado uma prova de que o método simplex no seu pior
+caso é exponencial~\cite{klee1972good}.  Klee e Minty apresentaram um politopo
+especialmente projetado para que o método simplex leve um número exponencial de
+passos, o politopo é denominado de Cubo de Kleen-Minty.
 
 %\subsubsection{Método dos elipsoides}
 
-Em decorrência da descoberta do cubo de Klee-Minty, diversos pesquisadores iniciaram um estudo em busca de um método capaz de resolver o problema
-de programação linear em tempo polinomial. Um dos primeiros trabalhos apresentados na literatura propondo um algoritmo polinomial foi o método
-dos elipsoides~\cite{khachian}. O método consiste em criar um elipsoide que englobe a solução ótima e reduzi-lo sequencialmente de modo que
-a solução ótima sempre esteja dentro do elipsoide. O método possui, em teoria, convergência garantida em tempo polinomial. No entanto, na prática
-o método possui um desempenho inferior ao simplex e apresenta problemas de instabilidade numérica. O método dos elipsoides demonstrou que diversos
-problemas podem ser resolvidos em tempo polinomial~\cite{Grotschel1981}.
+Em decorrência da descoberta do cubo de Klee-Minty, diversos pesquisadores
+iniciaram um estudo em busca de um método capaz de resolver o problema de
+programação linear em tempo polinomial. Um dos primeiros trabalhos apresentados
+na literatura propondo um algoritmo polinomial foi o método dos
+elipsoides~\cite{khachian}. O método consiste em criar um elipsoide que englobe
+a solução ótima e reduzi-lo sequencialmente de modo que a solução ótima sempre
+esteja dentro do elipsoide. O método possui, em teoria, convergência garantida
+em tempo polinomial. No entanto, na prática o método possui um desempenho
+inferior ao simplex e apresenta problemas de instabilidade numérica. O método
+dos elipsoides demonstrou que diversos problemas podem ser resolvidos em tempo
+polinomial~\cite{Grotschel1981}.
 
 %\subsubsection{Método do ponto interior}
 
-Em 1984 foi proposto um novo método polinomial para a solução do problema da programação linear, denominado de método do ponto interior.
-O método consiste em a partir de uma solução factível centro do politopo, perturba-la até que a mesma convirja para o ponto ótimo. O método
-do ponto interior também é referenciado na literatura como método das barreiras, já que as restrições lineares são reescritas como funções
-assintóticas que tendem ao infinito quando a restrição linear original é violada. O método do ponto interior apresentou um desempenho comparável
-ao do simplex, e é especialmente aplicado em problemas de larga escala.
+Em 1984 foi proposto um novo método polinomial para a solução do problema da
+programação linear, denominado de método do ponto interior.  O método consiste
+em a partir de uma solução factível centro do politopo, perturba-la até que a
+mesma convirja para o ponto ótimo. O método do ponto interior também é
+referenciado na literatura como método das barreiras, já que as restrições
+lineares são reescritas como funções assintóticas que tendem ao infinito quando
+a restrição linear original é violada. O método do ponto interior apresentou um
+desempenho comparável ao do simplex, e é especialmente aplicado em problemas de
+larga escala.
 
 
 \subsection{Dualidade}
 
-Considerando o problema de programação linear apresentado em~\eqref{funcao_obj},~\eqref{restricoes} e~\eqref{restricoes_triviais}, que
-a partir de agora será denominado de problema primal,
+Considerando o problema de programação linear apresentado
+em~\eqref{funcao_obj},~\eqref{restricoes} e~\eqref{restricoes_triviais}, que a
+partir de agora será denominado de problema primal,
 
-\begin{align}
-    \text{maximizar} \: z = \sum_{j=1}^{p} c_jx_j,
-    \intertext{sujeito a:}
-    \label{rp} \sum_{j=1}^{p} a_{ij} x_j \leq b_i, i = 1, 2, \ldots, q \\
-    \label{} x_j \geq 0, j = 1, 2, \ldots, p,
-\end{align}
+\begin{align} \text{maximizar} \: z = \sum_{j=1}^{p} c_jx_j, \intertext{sujeito
+a:} \label{rp} \sum_{j=1}^{p} a_{ij} x_j \leq b_i, i = 1, 2, \ldots, q \\
+\label{} x_j \geq 0, j = 1, 2, \ldots, p, \end{align}
 
-o problema dual é construído atribuindo-se uma variável $u_i, i = 1, 2, \ldots, q$ a cada restrição em~\eqref{rp} e definindo o problema como:
+o problema dual é construído atribuindo-se uma variável $u_i, i = 1, 2, \ldots,
+q$ a cada restrição em~\eqref{rp} e definindo o problema como:
 
-\begin{align}
-    \text{minimizar} \: d = \sum_{i=1}^{q} b_iu_i,
-    \intertext{sujeito a:}
-    \label{} \sum_{i=1}^{q} a_{ij} u_i \leq c_j, i = 1, 2, \ldots, p \\
-    \label{} u_i \geq 0, i = 1, 2, \ldots, q,
-\end{align}
+\begin{align} \text{minimizar} \: d = \sum_{i=1}^{q} b_iu_i, \intertext{sujeito
+a:} \label{} \sum_{i=1}^{q} a_{ij} u_i \leq c_j, i = 1, 2, \ldots, p \\
+\label{} u_i \geq 0, i = 1, 2, \ldots, q, \end{align}
 
 O problema primal e dual em sua forma matricial são:
 
-\begin{align}
-    \label{} \text{maximizar} \: z &= cx
-    \intertext{sujeito a:}
-    \label{prnt} Ax &= b \\
-    \label{prt} x &\geq 0,
-    \intertext{e}
-    \label{} \text{minimizar} \: d &= ub
-    \intertext{sujeito a:}
-    \label{drnt} uA &= c \\
-    \label{drt} u &\geq 0,
-\end{align}
+\begin{align} \label{} \text{maximizar} \: z &= cx \intertext{sujeito a:}
+    \label{prnt} Ax &= b \\ \label{prt} x &\geq 0, \intertext{e} \label{}
+    \text{minimizar} \: d &= ub \intertext{sujeito a:} \label{drnt} uA &= c \\
+    \label{drt} u &\geq 0, \end{align}
 
-A partir do problema primal e dual, conforme demonstrado em~\cite{maculan2006otimizaccao}, segue que:
+A partir do problema primal e dual, conforme demonstrado
+em~\cite{maculan2006otimizaccao}, segue que:
 
-\begin{enumerate}
-    \label{x} \item Se $\overline{x}$ satisfaz~\eqref{prnt} e~\eqref{prt} e $\overline{u}$ satisfaz~\eqref{drnt} e~\eqref{drt}, então $c\overline{x} \leq \overline{u}b$;
-    \item Se $\overline{x}$ e $\overline{u}$ forem soluções factíveis do problema primal e dual, respectivamente, e $c\overline{x} = \overline{u}b$, então
-$\overline{x}$ é a solução ótima do problema primal e $\overline{u}$ é a solução ótima do problema dual;
-    %\item Se o problema primal tiver seu espaço de busca ilimitado, então o problema dual é infactível, e vice-versa;
-    \item Se $\tilde{x}$ é a solução ótima do problema primal e $\tilde{u}$ é a solução ótima do problema dual, então $c\tilde{x} = \tilde{u}b$.
+\begin{enumerate} \label{x} \item Se $\overline{x}$ satisfaz~\eqref{prnt}
+        e~\eqref{prt} e $\overline{u}$ satisfaz~\eqref{drnt} e~\eqref{drt},
+    então $c\overline{x} \leq \overline{u}b$; \item Se $\overline{x}$ e
+        $\overline{u}$ forem soluções factíveis do problema primal e dual,
+        respectivamente, e $c\overline{x} = \overline{u}b$, então
+        $\overline{x}$ é a solução ótima do problema primal e $\overline{u}$ é
+        a solução ótima do problema dual;
+    %\item Se o problema primal tiver seu espaço de busca ilimitado, então o
+        %problema dual é infactível, e vice-versa;
+    \item Se $\tilde{x}$ é a solução ótima do problema primal e $\tilde{u}$ é a
+solução ótima do problema dual, então $c\tilde{x} = \tilde{u}b$.
 \end{enumerate}
 
-O primeiro item é conhecido como teorema da dualidade fraca, e sua implicação é que uma solução dual é um limite superior de otimalidade para o problema primal.
-O segundo e terceiro item constituem o teorema da dualidade forte, que pode ser utilizado para provar que uma solução de um problema primal é a ótima.
-Segue ainda que apenas uma das três alternativas abaixo é verdadeira para um problema primal e o seu problema dual associado:
+O primeiro item é conhecido como teorema da dualidade fraca, e sua implicação é
+que uma solução dual é um limite superior de otimalidade para o problema
+primal.  O segundo e terceiro item constituem o teorema da dualidade forte, que
+pode ser utilizado para provar que uma solução de um problema primal é a ótima.
+Segue ainda que apenas uma das três alternativas abaixo é verdadeira para um
+problema primal e o seu problema dual associado:
 
-\begin{itemize}
-    \item Ambos os problemas tem um espaço de busca vazio;
-    \item Um deles tem o seu espaço de busca vazio e o outro ilimitado;
-    \item Ambos possuem o mesmo valor na função objetivo e possuem soluções ótimas finitas;
+\begin{itemize} \item Ambos os problemas tem um espaço de busca vazio; \item Um
+deles tem o seu espaço de busca vazio e o outro ilimitado; \item Ambos possuem
+o mesmo valor na função objetivo e possuem soluções ótimas finitas;
 \end{itemize}
 
 \section{Programação Linear Inteira}
 
-Na prática a programação inteira não é o suficiente para representar diversos problemas, visto que o valor fracionário das variáveis pode não ser condizente
-com o que deseja-se resolver. Considerando um grafo, por exemplo, pode-se modelar um problema onde $x_{ij} = 1$ se um vértice $i$ esta ligada a um vértice
-$j$ e $0$ caso contrário.  Ao resolver o modelo, pode ocorrer que o valor da variável venha a ser algo entre $0$ e $1$, que não possui representação no problema.
-Em um caso prático, uma variável com um valor fracionário pode indicar que é necessário que $3.19$ ônibus devem ser alocados para uma determinada rota, algo
-que não faz sentido. Fica claro então que são necessários recursos extras para representar problemas onde pelo menos uma variável deve ser inteira.
+Na prática a programação inteira não é o suficiente para representar diversos
+problemas, visto que o valor fracionário das variáveis pode não ser condizente
+com o que deseja-se resolver. Considerando um grafo, por exemplo, pode-se
+modelar um problema onde $x_{ij} = 1$ se um vértice $i$ esta ligada a um
+vértice $j$ e $0$ caso contrário.  Ao resolver o modelo, pode ocorrer que o
+valor da variável venha a ser algo entre $0$ e $1$, que não possui
+representação no problema.  Em um caso prático, uma variável com um valor
+fracionário pode indicar que é necessário que $3.19$ ônibus devem ser alocados
+para uma determinada rota, algo que não faz sentido. Fica claro então que são
+necessários recursos extras para representar problemas onde pelo menos uma
+variável deve ser inteira.
 
-A Programação Linear Inteira (PLI) trata de modelar problemas onde existem variáveis inteiras. A forma genérica de um problema
-dá-se de forma análoga a de um problema de programação linear:
+A Programação Linear Inteira (PLI) trata de modelar problemas onde existem
+variáveis inteiras. A forma genérica de um problema dá-se de forma análoga a de
+um problema de programação linear:
 
-\begin{align}
-    \text{} \: z = \sum_{j=1}^{p} c_jx_j,
-    \intertext{sujeito a:}
-    \label{} \sum_{j=1}^{p} a_{ij} x_j \leq b_i, i &= 1, 2, \ldots, q \\
-    \label{interg} x_j \geq 0 \text{ e } x_j \in \mathbb{Z}, j &= 1, 2, \ldots, p,
+\begin{align} \text{} \: z = \sum_{j=1}^{p} c_jx_j, \intertext{sujeito a:}
+\label{} \sum_{j=1}^{p} a_{ij} x_j \leq b_i, i &= 1, 2, \ldots, q \\
+\label{interg} x_j \geq 0 \text{ e } x_j \in \mathbb{Z}, j &= 1, 2, \ldots, p,
 \end{align}
 
-Nota-se que o modelo acima é exatamente igual a um problema genérico de programação linear, exceto pela restrição em~\eqref{interg}, que faz com que
-os valores de $x_j$ sejam inteiros. Esta restrição é denominada de restrição de integralidade.
+Nota-se que o modelo acima é exatamente igual a um problema genérico de
+programação linear, exceto pela restrição em~\eqref{interg}, que faz com que os
+valores de $x_j$ sejam inteiros. Esta restrição é denominada de restrição de
+integralidade.
 
-Outros problemas podem precisar de variáveis inteiras e fracionárias, estes problemas são denominados de problemas de programação linear mista (PLIM) e possuem
-uma forma genérica de:
+Outros problemas podem precisar de variáveis inteiras e fracionárias, estes
+problemas são denominados de problemas de programação linear mista (PLIM) e
+possuem uma forma genérica de:
 
-\begin{align}
-    \text{} \: z = \sum_{j=1}^{p} c_jx_j,
-    \intertext{sujeito a:}
+\begin{align} \text{} \: z = \sum_{j=1}^{p} c_jx_j, \intertext{sujeito a:}
     \label{plim_r} \sum_{j=1}^{p} a_{ij} x_j \leq b_i, i &= 1, 2, \ldots, q \\
     \label{plim_v} \sum_{j=1}^{r} g_{ij} y_j \leq d_i, i &= 1, 2, \ldots, q \\
-    \label{} x_j \geq 0, j &= 1, 2, \ldots, p, \\
-    \label{plim_int} y_j \geq 0 \text{ e } y_j \in \mathbb{Z}, j &= 1, 2, \ldots, r
-\end{align}
+    \label{} x_j \geq 0, j &= 1, 2, \ldots, p, \\ \label{plim_int} y_j \geq 0
+\text{ e } y_j \in \mathbb{Z}, j &= 1, 2, \ldots, r \end{align}
 
-A restrição~\eqref{plim_r} representa as variáveis fracionárias do modelo, a restrição~\eqref{plim_v} as variáveis inteiras e~\eqref{plim_int} é a restrição
+A restrição~\eqref{plim_r} representa as variáveis fracionárias do modelo, a
+restrição~\eqref{plim_v} as variáveis inteiras e~\eqref{plim_int} é a restrição
 de integralidade.
 
-Existem ainda problemas na qual é utilizado apenas variáveis binárias, a estes problemas dá-se o nome de problema de programação linear inteira binária (PLIB).
-Eles possuem a forma genérica de:
+Existem ainda problemas na qual é utilizado apenas variáveis binárias, a estes
+problemas dá-se o nome de problema de programação linear inteira binária
+(PLIB).  Eles possuem a forma genérica de:
 
-\begin{align}
-    \text{} \: z = \sum_{j=1}^{p} c_jx_j,
-    \intertext{sujeito a:}
-    \label{} \sum_{j=1}^{p} a_{ij} x_j \leq b_i, i &= 1, 2, \ldots, q \\
-    \label{pbin} x_j \in \{0, 1\}, j &= 1, 2, \ldots, p,
-\end{align}
+\begin{align} \text{} \: z = \sum_{j=1}^{p} c_jx_j, \intertext{sujeito a:}
+\label{} \sum_{j=1}^{p} a_{ij} x_j \leq b_i, i &= 1, 2, \ldots, q \\
+\label{pbin} x_j \in \{0, 1\}, j &= 1, 2, \ldots, p, \end{align}
 
-As restrições são iguais a de um problema de programação linear, exceto para a restrição~\eqref{pbin}, que restringe o domínio das variáveis para valores
-de $0$ ou $1$.
+As restrições são iguais a de um problema de programação linear, exceto para a
+restrição~\eqref{pbin}, que restringe o domínio das variáveis para valores de
+$0$ ou $1$.
 
-A PLI e suas variantes (PLIM e PLIB) são problemas $\mathcal{NP}$-completos, conforme demonstrados por~\cite{karp1972} e~\cite{papadimitriou1981complexity}.
-Sabe-se ainda que a PLI é um problema $\mathcal{NP}$-completo forte, portanto é improvável que exista um algoritmo pseudo-polinomial para resolve-lo~\cite{garey1978strong}.
+A PLI e suas variantes (PLIM e PLIB) são problemas $\mathcal{NP}$-completos,
+conforme demonstrados por~\cite{karp1972} e~\cite{papadimitriou1981complexity}.
+Sabe-se ainda que a PLI é um problema $\mathcal{NP}$-completo forte, portanto é
+improvável que exista um algoritmo pseudo-polinomial para
+resolve-lo~\cite{garey1978strong}.
 
 Considere o problema de PLI a seguir:
 
-\begin{equation} \label{pli_example}
-    A = \begin{pmatrix} -1 &  2 \\ 5 &  1 \\ -2 & -2 \end{pmatrix}, \quad b = \begin{pmatrix} 4 \\ 20 \\ -7 \end{pmatrix}, \quad c^T = \begin{pmatrix} 1 \\ 1 \end{pmatrix}
+\begin{equation} \label{pli_example} A = \begin{pmatrix} -1 &  2 \\ 5 &  1 \\
+    -2 & -2 \end{pmatrix}, \quad b = \begin{pmatrix} 4 \\ 20 \\ -7
+        \end{pmatrix}, \quad c^T = \begin{pmatrix} 1 \\ 1 \end{pmatrix}
 \end{equation}
 
 Resolvendo-o obtém-se o seguinte resultado:
 
-\begin{figure}[!htb]
-    \centering
-    \begin{minipage}{.5\textwidth}
-        \centering
-        \begin{tabular}{r l}
-            função objetivo &= $6.9090\ldots$ \\
-            $x_1$ &= $3.2727\ldots$ \\
-            $x_2$ &= $3.6363\ldots$
-        \end{tabular}
-        \captionof{table}{Instância do CSP}
-        \label{tab_csp}
-    \end{minipage}%
-    \begin{minipage}{0.5\textwidth}
-        \centering
-        \includegraphics[width=1\linewidth]{../figuras/pli.pdf}
-        \caption{Espaço de busca do problema \eqref{pli_example}}
-        \label{fig:name}
-    \end{minipage}
-\end{figure}
+\begin{figure}[!htb] \centering \begin{minipage}{.5\textwidth} \centering
+    \begin{tabular}{r l} função objetivo &= $6.9090\ldots$ \\ $x_1$ &=
+    $3.2727\ldots$ \\ $x_2$ &= $3.6363\ldots$ \end{tabular}
+    \captionof{table}{Instância do CSP} \label{tab_csp} \end{minipage}%
+    \begin{minipage}{0.5\textwidth} \centering
+        \includegraphics[width=1\linewidth]{../figuras/pli.pdf} \caption{Espaço
+        de busca do problema \eqref{pli_example}} \label{fig:name}
+    \end{minipage} \end{figure}
 
-Considerando que o problema de PLI admite apenas variáveis com valores inteiros, o resultado acima é invalido como resposta para o problema. Observando-se a figura~\ref{fig:name},
-que contém o espaço de busca do problema em questão, pode-se observar que os pontos que são factíveis ao problema de PLI são um subconjunto do espaço de busca de um problema de
-programação linear com as mesmas restrições. Observa-se ainda que a solução ótima do problema de PLI não coincide com a solução ótima do problema de programação linear. Portanto
-é necessário métodos específicos para resolver problemas de PLI.
+Considerando que o problema de PLI admite apenas variáveis com valores
+inteiros, o resultado acima é invalido como resposta para o problema.
+Observando-se a figura~\ref{fig:name}, que contém o espaço de busca do problema
+em questão, pode-se observar que os pontos que são factíveis ao problema de PLI
+são um subconjunto do espaço de busca de um problema de programação linear com
+as mesmas restrições. Observa-se ainda que a solução ótima do problema de PLI
+não coincide com a solução ótima do problema de programação linear. Portanto é
+necessário métodos específicos para resolver problemas de PLI.
 
 \subsection{Relaxação Linear}
 
-O conceito de relaxação no contexto de otimização corresponde a remover algum tipo de restrição. Um possível objetivo de relaxar um problema é facilitar a sua
-solução.  Dentre as diversas restrições que podem ser relaxadas, uma delas é a restrição de integralidade, que se removida leva a uma relaxação linear.
-Considerando que o problema de PLI genérico é $\mathcal{NP}$-completo, a relaxação linear torna-o um problema $\mathcal{P}$, que pode ser resolvido mais rápido.
+O conceito de relaxação no contexto de otimização corresponde a remover algum
+tipo de restrição. Um possível objetivo de relaxar um problema é facilitar a
+sua solução.  Dentre as diversas restrições que podem ser relaxadas, uma delas
+é a restrição de integralidade, que se removida leva a uma relaxação linear.
+Considerando que o problema de PLI genérico é $\mathcal{NP}$-completo, a
+relaxação linear torna-o um problema $\mathcal{P}$, que pode ser resolvido mais
+rápido.
 
-Seja $x^*$ a solução ótima de um problema de maximização PLI e $\hat{x}^*$ a solução ótima da relaxação do mesmo, segue que $x^* \leq \hat{x}^*$. Portanto a relaxação
-linear é um limite superior de otimalidade para um problema de PLI qualquer. O mesmo é válido para suas variantes.
+Seja $x^*$ a solução ótima de um problema de maximização PLI e $\hat{x}^*$ a
+solução ótima da relaxação do mesmo, segue que $x^* \leq \hat{x}^*$. Portanto a
+relaxação linear é um limite superior de otimalidade para um problema de PLI
+qualquer. O mesmo é válido para suas variantes.
+
+O espaço de busca de um problema de PLI consiste um om conjunto de pontos com
+coordenadas inteiras. A figura~\ref{pli_example} contém o conjunto de pontos
+que satisfazem o problema original. O contorno que envolve os pontos consiste
+na relaxação linear, onde a restrição de integralidade foi desconsiderada.
+Pode-se notar que a área de busca aumentou e a solução ótima da relaxação é
+maior que do problema original.
 
 \subsection{Relaxação Combinatória}
 
-Para problemas combinatórios (discretos), a relaxação combinatória consiste em remover uma ou mais restrições de um problema. Igualmente a relaxação linear,
-a relaxação combinatória oferece um limite superior de otimalidade para um problema de PLI, no entanto a relaxação combinatória não necessariamente torna o problema
-mais fácil de se resolver.
+Para problemas combinatórios (discretos), a relaxação combinatória consiste em
+remover uma ou mais restrições de um problema. Igualmente a relaxação linear, a
+relaxação combinatória oferece um limite superior de otimalidade para um
+problema de PLI, no entanto a relaxação combinatória não necessariamente torna
+o problema mais fácil de se resolver, no sentido de diminuir a complexidade.
 
-\section{Geração de Colunas}
-texto
+Um exemplo de relaxação combinatória é a remoção da restrição de sub-tours no
+problema do caixeiro viajante, que transforma-o em um problema de designação. O
+problema de designação é um problema $\mathcal{P}$. Na prática utiliza-se esta
+relaxação para resolver-se o problema do caixeiro
+viajante~\cite{laporte1992traveling}.
+
+\subsection{Métodos de solução de PLI}
+
+Um dos primeiros métodos para solução de problemas de programação inteira foi
+proposto por~\cite{
+
+\section{Geração de Colunas} texto
 
