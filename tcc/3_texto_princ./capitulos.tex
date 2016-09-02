@@ -302,7 +302,25 @@ viajante~\cite{laporte1992traveling}.
 \subsection{Métodos de solução de PLI}
 
 Um dos primeiros métodos para solução de problemas de programação inteira foi
-proposto por~\cite{
+proposto por~\cite{gomory1960solving,gomory1960algorithm}. O método veio a ser
+denominado de método de planos de cortes, que consiste em gerar hiperplanos
+(restrições) que removem o ponto ótimo da relaxação linear sem remover o ótimo
+da PLI. Esta sequencia de cortes faz com que a solução ótima da relaxação linear
+seja a mesma do problema original. Utilizando-se planos de corte pode-se
+resolver problemas de PLI apenas com o SIMPLEX. O método funciona teoricamente,
+porém na pratica o método sofre de sérios problemas de instabilidade numérica,
+tornando-o inviável. Existem estudos que propuseram mudanças para viabilizar
+o métodos~\cite{cook2009numerically}. \cite{zanette2011lexicography} apresenta
+o uso do simplex lexicográfico para evitar a instabilidade numérica. Outro
+plano de corte bem estabelecido na literatura é o corte por arredondamento
+inteiro misto~\cite{wosley88}, que foi demonstrado ser uma forma genérica para
+planos de cortes. Apesar de sua inviabilidade, os planos de corte possuem grande
+importância teórica.
+
+Anos depois, baseados nos trabalhos de~\cite{little1963algorithm}
+e~\cite{land2010automatic}.
+
+
 
 \section{Geração de Colunas} texto
 
