@@ -147,8 +147,9 @@ Obtém-se assim uma solução que possui o custo mínimo e oferece melhoras no probl
 o custo do caminho seja limitado a um valor arbitrário $MaxW$, sendo que $d_t$ é a duração da jornada $t$. Ignorando-se a restrição~\eqref{sp4} tem-se
 o problema do custo mínimo. No entanto, com o uso desta restrição o subproblema passar a ser um problema de caminho mínimo com restrição de
 recursos~\cite{desaulniers2006column}, que é NP-\textit{Hard}~\cite{garey1979computers}. \cite{hassin1992approximation} apresentou um
-algoritmo de aproximação de complexidade $\mathcal{O}((n^3/\epsilon) * (log n/\epsilon))$. Existem ainda bordagens baseadas em \textit{labeling}
-\cite{dumitrescu2003improved}, limites duais~\cite{handler1980dual} e relaxação lagrangiana~\cite{beasley1989algorithm}.
+algoritmo de aproximação de complexidade $\mathcal{O}((n^3/\epsilon) * (log n/\epsilon))$. Existem ainda abordagens para solucionar o problema do
+caminho mínimo com restrições baseadas em \textit{labeling} \cite{dumitrescu2003improved}, limites duais~\cite{handler1980dual}
+e relaxação lagrangiana~\cite{beasley1989algorithm}.
 
 \begin{align}
     \label{sp1} \text{min} \: \sum_{a \in A} c_a y_a + \sum_{t \in T} \pi_t v_t \\
@@ -163,18 +164,17 @@ Além do método de geração de colunas, outros métodos também são utilizados na li
 \textit{particle swarm optimization}~\cite{limlawan2014hybrid}
 \textit{multi-start randomized heuristic}~\cite{de2016multi},
 e \textit{ant colony optimization}~\cite{deng2011ant}.
-
 Na literatura pesquisada até o momento, identificou-se que vários autores a fim de resolver o CSP de forma eficiente
 (que apresentam um melhor desempenho computacional), utilizaram o método de geração de colunas ou um conjunto de outros métodos,
 podendo ser heurísticos ou híbridos.
 
-Porém, dada a pesquisa que realizou-se, não foi possível concluir que identificou-se um método (híbrido ou heurístico)
+Dada a pesquisa que realizou-se, não foi possível concluir que identificou-se um método (híbrido ou heurístico)
 que apresenta o melhor desempenho computacional dentre todos os métodos que foram propostos. Especialmente considerando
 que o CSP apresenta diversas modelagens que variam entre si, de modo que o bom desempenho para um conjunto de modelos
 não transfere-se para outro.
 
 Dado o exposto acima, este trabalho tem o objetivo de especificar e propor um método para a solução do CSP que, a princípio seja capaz de prover
-soluções de modo exato e seja competitivo, e preferencialmente mais eficiente, com outros algoritmos pesquisados na literatura.
+soluções de modo exato, e preferencialmente mais eficiente, considerando algoritmos pesquisados na literatura.
 
 %\chapter{Conceitos}
 %\label{cap:introducao}
