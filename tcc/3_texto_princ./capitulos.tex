@@ -1,15 +1,15 @@
 \setlength\abovedisplayskip{0pt} \setlength\belowdisplayskip{0pt}
 \setlength\abovedisplayshortskip{0pt} \setlength\belowdisplayshortskip{0pt}
 
-\chapter{Fundamentação Teórica} Neste capitulo são apresentados os conceitos
-básicos e a fundamentação teórica necessária para o entendimento e abordagem ao
+\chapter{Fundamentação Teórica} Neste capítulo são apresentados os conceitos
+    básicos e a fundamentação teórica necessária para o entendimento e abordagem do
 problema do escalonamento de tripulações.
 
 \section{Programação Linear}
 
 A programação linear consiste na modelagem e solução de problemas descritos com
 uma função objetivo linear sujeita a múltiplas restrições lineares. A forma
-genérica de um problema de programação linear é:
+genérica de um problema de programação linear é\cite{dantzig1955generalized}:
 
 \begin{align} \label{funcao_obj} \text{maximizar} \: z &= \sum_{j=1}^{p}
     c_jx_j, \intertext{sujeito a:} \label{restricoes} \sum_{j=1}^{p} a_{ij} x_j
@@ -20,13 +20,13 @@ onde $c_j, a_{ij}$ e $b_i$ são números reais que definem o problema e $x_j$
 para $j=1, 2, \ldots, p$ são as variáveis de decisão. A
 função~\eqref{funcao_obj} é denominada de função objetivo, a qual deve ser
 maximizada. Note que o máximo de $f(x)$ é o mínimo de $-f(x)$ com o sinal
-oposto (max $f(x) = - \text{min} f(x)$. As inequações em~\eqref{restricoes}
+oposto max $f(x) = - \text{min} f(x)$. As inequações em~\eqref{restricoes}
 representam um conjunto de $q$ restrições lineares que restringem o espaço de
 busca para um poliedro convexo. O máximo da função deve estar contido dentro
 deste poliedro. As desigualdades em~\eqref{restricoes_triviais} são denominadas
 de restrições triviais ou de não negatividade.
 
-Cada restrição em~\eqref{restricoes} pode ser convertida para restrição de de
+Cada restrição em~\eqref{restricoes} pode ser convertida para restrição de
 igualdade utilizando-se uma variável extra, denominada de variável de folga. A
 utilização dá-se por:
 
@@ -41,15 +41,15 @@ utilização dá-se por:
 x_j \geq b_i \end{cases} \]
 
 Para um problema qualquer de programação linear com restrições de desigualdades
-e igualdades, sempre é possível reestrutura-lo através da adição de variáveis
+e igualdades, sempre é possível reestruturá-lo através da adição de variáveis
 de folga para que o problema passe a ter apenas igualdades. Portanto todo e
 qualquer problema de programação linear pode ser expresso como:
 
 \begin{align} \label{fo} \text{maximizar} \: z &= \sum_{j=1}^{n} c_jx_j
-    \intertext{sujeito a:} \label{res} \sum_{j=1}^{n} a_{ij} x_j \leq b_i, i &=
+    \intertext{sujeito à:} \label{res} \sum_{j=1}^{n} a_{ij} x_j \leq b_i, i &=
     1, 2, \ldots, m \\ \label{res_t} x_j \geq 0, j &= 1, 2, \ldots, n
-    \intertext{que é equivalente a:} \label{fo2} \text{maximizar} \: z &= cx
-\intertext{sujeito a:} \label{res2} Ax &= b \\ \label{res_t2} x &\geq 0,
+    \intertext{que é equivalente à:} \label{fo2} \text{maximizar} \: z &= cx
+\intertext{sujeito à:} \label{res2} Ax &= b \\ \label{res_t2} x &\geq 0,
 \end{align}
 
 onde $c^T \in \mathbb{R}^n$, $x \in \mathbb{R}^n$, $b \in \mathbb{R}^m$, $A \in
@@ -87,7 +87,7 @@ O método Simplex~\cite{dantzig1990origins} foi apresentado em 1947 por George
 B. Dantzig com o objetivo de resolver o problema de programação linear. O
 método consiste em encontrar uma solução factível ao problema, e iterativamente
 mover para uma solução melhor ou igual que a atual. Considerando que a solução
-está e um vértice do poliedro, é necessário apenas explorar os vértices. Tendo
+está em um vértice do poliedro, é necessário apenas explorar os vértices. Tendo
 em vista que existe um número finito de vértices para um poliedro descrito por
 um conjunto finito de restrições lineares (que geometricamente correspondem a
 hiperplanos), fica claro que o simplex converge em um número finito de passos.
@@ -104,19 +104,19 @@ iniciaram um estudo em busca de um método capaz de resolver o problema de
 programação linear em tempo polinomial. Um dos primeiros trabalhos apresentados
 na literatura propondo um algoritmo polinomial foi o método dos
 elipsoides~\cite{khachian}. O método consiste em criar um elipsoide que englobe
-a solução ótima e reduzi-lo sequencialmente de modo que a solução ótima sempre
+a solução ótima e reduzí-lo sequencialmente de modo que a solução ótima sempre
 esteja dentro do elipsoide. O método possui, em teoria, convergência garantida
-em tempo polinomial. No entanto, na prática o método possui um desempenho
-inferior ao simplex e apresenta problemas de instabilidade numérica. O método
+em tempo polinomial. No entanto, na prática o método apresenta um desempenho
+inferior ao simplex, como problemas de instabilidade numérica. O método
 dos elipsoides demonstrou que diversos problemas podem ser resolvidos em tempo
 polinomial~\cite{Grotschel1981}.
 
 %\subsubsection{Método do ponto interior}
 
 Em 1984 foi proposto um novo método polinomial para a solução do problema da
-programação linear, denominado de método do ponto interior.  O método consiste
-em a partir de uma solução factível centro do politopo, perturba-la até que a
-mesma convirja para o ponto ótimo. O método do ponto interior também é
+programação linear, denominado de método do ponto interior\cite{potra2000interior}.
+método consiste em a partir de uma solução factível centro do politopo, perturba-la
+até que a mesma convirja para o ponto ótimo. O método do ponto interior também é
 referenciado na literatura como método das barreiras, já que as restrições
 lineares são reescritas como funções assintóticas que tendem ao infinito quando
 a restrição linear original é violada. O método do ponto interior apresentou um
@@ -134,18 +134,18 @@ partir de agora será denominado de problema primal,
 a:} \label{rp} \sum_{j=1}^{p} a_{ij} x_j \leq b_i, i = 1, 2, \ldots, q \\
 \label{} x_j \geq 0, j = 1, 2, \ldots, p, \end{align}
 
-o problema dual é construído atribuindo-se uma variável $u_i, i = 1, 2, \ldots,
+o problema dual é construído atribuíndo-se uma variável $u_i, i = 1, 2, \ldots,
 q$ a cada restrição em~\eqref{rp} e definindo o problema como:
 
 \begin{align} \text{minimizar} \: d = \sum_{i=1}^{q} b_iu_i, \intertext{sujeito
 a:} \label{} \sum_{i=1}^{q} a_{ij} u_i \leq c_j, i = 1, 2, \ldots, p \\
 \label{} u_i \geq 0, i = 1, 2, \ldots, q, \end{align}
 
-O problema primal e dual em sua forma matricial são:
+O problema primal e dual em sua forma matricial são dados por:
 
-\begin{align} \label{} \text{maximizar} \: z &= cx \intertext{sujeito a:}
+\begin{align} \label{} \text{maximizar} \: z &= cx \intertext{sujeito à:}
     \label{prnt} Ax &= b \\ \label{prt} x &\geq 0, \intertext{e} \label{}
-    \text{minimizar} \: d &= ub \intertext{sujeito a:} \label{drnt} uA &= c \\
+    \text{minimizar} \: d &= ub \intertext{sujeito à:} \label{drnt} uA^t &= c \\
     \label{drt} u &\geq 0,
 \end{align}
 
@@ -155,36 +155,36 @@ em~\cite{maculan2006otimizaccao}, segue que:
 \begin{enumerate} \label{x} \item Se $\overline{x}$ satisfaz~\eqref{prnt}
         e~\eqref{prt} e $\overline{u}$ satisfaz~\eqref{drnt} e~\eqref{drt},
     então $c\overline{x} \leq \overline{u}b$; \item Se $\overline{x}$ e
-        $\overline{u}$ forem soluções factíveis do problema primal e dual,
+        $\overline{u}$ forem \textbf{soluções factíveis} do problema primal e dual,
         respectivamente, e $c\overline{x} = \overline{u}b$, então
-        $\overline{x}$ é a solução ótima do problema primal e $\overline{u}$ é
+        $\overline{x}$ é a \textbf{solução ótima} do problema primal e $\overline{u}$ é
         a solução ótima do problema dual;
     %\item Se o problema primal tiver seu espaço de busca ilimitado, então o
         %problema dual é infactível, e vice-versa;
-    \item Se $\tilde{x}$ é a solução ótima do problema primal e $\tilde{u}$ é a
-solução ótima do problema dual, então $c\tilde{x} = \tilde{u}b$.
+    \item Se $\tilde{x}$ é a \textbf{solução ótima} do problema primal e $\tilde{u}$ é a
+        \textbf{solução ótima} do problema dual, então $c\tilde{x} = \tilde{u}b$.
 \end{enumerate}
 
-O primeiro item é conhecido como teorema da dualidade fraca, e sua implicação é
+O primeiro item é conhecido como teorema da \textbf{dualidade fracaJ}, e sua implicação é
 que uma solução dual é um limite superior de otimalidade para o problema
-primal.  O segundo e terceiro item constituem o teorema da dualidade forte, que
+primal.  O segundo e terceiro item constituem o teorema da \textbf{dualidade forte}, que
 pode ser utilizado para provar que uma solução de um problema primal é a ótima.
-Segue ainda que apenas uma das três alternativas abaixo é verdadeira para um
-problema primal e o seu problema dual associado:
+%Segue ainda que apenas uma das três alternativas abaixo é verdadeira para um
+%problema primal e o seu problema dual associado:
 
-\begin{itemize} \item Ambos os problemas tem um espaço de busca vazio; \item Um
-deles tem o seu espaço de busca vazio e o outro ilimitado; \item Ambos possuem
-o mesmo valor na função objetivo e possuem soluções ótimas finitas;
-\end{itemize}
+%\begin{itemize} \item Ambos os problemas tem um espaço de busca vazio; \item Um
+%deles tem o seu espaço de busca vazio e o outro ilimitado; \item Ambos possuem
+%o mesmo valor na função objetivo e possuem soluções ótimas finitas;
+%\end{itemize}
 
 \section{Programação Linear Inteira}
 
 Na prática a programação inteira não é o suficiente para representar diversos
-problemas, visto que o valor fracionário das variáveis pode não ser condizente
-com o que deseja-se resolver. Considerando um grafo, por exemplo, pode-se
-modelar um problema onde $x_{ij} = 1$ se um vértice $i$ esta ligada a um
-vértice $j$ e $0$ caso contrário.  Ao resolver o modelo, pode ocorrer que o
-valor da variável venha a ser algo entre $0$ e $1$, que não possui
+problemas, visto que o valor fracionário da soluçao (variáveis) pode não ser condizente
+a a realidade. A fim de ilustrar o problema de variáveis frácionarias, considerw um
+grafo, por exemplo, pode-se modelar um problema de PLI onde $x_{ij} = 1$ se um vértice
+$i$ esta ligada a um vértice $j$ e $0$ caso contrário.  Ao resolver o modelo, pode ocorrer
+que o valor da variável venha a ser algo entre $0$ e $1$, que não possui
 representação no problema.  Em um caso prático, uma variável com um valor
 fracionário pode indicar que é necessário que $3.19$ ônibus devem ser alocados
 para uma determinada rota, algo que não faz sentido. Fica claro então que são
@@ -195,7 +195,7 @@ A Programação Linear Inteira (PLI) trata de modelar problemas onde existem
 variáveis inteiras. A forma genérica de um problema dá-se de forma análoga a de
 um problema de programação linear:
 
-\begin{align} \text{} \: z = \sum_{j=1}^{p} c_jx_j, \intertext{sujeito a:}
+\begin{align} \text{} \: z = \sum_{j=1}^{p} c_jx_j, \intertext{sujeito à:}
 \label{} \sum_{j=1}^{p} a_{ij} x_j \leq b_i, i &= 1, 2, \ldots, q \\
 \label{interg} x_j \geq 0 \text{ e } x_j \in \mathbb{Z}, j &= 1, 2, \ldots, p,
 \end{align}
@@ -205,7 +205,7 @@ programação linear, exceto pela restrição em~\eqref{interg}, que faz com que os
 valores de $x_j$ sejam inteiros. Esta restrição é denominada de restrição de
 integralidade.
 
-Outros problemas podem precisar de variáveis inteiras e fracionárias, estes
+Outros problemas podem precisar de soluções que sejam inteiras e fracionárias, estes
 problemas são denominados de problemas de programação linear mista (PLIM) e
 possuem uma forma genérica de:
 
@@ -233,9 +233,9 @@ $0$ ou $1$.
 
 A PLI e suas variantes (PLIM e PLIB) são problemas $\mathcal{NP}$-completos,
 conforme demonstrados por~\cite{karp1972} e~\cite{papadimitriou1981complexity}.
-Sabe-se ainda que a PLI é um problema $\mathcal{NP}$-completo forte, portanto é
-improvável que exista um algoritmo pseudo-polinomial para
-resolve-lo~\cite{garey1978strong}.
+Sabe-se ainda que a PLI é um problema $\mathcal{NP}$-completo forte, portanto, é
+improvável que exista um algoritmo pseudo-polinomial capaz de
+resolvê-lo~\cite{garey1978strong}.
 
 Considere o problema de PLI a seguir:
 
@@ -244,31 +244,42 @@ Considere o problema de PLI a seguir:
         \end{pmatrix}, \quad c^T = \begin{pmatrix} 1 \\ 1 \end{pmatrix}
 \end{equation}
 
-Resolvendo-o obtém-se o seguinte resultado:
 
-\begin{figure}[!htb] \centering \begin{minipage}{.5\textwidth} \centering
-    \begin{tabular}{r l} função objetivo &= $6.9090\ldots$ \\ $x_1$ &=
-    $3.2727\ldots$ \\ $x_2$ &= $3.6363\ldots$ \end{tabular}
-    \captionof{table}{Instância do CSP} \label{tab_csp} \end{minipage}%
-    \begin{minipage}{0.5\textwidth} \centering
-        \includegraphics[width=1\linewidth]{../figuras/pli.pdf} \caption{Espaço
-        de busca do problema \eqref{pli_example}} \label{fig:name}
-    \end{minipage} \end{figure}
+\begin{figure}[!htb]
+    \centering
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \begin{tabular}{r l}
+            função objetivo & = $6.9090\ldots$ \\
+            $x_1$           & = $3.2727\ldots$ \\
+            $x_2$           & = $3.6363\ldots$
+        \end{tabular}
+        \captionof{table}{Instância do CSP}
+        \label{rrrr}
+    \end{minipage}
+%
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{../figuras/pli.pdf}
+        \caption{Espaço de busca do problema \eqref{pli_example}} \label{fig:name}
+    \end{minipage}
+\end{figure}
 
+Resolvendo-o obtém-se o resultado apresentado na figura~\ref{rrrr}.
 Considerando que o problema de PLI admite apenas variáveis com valores
-inteiros, o resultado acima é invalido como resposta para o problema.
+inteiros, o resultado acima é inválido como resposta para o problema.
 Observando-se a figura~\ref{fig:name}, que contém o espaço de busca do problema
 em questão, pode-se observar que os pontos que são factíveis ao problema de PLI
 são um subconjunto do espaço de busca de um problema de programação linear com
 as mesmas restrições. Observa-se ainda que a solução ótima do problema de PLI
-não coincide com a solução ótima do problema de programação linear. Portanto é
+não coincide com a solução ótima do problema de programação linear. Portanto, é
 necessário métodos específicos para resolver problemas de PLI.
 
 \subsection{Relaxação Linear}
 
-O conceito de relaxação no contexto de otimização corresponde a remover algum
-tipo de restrição. Um possível objetivo de relaxar um problema é facilitar a
-sua solução.  Dentre as diversas restrições que podem ser relaxadas, uma delas
+O conceito de relaxação no contexto de otimização corresponde a remover alguma
+restrição do problem. O relaxamento de um problema tem como objetivo torna-lo
+mais fácil de resolver. Dentre as diversas restrições que podem ser relaxadas, uma delas
 é a restrição de integralidade, que se removida leva a uma relaxação linear.
 Considerando que o problema de PLI genérico é $\mathcal{NP}$-completo, a
 relaxação linear torna-o um problema $\mathcal{P}$, que pode ser resolvido mais
@@ -279,7 +290,7 @@ solução ótima da relaxação do mesmo, segue que $x^* \leq \hat{x}^*$. Portanto a
 relaxação linear é um limite superior de otimalidade para um problema de PLI
 qualquer. O mesmo é válido para suas variantes.
 
-O espaço de busca de um problema de PLI consiste um om conjunto de pontos com
+O espaço de busca de um problema de PLI consiste em um conjunto de pontos com
 coordenadas inteiras. A figura~\ref{pli_example} contém o conjunto de pontos
 que satisfazem o problema original. O contorno que envolve os pontos consiste
 na relaxação linear, onde a restrição de integralidade foi desconsiderada.
@@ -307,9 +318,11 @@ proposto por~\cite{gomory1960solving,gomory1960algorithm}. O método veio a ser
 denominado de método de planos de cortes, que consiste em gerar hiperplanos
 (restrições) que removem o ponto ótimo da relaxação linear sem remover o ótimo
 da PLI. Esta sequencia de cortes faz com que a solução ótima da relaxação linear
-seja a mesma do problema original. Utilizando-se planos de corte pode-se
+seja a mesma do problema original.
+
+Utilizando-se planos de corte pode-se
 resolver problemas de PLI apenas com o SIMPLEX. O método funciona teoricamente,
-porém na pratica o método sofre de sérios problemas de instabilidade numérica,
+porém na prática o método apresenta problemas de instabilidade numérica,
 tornando-o inviável. Existem estudos que propuseram mudanças para viabilizar
 o métodos~\cite{cook2009numerically}. \cite{zanette2011lexicography} apresenta
 o uso do simplex lexicográfico para evitar a instabilidade numérica. Outro
@@ -318,20 +331,20 @@ inteiro misto~\cite{wosley88}, que foi demonstrado ser uma forma genérica para
 planos de cortes. Apesar de sua inviabilidade, os planos de corte possuem grande
 importância teórica.
 
-Anos depois, baseados nos trabalhos de~\cite{little1963algorithm},
-~\cite{land2010automatic} propos um método de enumeração implicita que veio a
+\cite{little1963algorithm} e
+\cite{land2010automatic} proposeram um método de enumeração implicita que veio a
 ser chamado de \textit{Branch and Bound}(BnB). O BnB consiste em dividir um
 espaço de busca $S$ em subespaços $S_1, S_2, \ldots, S_n$ de modo que
 $S_1 \cup S_2 \cup \ldots \cup S_n = S$. Para cada espaço gerado é calculado
 um limite superior e inferior de otimalidade, e os espaços são divididos
 novamente. Baseado nos limites o BnB tende a seguir por regiões que levam
-a melhores resultados e elimina regiões infrutiferas. Um tipico exemplo de
+a melhores resultados e elimina regiões infrutiferas. Um exemplo de
 limite superior é a relaxação linear, e um limite inferior é qualquer solução
 factivel para um problema. Se uma região $S_1$ possui um limite inferior de
-$z = 22.4$ e uma região possui limite superior de $z = 21.0$, esta região pode
-ser descartada desde que seja encontrado uma solução factivel em $S_1$. Quanto
-menor a folga entre a solução ótima e o limite superior e inferior, melhor o
-BnB opera.
+$z = 22.4$ e uma região $s_2$ possui limite superior de $z = 21.0$, esta região pode
+ser descartada desde que seja encontrado uma solução factivel em $S_1$.
+O desempenho do BnB está diretamente ligado a distancia entre os limites inferiores
+e superiores, quanto menor a distância melhor o desempenho tende a ser.
 
 Uma das caracteristicas dos planos de corte, é que eles podem reduzir a
 distância entre a solução ótima da relaxação linear e a solução ótima
@@ -341,15 +354,15 @@ cortes é denominado de \textit{Branch and Cut} (BnC).
 
 \section{Geração de Colunas}
 
-Na programação linear inteira existem problemas grandes demais para serem
+Na programação linear inteira existem problemas que tornam-se inviáveis de serem
 resolvidos puramente com os métodos acima mencionados. Tomemos o problema
 do caixeiro viajante(TSP) como exemplo. Em~\eqref{stsp} pode-se observar uma das
 muitas possíveis modelagems para o problema do TSP. A restrição~\eqref{stsp3} é
 o que difere o TSP de um problema de designação, e é o que torna o TSP um
-problema $\mathcal{NP}$-difícil. Esta restrição insere uma quantidade
-fatorial de restrições no modelo do TSP. Em~\eqref{fat_tsp} temos uma formula
+problema $\mathcal{NP}$-difícil, pois esta restrição insere uma quantidade
+fatorial de restrições no modelo do TSP. Em~\eqref{fat_tsp} temos uma fórmula
 fechada que descreve o número de restrições que~\eqref{stsp3} insere. Portanto
-é necessário que se ultilize um procedimento denomidado de geração de linhas
+é necessário que se ultilize um procedimento denomidado de geração de planos de cortes
 para lidar com esta grandeza de restrições.
 
 \begin{equation} \label{fat_tsp}
@@ -395,16 +408,17 @@ formando um novo problema de PLI~\eqref{glinhas2}.
 
 Tem-se que~\eqref{glinhas2} é o problema~\eqref{glinhas} com um conjunto
 reduzido de restrições, que pode ser resolvido mais facilmente. Porém,
-a solução ótima $\tilde{x}^*$ não necessáriamente ira satisfazer
+a solução ótima $\tilde{x}^*$ não necessáriamente irá satisfazer
 a~\eqref{glinhas}. Então é necessário que verifique-se qual das restrições
 são violadas e estas devem ser inseridas em~\eqref{glinhas2}, que deve ser
 resolvido novamente. Este verificação é conhecido como problema da separação,
 que é $\mathcal{NP}$-completo, conforme demonstrado
-em~\cite{nemhauser1988integer}. Apesar da dificuldade do problema da separação,
-resolver o PLI com um conjunto reduzido de restrições e resolver o problema da
-separação para descobrir quais restrições foram violadas tende a ser mais rápido.
+em~\cite{nemhauser1988integer}.
+%Apesar da dificuldade do problema da separação,
+%resolver o PLI com um conjunto reduzido de restrições e resolver o problema da
+%separação para descobrir quais restrições foram violadas tende a ser mais rápido.
 
-O problema da separação é formulado como outro problema de PLI, formulado de
+O problema da separação pode ser formulado como outro problema de PLI, formulado de
 modo dual, que indica qual é a restrição mais violada dentre todas. Esta
 restrição é então adicionada ao problema, que é reotimizado e pode ter
 outras variáveis violadas. O processo é repitido até que não existam mais
@@ -417,11 +431,11 @@ reotimizações do problema original tende a ser mais rapida do que resolver
 o problema original.
 
 Existem ainda problemas onde o número de restrições é relativamente pequeno,
-enquanto que o número de váriaveis é muito maior. Um exemplo de problema com
+enquanto que o \textbr{número de váriaveis é muito maior}. Um exemplo de problema com
 este comportamento é o \textit{Cutting stock problem}. O problema consiste
-em dado uma demana de peças de tamanhos arbitrarios e um estoque de peças de
+em dado uma demada de peças de tamanhos arbitrarios e um estoque de peças de
 tamanho fixo, determinar como cortar o estoque para obter as peças demandadas
-com um disperdicio mínimo. Sua formulação é dada a seguir:
+com um desperdício mínimo. Sua formulação é dada a seguir:
 
 \begin{subequations}\label{cuttingsp}
     \begin{align}
@@ -433,7 +447,7 @@ com um disperdicio mínimo. Sua formulação é dada a seguir:
 
 onde $c_j$ corresponde a sobra de utilizar-se o corte $j$, $b_i$ é a demanda
 para peças do tipo $i$, e $a_{j}$ corresponde a um padrão de corte.
-Considere o seguinte exemplo: Deseja-se peças de tamanho $3, 4, \text{e} 5$
+Considere o seguinte exemplo: Deseja-se peças de tamanho $3, 4, \text{e } 5$
 cortados a partir de um tubo de tamanho $10$. Alguns padrões válidos de corte
 são: $(5, 5)$, $(5, 4)$, $(3, 3, 3)$, etc.
 
@@ -443,8 +457,8 @@ efetuar os cortes. Conforme se aumenta o valor de $m$, $n$ cresce
 exponencialmente.
 
 Considerando que no simplex o número de variáveis básicas é limitado pelo
-número de restrições, em um problema onde exite uma quantidade muito maior
-de colunas do que linhas boa parte do tempo de solução seria gasto processnado
+número de restrições, em um problema onde existe uma quantidade muito maior
+de colunas do que linhas boa parte do tempo de solução seria gasto processando
 varíaveis que ao fim teriam o seu custo fixado em $0$. Portanto, a maioria
 das colunas não são necessárias para obter-se o resultado final do problema.
 
