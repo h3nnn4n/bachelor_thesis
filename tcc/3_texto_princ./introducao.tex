@@ -5,25 +5,25 @@ Cada vez mais as empresas buscam otimizar suas atividades, de modo a reduzir o c
 a fim de viabilizar o negócio, dentre as quais pode-se citar: renovação da frota de veículos;
 realização da manutenção preventiva da frota; disponibilização de quais horários do serviço de ônibus;
 identificação as rotas de serviço de transporte; alocação de funcionários; tratamento de imprevistos
-temporais e climáticos, dentre outras. Estes questionamentos podem ser resolvidos e otimizadas através da utilização de recursos
+temporais e climáticos, dentre outras. Estes questionamentos podem ser resolvidos e otimizados com a utilização de recursos
 de pesquisa operacional.
 
 Especificamente, o problema de alocação de funcionários ou tripulação, em inglês \textit{crew scheduling problem} (CSP),
-consiste em escolher quais funcionários devem realizar quais funções durante um dado período de tempo \cite{Bergh}. O processo
-de escolha está sujeito à diversas restrições. Existem restrições devido à regras definidas pela empresa, leis trabalhistas, sindicais
-ou preferências dos motoristas de ônibus. Dado o conjunto de restrições, deve-se encontrar as designações que reduzem
-ao máximo o custo da operação. O CSP assume que já tenha sido determinado as rotas ondem a tripulação irá trabalhar, assim como quais veículos
+consiste em escolher determinadas funcionários devem realizar quais funções durante um dado período de tempo \cite{Bergh}. O processo
+de escolha está sujeito à restrições. Regras definidas pela empresa; leis trabalhistas; sindicais
+ou preferências. Dado um conjunto de restrições, deve-se encontrar as designações que reduzem
+ao máximo o custo da operação. O CSP assume que já tenha sido determinado os percursos onde a tripulação irá trabalhar, assim como quais veículos
 serão utilizados, quais os horários de partida e chegada e os pontos de troca.
 
-A definição termos relacionados à problemática do CSP faz-se necessária e são apresentadas a segui: uma \textbf{viagem} consiste
-no deslocamento entre dois pontos pré-determinados com horários de partida e chega já determinados. Uma \textbf{jornada}
+A definição de termos relacionados à problemática do CSP faz-se necessária e são apresentadas a seguir: uma \textbf{viagem} ou \textbr{tarefa} consiste
+no deslocamento entre dois pontos pré-determinados com horários de partida e chegada já determinados. Uma \textbf{jornada}
 consiste na sequencia de viagens realizadas por uma dada tripulação durante o seu turno de trabalho. Conhecendo-se todas as possíveis
 jornadas válidas sobre o conjunto de regras pré-estabelecidos, a solução do CSP consiste em escolher quais jornadas cobrem todas
 as viagens que devem ser realizadas~\cite{Bergh}. Ou seja, dado o conjunto de jornadas válidas, escolhe-se um subconjunto que cubra todas
 as viagens pelo menos uma vez, minimizando assim o custo final.
 
 O problema do CSP é referenciado na literatura como sendo o problema de \textbf{cobertura de conjuntos}, ou \textit{set covering problem} (SCP)~\cite{nemhauser1988integer}.
-Onde dado um conjunto de linhas a serem cobertas, e um conjunto de colunas com custos
+Dado um conjunto de linhas a serem cobertas, e um conjunto de colunas com custos
 associados que cobrem as linhas, escolhe-se o subconjunto de colunas que cubra todas as linhas minimizando o custo final. Como o SCP
 define que cada linha deve ser coberta pelo menos uma vez, isso implica que se o CSP for modelado como uma instância de SCP, pode ocorrer
 de mais de um tripulante ser designado para a mesma viagem. Isso na prática consiste no fato deum motorista ir de carona até o início de outra viagem,
@@ -31,8 +31,8 @@ por exemplo.
 
 Outra forma de modelar-se o CSP consiste em determinar qual tripulação deve ser associado a uma viagem. Esta restrição
 transforma o problema de SCP em um problema de \textbf{particionamento de conjuntos}, \textit{set partitioning problem} (SPP)~\cite{garfinkel1969set}.
-A principal diferença entre o SCP e o SPP consiste a impossibilidade de te-ser uma mesma linha coberta por mais de uma coluna.
-No contexto do CSP, isto implica em não ter uma tarefa sendo coberta por mais de uma jornada. Devido a restrição de não
+A principal diferença entre o SCP e o SPP consiste na impossibilidade de ter-se uma mesma linha coberta por mais de uma coluna.
+No contexto do CSP, isto implica em não ter-se uma tarefa sendo coberta por mais de uma jornada. Devido a restrição de não
 sobreposição, um CSP modelado como um SPP pode ser significativamente mais complexo de resolver, porém, mais interessante do
 ponto de vista prático, já que diminui a ociosidade dos tripulantes. Sabe-se que tanto o SPP quanto o SCP são problemas
 NP-Hard~\cite{karp1972}.
@@ -63,7 +63,7 @@ Dado o problema em questão, o tamanho da matriz é tipicamente grande, e para cas
 é muitas vezes inviável de tratá-la. O número de jornadas possíveis cresce exponencialmente, de modo que a enumeração de todas as
 jornadas possíveis não é viável.
 \cite{vance1993crew} reportou que para uma instância de CSP com 253 tarefas, mais de 5 milhões de jornadas
-são possíveis. De todas as jornadas possíveis, apenas algumas são de fato utilizadas na solução final, as demais não são interessantes.
+são possíveis. De todas as jornadas possíveis, apenas algumas são de fato utilizadas na solução final.
 Portanto, é interessante que apenas jornadas que podem vir a ser úteis sejam utilizadas de fato. A programação linear inteira dispõe-se um recurso
 capaz de sequencialmente reduzir o número de colunas a serem utilizados, denominado de \textbf{geração de colunas}~\cite{desaulniers2006column}.
 
@@ -84,12 +84,14 @@ dois problemas. O problema mestre, que é igual ao original, porém, com um conjun
 que é utilizado para identificar quais variáveis são necessárias para obter-se a solução ótima do problema original. O processo
 de solução com geração de colunas consiste em criar-se um problema mestre, otimizar a sua relaxação linear, e utilizar
 as varáveis duais do problema mestre juntamente com o sub-problema,  para identificar se o problema mestre necessita da geração
-de novas colunas ou se ele corresponde ao ótimo do problema original.
+de novas colunas ou se ele corresponde ao ótimo do problema original~\cite{dos2008metodo}.
+
+FIGURA DA GERACAO DE COLUNAS AQUI.
 
 Dado um conjunto $J$ de todas as jornadas (que na prática está codificado na matriz $A$), na geração de colunas,
 utiliza-se um conjunto reduzido $\tilde{J} \subseteq J$. O problema mestre é dado por~\eqref{sppm1},~\eqref{sppm2} e~\eqref{sppm3}.
-Após a solução da relaxação linear do problema mestre, utiliza-se as variáveis duais, obtidas a partir da relaxação linear
-do problema mestre, no subproblema, para determinar se alguma jornada pode melhorar o resultado atual obtido. Este processo é
+Após a solução da relaxação linear do problema mestre, utiliza-se as variáveis duais (obtidas a partir da relaxação linear
+do problema mestre) no subproblema, para assim determinar se alguma jornada pode melhorar o resultado atual obtido. Este processo é
 denominado de \textit{pricing}~\cite{barnhart1998branch}. O \textit{pricing} consiste na solução do problema da separação~\cite{nemhauser1988integer}
 para o problema dual do problema mestre~\cite{lubbecke2005selected}. No caso do CSP, pode-se apresentar o conjunto de tarefas como
 vértices de um grafo e ligá-los com arestas direcionadas para indicar a ordem que as tarefas podem ser executadas. Cada tarefa tem
