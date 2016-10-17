@@ -12,7 +12,7 @@ uma função objetivo linear sujeita a múltiplas restrições lineares. A forma
 genérica de um problema de programação linear é\cite{dantzig1955generalized}:
 
 \begin{align} \label{funcao_obj} \text{maximizar} \: z &= \sum_{j=1}^{p}
-    c_jx_j, \intertext{sujeito a:} \label{restricoes} \sum_{j=1}^{p} a_{ij} x_j
+    c_jx_j, \intertext{sujeito à:} \label{restricoes} \sum_{j=1}^{p} a_{ij} x_j
     \leq b_i, i &= 1, 2, \ldots, q \\ \label{restricoes_triviais} x_j \geq 0, j
     &= 1, 2, \ldots, p, \end{align}
 
@@ -42,7 +42,7 @@ x_j \geq b_i \end{cases} \]
 
 Para um problema qualquer de programação linear com restrições de desigualdades
 e igualdades, sempre é possível reestruturá-lo através da adição de variáveis
-de folga para que o problema passe a ter apenas igualdades. Portanto todo e
+de folga, para que o problema passe a ter apenas igualdades. Portanto, todo e
 qualquer problema de programação linear pode ser expresso como:
 
 \begin{align} \label{fo} \text{maximizar} \: z &= \sum_{j=1}^{n} c_jx_j
@@ -66,9 +66,9 @@ geometricamente, e a solução ótima para o mesmo sempre está em um vértice do
 poliedro.
 
 Um problema de programação linear pode ser ainda expresso em uma forma
-matricial ou em forma de conjunto. Suas representações são respectivamente:
+matricial, ou em forma de conjunto. Suas representações são respectivamente:
 
-\begin{align} \label{lp_fo} \text{maximizar} \: z &= cx \intertext{sujeito a:}
+\begin{align} \label{lp_fo} \text{maximizar} \: z &= cx \intertext{sujeito à:}
 \label{lp_r} Ax &= b \\ \label{lp_tr} x &\geq 0 \intertext{} \label{lp_set}
 \text{max } \{ cx : Ax &\leq b, x \geq 0 \} \end{align}
 
@@ -115,7 +115,7 @@ polinomial~\cite{Grotschel1981}.
 
 Em 1984 foi proposto um novo método polinomial para a solução do problema da
 programação linear, denominado de método do ponto interior\cite{potra2000interior}.
-método consiste em a partir de uma solução factível centro do politopo, perturba-la
+Este método consiste em a partir de uma solução factível centro do politopo, perturba-la
 até que a mesma convirja para o ponto ótimo. O método do ponto interior também é
 referenciado na literatura como método das barreiras, já que as restrições
 lineares são reescritas como funções assintóticas que tendem ao infinito quando
@@ -132,9 +132,9 @@ partir de agora será denominado de problema primal,
 
 \begin{align} \text{maximizar} \: z = \sum_{j=1}^{p} c_jx_j, \intertext{sujeito
 a:} \label{rp} \sum_{j=1}^{p} a_{ij} x_j \leq b_i, i = 1, 2, \ldots, q \\
-\label{} x_j \geq 0, j = 1, 2, \ldots, p, \end{align}
+\label{} x_j \geq 0, j = 1, 2, \ldots, p, \end{align}.
 
-o problema dual é construído atribuíndo-se uma variável $u_i, i = 1, 2, \ldots,
+O problema dual é construído atribuíndo-se uma variável $u_i, i = 1, 2, \ldots,
 q$ a cada restrição em~\eqref{rp} e definindo o problema como:
 
 \begin{align} \text{minimizar} \: d = \sum_{i=1}^{q} b_iu_i, \intertext{sujeito
@@ -149,7 +149,7 @@ O problema primal e dual em sua forma matricial são dados por:
     \label{drt} u &\geq 0,
 \end{align}
 
-A partir do problema primal e dual, conforme demonstrado
+À partir do problema primal e dual, conforme demonstrado
 em~\cite{maculan2006otimizaccao}, segue que:
 
 \begin{enumerate} \label{x} \item Se $\overline{x}$ satisfaz~\eqref{prnt}
@@ -165,7 +165,7 @@ em~\cite{maculan2006otimizaccao}, segue que:
         \textbf{solução ótima} do problema dual, então $c\tilde{x} = \tilde{u}b$.
 \end{enumerate}
 
-O primeiro item é conhecido como teorema da \textbf{dualidade fracaJ}, e sua implicação é
+O primeiro item é conhecido como teorema da \textbf{dualidade fraca}, e sua implicação é
 que uma solução dual é um limite superior de otimalidade para o problema
 primal.  O segundo e terceiro item constituem o teorema da \textbf{dualidade forte}, que
 pode ser utilizado para provar que uma solução de um problema primal é a ótima.
@@ -179,17 +179,19 @@ pode ser utilizado para provar que uma solução de um problema primal é a ótima.
 
 \section{Programação Linear Inteira}
 
-Na prática a programação inteira não é o suficiente para representar diversos
-problemas, visto que o valor fracionário da soluçao (variáveis) pode não ser condizente
-a a realidade. A fim de ilustrar o problema de variáveis frácionarias, considerw um
-grafo, por exemplo, pode-se modelar um problema de PLI onde $x_{ij} = 1$ se um vértice
-$i$ esta ligada a um vértice $j$ e $0$ caso contrário.  Ao resolver o modelo, pode ocorrer
-que o valor da variável venha a ser algo entre $0$ e $1$, que não possui
-representação no problema.  Em um caso prático, uma variável com um valor
-fracionário pode indicar que é necessário que $3.19$ ônibus devem ser alocados
-para uma determinada rota, algo que não faz sentido. Fica claro então que são
-necessários recursos extras para representar problemas onde pelo menos uma
-variável deve ser inteira.
+%Na prática a programação inteira não é o suficiente para representar diversos
+%problemas, visto que o valor fracionário da soluçao (variáveis) pode não ser condizente
+%a a realidade.
+
+%A fim de ilustrar o problema de variáveis frácionarias, considerw um
+%grafo, por exemplo, pode-se modelar um problema de PLI onde $x_{ij} = 1$ se um vértice
+%$i$ esta ligada a um vértice $j$ e $0$ caso contrário.  Ao resolver o modelo, pode ocorrer
+%que o valor da variável venha a ser algo entre $0$ e $1$, que não possui
+%representação no problema.  Em um caso prático, uma variável com um valor
+%fracionário pode indicar que é necessário que $3.19$ ônibus devem ser alocados
+%para uma determinada rota, algo que não faz sentido. Fica claro então que são
+%necessários recursos extras para representar problemas onde pelo menos uma
+%variável deve ser inteira.
 
 A Programação Linear Inteira (PLI) trata de modelar problemas onde existem
 variáveis inteiras. A forma genérica de um problema dá-se de forma análoga a de
@@ -209,7 +211,7 @@ Outros problemas podem precisar de soluções que sejam inteiras e fracionárias, e
 problemas são denominados de problemas de programação linear mista (PLIM) e
 possuem uma forma genérica de:
 
-\begin{align} \text{} \: z = \sum_{j=1}^{p} c_jx_j, \intertext{sujeito a:}
+\begin{align} \text{} \: z = \sum_{j=1}^{p} c_jx_j, \intertext{sujeito à:}
     \label{plim_r} \sum_{j=1}^{p} a_{ij} x_j \leq b_i, i &= 1, 2, \ldots, q \\
     \label{plim_v} \sum_{j=1}^{r} g_{ij} y_j \leq d_i, i &= 1, 2, \ldots, q \\
     \label{} x_j \geq 0, j &= 1, 2, \ldots, p, \\ \label{plim_int} y_j \geq 0
@@ -223,7 +225,7 @@ Existem ainda problemas na qual é utilizado apenas variáveis binárias, a estes
 problemas dá-se o nome de problema de programação linear inteira binária
 (PLIB).  Eles possuem a forma genérica de:
 
-\begin{align} \text{} \: z = \sum_{j=1}^{p} c_jx_j, \intertext{sujeito a:}
+\begin{align} \text{} \: z = \sum_{j=1}^{p} c_jx_j, \intertext{sujeito à:}
 \label{} \sum_{j=1}^{p} a_{ij} x_j \leq b_i, i &= 1, 2, \ldots, q \\
 \label{pbin} x_j \in \{0, 1\}, j &= 1, 2, \ldots, p, \end{align}
 
@@ -247,7 +249,7 @@ Considere o problema de PLI a seguir:
 
 \begin{figure}[!htb]
     \centering
-    \begin{minipage}{.5\textwidth}
+    \begin{minipage}{.48\textwidth}
         \centering
         \begin{tabular}{r l}
             função objetivo & = $6.9090\ldots$ \\
@@ -258,10 +260,11 @@ Considere o problema de PLI a seguir:
         \label{rrrr}
     \end{minipage}
 %
-    \begin{minipage}{0.5\textwidth}
+    \begin{minipage}{0.48\textwidth}
         \centering
         \includegraphics[width=1\linewidth]{../figuras/pli.pdf}
         \caption{Espaço de busca do problema \eqref{pli_example}} \label{fig:name}
+        \label{espacobusca}
     \end{minipage}
 \end{figure}
 
@@ -278,24 +281,24 @@ necessário métodos específicos para resolver problemas de PLI.
 \subsection{Relaxação Linear}
 
 O conceito de relaxação no contexto de otimização corresponde a remover alguma
-restrição do problem. O relaxamento de um problema tem como objetivo torna-lo
+restrição do problema. O relaxamento de um problema tem como objetivo torná-lo
 mais fácil de resolver. Dentre as diversas restrições que podem ser relaxadas, uma delas
 é a restrição de integralidade, que se removida leva a uma relaxação linear.
 Considerando que o problema de PLI genérico é $\mathcal{NP}$-completo, a
-relaxação linear torna-o um problema $\mathcal{P}$, que pode ser resolvido mais
-rápido.
+relaxação linear torná-lo um problema $\mathcal{P}$, que pode ser resolvido mais
+rapidamente\cite{garey1978strong}.
 
 Seja $x^*$ a solução ótima de um problema de maximização PLI e $\hat{x}^*$ a
 solução ótima da relaxação do mesmo, segue que $x^* \leq \hat{x}^*$. Portanto a
 relaxação linear é um limite superior de otimalidade para um problema de PLI
-qualquer. O mesmo é válido para suas variantes.
+qualquer. O mesmo é válido para PLIM e PLIB.
 
 O espaço de busca de um problema de PLI consiste em um conjunto de pontos com
-coordenadas inteiras. A figura~\ref{pli_example} contém o conjunto de pontos
+coordenadas inteiras. A figura~\ref{espacobusca} contém o conjunto de pontos
 que satisfazem o problema original. O contorno que envolve os pontos consiste
 na relaxação linear, onde a restrição de integralidade foi desconsiderada.
 Pode-se notar que a área de busca aumentou e a solução ótima da relaxação é
-maior que do problema original.
+maior do que o problema original.
 
 \subsection{Relaxação Combinatória}
 
@@ -337,13 +340,13 @@ ser chamado de \textit{Branch and Bound}(BnB). O BnB consiste em dividir um
 espaço de busca $S$ em subespaços $S_1, S_2, \ldots, S_n$ de modo que
 $S_1 \cup S_2 \cup \ldots \cup S_n = S$. Para cada espaço gerado é calculado
 um limite superior e inferior de otimalidade, e os espaços são divididos
-novamente. Baseado nos limites o BnB tende a seguir por regiões que levam
+novamente. Baseado nos limites, o BnB tende a seguir por regiões que levam
 a melhores resultados e elimina regiões infrutiferas. Um exemplo de
 limite superior é a relaxação linear, e um limite inferior é qualquer solução
 factivel para um problema. Se uma região $S_1$ possui um limite inferior de
 $z = 22.4$ e uma região $s_2$ possui limite superior de $z = 21.0$, esta região pode
 ser descartada desde que seja encontrado uma solução factivel em $S_1$.
-O desempenho do BnB está diretamente ligado a distancia entre os limites inferiores
+O desempenho do BnB está diretamente ligado à distância entre os limites inferiores
 e superiores, quanto menor a distância melhor o desempenho tende a ser.
 
 Uma das caracteristicas dos planos de corte, é que eles podem reduzir a
@@ -361,7 +364,7 @@ muitas possíveis modelagems para o problema do TSP. A restrição~\eqref{stsp3} é
 o que difere o TSP de um problema de designação, e é o que torna o TSP um
 problema $\mathcal{NP}$-difícil, pois esta restrição insere uma quantidade
 fatorial de restrições no modelo do TSP. Em~\eqref{fat_tsp} temos uma fórmula
-fechada que descreve o número de restrições que~\eqref{stsp3} insere. Portanto
+que descreve o número de restrições que~\eqref{stsp3} insere. Portanto,
 é necessário que se ultilize um procedimento denomidado de geração de planos de cortes
 para lidar com esta grandeza de restrições.
 
@@ -374,7 +377,7 @@ para lidar com esta grandeza de restrições.
     \label{stsp}
     \begin{align} \label{func_tsp2}
         z &= min \sum_{(i,j) \in A} c_{ij}x_{ij}
-        \intertext{sujeito a:}
+        \intertext{sujeito à:}
         & \sum_{i \in V}     x_{ij} =  1          & \forall    j \in V, i \neq j                   & \label{stsp1} \\
         & \sum_{j \in V}     x_{ij} =  1          & \forall    i \in V, i \neq j                   & \label{stsp2} \\
         & \sum_{(i,j) \in A} x_{ij} = |S|-1       & \forall \; S \subset V, 2 \leq |S| \leq |V|-1  & \label{stsp3} \\
@@ -387,7 +390,7 @@ Considerando o modelo genérico de PLI~\eqref{glinhas} a seguir:
 \begin{subequations} \label{glinhas}
     \begin{align} \label{}
         \text{maximizar} \: z &= cx
-        \intertext{sujeito a:}
+        \intertext{sujeito à:}
         \label{} Ax &= b \\
         \label{} x &\geq 0
     \end{align}
@@ -400,14 +403,14 @@ formando um novo problema de PLI~\eqref{glinhas2}.
 \begin{subequations} \label{glinhas2}
     \begin{align} \label{}
         \text{maximizar} \: z &= cx
-        \intertext{sujeito a:}
+        \intertext{sujeito à:}
         \label{} \tilde{A}x &= \tilde{b} \\
         \label{} x &\geq 0
     \end{align}
 \end{subequations}
 
-Tem-se que~\eqref{glinhas2} é o problema~\eqref{glinhas} com um conjunto
-reduzido de restrições, que pode ser resolvido mais facilmente. Porém,
+Tem-se que~\eqref{glinhas2} é o problema apresentado em~\eqref{glinhas}, porém com um conjunto
+reduzido de restrições, que pode ser resolvido mais facilmente. No entanto,
 a solução ótima $\tilde{x}^*$ não necessáriamente irá satisfazer
 a~\eqref{glinhas}. Então é necessário que verifique-se qual das restrições
 são violadas e estas devem ser inseridas em~\eqref{glinhas2}, que deve ser
