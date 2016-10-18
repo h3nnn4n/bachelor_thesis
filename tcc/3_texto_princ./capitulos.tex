@@ -1,8 +1,9 @@
 \setlength\abovedisplayskip{0pt} \setlength\belowdisplayskip{0pt}
 \setlength\abovedisplayshortskip{0pt} \setlength\belowdisplayshortskip{0pt}
 
-\chapter{Fundamentação Teórica} Neste capítulo são apresentados os conceitos
-    básicos e a fundamentação teórica necessária para o entendimento e abordagem do
+\chapter{Fundamentação Teórica}
+Neste capítulo são apresentados os conceitos
+básicos e a fundamentação teórica necessária para o entendimento e abordagem do
 problema do escalonamento de tripulações.
 
 \section{Programação Linear}
@@ -104,7 +105,7 @@ iniciaram um estudo em busca de um método capaz de resolver o problema de
 programação linear em tempo polinomial. Um dos primeiros trabalhos apresentados
 na literatura propondo um algoritmo polinomial foi o método dos
 elipsoides~\cite{khachian}. O método consiste em criar um elipsoide que englobe
-a solução ótima e reduzí-lo sequencialmente de modo que a solução ótima sempre
+a solução ótima e reduzi-lo sequencialmente de modo que a solução ótima sempre
 esteja dentro do elipsoide. O método possui, em teoria, convergência garantida
 em tempo polinomial. No entanto, na prática o método apresenta um desempenho
 inferior ao simplex, como problemas de instabilidade numérica. O método
@@ -134,7 +135,7 @@ partir de agora será denominado de problema primal,
 a:} \label{rp} \sum_{j=1}^{p} a_{ij} x_j \leq b_i, i = 1, 2, \ldots, q \\
 \label{} x_j \geq 0, j = 1, 2, \ldots, p, \end{align}.
 
-O problema dual é construído atribuíndo-se uma variável $u_i, i = 1, 2, \ldots,
+O problema dual é construído atribuindo-se uma variável $u_i, i = 1, 2, \ldots,
 q$ a cada restrição em~\eqref{rp} e definindo o problema como:
 
 \begin{align} \text{minimizar} \: d = \sum_{i=1}^{q} b_iu_i, \intertext{sujeito
@@ -335,21 +336,21 @@ planos de cortes. Apesar de sua inviabilidade, os planos de corte possuem grande
 importância teórica.
 
 \cite{little1963algorithm} e
-\cite{land2010automatic} proposeram um método de enumeração implicita que veio a
+\cite{land2010automatic} propuseram um método de enumeração implícita que veio a
 ser chamado de \textit{Branch and Bound}(BnB). O BnB consiste em dividir um
 espaço de busca $S$ em subespaços $S_1, S_2, \ldots, S_n$ de modo que
 $S_1 \cup S_2 \cup \ldots \cup S_n = S$. Para cada espaço gerado é calculado
 um limite superior e inferior de otimalidade, e os espaços são divididos
 novamente. Baseado nos limites, o BnB tende a seguir por regiões que levam
-a melhores resultados e elimina regiões infrutiferas. Um exemplo de
+a melhores resultados e elimina regiões infrutíferas. Um exemplo de
 limite superior é a relaxação linear, e um limite inferior é qualquer solução
-factivel para um problema. Se uma região $S_1$ possui um limite inferior de
+factível para um problema. Se uma região $S_1$ possui um limite inferior de
 $z = 22.4$ e uma região $s_2$ possui limite superior de $z = 21.0$, esta região pode
-ser descartada desde que seja encontrado uma solução factivel em $S_1$.
+ser descartada desde que seja encontrado uma solução factível em $S_1$.
 O desempenho do BnB está diretamente ligado à distância entre os limites inferiores
 e superiores, quanto menor a distância melhor o desempenho tende a ser.
 
-Uma das caracteristicas dos planos de corte, é que eles podem reduzir a
+Uma das características dos planos de corte, é que eles podem reduzir a
 distância entre a solução ótima da relaxação linear e a solução ótima
 da PLI. Sendo assim, pode-se incluir a geração de planos de cortes no processo
 de solução do BnB, melhorando assim seus limites. O BnB que utiliza planos de
@@ -360,12 +361,12 @@ cortes é denominado de \textit{Branch and Cut} (BnC).
 Na programação linear inteira existem problemas que tornam-se inviáveis de serem
 resolvidos puramente com os métodos acima mencionados. Tomemos o problema
 do caixeiro viajante(TSP) como exemplo. Em~\eqref{stsp} pode-se observar uma das
-muitas possíveis modelagems para o problema do TSP. A restrição~\eqref{stsp3} é
+muitas possíveis modelagens para o problema do TSP. A restrição~\eqref{stsp3} é
 o que difere o TSP de um problema de designação, e é o que torna o TSP um
 problema $\mathcal{NP}$-difícil, pois esta restrição insere uma quantidade
 fatorial de restrições no modelo do TSP. Em~\eqref{fat_tsp} temos uma fórmula
 que descreve o número de restrições que~\eqref{stsp3} insere. Portanto,
-é necessário que se ultilize um procedimento denomidado de geração de planos de cortes
+é necessário que se utilize um procedimento denominado de geração de planos de cortes
 para lidar com esta grandeza de restrições.
 
 \begin{equation} \label{fat_tsp}
@@ -411,7 +412,7 @@ formando um novo problema de PLI~\eqref{glinhas2}.
 
 Tem-se que~\eqref{glinhas2} é o problema apresentado em~\eqref{glinhas}, porém com um conjunto
 reduzido de restrições, que pode ser resolvido mais facilmente. No entanto,
-a solução ótima $\tilde{x}^*$ não necessáriamente irá satisfazer
+a solução ótima $\tilde{x}^*$ não necessariamente irá satisfazer
 a~\eqref{glinhas}. Então é necessário que verifique-se qual das restrições
 são violadas e estas devem ser inseridas em~\eqref{glinhas2}, que deve ser
 resolvido novamente. Este verificação é conhecido como problema da separação,
@@ -423,20 +424,20 @@ em~\cite{nemhauser1988integer}.
 
 O problema da separação pode ser formulado como outro problema de PLI, formulado de
 modo dual, que indica qual é a restrição mais violada dentre todas. Esta
-restrição é então adicionada ao problema, que é reotimizado e pode ter
-outras variáveis violadas. O processo é repitido até que não existam mais
+restrição é então adicionada ao problema, que é re-otimizado e pode ter
+outras variáveis violadas. O processo é repetido até que não existam mais
 variáveis violadas.
 
 A principal vantagem deste método é que o conjunto de restrições finais é
 muito menor do que o total de restrições do problema original. E portanto, o
-custo de resolver diversos problemas de separação e efetuar multiplas
-reotimizações do problema original tende a ser mais rapida do que resolver
+custo de resolver diversos problemas de separação e efetuar múltiplas
+re-otimizações do problema original tende a ser mais rápida do que resolver
 o problema original.
 
 Existem ainda problemas onde o número de restrições é relativamente pequeno,
-enquanto que o \textbf{número de váriaveis é muito maior}. Um exemplo de problema com
+enquanto que o \textbf{número de variáveis é muito maior}. Um exemplo de problema com
 este comportamento é o \textit{Cutting stock problem}. O problema consiste
-em dado uma demada de peças de tamanhos arbitrarios e um estoque de peças de
+em dado uma demanda de peças de tamanhos arbitrários e um estoque de peças de
 tamanho fixo, determinar como cortar o estoque para obter as peças demandadas
 com um desperdício mínimo. Sua formulação é dada a seguir:
 
@@ -462,11 +463,11 @@ exponencialmente.
 Considerando que no simplex o número de variáveis básicas é limitado pelo
 número de restrições, em um problema onde existe uma quantidade muito maior
 de colunas do que linhas boa parte do tempo de solução seria gasto processando
-varíaveis que ao fim teriam o seu custo fixado em $0$. Portanto, a maioria
+variáveis que ao fim teriam o seu custo fixado em $0$. Portanto, a maioria
 das colunas não são necessárias para obter-se o resultado final do problema.
 
-A solução de problemas com muitas variáveis funciona de modo analogo ao com
-muitas retrições. Baseado em um problema de PLI, é resolvido um segundo problema
+A solução de problemas com muitas variáveis funciona de modo análogo ao com
+muitas restrições. Baseado em um problema de PLI, é resolvido um segundo problema
 que contem apenas um conjunto de variáveis. Enquanto que para muitas restrições
 a solução era testada para detectar restrições violadas, para problemas com
 muitas variáveis a solução é testada para determinar sua otimalidade.
@@ -480,8 +481,20 @@ repetido até que se obtenha uma solução $\tilde{x}^*$ que não viole restrições
 no problema dual.
 
 Neste capitulo foi apresentado os principais conceitos teóricos necessários para
-o entendimento do problema a ser abordado nos próximos capitulos deste trabalho.
+o entendimento do problema a ser abordado nos próximos capítulos deste trabalho.
 Discutiu-se as principais representações de problemas de programação linear e
-programação linear inteira, suas principais propiedades e métodos de solução.
+programação linear inteira, suas principais propriedades e métodos de solução.
 Por fim introduziu-se o conceito de utilizar custo reduzido e o problema dual
 para determinar restrições violadas ou colunas que podem melhorar a função objetivo.
+
+\chapter{O problema de cobertura, particionamento e escalonamento de tripulação}
+
+A alocação de tripulação consiste de um dos principais problemas para se tratar de um
+ponto de vista operacional dentro do contexto de empresas de transporte aéreo e terrestre.
+Segundo reportado por~\cite{zeren2012improved}, os gastos com tripulação consistem
+na segunda maior fonte de despesas, atrás apenas dos gastos de combustíveis. Portanto,
+a alocação de tripulação consiste de um ponto de vista operacional um lugar onde a
+otimização pode oferecer reduções significativas nos gastos, enquanto que de um ponto
+de vista acadêmico é um problema difícil de resolver, com grandes instâncias e uma
+aplicabilidade prática.
+
