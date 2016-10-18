@@ -140,7 +140,7 @@ O problema do CSP é referenciado na literatura como sendo o problema de \textbf{
 Onde dado um conjunto de linhas a serem cobertas, e um conjunto de colunas com custos
 associados que cobrem as linhas, escolhe-se o subconjunto de colunas que cubra todas as linhas minimizando o custo final. Como o SCP
 define que cada linha deve ser coberta pelo menos uma vez, isso implica que se o CSP for modelado como uma instância de SCP, pode ocorrer
-de mais de um tripulante ser designado para a mesma viagem. Isso na prática consiste no fato deum motorista ir de carona até o início de outra viagem,
+de mais de um tripulante ser designado para a mesma viagem. Isso na prática consiste no fato de um motorista ir de carona até o início de outra viagem,
 por exemplo.
 
 Outra forma de modelar-se o CSP consiste em determinar qual tripulação deve ser associado a uma viagem. Esta restrição
@@ -253,7 +253,7 @@ oferecem uma minimização no custo final. Portanto, o subproblema deve ser capaz 
 um limite arbitrário de tempo, e que possa oferecer melhoras na solução do problema mestre.
 
 A modelagem do subproblema dá-se segundo a função objetivo~\eqref{sp1} e as restrições~\eqref{sp2},~\eqref{sp3},~\eqref{sp4} e~\eqref{sp5}.
-São utilizadas dois vetores de variáveis de decisão. O vetor $v$ corresponde aos vértices e o vetor $y$ as arestas que vão fazer parte do caminho.
+Utiliza-se dois vetores de variáveis de decisão. O vetor $v$ corresponde aos vértices e o vetor $y$ as arestas que vão fazer parte do caminho.
 A seleção da coluna que será inserida no problema mestre dá-se através do uso das variáveis do problema mestre, que são representadas no vetor $\pi$.
 Obtém-se assim uma solução que possui o custo mínimo e oferece melhoras no problema mestre. O vetor $d$ presente na restrição~\eqref{sp4} faz com que
 o custo do caminho seja limitado a um valor arbitrário $MaxW$, sendo que $d_t$ é a duração da jornada $t$. Ignorando-se a restrição~\eqref{sp4} tem-se
@@ -309,11 +309,11 @@ Objetivos Específicos:
 \label{met}
 Inicialmente estudar-se-á em detalhe o problema proposto e será realizado uma revisão bibliográfica do assunto,
 incluindo as diversas modelagens para o problema. Em seguida será considerado algoritmos que foram utilizados
-na literatura para resolver o problema e será analisado suas características funcionais e desempenho, com o objetivo
-de elencar 3 algoritmos para estudo. Após está etapa será procurado problemas práticos reais de CSP com o objetivo
+na literatura para resolver o problema e será analisado suas características funcionais e desempenho.
+Após está etapa será procurado problemas de CSP utilizados na literatura, com o objetivo
 de realizar um estudo da eficiência dos modelos estudados. Por fim será realizado uma comparação dos resultados
-obtidos para averiguar a relevância dos algoritmos estudados e suas implementações.
-
+obtidos para averiguar a relevância dos algoritmos estudados e suas implementações, para então propor um novo
+algoritmo.
 
 %------------------------------------------------
 \section{Cronograma proposto}
