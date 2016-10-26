@@ -264,7 +264,7 @@ Considere o problema de PLI a seguir:
     \begin{minipage}{0.48\textwidth}
         \centering
         \includegraphics[width=1\linewidth]{../figuras/pli.pdf}
-        \caption{Espaço de busca do problema \eqref{pli_example}} \label{fig:name}
+        \caption{Espaço de busca do problema \eqref{pli_example}}
         \label{espacobusca}
     \end{minipage}
 \end{figure}
@@ -671,7 +671,8 @@ de ônibus, o que consiste em uma versão mais simples do problema.
 Dentre todas as possíveis jornadas possíveis para uma instância qualquer de CSP, apenas um
 número relativamente pequeno é utilizado de fato. Considerando por exemplo o Itinerário 101
 da tabela~\ref{tab_iters}, tem-se 1037190 jornadas, sendo que no máximo 40 podem ser utilizadas (assumindo
-que cada jornada cubra o mínimo possível). Isto ocorre pelo fato de que a grande maioria das jornadas
+que cada jornada cubra o mínimo possível), na pratica utilizou-se apenas 3 jornadas.
+Isto ocorre pelo fato de que a grande maioria das jornadas
 é de custo muito alto ou não cobre um número suficiente de tarefas para valer a pena ser considerada.
 Não obstante, para garantir-se que a solução encontrada é ótima, deve-se considerar integralmente o conjunto
 de jornadas possíveis, mesmo que de modo implico. Na seção a seguir é apresentado um modelo baseado em geração
@@ -682,20 +683,40 @@ as jornadas de modo explícito, isto é, as jornadas não são pré-calculadas.
 
 \section{Geração de colunas para o CSP}
 
+Conforme visto no exposto acima, considerar explicitamente o conjunto de todas as jornadas possíveis para
+uma instância de CSP é algo que pode inviabilizar ou dificultar a solução do problema. Um método que contorna
+este problema é a geração de colunas~\cite{desaulniers2006column}~\cite{barnhart1998branch}.
+
+O processo de geração de colunas é decomposto em dois problemas menores: Problema mestre, o problema a ser resolvido;
+Sub problema, um modelo de PLI que é capaz de identificar que informação é necessária para que o problema
+mestre encontre a solução ótima.
+
+%\begin{figure}[!htb]
+%\begin{minipage}
+{
+    \centering
+    \includegraphics[width=1\linewidth]{../figuras/gercolumn.pdf}
+    \captionof{figure}{Processo de geração de colunas}
+    \label{treta}
+}
+%\end{minipage}
+%\end{figure}
+
+A interação entre os dois problemas é mostrada na figura~\ref{treta}. A relaxação do problema mestre é resolvido com um
+conjunto inicial de jornadas de modo que o problema possua uma solução factível. A partir da solução da relaxação do
+problema mestre obtém-se os preços duais associados as restrições do problema, que é utilizado na formulação do subproblema.
+O subproblema então utiliza os preços duais para calcular uma nova jornada que tem a possibilidade de contribuir para o problema
+mestre. Esta nova jornada é adicionada no problema mestre e o processo repete-se. A condição de parada consiste
+no problema mestre obter uma solução com custo reduzido negativo, o que indica que não é possível melhorar o problema mestre.
+O problema mestre até o presente momento foi resolvido sob o efeito de uma relaxação linear. Portanto, caso existam
+variáveis não inteiras é necessário resolver o problema mestre mais uma vez, desta vez utilizando-se um método de solução para
+PLI.
+
+Nas seções a seguir é discutido formalmente a formulação e funcionamento do processo de geração de colunas.
+
+\subsection{Problema mestre}
 
 
+\subsection{Subproblema}
 
-%\section{Set Partitioning Problem e Set Covering Problem}
-
-%\begin{align}
-    %\label{spp2} \text{min} \: \sum_{j \in J} c_j x_j \\
-    %\label{spp22} \sum_{j \in J} a_{tj} x_j = 1, \forall t \in T \\
-    %\label{spp23} x_j \in \{0, 1\}, \forall j \in J
-%\end{align}
-
-%\begin{align}
-    %\label{scp2} \text{min} \: \sum_{j \in J} c_j x_j \\
-    %\label{scp22} \sum_{j \in J} a_{tj} x_j \ge 1, \forall t \in T \\
-    %\label{scp23} x_j \in \{0, 1\}, \forall j \in J
-%\end{align}
 

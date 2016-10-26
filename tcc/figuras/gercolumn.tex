@@ -1,0 +1,26 @@
+\documentclass[class=minimal,border=0pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\begin{document}
+
+\tikzstyle{block}    = [draw, rectangle]
+\tikzstyle{circloas} = [circle, draw=black]
+\tikzstyle{nome}     = [anchor=west]
+
+\begin{tikzpicture}
+
+    %\draw[help lines, color=gray!30, dashed] (0, 0) grid (5, 5);
+
+    \node[block] at (0,  0) (a) {Problema Mestre};
+    \node[block] at (6,  0) (b) {Subproblema};
+
+    \node[block] at (3,  .7) (c) {Pre\c{c}os Duais};
+    \node[block] at (3, -.7) (d) {Nova jornada};
+
+    \draw[dashed, ->, line width = 1] (a) -- node[above]{$ $} (c);
+    \draw[dashed, ->, line width = 1] (c) -- node[above]{$ $} (b);
+    \draw[dashed, ->, line width = 1] (b) -- node[above]{$ $} (d);
+    \draw[dashed, ->, line width = 1] (d) -- node[above]{$ $} (a);
+
+\end{tikzpicture}
+\end{document}
