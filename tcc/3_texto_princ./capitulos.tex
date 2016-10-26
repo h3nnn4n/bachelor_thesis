@@ -581,9 +581,11 @@ para resolver o CSP. A formulação genéria de um SPP é apresentada em~\eqref{sppp
 ainda que $a_{ij} = 1$ se e somente se a $i$-ésima tarefa é coberta pela $j$-ésima jornada.
 Em~\eqref{csp_1} tem-se a codificação para uma PLI do SPP associado ao problema de CSP apresentado
 na tabela~\ref{tab_graph_csp}. A função objetivo~\eqref{spp2} consiste no produto escalar entre o vetor de custos
-de cada jornada e as variáveis de decisão $x$. A restrição~\eqref{spp22} faz com que 
+de cada jornada e as variáveis de decisão $x$. A restrição~\eqref{spp22} faz com que cada tarefa seja coberta
+exatamente uma única vez. A restrição~\eqref{spp23} faz com que sejam utilizadas exatamente duas jornadas para
+cobrir as tarefas existentes.
 
-\begin{table}[htpb]
+\begin{table}[htpb!]
     \centering
     \begin{tabular}{l l l}
         Jornada                           & Custo & Duração \\
@@ -599,12 +601,22 @@ de cada jornada e as variáveis de decisão $x$. A restrição~\eqref{spp22} faz com
     \label{tab_gragh_csp_enum}
 \end{table}
 
+Resolvendo-se o problema apresentado em~\eqref{csp_1} e~\eqref{spppp} com um método de \textit{branch and bound},
+obtém-se a solução ótima composta por: Uma jornada que cobre as tarefas $1$ e $3$; Uma jornada que cobre as tarefas $2$, $4$ e $5$.
+A resolução desta instância ocorre praticamente instantaneamente, no entanto, ao aumentar-se os tamanhos das instâncias,
+a resolução utilizando-se métodos tradicionais (BnB, BnC) de PLI torná-se inviável e uma outra estratégia deve ser empregada.
+~\cite{desrochers1989column} utiliza uma abordagem baseada em geração de colunas baseada no problema de cobertura.~\cite{beasley1996tree}
+utiliza relaxação lagrangiana com otimização de sub gradientes em conjunto com uma busca em árvore.~\cite{smith1988bus} utilizou
+diversos modelos matemáticos para tentar acelerar o processo de solução utilizando o IMPACS~\cite{smith1988impacs}.
+Algumas abordagens heurísticas para o problema incluem~\cite{doalgoritmos} e~\cite{silva2002simulated}.~\cite{Bergh}
+e~\cite{ernst2004staff} oferecem um \textit{survey} detalhado da área.
+
 \begin{subequations}
     \label{spppp}
     \begin{align}
         \label{spp2}  \text{min} \: \sum_{j \in J} c_j x_j \\
         \label{spp22} \sum_{j \in J} a_{tj} x_j = 1, \forall t \in T \\
-        \label{spp23} \sum_{j \in J}        x_j = 2, \forall t \in T \\
+        \label{spp23} \sum_{j \in J}        x_j = 2 \\
         \label{spp24} x_j \in \{0, 1\}, \forall j \in J
     \end{align}
 \end{subequations}
@@ -635,6 +647,42 @@ de cada jornada e as variáveis de decisão $x$. A restrição~\eqref{spp22} faz com
         6 \\
     \end{pmatrix}
 \end{equation}
+
+No trabalho de~\cite{dos2008metodo}, o autor apresenta uma tabela contendo 5 instâncias reais
+do problema de CSP e o seu respectivo número de jornadas viáveis. Esta tabela está reproduzida
+na tabela~\ref{tab_iters}. Como se pode observar, o número de jornadas viáveis é grande mesmo
+para um número relativamente pequeno de jornadas. No caso da tabela considera-se apenas uma linha
+de ônibus, o que consiste em uma versão mais simples do problema.
+
+\begin{table}[htpb]
+    \centering
+    \begin{tabular}{l l l}
+        Itinerário & Número de tarefas & Jornadas viáveis \\
+        101        & 40                & 1037190          \\
+        201        & 49                & >4000000         \\
+        321        & 54                & >4000000         \\
+        1170       & 54                & 292505           \\
+        2153       & 43                & 10045            \\
+    \end{tabular}
+    \caption{Jornadas das intâncias utilizadas em~\cite{dos2008metodo}}
+    \label{tab_iters}
+\end{table}
+
+Dentre todas as possíveis jornadas possíveis para uma instância qualquer de CSP, apenas um
+número relativamente pequeno é utilizado de fato. Considerando por exemplo o Itinerário 101
+da tabela~\ref{tab_iters}, tem-se 1037190 jornadas, sendo que no máximo 40 podem ser utilizadas (assumindo
+que cada jornada cubra o mínimo possível). Isto ocorre pelo fato de que a grande maioria das jornadas
+é de custo muito alto ou não cobre um número suficiente de tarefas para valer a pena ser considerada.
+Não obstante, para garantir-se que a solução encontrada é ótima, deve-se considerar integralmente o conjunto
+de jornadas possíveis, mesmo que de modo implico. Na seção a seguir é apresentado um modelo baseado em geração
+de colunas, capaz de resolver o CSP de modo exato, obtendo a solução ótima. O algoritmo considera
+as jornadas de modo explícito, isto é, as jornadas não são pré-calculadas.
+
+%Com o exposto acima concluímos que
+
+\section{Geração de colunas para o CSP}
+
+
 
 
 %\section{Set Partitioning Problem e Set Covering Problem}
