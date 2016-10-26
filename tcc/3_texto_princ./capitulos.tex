@@ -716,6 +716,32 @@ Nas seções a seguir é discutido formalmente a formulação e funcionamento do proc
 
 \subsection{Problema mestre}
 
+O problema mestre deve ser capaz de obter uma solução factível e ótima para o problema original. Quando aplicado
+ao CSP, o problema mestre consiste de um SPP. Tem-se que cada coluna corresponde a uma jornada viável, com uma
+variável e um custo associado. Cada linha esta representando uma tarefa que deve ser coberta por exatamente
+uma jornada.
+
+Como o SPP é um problema de PLI, ele não possuí a propriedade de dualidade forte, fazendo com que
+a solução dual associada não possua o mesmo valor da função objetivo. Portanto, o calculo dos preços duais
+de modo correto é inviabilizado. Sendo assim utiliza-se a relaxação linear do problema mestre, que possui
+a propriedade de integralidade forte. No caso da relaxação linear, as variáveis deixam de ser inteiras (ou binárias)
+e passam a ser não negativas. Considerando que na formulação do problema mestre tem-se a restrição de cobertura, que faz
+com que o somatório das variáveis de cobertura de uma tarefa sejam iguais á $1$ e existe a restrição de não negatividade
+das variáveis, as variáveis tem automaticamente o seu valor limitado entre $0$ e $1$.
+
+Considerando-se as instâncias da \textit{OR-Library}, o problema mestre é dado em~\eqref{pmaster}. Note que $J$ é o conjunto
+de todas as jornadas factíveis, e que o modelo utiliza $\tilde{J}$, sendo que $\tilde{J} \subset J$. A constante $NJ$ corresponde
+ao tamanho da tripulação, que é fixo e conhecido \textit{à priori}. O restante da formulação~\eqref{pmaster} é igual à~\eqref{spppp}.
+
+\begin{subequations}
+    \label{pmaster}
+    \begin{align}
+        \label{pmaster1}  \text{min} \: \sum_{j \in \tilde{J}} c_j x_j \\
+        \label{pmaster2} \sum_{j \in \tilde{J}} a_{tj} x_j = 1, \forall t \in T \\
+        \label{pmaster3} \sum_{j \in \tilde{J}}        x_j = NJ \\
+        \label{pmaster4} x_j \geq 0, \forall j \in \tilde{J}
+    \end{align}
+\end{subequations}
 
 \subsection{Subproblema}
 
