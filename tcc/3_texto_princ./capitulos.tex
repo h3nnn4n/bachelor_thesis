@@ -743,6 +743,56 @@ ao tamanho da tripulação, que é fixo e conhecido \textit{à priori}. O restante d
     \end{align}
 \end{subequations}
 
+Uma questão a se considerar em relação ao problema mestre, é a necessidade de uma solução factível no ínicio do processo.
+No caso do SPP, deve ter um conjunto de colunas (jornadas) que possam cobrir todas as tarefas. A qualidade das colunas iniciais
+pode influenciar no processo de solução, de tal forma que a utilização de uma heuristica para o conjunto inicial de tarefas
+pode vir a valer apena, quando comparado com uma solução aleatória.
+
+A partir da solução do problema mestre, obtem-se um conjunto de informações relativos aos preços duais. Para este problema
+em específico, o interesse esta no custo reduzido associado as restrições. Considerando que cada restrição esta associada
+a uma tarefa, o custo reduzido da restrição quantifica quanto que uma jornada que cubra a tarefa associada pode melhorar a
+solução do SPP. Note que a restrição~\eqref{pmaster3} não esta associada a uma tarefa em específico, mas sim ao número de
+jornadas que podem ser utilizadas simultaneamente. O vetor de comprimento $|T|$, onde $T$ é o conjunto de todas as tarefas,
+que contém o custo reduzido das restrições é referenciado neste trabalho como $\tilde{\pi}$, onde $\tilde{\pi}_t$ indica
+o custo reduzido associado a tarefa $t$. O custo reduzido de~\eqref{pmaster3} é referenciado como $\tilde{\mu}$.
+
+Uma, jornada por sí só pode ser ótima para um dado conjunto de custos reduzidos, mas em conjunto com as demais pode não
+levar a solução ótima. A importancia de $\tilde{\mu}$ está em determinar se é possível encontrar uma melhor solução utilizando
+jornadas subótimas. Os preços duais $\tilde{\mu}$ e $\tilde{\pi}$ são utilizados no subproblema para identificar quais
+colunas devem ser geradas, conforme é exposto na seção a seguir.
+
 \subsection{Subproblema}
 
+O problema meste possui a funcionalidade de escolher quais jornadas devem ser utilizadas, já o subproblema é responsável
+por produzir novas jornadas para o problema mestre e indicar quanto a solução é ótima. O subproblema gera novas colunas
+enquanto sua função objetivo for negativa.
+
+Uma jornada consiste em uma sequencia de tarefas, onde a transição entre cada tarefa possui um custo. Sendo assim, uma
+jornada deve minimizar o custo, e o conjunto de todas as jornadas deve ser capaz de cobrir todas as tarefas. No entanto,
+existe um limite de tempo para cada jornada, portanto, o caminho mínimo esta restrito. Este problema é denominado de
+caminho mínimo com restrições, e é um problema $mathbb{NP}$-completo~\cite{ressdadss}.
+
+A formulação do subproblema dá-se em~\eqref{subp}. O subproblema é modelado como sendo um grafo. Neste grafo, cada arco
+$a = (v_t, v_w)$ possui um custo $c_a$ que representa o custo de transição entre $t$ e $w$. Existem ainda dois nós
+ficticios para facilitar a modelagem: $v_0$ e $v_f$. O nó $v_0$ conecta a todos os outros nós (exceto $v_f$), o nó
+$v_f$ possúi todos os nós levando a ele. Todos os arcos que conecam $v_0$ e $v_f$ possuem custo $0$. A constante $MaxW$
+representa a duranção máxima de uma jornada. O valor de $d_a$ é a duração do arco de transição somado com a
+duração do nó final (da transição).
+
+\begin{subequations}
+    \label{subp}
+    \begin{align}
+        \label{subp1} \text{min} \: \sum_{a \in A} c_a y_a - \sum_{t \int T} \tilde{\pi}_t v_t - \tilde{\mu}\\
+        \label{subp2} \sum_{a \in \delta^{+} (v_0)} y_{a} = \sum_{a \in \delta^{-} (v_f)} y_{a} = 1 \\
+        \label{subp3} \sum_{a \in \delta^{+} (v_t)} y_{a} = \sum_{a \in \delta^{-} (v_t)} y_{a} = v_t, \forall t \in T \\
+        \label{subp4} \sum_{a \in A} d_a y_{a} = MaxW \\
+        \label{subp5} v_t, y_a \in \{0, 1\}, \forall v_j \in V, \forall a \in A
+    \end{align}
+\end{subequations}
+
+A função objetivo~\eqref{subp1} possui $3$ elementos: $\sum_{a \in A} c_a y_a$ é componente que guia a função objetivo
+em direção ao caminho de menor custo; $- \sum_{t \int T} \tilde{\pi}_t v_t$ é responsável por guiar o processo de solução
+a escolher um caminho que contenha as terefas que apresetam a maior vantagem no problema mestre; por fim $- \tilde{\mu}$
+possui a finalidade de possibilitar que a geração de colunas crie jorandas subotima, que no contexto geral podem levar
+a solução ótima.
 
