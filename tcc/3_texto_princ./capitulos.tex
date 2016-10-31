@@ -796,3 +796,19 @@ a escolher um caminho que contenha as terefas que apresetam a maior vantagem no 
 possui a finalidade de possibilitar que a geração de colunas crie jorandas subotima, que no contexto geral podem levar
 a solução ótima.
 
+A variavel de decisão $y_a$ possuem seu valor igual a $1$ se e somente se o arco $a$ é utilizado na jornada. A variavel de
+desição $v_t$ vale $1$ se e somente se o vértice associado a tarefa $t$ esta presente na jornada. Em um problema simples
+de caminho mínimo apenas o uso da variável de decisão $y_a$ é o suficiente. No entanto, para o CSP a varíavel de
+decisão $v_t$ possuí a funcionalidade de guiar a função objetivo utilizando os custos reduzidos oriundos or problema mestre.
+
+A restrição~\eqref{subp2} faz com que extamente um arco saia do nó inicial e um arco chegue no nó inicial.
+A restrição~\eqref{subp3} garante que o número de arcos que conectam a um nó é o mesmo que o número de arcos que conectam
+este nós a um outro. Esta restrição ainda faz com que número de arcos incidentes seja o mesmo que o valor da variável $v_t$.
+A restrição~\eqref{subp5} faz com que $v_t$ tenha seu valor restrito em $0$ ou $1$, portanto o grau de incidencia para qualquer
+nó (exceto $v_0$ e $v_t$) é zero ou um. A não ser pela presença da variável $v_t$. Por fim, a restrição~\eqref{subp4} faz
+com que as jornadas tenham no máximo uma duração pré definida.
+
+O subproblema pode ser resolvido com programação dinamica~\cite{fff}, heuristicas~\cite{fff} ou ainda utilizando-se PLI~\cite{fff}.
+
+Neste capitulo discutiu-se a modelagem do SPP e do CSP. Discustiu-se ainda como são modelados o problema mestre utilizando SPP
+e o subproblema utilizando caminho mínimo com restrições.
