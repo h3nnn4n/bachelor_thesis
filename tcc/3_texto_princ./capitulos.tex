@@ -910,11 +910,31 @@ Banana.
 
 \subsubsection{Colonia de formigas}
 
-Banana.
+A otimização de colonia de formigas (ACO, \textit{ant colony optimization}), é uma meta-heurística bioinspirada no
+comportamento emergente em formigas durante o processo de coleta de alimento para a sua colonia. Uma formiga, ao iniciar
+a exploração de busca do alimento, anda de forma aleatória e deixa um rastro de feromônio. Outras formigas ao fazer
+a busca, executam o mesmo processo, porém, elas são atraídas pelo feromônio e possuem uma chance de seguir o rastro
+previamente depositado. O feromônio naturalmente evapora, fazendo com que caminhos pouco utilizados evaporem e os
+caminhos mais utilizados permaneçam.
+
+Este comportamento é simulado computacionalmente e pode ser utilizado para resolver diversos problemas de otimização
+combinatória. Problemas envolvendo grafos são facilmente resolvidos via ACO e consistem em um exemplo clássico de
+aplicação.
 
 \subsubsection{Busca Tabu}
 
-Banana.
+A busca tabu é uma meta-heurística baseada na subida de encosta, onde uma modificação é aplicada sucessivamente
+a uma solução de modo guloso. Para evitar ficar preso em máximos locais, o algoritmo permite fazer uma modificação
+prejudicial para a função objetivo caso não seja possível melhora-la. Quando isto ocorre, é criado uma regra que
+proíbe voltar para aquele estado. Esta regra expira após um tempo predefinido. O comportamento do algoritmo é
+inspirado em tabus.
+
+Um modo de aplicar a busca tabu na solução do subproblema consiste em gerar uma solução inicial factível e trocar
+uma tarefa por outra, sempre que isto melhorar a função objetivo. Caso não seja possível, deve-se então
+marcar este estado como proibido e a trocar uma tarefa aleatória por outra. Este procedimento pode ser
+executado por uma quantidade predefinida de passos ou até que uma solução de custo reduzido negativo
+seja encontrada. No caso de executar o algoritmo por uma quantidade predefinida de passos, pode-se retornar
+ao fim a melhor solução encontrada, ou retornar o conjunto de todas as soluções de custo reduzido negativo.
 
 \chapter{Resultados parciais}
 
