@@ -743,12 +743,12 @@ ao tamanho da tripulação, que é fixo e conhecido \textit{à priori}. O restante d
     \end{align}
 \end{subequations}
 
-Uma questão a se considerar em relação ao problema mestre, é a necessidade de uma solução factível no ínicio do processo.
+Uma questão a se considerar em relação ao problema mestre, é a necessidade de uma solução factível no Inicio do processo.
 No caso do SPP, deve ter um conjunto de colunas (jornadas) que possam cobrir todas as tarefas. A qualidade das colunas iniciais
-pode influenciar no processo de solução, de tal forma que a utilização de uma heuristica para o conjunto inicial de tarefas
+pode influenciar no processo de solução, de tal forma que a utilização de uma heurística para o conjunto inicial de tarefas
 pode vir a valer apena, quando comparado com uma solução aleatória.
 
-A partir da solução do problema mestre, obtem-se um conjunto de informações relativos aos preços duais. Para este problema
+A partir da solução do problema mestre, obtém-se um conjunto de informações relativos aos preços duais. Para este problema
 em específico, o interesse esta no custo reduzido associado as restrições. Considerando que cada restrição esta associada
 a uma tarefa, o custo reduzido da restrição quantifica quanto que uma jornada que cubra a tarefa associada pode melhorar a
 solução do SPP. Note que a restrição~\eqref{pmaster3} não esta associada a uma tarefa em específico, mas sim ao número de
@@ -756,14 +756,14 @@ jornadas que podem ser utilizadas simultaneamente. O vetor de comprimento $|T|$,
 que contém o custo reduzido das restrições é referenciado neste trabalho como $\tilde{\pi}$, onde $\tilde{\pi}_t$ indica
 o custo reduzido associado a tarefa $t$. O custo reduzido de~\eqref{pmaster3} é referenciado como $\tilde{\mu}$.
 
-Uma, jornada por sí só pode ser ótima para um dado conjunto de custos reduzidos, mas em conjunto com as demais pode não
-levar a solução ótima. A importancia de $\tilde{\mu}$ está em determinar se é possível encontrar uma melhor solução utilizando
-jornadas subótimas. Os preços duais $\tilde{\mu}$ e $\tilde{\pi}$ são utilizados no subproblema para identificar quais
+Uma, jornada por si só pode ser ótima para um dado conjunto de custos reduzidos, mas em conjunto com as demais pode não
+levar a solução ótima. A importância de $\tilde{\mu}$ está em determinar se é possível encontrar uma melhor solução utilizando
+jornadas sub ótimas. Os preços duais $\tilde{\mu}$ e $\tilde{\pi}$ são utilizados no subproblema para identificar quais
 colunas devem ser geradas, conforme é exposto na seção a seguir.
 
 \subsection{Subproblema}
 
-O problema meste possui a funcionalidade de escolher quais jornadas devem ser utilizadas, já o subproblema é responsável
+O problema mestre possui a funcionalidade de escolher quais jornadas devem ser utilizadas, já o subproblema é responsável
 por produzir novas jornadas para o problema mestre e indicar quanto a solução é ótima. O subproblema gera novas colunas
 enquanto sua função objetivo for negativa.
 
@@ -774,9 +774,9 @@ caminho mínimo com restrições, e é um problema $mathbb{NP}$-completo~\cite{ressd
 
 A formulação do subproblema dá-se em~\eqref{subp}. O subproblema é modelado como sendo um grafo. Neste grafo, cada arco
 $a = (v_t, v_w)$ possui um custo $c_a$ que representa o custo de transição entre $t$ e $w$. Existem ainda dois nós
-ficticios para facilitar a modelagem: $v_0$ e $v_f$. O nó $v_0$ conecta a todos os outros nós (exceto $v_f$), o nó
-$v_f$ possúi todos os nós levando a ele. Todos os arcos que conecam $v_0$ e $v_f$ possuem custo $0$. A constante $MaxW$
-representa a duranção máxima de uma jornada. O valor de $d_a$ é a duração do arco de transição somado com a
+fictícios para facilitar a modelagem: $v_0$ e $v_f$. O nó $v_0$ conecta a todos os outros nós (exceto $v_f$), o nó
+$v_f$ possui todos os nós levando a ele. Todos os arcos que conectam $v_0$ e $v_f$ possuem custo $0$. A constante $MaxW$
+representa a duração máxima de uma jornada. O valor de $d_a$ é a duração do arco de transição somado com a
 duração do nó final (da transição).
 
 \begin{subequations}
@@ -792,23 +792,33 @@ duração do nó final (da transição).
 
 A função objetivo~\eqref{subp1} possui $3$ elementos: $\sum_{a \in A} c_a y_a$ é componente que guia a função objetivo
 em direção ao caminho de menor custo; $- \sum_{t \int T} \tilde{\pi}_t v_t$ é responsável por guiar o processo de solução
-a escolher um caminho que contenha as terefas que apresetam a maior vantagem no problema mestre; por fim $- \tilde{\mu}$
-possui a finalidade de possibilitar que a geração de colunas crie jorandas subotima, que no contexto geral podem levar
+a escolher um caminho que contenha as tarefas que apresentam a maior vantagem no problema mestre; por fim $- \tilde{\mu}$
+possui a finalidade de possibilitar que a geração de colunas crie jornadas sub ótimo, que no contexto geral podem levar
 a solução ótima.
 
-A variavel de decisão $y_a$ possuem seu valor igual a $1$ se e somente se o arco $a$ é utilizado na jornada. A variavel de
-desição $v_t$ vale $1$ se e somente se o vértice associado a tarefa $t$ esta presente na jornada. Em um problema simples
-de caminho mínimo apenas o uso da variável de decisão $y_a$ é o suficiente. No entanto, para o CSP a varíavel de
-decisão $v_t$ possuí a funcionalidade de guiar a função objetivo utilizando os custos reduzidos oriundos or problema mestre.
+A variável de decisão $y_a$ possuem seu valor igual a $1$ se e somente se o arco $a$ é utilizado na jornada. A variável de
+decisão $v_t$ vale $1$ se e somente se o vértice associado a tarefa $t$ esta presente na jornada. Em um problema simples
+de caminho mínimo apenas o uso da variável de decisão $y_a$ é o suficiente. No entanto, para o CSP a variável de
+decisão $v_t$ possuí a funcionalidade de guiar a função objetivo utilizando os custos reduzidos oriundos do problema mestre.
 
-A restrição~\eqref{subp2} faz com que extamente um arco saia do nó inicial e um arco chegue no nó inicial.
+A restrição~\eqref{subp2} faz com que exatamente um arco saia do nó inicial e um arco chegue no nó inicial.
 A restrição~\eqref{subp3} garante que o número de arcos que conectam a um nó é o mesmo que o número de arcos que conectam
 este nós a um outro. Esta restrição ainda faz com que número de arcos incidentes seja o mesmo que o valor da variável $v_t$.
-A restrição~\eqref{subp5} faz com que $v_t$ tenha seu valor restrito em $0$ ou $1$, portanto o grau de incidencia para qualquer
+A restrição~\eqref{subp5} faz com que $v_t$ tenha seu valor restrito em $0$ ou $1$, portanto o grau de incidência para qualquer
 nó (exceto $v_0$ e $v_t$) é zero ou um. A não ser pela presença da variável $v_t$. Por fim, a restrição~\eqref{subp4} faz
 com que as jornadas tenham no máximo uma duração pré definida.
 
-O subproblema pode ser resolvido com programação dinamica~\cite{fff}, heuristicas~\cite{fff} ou ainda utilizando-se PLI~\cite{fff}.
+O subproblema pode ser resolvido com programação dinâmica~\cite{fff}, heurísticas~\cite{fff} ou ainda utilizando-se PLI~\cite{fff}.
 
-Neste capitulo discutiu-se a modelagem do SPP e do CSP. Discustiu-se ainda como são modelados o problema mestre utilizando SPP
+Neste capitulo discutiu-se a modelagem do SPP e do CSP. Discutiu-se ainda como são modelados o problema mestre utilizando SPP
 e o subproblema utilizando caminho mínimo com restrições.
+
+\chapter{Proposta}
+
+Nos capítulos anteriores discutiu-se a fundamentação teórica da PLI, do CSP e SPP. Discutiu-se ainda os detalhes de modelagem
+do CSP utilizando-se o SPP. Foi discutido também a modelagem do CSP utilizando-se
+
+
+
+
+
