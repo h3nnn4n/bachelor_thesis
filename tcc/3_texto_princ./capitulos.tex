@@ -816,7 +816,111 @@ e o subproblema utilizando caminho mínimo com restrições.
 \chapter{Proposta}
 
 Nos capítulos anteriores discutiu-se a fundamentação teórica da PLI, do CSP e SPP. Discutiu-se ainda os detalhes de modelagem
-do CSP utilizando-se o SPP. Foi discutido também a modelagem do CSP utilizando-se
+do CSP utilizando-se o SPP. Foi discutido também a modelagem do CSP utilizando-se geração de colunas, onde foi especificado
+a modelagem utilizada no problema mestre e no subproblema. Neste capitulo serão apresentados métodos de solução para o problema
+mestre e o subproblema.
+
+\section{Solução do problema mestre}
+
+A solução do problema mestre, que um problema de programação linear inteira, deve ser resolvido pelo SIMPLEX devido a
+necessidade de obter-se os custos duais associados com as restrições do problema. Outros métodos de solução para o SPP
+incluem: Heurística de Chvatal, método do ponto interior ou meta heurísticas como algoritmo genético e recozimento simulado.
+
+A implementação do SIMPLEX utilizada foi presente no CPLEX~\cite{}, devido a sua utilização em outros trabalhos presentes
+na literatura e o seu desempenho.
+
+\section{Solução do subproblema}
+
+O processo de solução do subproblema ocorre em duas etapas: Uma etapa rápida onde uma ou mais colunas são geradas de
+modo heurístico de rápido; Uma etapa lenta que é utilizada quando não é possível encontrar uma solução heurística.
+
+A solução exata do subproblema deve ser encontrada no caso de não ser encontrado uma solução heurística para que
+se garanta que a solução final do SPP é ótima. Portanto, o SPP é inicialmente processado com uma ou mais heurísticas,
+e caso não encontre-se uma solução com custo reduzido negativo, então deve ser utilizada a solução exata. A solução
+exata do subproblema é modelada como um caminho mínimo com restrições via PLI. Este problema de PLI é resolvido utilizando-se
+o solver de \textit{Branch and Cut} presente no CPLEX.
+
+\subsection{Solução heurística}
+
+Nesta seção é apresentado diversas heurísticas e meta-heurísticas que podem ser utilizadas para
+resolver-se o subproblema. Como objetivo final do trabalho, deseja-se utilizar-se duas ou mais heurísticas para
+acelerar o processo de solução do CSP.
+
+\subsubsection{Busca Gulosa baseada em relaxação linear}
+
+Banana.
+
+\subsubsection{Subida de encosta}
+
+O algoritmo de otimização baseado em subida de encosta consiste consiste em uma simples operação gulosa
+que busca o máximo local. Uma solução inicial é gerada aleatoriamente e a cada passo é escolhido a modificação
+da solução atual que a melhora o máximo possível.
+
+É conhecido que o algoritmo de subida de encosta apresenta um desempenho pobre quando comparado a meta-heurísticas
+mais sofisticadas. No entanto, a subida de encosta é uma das heurísticas existentes mais simples e é capaz de
+gerar soluções muito rapidamente. Oferecendo assim uma vantagem caso consiga alcançar rapidamente uma solução para
+o problema, e pouca desvantagem caso não consiga, já que o sem tempo de execução é relativamente pequeno.
+
+Quando aplicado ao subproblema apresentado neste trabalho, uma possível abordagem consistem em selecionar uma tarefa
+de modo aleatório e considerar todas as tarefas e a antecedem ou sucedem. Destas tarefas adjacentes escolhe-se
+a que apresenta o menor aumento da função objetivo. A função objetivo consiste na soma do custo de transição entre
+duas tarefas adjacentes subtraído do preço dual associado as tarefas cobertas por esta transição. O algoritmo de busca
+de encosta pode operar enquanto for possível adicionar tarefas sem violar a restrição de duração da jornada. É possível
+retornar a jornada de maior duração encontrada ou armazenar as soluções parciais e retorna-las ao problema mestre.
+
+\subsubsection{Recozimento Simulado}
+
+O processo de recozimento é utilizado na industria metalúrgica com a finalidade tratar os metais de modo a obter
+características desejáveis. Um metal é aquecido a uma determinada temperatura e é resfriado de modo controlado, com
+o objetivo de permitir que os cristais de carbono do aço possam de alocar de modo apropriado.
+
+A otimização de recozimento simulado baseia-se no recozimento para resolver problemas de otimização. O algoritmo de
+recozimento simulado possui um comportamento semelhante ao de subida de encosta, onde a melhor alteração é escolhida.
+A diferença esta no fato de que é possível escolher uma alteração que tenha um impacto negativo na solução. Isto permite
+que o algoritmo escape de máximos locais e possa explorar melhor o espaço de busca.
+
+O algoritmo de recozimento simulado possui uma variável de controle que é temperatura. Esta possui um valor inicial e
+final arbitrário e predefinido. A função da temperatura é decidir a probabilidade de uma ação prejudicial a função
+objetivo seja executada. Para valores altos da temperatura, a chance de tomar-se uma ação prejudicial é alta. Ao passar
+das iterações do algoritmo a temperatura diminui conforme uma função predeterminada, até chegar na temperatura final.
+Em valores próximos da temperatura final, o algoritmo possui uma chance próxima de zero de permitir que seja tomado
+uma ação que tenha um impacto negativo na função objetivo. Desta forma o algoritmo inicia tomando possíveis decisões que
+pioram a função objetivo, e com o passar das iterações estas ações tornam-se mais raras. Com isto é possível
+escapar de máximos locais na função objetiva. A severidade do impacto na função objetivo também é considerado
+na decisão, onde impactos menores tem a maior chance de serem feitos enquanto que impactos maiores possuem uma
+menor chance.
+
+Diversas alterações são possíveis em uma jornada, algumas que serão consideradas neste trabalho estão descritas
+a seguir:
+
+\begin{description}[labelindent=1cm]
+    \item[Adicionar nova tarefa] É verificado se é possível adicionar uma nova tarefa ao inicio ou fim da jornada;
+    \item[Remover uma ou mais tarefas] Uma ou mais tarefas são removidas;
+    \item[Substituir tarefas] Verifica-se se é possível substituir uma ou mais jornadas;
+\end{description}
+
+É possível utilizar uma ou mais estratégias de alteração da solução e seleciona-las de modo aleatório. Pode-se ainda parar
+o algoritmo assim que uma solução de custo negativo seja encontrada ou executar o algoritmo até que a temperatura chegue
+a temperatura final predeterminada e retornar a melhor solução obtida. Pode-se ainda armazenar todas as soluções de
+custo reduzido negativo encontradas e retorna-las ao problema mestre.
+
+\subsubsection{Programação Dinâmica}
+
+Banana.
+
+\subsubsection{Colonia de formigas}
+
+Banana.
+
+\subsubsection{Busca Tabu}
+
+Banana.
+
+\chapter{Resultados parciais}
+
+Do ré mi fá sol la si.
+
+
 
 
 
