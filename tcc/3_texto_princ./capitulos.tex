@@ -848,7 +848,17 @@ acelerar o processo de solução do CSP.
 
 \subsubsection{Busca Gulosa baseada em relaxação linear}
 
-Banana.
+Uma simples heurística para resolver o subproblema consiste em resolver a relaxação linear do mesmo. Conforme visto
+no capitulo~\ref{cap1}, a relaxação linear não leva a solução ótima de um problema de PLI, de modo geral. No entanto,
+para algumas instancias de um problema de PLI, é possível que isto ocorra, fazendo com que alguns casos de um problema
+difícil seja resolvido rapidamente.
+
+No caso de resolver-se a relaxação linear de o subproblema e obter-se uma solução inteira de custo reduzido negativo,
+pode-se utiliza-la imediatamente no subproblema. Caso a solução seja inteira e não possua custo reduzido negativo,
+então o problema mestre já possui o conjunto ótimo de colunas. Por fim, se for obtido uma solução não inteira
+de custo reduzido negativo, pode-se aplicar uma ou mais heurísticas de arredondamento para obter uma solução inteira.
+Este tipo de heurística é utilizada e ~\cite{glpk} e~\cite{scip} e apresentam um ganho significativo em caso de sucesso
+a um custo irrelevante em caso de falha
 
 \subsubsection{Subida de encosta}
 
@@ -874,8 +884,8 @@ O processo de recozimento é utilizado na industria metalúrgica com a finalidade 
 características desejáveis. Um metal é aquecido a uma determinada temperatura e é resfriado de modo controlado, com
 o objetivo de permitir que os cristais de carbono do aço possam de alocar de modo apropriado.
 
-A otimização de recozimento simulado baseia-se no recozimento para resolver problemas de otimização. O algoritmo de
-recozimento simulado possui um comportamento semelhante ao de subida de encosta, onde a melhor alteração é escolhida.
+A otimização de recozimento simulado baseia-se no recozimento para resolver problemas de otimização~\cite{kirkpatrick1983optimization,eglese1990simulated}.
+O algoritmo de recozimento simulado possui um comportamento semelhante ao de subida de encosta, onde a melhor alteração é escolhida.
 A diferença esta no fato de que é possível escolher uma alteração que tenha um impacto negativo na solução. Isto permite
 que o algoritmo escape de máximos locais e possa explorar melhor o espaço de busca.
 
@@ -910,21 +920,31 @@ Banana.
 
 \subsubsection{Colonia de formigas}
 
-A otimização de colonia de formigas (ACO, \textit{ant colony optimization}), é uma meta-heurística bioinspirada no
-comportamento emergente em formigas durante o processo de coleta de alimento para a sua colonia. Uma formiga, ao iniciar
-a exploração de busca do alimento, anda de forma aleatória e deixa um rastro de feromônio. Outras formigas ao fazer
+A otimização de colonia de formigas (ACO, \textit{ant colony optimization})~\cite{dorigo2003ant},
+é uma meta-heurística bioinspirada no comportamento emergente em formigas durante o processo de
+coleta de alimento para a sua colonia. Uma formiga, ao iniciar a exploração de busca do
+alimento, anda de forma aleatória e deixa um rastro de feromônio. Outras formigas ao fazer
 a busca, executam o mesmo processo, porém, elas são atraídas pelo feromônio e possuem uma chance de seguir o rastro
 previamente depositado. O feromônio naturalmente evapora, fazendo com que caminhos pouco utilizados evaporem e os
 caminhos mais utilizados permaneçam.
 
 Este comportamento é simulado computacionalmente e pode ser utilizado para resolver diversos problemas de otimização
-combinatória. Problemas envolvendo grafos são facilmente resolvidos via ACO e consistem em um exemplo clássico de
-aplicação.
+combinatória~\cite{dorigo2005ant}. O algoritmo implementa um sistema multiagente (cada formiga é considerada um agente) onde existe
+um comportamento emergente no coletivo dos agentes.  Problemas envolvendo grafos são facilmente resolvidos via
+ACO e consistem em um exemplo clássico de aplicação.
+
+Para resolver o subproblema, os agentes são todos posicionados no nó inicial e movem aleatoriamente depositando
+feremonios. Quando o agente chega no nó final, ele é movito para o nó inicial e o processo continua. Após a primeira
+leva de agentes, o sistema tera rastro de feromonios que irá influenciar o comportamento dos proximos agentes.
+Nas demais iterações, os agentes utilizando um mecanismo estocastico de descisão, onde existe uma tendencia
+de seguir caminhos com maior concentração de feromonios. A cada iteração a concentração de feromonio é diminuida,
+com o objetivo de eliminar caminhos pouco utilizados. Após um número predefinido de iterações, é possível extrair
+o caminho de menor custo reduzido.
 
 \subsubsection{Busca Tabu}
 
 A busca tabu é uma meta-heurística baseada na subida de encosta, onde uma modificação é aplicada sucessivamente
-a uma solução de modo guloso. Para evitar ficar preso em máximos locais, o algoritmo permite fazer uma modificação
+a uma solução, de modo guloso. Para evitar ficar preso em máximos locais, o algoritmo permite fazer uma modificação
 prejudicial para a função objetivo caso não seja possível melhora-la. Quando isto ocorre, é criado uma regra que
 proíbe voltar para aquele estado. Esta regra expira após um tempo predefinido. O comportamento do algoritmo é
 inspirado em tabus.
@@ -939,6 +959,7 @@ ao fim a melhor solução encontrada, ou retornar o conjunto de todas as soluções 
 \chapter{Resultados parciais}
 
 Do ré mi fá sol la si.
+
 
 
 
