@@ -2,8 +2,10 @@
 
 cd figuras
 
-pdflatex graph
+pdflatex gercolumn.tex
+pdflatex graph.tex
 pdflatex pli.tex
+pdflatex flowchart.tex
 
 cd ..
 

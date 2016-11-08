@@ -863,11 +863,11 @@ a um custo irrelevante em caso de falha
 \subsubsection{Subida de encosta}
 
 O algoritmo de otimização baseado em subida de encosta consiste consiste em uma simples operação gulosa
-que busca o máximo local. Uma solução inicial é gerada aleatoriamente e a cada passo é escolhido a modificação
-da solução atual que a melhora o máximo possível.
+que busca o máximo local. Uma solução inicial é gerada aleatoriamente e a cada passo é escolhido uma modificação
+aleatoria que melhora a função objetivo.
 
 É conhecido que o algoritmo de subida de encosta apresenta um desempenho pobre quando comparado a meta-heurísticas
-mais sofisticadas. No entanto, a subida de encosta é uma das heurísticas existentes mais simples e é capaz de
+mais sofisticadas~\cite{mitchell1993will}. No entanto, a subida de encosta é uma das heurísticas existentes mais simples e é capaz de
 gerar soluções muito rapidamente. Oferecendo assim uma vantagem caso consiga alcançar rapidamente uma solução para
 o problema, e pouca desvantagem caso não consiga, já que o sem tempo de execução é relativamente pequeno.
 
@@ -914,10 +914,6 @@ o algoritmo assim que uma solução de custo negativo seja encontrada ou executar 
 a temperatura final predeterminada e retornar a melhor solução obtida. Pode-se ainda armazenar todas as soluções de
 custo reduzido negativo encontradas e retorna-las ao problema mestre.
 
-\subsubsection{Programação Dinâmica}
-
-Banana.
-
 \subsubsection{Colonia de formigas}
 
 A otimização de colonia de formigas (ACO, \textit{ant colony optimization})~\cite{dorigo2003ant},
@@ -934,20 +930,25 @@ um comportamento emergente no coletivo dos agentes.  Problemas envolvendo grafos
 ACO e consistem em um exemplo clássico de aplicação.
 
 Para resolver o subproblema, os agentes são todos posicionados no nó inicial e movem aleatoriamente depositando
-feremonios. Quando o agente chega no nó final, ele é movito para o nó inicial e o processo continua. Após a primeira
-leva de agentes, o sistema tera rastro de feromonios que irá influenciar o comportamento dos proximos agentes.
-Nas demais iterações, os agentes utilizando um mecanismo estocastico de descisão, onde existe uma tendencia
-de seguir caminhos com maior concentração de feromonios. A cada iteração a concentração de feromonio é diminuida,
+feromônios. Quando o agente chega no nó final, ele é motivo para o nó inicial e o processo continua. Após a primeira
+leva de agentes, o sistema tera rastro de feromônios que irá influenciar o comportamento dos próximos agentes.
+Nas demais iterações, os agentes utilizando um mecanismo estocástico de decisão, onde existe uma tendencia
+de seguir caminhos com maior concentração de feromônios. A cada iteração a concentração de feromônio é diminuída,
 com o objetivo de eliminar caminhos pouco utilizados. Após um número predefinido de iterações, é possível extrair
 o caminho de menor custo reduzido.
+
+A ACO foi utilizada em diversos trabalhos recentes, aplicadas diretamente ao CSP~\cite{deng2011ant,lo2007using},
+onde autores modelam o CSP como uma instância do \textit{traveling salesman problem} (TSP). O ACO pode ser
+aplicado diretamente ao problema do caminho mínimo e suas variantes~\cite{ghoseiri2010ant,dorigo1997ant}.
+E considerando a natureza do subproblema, o ACO pode ser aplicado diretamente~\cite{dorigo2006ant}.
 
 \subsubsection{Busca Tabu}
 
 A busca tabu é uma meta-heurística baseada na subida de encosta, onde uma modificação é aplicada sucessivamente
-a uma solução, de modo guloso. Para evitar ficar preso em máximos locais, o algoritmo permite fazer uma modificação
-prejudicial para a função objetivo caso não seja possível melhora-la. Quando isto ocorre, é criado uma regra que
-proíbe voltar para aquele estado. Esta regra expira após um tempo predefinido. O comportamento do algoritmo é
-inspirado em tabus.
+a uma solução, de modo guloso~\cite{glover1989tabu,glover1990tabu}. Para evitar ficar preso em máximos locais,
+o algoritmo permite fazer uma modificação prejudicial para a função objetivo caso não seja
+possível melhora-la. Quando isto ocorre, é criado uma regra que proíbe voltar para aquele estado.
+Esta regra expira após um tempo predefinido.
 
 Um modo de aplicar a busca tabu na solução do subproblema consiste em gerar uma solução inicial factível e trocar
 uma tarefa por outra, sempre que isto melhorar a função objetivo. Caso não seja possível, deve-se então
@@ -956,14 +957,24 @@ executado por uma quantidade predefinida de passos ou até que uma solução de cus
 seja encontrada. No caso de executar o algoritmo por uma quantidade predefinida de passos, pode-se retornar
 ao fim a melhor solução encontrada, ou retornar o conjunto de todas as soluções de custo reduzido negativo.
 
-\chapter{Resultados parciais}
+%\chapter{Resultados parciais}
 
-Do ré mi fá sol la si.
+%Do ré mi fá sol la si.
 
+\section{Utilização das heurísticas e meta heurísticas}
 
+A proposta deste trabalho baseia-se no trabalho de~\cite{dos2008metodo}, onde utilizou-se o procedimento de
+geração de colunas juntamente com duas meta heurísticas para resolver o CSP, onde o autor utilizou as meta heurísticas
+GRASP~\cite{feo1995greedy} e algoritmo genético~\cite{gen1997genetic}. Tem-se como objetivo implementar
+outras (meta) heurísticas com o objetivo de melhorar o procedimento de geração de colunas. Na figura~\ref{flowchart}
+tem-se um fluxograma que apresenta o funcionamento da geração de colunas. Os blocos em destaque correspondem as
+etapas que são abordadas neste trabalho.
 
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=1\linewidth]{../figuras/flowchart.pdf}
+    \caption{Funcionamento de geração de coluna(essa imagem é só um placeholder, tenho q fazer a imagem certa ainda)}
+    \label{flowchart}
+\end{figure}
 
-
-
-
-
+Explicar a figura.
