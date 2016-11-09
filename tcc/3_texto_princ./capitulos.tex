@@ -788,31 +788,25 @@ A restrição~\eqref{subp5} faz com que $v_t$ tenha seu valor restrito em $0$ ou $
 nó (exceto $v_0$ e $v_t$) é zero ou um. A não ser pela presença da variável $v_t$. Por fim, a restrição~\eqref{subp4} faz
 com que as jornadas tenham no máximo uma duração pré definida.
 
-O subproblema pode ser resolvido com programação dinâmica~\cite{fff}, heurísticas~\cite{fff} ou ainda utilizando-se PLI~\cite{fff}.
-
 Neste capitulo discutiu-se a modelagem do SPP e do CSP. Discutiu-se ainda como são modelados o problema mestre utilizando SPP
 e o subproblema utilizando caminho mínimo com restrições.
 
 \chapter{Proposta}
 
-Nos capítulos anteriores discutiu-se a fundamentação teórica da PLI, do CSP e SPP. Discutiu-se ainda os detalhes de modelagem
-do CSP utilizando-se o SPP. Foi discutido também a modelagem do CSP utilizando-se geração de colunas, onde foi especificado
-a modelagem utilizada no problema mestre e no subproblema. Neste capitulo serão apresentados métodos de solução para o problema
-mestre e o subproblema.
+Nos capítulos anteriores discutiu-se a fundamentação teórica da PLI, bem como os detalhes de modelagem do CSP utilizando-se
+o SPP, e o método de geração de colunas. Especificou-se a modelagem utilizada tanto no problema mestre quanto no subproblema.
+Neste capitulo serão apresentados métodos de solução para o problema mestre e o subproblema.
 
 \section{Solução do problema mestre}
 
-A solução do problema mestre, que um problema de programação linear inteira, deve ser resolvido pelo SIMPLEX devido a
+A solução de um problema mestre, que é um problema de PLI, deve ser resolvido pelo SIMPLEX devido a
 necessidade de obter-se os custos duais associados com as restrições do problema. Outros métodos de solução para o SPP
 incluem: Heurística de Chvatal, método do ponto interior ou meta heurísticas como algoritmo genético e recozimento simulado.
 
-A implementação do SIMPLEX utilizada foi presente no CPLEX~\cite{}, devido a sua utilização em outros trabalhos presentes
-na literatura e o seu desempenho.
-
 \section{Solução do subproblema}
 
-O processo de solução do subproblema ocorre em duas etapas: Uma etapa rápida onde uma ou mais colunas são geradas de
-modo heurístico de rápido; Uma etapa lenta que é utilizada quando não é possível encontrar uma solução heurística.
+O processo de solução do subproblema ocorre em duas etapas: Na primeira etapa uma ou mais colunas são geradas de
+modo heurístico; Na segunda etapa, que ocorre sequencialmente quando não é possível encontrar uma solução heurística.
 
 A solução exata do subproblema deve ser encontrada no caso de não ser encontrado uma solução heurística para que
 se garanta que a solução final do SPP é ótima. Portanto, o SPP é inicialmente processado com uma ou mais heurísticas,
@@ -844,7 +838,7 @@ a um custo irrelevante em caso de falha
 
 O algoritmo de otimização baseado em subida de encosta consiste consiste em uma simples operação gulosa
 que busca o máximo local. Uma solução inicial é gerada aleatoriamente e a cada passo é escolhido uma modificação
-aleatoria que melhora a função objetivo.
+aleatória que melhora a função objetivo.
 
 É conhecido que o algoritmo de subida de encosta apresenta um desempenho pobre quando comparado a meta-heurísticas
 mais sofisticadas~\cite{mitchell1993will}. No entanto, a subida de encosta é uma das heurísticas existentes mais simples e é capaz de
