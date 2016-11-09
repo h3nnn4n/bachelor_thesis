@@ -110,79 +110,6 @@ de solução com geração de colunas consiste em criar-se um problema mestre, otimi
 as varáveis duais do problema mestre juntamente com o sub-problema,  para identificar se o problema mestre necessita da geração
 de novas colunas ou se ele corresponde ao ótimo do problema original~\cite{dos2008metodo}.
 
-%FIGURA DA GERACAO DE COLUNAS AQUI.
-
-%Dado um conjunto $J$ de todas as jornadas (que na prática está codificado na matriz $A$), na geração de colunas,
-%utiliza-se um conjunto reduzido $\tilde{J} \subseteq J$. O problema mestre é dado por~\eqref{sppm1},~\eqref{sppm2} e~\eqref{sppm3}.
-%Após a solução da relaxação linear do problema mestre, utiliza-se as variáveis duais (obtidas a partir da relaxação linear
-%do problema mestre) no subproblema, para assim determinar se alguma jornada pode melhorar o resultado atual obtido. Este processo é
-%denominado de \textit{pricing}~\cite{barnhart1998branch}. O \textit{pricing} consiste na solução do problema da separação~\cite{nemhauser1988integer}
-%para o problema dual do problema mestre~\cite{lubbecke2005selected}. No caso do CSP, pode-se apresentar o conjunto de tarefas como
-%vértices de um grafo e ligá-los com arestas direcionadas para indicar a ordem que as tarefas podem ser executadas. Cada tarefa tem
-%um tempo fixo de início e fim, e se uma tarefa inicia após o termino de outra, então ela pode ser realizada em sequencia. Toda jornada é
-%então um caminho neste grafo. A tabela~\ref{tab_csp} contém uma instância de CSP e a figura~\ref{fig_csp} apresenta o grafo
-%associado ao problema.
-
-%\begin{align}
-    %\label{sppm1} \text{min} \: \sum_{j \in \tilde{J}} c_j x_j \\
-    %\label{sppm2} \sum_{j \in \tilde{J}} a_{tj} x_j = 1, \forall t \in T \\
-    %\label{sppm3} x_j \in \{0, 1\}, \forall j \in \tilde{J}
-%\end{align}
-
-%\begin{figure}[!htb]
-    %\centering
-    %\begin{minipage}{.5\textwidth}
-        %\centering
-        %\begin{tabular}{|c|c|c|} \hline
-            %tarefa   & Início & Fim \\ \hline
-            %tarefa 1 & 1      & 10 \\ \hline
-            %tarefa 2 & 1      & 4  \\ \hline
-            %tarefa 3 & 11     & 14 \\ \hline
-            %tarefa 4 & 6      & 10 \\ \hline
-            %tarefa 5 & 11     & 15 \\ \hline
-        %\end{tabular}
-        %\captionof{table}{Instância do CSP}
-        %\label{tab_csp}
-    %\end{minipage}%
-    %\begin{minipage}{0.5\textwidth}
-        %\centering
-        %\includegraphics[width=0.8\linewidth]{../figuras/graph.pdf}
-        %\caption{Jornadas modeladas como grafo}
-        %\label{fig_csp}
-    %\end{minipage}
-%\end{figure}
-
-%A interpretação do grafo da figura~\ref{fig_csp} ocorre da seguinte forma, após realizar a tarefa 2, pode-se realizar a tarefa 4 com um custo
-%4 ou a tarefa 3 com custo 3, e assim por diante. Conforme a tabela~\ref{tab_csp}, a tarefa 5 começa após a 4, portanto existe uma aresta que leva
-%do vértice 4 ao 5. Já a tarefa 4 começa antes do fim da tarefa 1, logo não há uma aresta ligando-as. Os pesos associados as arestas
-%indicam o custo ao mudar de tarefa. Na prática, este custo pode corresponder ao tempo gasto para realizar o preparo para a tarefa ou algum
-%outro custo que deseja-se minimizar.
-
-%O subproblema para o CSP consiste em determinar um caminho entre os nós de origem e destino. Os nós de origem quando aplicados ao
-%transporte via ônibus, podem ser considerado como garagens, assim como os nós finais.  Considerando que as jornadas são executadas
-%por tripulações, é desejável que elas não ultrapassem uma determinada carga horária. Por outro lado, caminhos de custo mínimo
-%oferecem uma minimização no custo final. Portanto, o subproblema deve ser capaz de encontrar o caminho de menor custo dentro de
-%um limite arbitrário de tempo, e que possa oferecer melhoras na solução do problema mestre.
-
-%A modelagem do subproblema dá-se segundo a função objetivo~\eqref{sp1} e as restrições~\eqref{sp2},~\eqref{sp3},~\eqref{sp4} e~\eqref{sp5}.
-%São utilizadas dois vetores de variáveis de decisão. O vetor $v$ corresponde aos vértices e o vetor $y$ as arestas que vão fazer parte do caminho.
-%A seleção da coluna que será inserida no problema mestre dá-se através do uso das variáveis do problema mestre, que são representadas no vetor $\pi$.
-%Obtém-se assim uma solução que possui o custo mínimo e oferece melhoras no problema mestre. O vetor $d$ presente na restrição~\eqref{sp4} faz com que
-%o custo do caminho seja limitado a um valor arbitrário $MaxW$, sendo que $d_t$ é a duração da jornada $t$. Ignorando-se a restrição~\eqref{sp4} tem-se
-%o problema do custo mínimo. No entanto, com o uso desta restrição o subproblema passar a ser um problema de caminho mínimo com restrição de
-%recursos~\cite{desaulniers2006column}, que é NP-\textit{Hard}~\cite{garey1979computers}. \cite{hassin1992approximation} apresentou um
-%algoritmo de aproximação de complexidade $\mathcal{O}((n^3/\epsilon) * (log n/\epsilon))$. Existem ainda abordagens para solucionar o problema do
-%caminho mínimo com restrições baseadas em \textit{labeling} \cite{dumitrescu2003improved}, limites duais~\cite{handler1980dual}
-%e relaxação lagrangiana~\cite{beasley1989algorithm}.
-
-%\begin{align}
-    %\label{sp1} \text{min} \: \sum_{a \in A} c_a y_a + \sum_{t \in T} \pi_t v_t \\
-    %\label{sp2} \sum_{a \in \delta^{+}(v_0)} y_a = \sum_{a \in \delta^{+}(v_f)} y_a = 1 \\
-    %\label{sp3} \sum_{a \in \delta^{+}(v_t)} y_a = \sum_{a \in \delta^{-}(v_f)} y_a = v_t, \: \forall t \in T\\
-    %\label{sp4} \sum_{a \in A} d_a y_a \leq MaxW \\
-    %\label{sp5} v_t, y_a \in \{0, 1\}, \forall v_t \in V, \forall a \in A
-%\end{align}
-
 Além do método de geração de colunas, outros métodos também são utilizados na literatura, tais como: algoritmos genéticos~\cite{doalgoritmos},
 \textit{simulated annealing}~\cite{hanafi2014hybrid},
 \textit{particle swarm optimization}~\cite{limlawan2014hybrid}
@@ -201,23 +128,8 @@ Dado o exposto acima, este trabalho tem o objetivo de especificar e propor um mé
 soluções de modo exato, e preferencialmente mais eficiente, considerando algoritmos pesquisados na literatura. O algoritmo proposto será aplicado
 a instâncias disponíveis na literatura.
 
-No capitulo 2 é apresentado a fundamentação teória necessária para o estudo do algoritmo proposto. Define-se programação linear, programação linear
+No capitulo 2 é apresentado a fundamentação teoria necessária para o estudo do algoritmo proposto. Define-se programação linear, programação linear
 inteira e é apresentado os seus respetivos métodos de solução.
 
-No capitulo 3 $\ldots$
-
-%\chapter{Conceitos}
-%\label{cap:introducao}
-%\acresetall
-
-%Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-%tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-%vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-%no sea takimata sanctus est Lorem ipsum dolor sit amet.
-
-%\section{Considerações do Capítulo}
-
-%Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-%tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-%vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-%no sea takimata sanctus est Lorem ipsum dolor sit amet.
+No capitulo 3 é apresentado a formulação do CSP e sua respectiva modelagem utilizando-se geração de colunas, onde é definido também o problema mestre
+e o subproblema.

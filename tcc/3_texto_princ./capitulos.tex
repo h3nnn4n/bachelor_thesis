@@ -15,9 +15,9 @@ genérica de um problema de programação linear é\cite{dantzig1955generalized}:
 \begin{align} \label{funcao_obj} \text{maximizar} \: z &= \sum_{j=1}^{p}
     c_jx_j, \intertext{sujeito à:} \label{restricoes} \sum_{j=1}^{p} a_{ij} x_j
     \leq b_i, i &= 1, 2, \ldots, q \\ \label{restricoes_triviais} x_j \geq 0, j
-    &= 1, 2, \ldots, p, \end{align}
+    &= 1, 2, \ldots, p, \end{align}.
 
-onde $c_j, a_{ij}$ e $b_i$ são números reais que definem o problema e $x_j$
+Onde $c_j, a_{ij}$ e $b_i$ são números reais que definem o problema e $x_j$
 para $j=1, 2, \ldots, p$ são as variáveis de decisão. A
 função~\eqref{funcao_obj} é denominada de função objetivo, a qual deve ser
 maximizada. Note que o máximo de $f(x)$ é o mínimo de $-f(x)$ com o sinal
@@ -33,7 +33,7 @@ utilização dá-se por:
 
 \[ \label{restricoes} \sum_{j=1}^{p} a_{ij} x_j \leq b_i \Leftrightarrow
 \begin{cases} \Sigma_{j=1}^{p} a_{ij} x_j + x_{p+i} = b_i\\ x_{p+i} \geq 0
-\end{cases} \]
+\end{cases} \].
 
 é possível ainda utilizar duas igualdades para representar uma igualdade:
 
@@ -51,9 +51,9 @@ qualquer problema de programação linear pode ser expresso como:
     1, 2, \ldots, m \\ \label{res_t} x_j \geq 0, j &= 1, 2, \ldots, n
     \intertext{que é equivalente à:} \label{fo2} \text{maximizar} \: z &= cx
 \intertext{sujeito à:} \label{res2} Ax &= b \\ \label{res_t2} x &\geq 0,
-\end{align}
+\end{align}.
 
-onde $c^T \in \mathbb{R}^n$, $x \in \mathbb{R}^n$, $b \in \mathbb{R}^m$, $A \in
+Onde $c^T \in \mathbb{R}^n$, $x \in \mathbb{R}^n$, $b \in \mathbb{R}^m$, $A \in
 \mathbb{R}^{m \times n}$ e $a_j \in \mathbb{R}^m$.
 
 Baseado nas restrições~\eqref{res2} e~\eqref{res_t2}, pode-se descrever o
@@ -82,8 +82,6 @@ original. Esta seção apresenta os três principais métodos encontrados na
 literatura durante o desenvolvimento deste trabalho: o método simplex; o método
 dos elipsoides; o método do ponto interior.
 
-%\subsubsection{Simplex}
-
 O método Simplex~\cite{dantzig1990origins} foi apresentado em 1947 por George
 B. Dantzig com o objetivo de resolver o problema de programação linear. O
 método consiste em encontrar uma solução factível ao problema, e iterativamente
@@ -98,8 +96,6 @@ caso é exponencial~\cite{klee1972good}.  Klee e Minty apresentaram um politopo
 especialmente projetado para que o método simplex leve um número exponencial de
 passos, o politopo é denominado de Cubo de Kleen-Minty.
 
-%\subsubsection{Método dos elipsoides}
-
 Em decorrência da descoberta do cubo de Klee-Minty, diversos pesquisadores
 iniciaram um estudo em busca de um método capaz de resolver o problema de
 programação linear em tempo polinomial. Um dos primeiros trabalhos apresentados
@@ -111,8 +107,6 @@ em tempo polinomial. No entanto, na prática o método apresenta um desempenho
 inferior ao simplex, como problemas de instabilidade numérica. O método
 dos elipsoides demonstrou que diversos problemas podem ser resolvidos em tempo
 polinomial~\cite{Grotschel1981}.
-
-%\subsubsection{Método do ponto interior}
 
 Em 1984 foi proposto um novo método polinomial para a solução do problema da
 programação linear, denominado de método do ponto interior\cite{potra2000interior}.
@@ -160,8 +154,6 @@ em~\cite{maculan2006otimizaccao}, segue que:
         respectivamente, e $c\overline{x} = \overline{u}b$, então
         $\overline{x}$ é a \textbf{solução ótima} do problema primal e $\overline{u}$ é
         a solução ótima do problema dual;
-    %\item Se o problema primal tiver seu espaço de busca ilimitado, então o
-        %problema dual é infactível, e vice-versa;
     \item Se $\tilde{x}$ é a \textbf{solução ótima} do problema primal e $\tilde{u}$ é a
         \textbf{solução ótima} do problema dual, então $c\tilde{x} = \tilde{u}b$.
 \end{enumerate}
@@ -170,31 +162,10 @@ O primeiro item é conhecido como teorema da \textbf{dualidade fraca}, e sua impl
 que uma solução dual é um limite superior de otimalidade para o problema
 primal.  O segundo e terceiro item constituem o teorema da \textbf{dualidade forte}, que
 pode ser utilizado para provar que uma solução de um problema primal é a ótima.
-%Segue ainda que apenas uma das três alternativas abaixo é verdadeira para um
-%problema primal e o seu problema dual associado:
-
-%\begin{itemize} \item Ambos os problemas tem um espaço de busca vazio; \item Um
-%deles tem o seu espaço de busca vazio e o outro ilimitado; \item Ambos possuem
-%o mesmo valor na função objetivo e possuem soluções ótimas finitas;
-%\end{itemize}
 
 \section{Programação Linear Inteira}
 
-%Na prática a programação inteira não é o suficiente para representar diversos
-%problemas, visto que o valor fracionário da soluçao (variáveis) pode não ser condizente
-%a a realidade.
-
-%A fim de ilustrar o problema de variáveis frácionarias, considerw um
-%grafo, por exemplo, pode-se modelar um problema de PLI onde $x_{ij} = 1$ se um vértice
-%$i$ esta ligada a um vértice $j$ e $0$ caso contrário.  Ao resolver o modelo, pode ocorrer
-%que o valor da variável venha a ser algo entre $0$ e $1$, que não possui
-%representação no problema.  Em um caso prático, uma variável com um valor
-%fracionário pode indicar que é necessário que $3.19$ ônibus devem ser alocados
-%para uma determinada rota, algo que não faz sentido. Fica claro então que são
-%necessários recursos extras para representar problemas onde pelo menos uma
-%variável deve ser inteira.
-
-A Programação Linear Inteira (PLI) trata de modelar problemas onde existem
+A Programação Linear Inteira (PLI)~\cite{wolsey1998integer} trata de modelar problemas onde existem
 variáveis inteiras. A forma genérica de um problema dá-se de forma análoga a de
 um problema de programação linear:
 
@@ -272,12 +243,12 @@ Considere o problema de PLI a seguir:
 Resolvendo-o obtém-se o resultado apresentado na figura~\ref{rrrr}.
 Considerando que o problema de PLI admite apenas variáveis com valores
 inteiros, o resultado acima é inválido como resposta para o problema.
-Observando-se a figura~\ref{fig:name}, que contém o espaço de busca do problema
+Observando-se a figura~\ref{espacobusca}, que contém o espaço de busca do problema
 em questão, pode-se observar que os pontos que são factíveis ao problema de PLI
 são um subconjunto do espaço de busca de um problema de programação linear com
 as mesmas restrições. Observa-se ainda que a solução ótima do problema de PLI
-não coincide com a solução ótima do problema de programação linear. Portanto, é
-necessário métodos específicos para resolver problemas de PLI.
+não coincide com a solução ótima do problema de programação linear. Portanto,
+torna-se necessário a utilização de métodos específicos para resolver problemas de PLI.
 
 \subsection{Relaxação Linear}
 
@@ -356,7 +327,7 @@ da PLI. Sendo assim, pode-se incluir a geração de planos de cortes no processo
 de solução do BnB, melhorando assim seus limites. O BnB que utiliza planos de
 cortes é denominado de \textit{Branch and Cut} (BnC).
 
-\section{Geração de Colunas}
+\section{Problemas com muitas restrições ou variáveis}
 
 Na programação linear inteira existem problemas que tornam-se inviáveis de serem
 resolvidos puramente com os métodos acima mencionados. Tomemos o problema
@@ -397,7 +368,7 @@ Considerando o modelo genérico de PLI~\eqref{glinhas} a seguir:
     \end{align}
 \end{subequations}
 
-pode-se escolher um conjunto arbitrário de restrições tal que
+Pode-se escolher um conjunto arbitrário de restrições tal que
 $\tilde{A} \subseteq A$ e $\tilde{b} \subseteq b$,
 formando um novo problema de PLI~\eqref{glinhas2}.
 
@@ -418,9 +389,6 @@ são violadas e estas devem ser inseridas em~\eqref{glinhas2}, que deve ser
 resolvido novamente. Este verificação é conhecido como problema da separação,
 que é $\mathcal{NP}$-completo, conforme demonstrado
 em~\cite{nemhauser1988integer}.
-%Apesar da dificuldade do problema da separação,
-%resolver o PLI com um conjunto reduzido de restrições e resolver o problema da
-%separação para descobrir quais restrições foram violadas tende a ser mais rápido.
 
 O problema da separação pode ser formulado como outro problema de PLI, formulado de
 modo dual, que indica qual é a restrição mais violada dentre todas. Esta
@@ -449,7 +417,7 @@ com um desperdício mínimo. Sua formulação é dada a seguir:
     \end{align}
 \end{subequations}
 
-onde $c_j$ corresponde a sobra de utilizar-se o corte $j$, $b_i$ é a demanda
+Onde $c_j$ corresponde a sobra de utilizar-se o corte $j$, $b_i$ é a demanda
 para peças do tipo $i$, e $a_{j}$ corresponde a um padrão de corte.
 Considere o seguinte exemplo: Deseja-se peças de tamanho $3, 4, \text{e } 5$
 cortados a partir de um tubo de tamanho $10$. Alguns padrões válidos de corte
@@ -467,10 +435,14 @@ variáveis que ao fim teriam o seu custo fixado em $0$. Portanto, a maioria
 das colunas não são necessárias para obter-se o resultado final do problema.
 
 A solução de problemas com muitas variáveis funciona de modo análogo ao com
-muitas restrições. Baseado em um problema de PLI, é resolvido um segundo problema
-que contem apenas um conjunto de variáveis. Enquanto que para muitas restrições
-a solução era testada para detectar restrições violadas, para problemas com
-muitas variáveis a solução é testada para determinar sua otimalidade.
+muitas restrições. Com base no problema original, é formulado um novo problema,
+denominado de problema mestre, que contém apenas um conjunto reduzido de colunas
+do problema original. A relaxação do problema mestre é resolvido e obtém-se os
+preços duais, que são utilizados para determinar quais colunas são necessárias
+para resolver o problema até seu ponto ótimo. O problema auxiliar que é capaz
+de determinar quais colunas são necessárias, é denominado de subproblema. No
+capitulo~\ref{chap3} o problema mestre e o subproblema são apresentados
+formalmente.
 
 Utilizando-se a solução ótima $\tilde{x}^*$ do problema reduzido e sua solução
 ótima dual $\tilde{y}^*$ pode-se testar $\tilde{y}^*$ por restrições violadas
@@ -488,6 +460,7 @@ Por fim introduziu-se o conceito de utilizar custo reduzido e o problema dual
 para determinar restrições violadas ou colunas que podem melhorar a função objetivo.
 
 \chapter{O problema de cobertura, particionamento e escalonamento de tripulação}
+\label{chap3}
 
 A alocação de tripulação (CSP) consiste de um dos principais problemas para se tratar de um
 ponto de vista operacional dentro do contexto de empresas de transporte aéreo e terrestre.
