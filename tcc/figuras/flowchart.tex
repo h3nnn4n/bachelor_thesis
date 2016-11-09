@@ -49,22 +49,26 @@ introduced in PGF/TikZ >= 1.09.
 
 \begin{tikzpicture}[node distance = 2cm, auto]
     % Place nodes
-    \node [block] (init) {Colunas iniciais};
+    \node [block, minimum width=40mm] (init) at (0,2) {Colunas iniciais};
 
-    \node [block, below of=init]     (add)      {Adicionar Jornadas};
-    \node [block, below of=add]      (solvespp) {Resolver o SPP};
-    \node [block, below of=solvespp] (calc)     {Calcular pre\c{c}os duais};
+    \node [block, minimum width=40mm, below = 20mm of init]     (add)      {Adicionar Jornadas};
+    \node [block, minimum width=40mm, below of=add]      (solvespp) {Resolver o SPP};
+    \node [block, minimum width=40mm, below of=solvespp] (calc)     {Calcular pre\c{c}os duais};
 
-    \node [block   , right=5mm of init]                      (heursolve) at (5,0) {Resolver o Subproblema de forma heur\'istica};
-    \node [decision, below=5mm of heursolve, aspect = 2]  (redcost)            {Jornada de custo reduzido < 0?};
-    \node [block   , below=5mm of redcost]                   (exactsolve)         {Resolver o Subproblema de forma exata};
-    \node [decision, below=5mm of exactsolve, aspect = 2] (redcost2)           {Jornada de custo reduzido < 0?};
-    \node [block   , below=5mm of redcost2] (end) {Retornar solu\c{c}\~ao \'otima do problema mestre};
+    \node [block   , minimum width=40mm, right=5mm of init    , text width = 37mm] (heursolve) at (5,0) {Resolver o Subproblema de forma heur\'istica};
+    \node [decision, below=5mm of heursolve, aspect = 2       , text width = 37mm] (redcost)            {Jornada de custo reduzido < 0?};
+    \node [block   , minimum width=40mm, below=5mm of redcost , text width = 37mm] (exactsolve)         {Resolver o Subproblema de forma exata};
+    \node [decision, below=5mm of exactsolve, aspect = 2      , text width = 37mm] (redcost2)           {Jornada de custo reduzido < 0?};
+    \node [block   , minimum width=40mm, below=5mm of redcost2, text width = 37mm] (end)                {Retornar solu\c{c}\~ao \'otima do problema mestre};
 
-    \node [draw, dashed, rectangle, minimum height=14cm,minimum width=6cm] (1) at (6.5,-5.5) {};
+    \node [draw, dashed, rectangle, minimum height=14cm,minimum width=6cm] (1) at (7.5,-5.5) {};
+    \node [draw, dashed, rectangle, minimum height=6cm ,minimum width=6cm] (1) at (0  ,-3.5) {};
+
+    \node [text width=1cm, below right = 2mm and -5mm of redcost ] {N\~ao};
+    \node [text width=1cm, below right = 2mm and -5mm of redcost2] {N\~ao};
 
     % Draw edges
-    \path [line] (init)       -> (add);
+    %\path [line] (init)       -> (add);
     \path [line] (add)        -> (solvespp);
     \path [line] (solvespp)   -> (calc);
 
@@ -72,9 +76,12 @@ introduced in PGF/TikZ >= 1.09.
     \path [line] (heursolve)  -> (redcost);
     \path [line] (redcost)    -> (exactsolve);
     \path [line] (exactsolve) -> (redcost2);
-
     \path [line] (redcost2)   -> (end);
 
+    \path [line] (redcost)    -> +(-3,0);
+    \path [line] (redcost2)   -> +(-3,0);
+
+    \draw[line ,-implies,double, double distance=2mm] (init) -- (add);
 
     %\path [line] (identify) -- (evaluate);
     %\path [line] (evaluate) -- (decide);
