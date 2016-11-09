@@ -490,31 +490,58 @@ deste capitulo é discutido os problemas de cobertura e particionamento assim com
 abordagem mais detalhada do CSP.
 
 \section{Problema de Escalonamento de Tripulação}
+\label{csppppp}
 
 Esta seção é dedicada a explicar a modelagem e as instâncias utilizadas neste
 trabalho. Utilizou-se as instâncias presentes na \textit{OR-Library}~\cite{beasley1990or},
 apresentadas inicialmente em~\cite{beasley1996tree}. Este trabalho utiliza a versão
 de Junho de 2016 das instâncias.
 
-Existem 10 problemas de CSP presentes na \textit{OR-Library}, sendo que todos
+Na \textit{OR-Library} existem 10 problemas de CSP presentes, sendo que todos
 eles são utilizados como objeto de estudo neste trabalho. Cada instância é apresentada
 no seguinte formato: Número de tarefas($N$); Tempo limite de uma jornada; para cada
 $i\text{ em }\{1, \ldots, N\}$: tempo de início, tempo de termino; Para cada par
 $(i, j)$ de arestas, onde $j$ começa após o término de $i$, o custo da transição
-de $i$ para $j$. O problema pode ser representado em um grafo, conforme sera visto
-adiante. Beasley, no seu artigo considera um número fixo de jornadas para a solução final.
+de $i$ para $j$. O problema pode ser representado em um grafo, conforme visto na figura~\ref{fig_graph_csp}
+Beasley, no seu artigo considera um número fixo de jornadas para a solução final.
 Este número fixo corresponderia a tripulação disponível operar. Apesar desta informação
 não estar disponível nas instâncias, ela foi utilizada.
 
-Existem diversos modos de se formular matematicamente as instâncias apresentadas, uma
-delas é apresentada no artigo onde foram propostas as instâncias. Neste trabalho utilizou-se
+{
+    \centering
+    \includegraphics[width=0.5\linewidth]{../figuras/graph.pdf}
+    \captionof{figure}{Jornadas modeladas como grafo}
+    \label{fig_graph_csp}
+}
+
+As instâncias apresentadas podem ser formuladas matematicamente de diversas maneiras.
+Uma delas é apresentada no artigo onde foram propostas as instâncias. Neste trabalho utilizou-se
 uma formulação baseada em particionamento de conjuntos. Para que se possa obter a
-resposta ótima para qualquer instância de CSP modelada como SPP, o modo mais simples consiste
-em enumerar todas as jornadas viáveis. Algo que torna-se impraticável rapidamente, considerando
-que o simples fato de enumerar-se todas as jornadas leva um tempo exponencial em relação ao
+resposta ótima para qualquer instância de CSP modelada como SPP, o modo mais simples de modelar consiste
+em enumerar todas as jornadas viáveis. Algo que é impraticável, considerando
+que o fato de enumerar-se todas as jornadas leva um tempo exponencial em relação ao
 número de tarefas. No entanto este modelo é a base para a solução por geração de colunas.
 
-\begin{figure}[!htb]
+%\begin{figure}[!htb]
+%{
+%}
+%\end{figure}
+
+Na figura~\ref{fig_graph_csp} é apresentado um grafo relativo a instância apresentada
+na tabela~\ref{tab_graph_csp}, no modelo apresentado acima. A enumeração de todas as jornadas
+factíveis e seus respectivos custo e durações são apresentadas na tabela~\ref{tab_gragh_csp_enum}.
+Utilizando-se estas informações, é possível utilizar um problema de particionamento de conjuntos
+para resolver o CSP. A formulação genéria de um SPP é apresentada em~\eqref{spppp}. Tem-se que $c_j$
+é o custo associado a $j$-ésima jornada, $x_j = 1$ se e somente se a jornada $j$ é utilizada. Tem-se
+ainda que $a_{ij} = 1$ se e somente se a $i$-ésima tarefa é coberta pela $j$-ésima jornada.
+Em~\eqref{csp_1} tem-se a codificação para uma PLI do SPP associado ao problema de CSP apresentado
+na tabela~\ref{tab_graph_csp}. A função objetivo~\eqref{spp2} consiste no produto escalar entre o vetor de custos
+de cada jornada e as variáveis de decisão $x$. A restrição~\eqref{spp22} faz com que cada tarefa seja coberta
+exatamente uma única vez. A restrição~\eqref{spp23} faz com que sejam utilizadas exatamente duas jornadas para
+cobrir as tarefas existentes.
+
+%\begin{table}[htpb!]
+{
     \centering
     \begin{minipage}{.5\textwidth}
         \centering
@@ -538,40 +565,21 @@ número de tarefas. No entanto este modelo é a base para a solução por geração de
     \end{minipage}%
     \begin{minipage}{0.5\textwidth}
         \centering
-        \includegraphics[width=0.8\linewidth]{../figuras/graph.pdf}
-        \captionof{figure}{Jornadas modeladas como grafo}
-        \label{fig_graph_csp}
+        \begin{tabular}{l l l}
+            Jornada                           & Custo & Duração \\
+            1 $\rightarrow$ 3                 & 5     & 13 \\
+            1 $\rightarrow$ 5                 & 6     & 14 \\
+            2 $\rightarrow$ 3                 & 3     & 13 \\
+            2 $\rightarrow$ 4                 & 4     & 9  \\
+            2 $\rightarrow$ 4 $\rightarrow$ 5 & 7     & 14 \\
+            2 $\rightarrow$ 4 $\rightarrow$ 3 & 8     & 13 \\
+            2 $\rightarrow$ 5                 & 6     & 14 \\
+        \end{tabular}
+        \captionof{table}{Enumeração de todas as jornadas viáveis}
+        \label{tab_gragh_csp_enum}
     \end{minipage}
-\end{figure}
-
-Na figura~\ref{fig_graph_csp} é apresentado um grafo relativo a instância apresentada
-na tabela~\ref{tab_graph_csp}, no modelo apresentado acima. A enumeração de todas as jornadas
-factíveis e seus respectivos custo e durações são apresentadas na tabela~\ref{tab_gragh_csp_enum}.
-Utilizando-se estas informações, é possível utilizar um problema de particionamento de conjuntos
-para resolver o CSP. A formulação genéria de um SPP é apresentada em~\eqref{spppp}. Tem-se que $c_j$
-é o custo associado a $j$-ésima jornada, $x_j = 1$ se e somente se a jornada $j$ é utilizada. Tem-se
-ainda que $a_{ij} = 1$ se e somente se a $i$-ésima tarefa é coberta pela $j$-ésima jornada.
-Em~\eqref{csp_1} tem-se a codificação para uma PLI do SPP associado ao problema de CSP apresentado
-na tabela~\ref{tab_graph_csp}. A função objetivo~\eqref{spp2} consiste no produto escalar entre o vetor de custos
-de cada jornada e as variáveis de decisão $x$. A restrição~\eqref{spp22} faz com que cada tarefa seja coberta
-exatamente uma única vez. A restrição~\eqref{spp23} faz com que sejam utilizadas exatamente duas jornadas para
-cobrir as tarefas existentes.
-
-\begin{table}[htpb!]
-    \centering
-    \begin{tabular}{l l l}
-        Jornada                           & Custo & Duração \\
-        1 $\rightarrow$ 3                 & 5     & 13 \\
-        1 $\rightarrow$ 5                 & 6     & 14 \\
-        2 $\rightarrow$ 3                 & 3     & 13 \\
-        2 $\rightarrow$ 4                 & 4     & 9  \\
-        2 $\rightarrow$ 4 $\rightarrow$ 5 & 7     & 14 \\
-        2 $\rightarrow$ 4 $\rightarrow$ 3 & 8     & 13 \\
-        2 $\rightarrow$ 5                 & 6     & 14 \\
-    \end{tabular}
-    \caption{Enumeração de todas as jornadas viáveis}
-    \label{tab_gragh_csp_enum}
-\end{table}
+}
+%\end{table}
 
 Resolvendo-se o problema apresentado em~\eqref{csp_1} e~\eqref{spppp} com um método de \textit{branch and bound},
 obtém-se a solução ótima composta por: Uma jornada que cobre as tarefas $1$ e $3$; Uma jornada que cobre as tarefas $2$, $4$ e $5$.
@@ -655,12 +663,12 @@ as jornadas de modo explícito, isto é, as jornadas não são pré-calculadas.
 
 \section{Geração de colunas para o CSP}
 
-Conforme visto no exposto acima, considerar explicitamente o conjunto de todas as jornadas possíveis para
+Conforme visto na seção\ref{csppppp}, considerar explicitamente o conjunto de todas as jornadas possíveis para
 uma instância de CSP é algo que pode inviabilizar ou dificultar a solução do problema. Um método que contorna
-este problema é a geração de colunas~\cite{desaulniers2006column}~\cite{barnhart1998branch}.
+este problema é o de geração de colunas~\cite{desaulniers2006column}~\cite{barnhart1998branch}.
 
-O processo de geração de colunas é decomposto em dois problemas menores: Problema mestre, o problema a ser resolvido;
-Sub problema, um modelo de PLI que é capaz de identificar que informação é necessária para que o problema
+O método de geração de colunas é decomposto em dois problemas menores: Problema mestre, o problema a ser resolvido;
+Sub problema, que é um modelo de PLI capaz de identificar que informação é necessária para que o problema
 mestre encontre a solução ótima.
 
 %\begin{figure}[!htb]
@@ -676,7 +684,7 @@ mestre encontre a solução ótima.
 
 A interação entre os dois problemas é mostrada na figura~\ref{treta}. A relaxação do problema mestre é resolvido com um
 conjunto inicial de jornadas de modo que o problema possua uma solução factível. A partir da solução da relaxação do
-problema mestre obtém-se os preços duais associados as restrições do problema, que é utilizado na formulação do subproblema.
+problema mestre obtém-se os preços duais associados às restrições do problema, que é utilizado na formulação do subproblema.
 O subproblema então utiliza os preços duais para calcular uma nova jornada que tem a possibilidade de contribuir para o problema
 mestre. Esta nova jornada é adicionada no problema mestre e o processo repete-se. A condição de parada consiste
 no problema mestre obter uma solução com custo reduzido negativo, o que indica que não é possível melhorar o problema mestre.
@@ -698,7 +706,7 @@ a solução dual associada não possua o mesmo valor da função objetivo. Portanto, 
 de modo correto é inviabilizado. Sendo assim utiliza-se a relaxação linear do problema mestre, que possui
 a propriedade de integralidade forte. No caso da relaxação linear, as variáveis deixam de ser inteiras (ou binárias)
 e passam a ser não negativas. Considerando que na formulação do problema mestre tem-se a restrição de cobertura, que faz
-com que o somatório das variáveis de cobertura de uma tarefa sejam iguais á $1$ e existe a restrição de não negatividade
+com que o somatório das variáveis de cobertura de uma tarefa sejam iguais à $1$ e existe a restrição de não negatividade
 das variáveis, as variáveis tem automaticamente o seu valor limitado entre $0$ e $1$.
 
 Considerando-se as instâncias da \textit{OR-Library}, o problema mestre é dado em~\eqref{pmaster}. Note que $J$ é o conjunto
@@ -716,7 +724,7 @@ ao tamanho da tripulação, que é fixo e conhecido \textit{à priori}. O restante d
 \end{subequations}
 
 Uma questão a se considerar em relação ao problema mestre, é a necessidade de uma solução factível no Inicio do processo.
-No caso do SPP, deve ter um conjunto de colunas (jornadas) que possam cobrir todas as tarefas. A qualidade das colunas iniciais
+No caso do SPP, deve ter um conjunto de colunas (jornadas) que possam cobrir todas as tarefas. O conjunto de colunas iniciais
 pode influenciar no processo de solução, de tal forma que a utilização de uma heurística para o conjunto inicial de tarefas
 pode vir a valer apena, quando comparado com uma solução aleatória.
 
@@ -742,7 +750,7 @@ enquanto sua função objetivo for negativa.
 Uma jornada consiste em uma sequencia de tarefas, onde a transição entre cada tarefa possui um custo. Sendo assim, uma
 jornada deve minimizar o custo, e o conjunto de todas as jornadas deve ser capaz de cobrir todas as tarefas. No entanto,
 existe um limite de tempo para cada jornada, portanto, o caminho mínimo esta restrito. Este problema é denominado de
-caminho mínimo com restrições, e é um problema $mathbb{NP}$-completo~\cite{ressdadss}.
+caminho mínimo com restrições, e é um problema $\mathbb{NP}$-completo~\cite{irnich2005shortest}.
 
 A formulação do subproblema dá-se em~\eqref{subp}. O subproblema é modelado como sendo um grafo. Neste grafo, cada arco
 $a = (v_t, v_w)$ possui um custo $c_a$ que representa o custo de transição entre $t$ e $w$. Existem ainda dois nós
