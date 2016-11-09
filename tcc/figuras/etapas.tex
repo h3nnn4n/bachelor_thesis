@@ -1,0 +1,45 @@
+\documentclass{article}
+
+\usepackage[english, brazilian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{fit}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{shapes.misc}
+\usetikzlibrary{shapes}
+
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}%
+
+\begin{document}
+\pagestyle{empty}
+
+
+% Define block styles
+\tikzstyle{decision} = [diamond, draw, fill=blue!20,
+    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20,
+    text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+    minimum height=2em]
+
+\begin{tikzpicture}[node distance = 2cm, auto]
+    \node [block,text width=25mm              ] (f1) at (0,0) {Projeto das rotas};
+    \node [block,text width=25mm, below of=f1 ] (f2)          {Planejamento dos hor\'arios};
+    \node [block,text width=25mm, below of=f2 ] (f3)          {Escalonamento de Ve\'iculos};
+    \node [block,text width=25mm, below of=f3 ] (f4)          {Escalonamento de Tripula\c{c}\~ao};
+
+    \path [line] (f1) -> (f2);
+    \path [line] (f2) -> (f3);
+    \path [line] (f3) -> (f4);
+\end{tikzpicture}
+
+
+\end{document}

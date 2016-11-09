@@ -7,12 +7,32 @@ a fim de viabilizar o negócio, dentre as quais pode-se citar: renovação da frota
 realização da manutenção preventiva da frota; disponibilização de quais horários do serviço de ônibus;
 identificação as rotas de serviço de transporte; alocação de funcionários; tratamento de imprevistos
 temporais e climáticos, dentre outras. Estes questionamentos podem ser resolvidos e otimizados com a utilização de recursos
-de pesquisa operacional~\cite{opresearch}.
+de pesquisa operacional~\cite{op_survey}.
+
+O processo de planejamento operacional de uma empresa de ônibus é dividido em diversas etapas, segundo descrito
+por~\cite{de2011algoritmo} e~\cite{qiao2010algorithm}. Figura~\ref{fig_etapas} contém uma representação gráfica
+da interação entre as etapas e a ordem na qual elas são executadas.
+
+{
+    \centering
+    \includegraphics[height=0.3\textheight]{../figuras/etapas.pdf}
+    \captionof{figure}{Etapas do planejamento}
+    \label{fig_etapas}
+}
+
+A primeira etapa consiste em determinar quais locais devem ser atendidos pelo serviço de transporte e determinar qual
+a melhor rota para cobrir estes locais. Deve ainda escolher a melhor localização para as estações de ônibus ao longo
+do percurso do veículo. A segunda etapa consiste em baseado na demanda pelo serviço, determinar os horários na qual os
+ônibus devem partir dos terminais, de modo a atender da forma mais eficiente possível. A terceira etapa possui a
+funcionalidade de determinar quais veículos saem de quais estações, por quais pontos ele deve passar e para onde que
+ele deve retornar, formando assim uma jornada. Esta etapa deve cobrir todas as tarefas e minimizar o custo operacional
+A quarta e ultima etapa deve associa motoristas com jornadas, de modo que cada jornada tenha um motorista, onde
+cada motorista tenha todos os seus direitos respeitados, tanto os previstos por lei quanto os contratuais.
 
 Especificamente, o problema de alocação de funcionários ou tripulação, em inglês \textit{crew scheduling problem} (CSP),
 consiste em escolher grupos de funcionários que devem realizar tarefas durante um dado período de tempo \cite{Bergh}. O processo
 de escolha está sujeito à restrições. Tais como regras definidas pela empresa; leis trabalhistas; sindicais
-ou preferências estipuladas pela propia tripulação. Dado um conjunto de restrições, deve-se encontrar as designações que reduzem
+ou preferências estipuladas pela própria tripulação. Dado um conjunto de restrições, deve-se encontrar as designações que reduzem
 ao máximo o custo da operação. O CSP assume que já tenha sido determinado os percursos onde a tripulação irá trabalhar, assim como quais veículos
 serão utilizados, quais os horários de partida e chegada e os pontos de troca.
 
@@ -23,11 +43,11 @@ jornadas válidas sobre o conjunto de regras pré-estabelecidos, a solução do CSP 
 as viagens que devem ser realizadas~\cite{Bergh}. Ou seja, dado o conjunto de jornadas válidas, escolhe-se um subconjunto que cubra todas
 as viagens pelo menos uma vez, minimizando assim o custo final.
 
-O problema do CSP é referenciado na literatura como sendo o problema de \textbf{cobertura de conjuntos}, ou \textit{set covering problem} (SCP)~\cite{nemhauser1988integer}.
-Dado um conjunto de linhas a serem cobertas, e um conjunto de colunas com custos
+O problema do CSP é referenciado na literatura como sendo um problema de \textbf{cobertura de conjuntos}, ou \textit{set covering problem}
+(SCP)~\cite{nemhauser1988integer}. Dado um conjunto de linhas a serem cobertas, e um conjunto de colunas com custos
 associados que cobrem as linhas, escolhe-se o subconjunto de colunas que cubra todas as linhas minimizando o custo final. Como o SCP
 define que cada linha deve ser coberta pelo menos uma vez, isso implica que se o CSP for modelado como uma instância de SCP, pode ocorrer
-de mais de um tripulante ser designado para a mesma viagem. Isso na prática consiste no fato deum motorista ir de carona até o início de outra viagem,
+de mais de um tripulante ser designado para a mesma viagem. Isso na prática consiste no fato de um motorista ir de carona até o início de outra viagem,
 por exemplo.
 
 Outra forma de modelar-se o CSP consiste em determinar qual tripulação deve ser associado a uma viagem. Esta restrição
@@ -45,13 +65,13 @@ um algoritmo baseado em \textit{branch and bound} e que utiliza heurísticas duai
 disponível na data da publicação do artigo) foi capaz de resolver instâncias de dimensões até 200 $\times$ 2000.~\cite{beasley1987algorithm}
 melhorou o algoritmo proposto por Balas e Ho, utilizando relaxações lagrangianas e remoção de linhas e colunas. Este algoritmo, segundo
 o autor, chegou a marca de problemas de dimensões $400 \times 4000$.~\cite{fisher1990optimal} utilizou \textit{branch and bound} com
-diversas heurísticas duais, para assim encontrar o limite superior de otimalidade do problema. Trabalhos como~\cite{de2011algoritmo}
-e~\cite{dos2008metodo} utilizam soluções híbridas para a solução do problema.~\cite{ceria1997},~\cite{caprara2000algorithms},
+diversas heurísticas duais, para assim encontrar o limite superior de otimalidade do problema. Trabalhos como~\cite{de2011algoritmo} e
+\cite{dos2008metodo} utilizam soluções híbridas para a solução do problema.\cite{ceria1997}, \cite{caprara2000algorithms},
 ~\cite{ernst2004staff} e~\cite{van2013personnel} apresentam um estudo mais detalhado sobre os algoritmos utilizados para resolver o
 SCP, SPP e CSP.
 
 %Conhecendo-se todas as possíveis jornadas de uma instância de CSP, pode-se modela-lo utilizando programação linear inteira (PLI).
-Diversas modelagens para o CSP são possíveis,~\cite{beasley1987algorithm} utilizou uma modelagem baseada em multiplos caminhos mínimos.
+Diversas modelagens para o CSP são possíveis,~\cite{beasley1987algorithm} utilizou uma modelagem baseada em múltiplos caminhos mínimos.
 É possível ainda utilizar SCP e SPP para modelar o CSP. A modelagem utilizando-se
 o SPP e o SCP é apresentada em~\eqref{spp} e~\eqref{scp}, respectivamente. O conjunto de todas as jornadas possíveis está codificado
 na matriz $A$. O vetor $J$ corresponde a todas as jornadas, e o vetor $T$ a todas as tarefas. A variável $a_{tj}$ é $1$ se a tarefa
