@@ -452,6 +452,71 @@ de resolver o problema primal reduzido e detectar restrições duais pode ser
 repetido até que se obtenha uma solução $\tilde{x}^*$ que não viole restrições
 no problema dual.
 
+De modo mais geral, pode-se apresentar o problema de geração de colunas conforme
+exposto a seguir. Considere o problema genérico de PLI ~\eqref{k1},
+
+\begin{subequations} \label{k1}
+    \begin{align} \label{}
+        \text{minimizar} \: z &\geq cx
+        \intertext{sujeito à:}
+        \label{} Ax &= b \\
+        \label{} x &\geq 0
+    \end{align}
+\end{subequations}
+
+no qual o número de variáveis é grande o suficiente para inviabilizar a inclusão
+explicita de todas elas no modelo. Para contornar a inviabilidade gerada pelo
+grande número de colunas, divide-se o problema original em vários subproblemas menores
+e mais fáceis de resolver. Considere um novo problema de PLI~\eqref{k1}
+
+\begin{subequations} \label{k2}
+    \begin{align} \label{}
+        \text{minimizar} \: z &\geq c\tilde{x}
+        \intertext{sujeito à:}
+        \label{} A\tilde{x} &= b \\
+        \label{} \tilde{x} &\geq 0
+    \end{align}
+\end{subequations}
+
+onde $\tilde{x} \subseteq x$. Ou seja,~\eqref{k2} é o problema \eqref{k1} com um
+número reduzido de variáveis. Este novo problema, denominado de problema mestre, deve
+ser testado para determinar a sua otimalidade em comparação ao problema original, com
+o objetivo de obter-se a resista de~\eqref{k1} resolvendo-se o problema mais
+fácil~\eqref{k2}. O teste de otimalidade pode ser feito resolvendo-se o problema da
+separação do modelo dual do problema mestre, apresentado em~\eqref{k3}.
+
+\begin{subequations} \label{k3}
+    \begin{align} \label{}
+        \text{maximizar} \: z &\leq by
+        \intertext{sujeito à:}
+        \label{} A^Ty &= c\label{kk3} \\
+        \label{} c &\geq 0
+    \end{align}
+\end{subequations}
+
+Resolvendo-se~\eqref{k3} e obtendo-se a solução primal $\tilde{x}$ e dual $\tilde{y}$.
+Subentendo-se a solução dual a um teste que consiste em determinar todas as
+restrições violadas por $\tilde{y}$ na restrição~\eqref{kk3}. As variáveis
+referentes as restrições violadas são adicionas a~\eqref{k2}, modificando-se $A, b, c$
+e $\tilde{x}$. Este processo é repetido até não haver mais restrições violadas no
+problema dual.
+
+O teste~\eqref{kk3} pode ser reescrito como $c-A^ty\geq0$. Isto mostra de forma mais clara
+a equivalência do do problema da separação no problema dual. Para cara variável $x_j$ o
+termo $c$ em~\eqref{k4} corresponde ao seu custo reduzido no problema dual, calculado a partir
+dos custos reduzidos no problema dual.
+
+\begin{align} \label{k4}
+    c - \sum_i a_{ij} y^*_i \geq 0
+\end{align}
+
+Percebe-se então que uma variável de de custo reduzido negativo é equivalente a uma
+restrição violada no problema dual. Esta variável, se adicionada ao problema mestre pode
+gerar uma nova solução com um melhor valor na função objetivo, fazendo com que a
+solução do problema mestre fique mais próxima da solução do problema original. Mesmo
+que esta variável não seja incorporada na solução, ela altera os valores duais e faz com que
+uma nova variável seja incorporada na próxima iteração do algoritmo.
+
 Neste capitulo foi apresentado os principais conceitos teóricos necessários para
 o entendimento do problema a ser abordado nos próximos capítulos deste trabalho.
 Discutiu-se as principais representações de problemas de programação linear e
