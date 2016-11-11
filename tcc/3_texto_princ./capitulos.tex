@@ -732,20 +732,20 @@ Conforme visto na seção\ref{csppppp}, considerar explicitamente o conjunto de to
 uma instância de CSP é algo que pode inviabilizar ou dificultar a solução do problema. Um método que contorna
 este problema é o de geração de colunas~\cite{desaulniers2006column}~\cite{barnhart1998branch}.
 
-O método de geração de colunas é decomposto em dois problemas menores: Problema mestre, o problema a ser resolvido;
-Sub problema, que é um modelo de PLI capaz de identificar que informação é necessária para que o problema
-mestre encontre a solução ótima.
-
 %\begin{figure}[!htb]
 %\begin{minipage}
 {
     \centering
-    \includegraphics[width=1\linewidth]{../figuras/gercolumn.pdf}
+    \includegraphics[width=0.8\linewidth]{../figuras/gercolumn.pdf}
     \captionof{figure}{Processo de geração de colunas}
     \label{treta}
 }
 %\end{minipage}
 %\end{figure}
+
+O método de geração de colunas é decomposto em dois problemas menores: Problema mestre, o problema a ser resolvido;
+Sub problema, que é um modelo de PLI capaz de identificar que informação é necessária para que o problema
+mestre encontre a solução ótima.
 
 A interação entre os dois problemas é mostrada na figura~\ref{treta}. A relaxação do problema mestre é resolvido com um
 conjunto inicial de jornadas de modo que o problema possua uma solução factível. A partir da solução da relaxação do

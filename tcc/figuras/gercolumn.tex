@@ -1,26 +1,96 @@
-\documentclass[class=minimal,border=0pt]{standalone}
+\documentclass{article}
+
+\usepackage[english, brazilian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{fit}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{shapes.misc}
+\usetikzlibrary{shapes}
+
+
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}%
+%%%>
+
+\begin{comment}
+:Title: Simple flow chart
+:Tags: Diagrams
+
+With PGF/TikZ you can draw flow charts with relative ease. This flow chart from [1]_
+outlines an algorithm for identifying the parameters of an autonomous underwater vehicle model.
+
+Note that relative node
+placement has been used to avoid placing nodes explicitly. This feature was
+introduced in PGF/TikZ >= 1.09.
+
+.. [1] Bossley, K.; Brown, M. & Harris, C. Neurofuzzy identification of an autonomous underwater vehicle `International Journal of Systems Science`, 1999, 30, 901-913
+
+
+\end{comment}
+
+
 \begin{document}
+\pagestyle{empty}
 
-\tikzstyle{block}    = [draw, rectangle]
-\tikzstyle{circloas} = [circle, draw=black]
-\tikzstyle{nome}     = [anchor=west]
 
-\begin{tikzpicture}
+% Define block styles
+\tikzstyle{decision} = [diamond, draw,
+    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw,
+    text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse, node distance=3cm,
+    minimum height=2em]
 
-    %\draw[help lines, color=gray!30, dashed] (0, 0) grid (5, 5);
+\begin{tikzpicture}[node distance = 2cm, auto]
+    % Place nodes
+    \node [block, minimum width=40mm, text width = 37mm] (add) at (0,0)                {Adicionar Jornadas};
+    \node [block, minimum width=40mm, below of=add     , text width = 37mm] (solvespp) {Resolver o SPP};
+    \node [block, minimum width=40mm, below of=solvespp, text width = 37mm] (calc)     {Calcular pre\c{c}os duais};
 
-    \node[block] at (0,  0) (a) {Problema Mestre};
-    \node[block] at (6,  0) (b) {Subproblema};
+    \node [block   , minimum width=40mm, text width = 37mm] (exactsolve) at (10,-0.5)               {Resolver o Subproblema de forma exata};
+    \node [decision, below=5mm of exactsolve, aspect = 2      , text width = 37mm] (redcost2)    {Jornada de custo reduzido < 0?};
+    \node [block   , minimum width=40mm, below=6mm of redcost2, text width = 37mm] (end)         {Retornar solu\c{c}\~ao \'otima do problema mestre};
 
-    \node[block] at (3,  .7) (c) {Pre\c{c}os Duais};
-    \node[block] at (3, -.7) (d) {Nova jornada};
+    \node [text width=1cm, below right = 2mm and -5mm of redcost2] (n2) {N\~ao};
 
-    \draw[dashed, ->, line width = 1] (a) -- node[above]{$ $} (c);
-    \draw[dashed, ->, line width = 1] (c) -- node[above]{$ $} (b);
-    \draw[dashed, ->, line width = 1] (b) -- node[above]{$ $} (d);
-    \draw[dashed, ->, line width = 1] (d) -- node[above]{$ $} (a);
+    \node [text width=1cm, above left  = -5mm and 6mm of redcost2] (s2) {Sim};
 
+    \node [draw, dashed, fit=(exactsolve) (redcost2) (s2)] (b1) {};
+    \node [draw, dashed, fit=(add) (calc)               ] (b2) {};
+
+    % Draw edges
+    \path [line] (add)        -> (solvespp);
+    \path [line] (solvespp)   -> (calc);
+
+    \path [line] (exactsolve) -> (redcost2);
+    %\path [line] (redcost2)   -> (end);
+
+    \path [line] (redcost2)   -> +(-3,0);
+
+    \draw[line ,-implies,double, double distance=2mm] (redcost2) -- (end);
+
+    %\draw[line ,-implies,double, double distance=2mm] [yshift = 5mm](b1) -- (b2);
+    %\draw[line ,-implies,double, double distance=2mm] (b2) -- (b1);
+
+    %\draw[line ,-implies,double, double distance=2mm] (b1) -- ++(0,1) node (b2){};
+    %\draw[line ,-implies,double, double distance=2mm] (b1) -- ++(0,1) node (b2){};
+    %\draw[line ,-implies,double, double distance=2mm] (b2) -- (b1) coordinate[pos=2];
+    %\draw[line ,-implies,double, double distance=2mm, yshift =-5mm] (b2) -- (b1);
+
+    %\path [line] (b1) -- (b2) coordinate(1,1);
+    %\path [line, xshift=1cm] (b2) -- (b1);
+    \draw[transform canvas={yshift=-2cm}, -implies, double, double distance=6mm] (b1) -> (b2) node[midway,fill=white, yshift= 2.6mm, xshift= 2.1mm]  {\emph{Nova jornada}};
+    \draw[transform canvas={yshift= 2cm}, -implies, double, double distance=6mm] (b2) -> (b1) node[midway,fill=white, yshift=-2.6mm, xshift=-1.5mm] {\emph{Pre\c{c}os duais}};
 \end{tikzpicture}
+
+
 \end{document}
