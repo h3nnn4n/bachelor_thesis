@@ -52,14 +52,15 @@ introduced in PGF/TikZ >= 1.09.
 
 \begin{tikzpicture}[node distance = 2cm, auto]
     % Place nodes
-    \node [block, minimum width=40mm] (init) at (0,0) {Colunas iniciais};
+    \node [block, minimum width=40mm, thick, fill=gray!25, dotted] (init) at (0,0) {Colunas iniciais};
 
     \node [block, minimum width=40mm, below of=init    , text width = 37mm] (add)      {Adicionar Jornadas};
     \node [block, minimum width=40mm, below of=add     , text width = 37mm] (solvespp) {Resolver o SPP};
     \node [block, minimum width=40mm, below of=solvespp, text width = 37mm] (calc)     {Calcular pre\c{c}os duais};
 
-    \node [block   , minimum width=40mm, right=5mm of init    , text width = 37mm] (heursolve) at (6,0) {Resolver o Subproblema de forma heur\'istica};
-    \node [decision, below=5mm of heursolve, aspect = 2       , text width = 37mm] (redcost)            {Jornada de custo reduzido < 0?};
+    \node [block   , minimum width=40mm, right=5mm of init    , text width = 37mm, thick, fill=gray!25, dotted] (heursolve) at (6,0) {Resolver o Subproblema de forma heur\'istica};
+    \node [decision, below=5mm of heursolve, aspect = 2       , text width = 37mm, thick, fill=gray!25, dotted] (redcost)            {Jornada de custo reduzido < 0?};
+
     \node [block   , minimum width=40mm, below=5mm of redcost , text width = 37mm] (exactsolve)         {Resolver o Subproblema de forma exata};
     \node [decision, below=5mm of exactsolve, aspect = 2      , text width = 37mm] (redcost2)           {Jornada de custo reduzido < 0?};
     \node [block   , minimum width=40mm, below=6mm of redcost2, text width = 37mm] (end)                {Retornar solu\c{c}\~ao \'otima do problema mestre};

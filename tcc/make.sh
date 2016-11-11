@@ -7,6 +7,7 @@ pdflatex graph.tex
 pdflatex pli.tex
 pdflatex etapas.tex
 pdflatex flowchart.tex
+pdflatex flowchart_wip.tex
 
 cd ..
 
