@@ -1,17 +1,22 @@
-\chapter{Considera\c{c}\~oes finais}
+\chapter{Considera\c{c}\~oes parciais}
 
 Neste trabalho apresentou-se a fundamentação teórica referente a programação linear e a programação linear inteira,
 com a finalidade de definir o problema de alocação de tripulação, do inglês \textit{crew scheduling problem} (CSP).
-Apresentou-se também o precedimento de geração de colunas, utilizado para resolver problemas com um grande número
+Apresentou-se também o método de geração de colunas, utilizado para resolver problemas com um grande número
 de variáveis, que é o caso do CSP. Modelou-se os dois componentes da geração de colunas para o CSP: O problema
 mestre e o subproblema. Por fim apresentou-se um conjunto de métodos para resolver o CSP juntamente com a proposta
 deste trabalho.
 
 Durante o desenvolvimento deste trabalho pode-se identificar os principais conceitos necessários para compreender
 o processo de solução do CSP. Pode-se ainda identificar um problema de interesse prático e utilizado em larga
-escala no setor de transporte terrestre e aéreo.
+escala no setor de transporte terrestre e aéreo. Com base na utilização na literatura e ao desempenho obtido
+em testes de laboratório, optou-se por utilizar o CPLEX para resolver o problema mestre e o sub problema de modo
+exato.
 
-O trabalho desenvolvido neste curso faz parte de um projeto de Iniciação Científica (IC) e a continuação de outro
-projeto de IC, na qual foi desenvolvido e publicado um artigo no Simpósio Brasileiro de Pesquisa Operacional (SBPO).
-Este projeto de IC atualmente conta com dois bolsistas e um professor, onde atualmente todos pesquisam na area
-de pesquisa operacional, em específico o CSP e geração de colunas.
+A próxima etapa do trabalho consiste em implementar o método de geração de colunas, validar a implementação,
+implementar as diferentes (meta) heurísticas mencionadas na seção\ref{secc4}, executar testes e coletar dados, e
+por fim fazer uma análise dos resultados encontrados. Tem-se como objetivo também escrever um artigo apresentando
+os resultados obtidos neste trabalho.
+
+O trabalho desenvolvido neste TCC faz parte de um projeto de Iniciação Científica (IC), na qual foi desenvolvido
+e publicado um artigo no Simpósio Brasileiro de Pesquisa Operacional (SBPO).
