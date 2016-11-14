@@ -331,7 +331,7 @@ cortes é denominado de \textit{Branch and Cut} (BnC).
 
 Na programação linear inteira existem problemas que tornam-se inviáveis de serem
 resolvidos puramente com os métodos acima mencionados. Tomemos o problema
-do caixeiro viajante(TSP) como exemplo. Em~\eqref{stsp} pode-se observar uma das
+do caixeiro viajante(TSP)~\cite{dantzig1954solution} como exemplo. Em~\eqref{stsp} pode-se observar uma das
 muitas possíveis modelagens para o problema do TSP. A restrição~\eqref{stsp3} é
 o que difere o TSP de um problema de designação, e é o que torna o TSP um
 problema $\mathcal{NP}$-difícil, pois esta restrição insere uma quantidade
@@ -404,7 +404,7 @@ o problema original.
 
 Existem ainda problemas onde o número de restrições é relativamente pequeno,
 enquanto que o \textbf{número de variáveis é muito maior}. Um exemplo de problema com
-este comportamento é o \textit{Cutting stock problem}. O problema consiste
+este comportamento é o \textit{Cutting stock problem}~\cite{gilmore1961linear}. O problema consiste
 em dado uma demanda de peças de tamanhos arbitrários e um estoque de peças de
 tamanho fixo, determinar como cortar o estoque para obter as peças demandadas
 com um desperdício mínimo. Sua formulação é dada a seguir:
@@ -502,7 +502,7 @@ e $\tilde{x}$. Este processo é repetido até não haver mais restrições violadas n
 problema dual.
 
 O teste~\eqref{kk3} pode ser reescrito como $c-A^ty\geq0$. Isto mostra de forma mais clara
-a equivalência do do problema da separação no problema dual. Para cara variável $x_j$ o
+a equivalência do problema da separação no problema dual. Para cada variável $x_j$ o
 termo $c$ em~\eqref{k4} corresponde ao seu custo reduzido no problema dual, calculado a partir
 dos custos reduzidos no problema dual.
 
@@ -510,7 +510,7 @@ dos custos reduzidos no problema dual.
     c - \sum_i a_{ij} y^*_i \geq 0
 \end{align}
 
-Percebe-se então que uma variável de de custo reduzido negativo é equivalente a uma
+Percebe-se então que uma variável de custo reduzido negativo é equivalente a uma
 restrição violada no problema dual. Esta variável, se adicionada ao problema mestre pode
 gerar uma nova solução com um melhor valor na função objetivo, fazendo com que a
 solução do problema mestre fique mais próxima da solução do problema original. Mesmo
@@ -524,10 +524,10 @@ programação linear inteira, suas principais propriedades e métodos de solução.
 Por fim introduziu-se o conceito de utilizar custo reduzido e o problema dual
 para determinar restrições violadas ou colunas que podem melhorar a função objetivo.
 
-\chapter{O problema de cobertura, particionamento e escalonamento de tripulação}
+\chapter{Escalonamento de tripulação}
 \label{chap3}
 
-A alocação de tripulação (CSP) consiste de um dos principais problemas de planejamento
+A alocação de tripulação (CSP) consiste em um dos principais problemas de planejamento
 de operações dentro do contexto de empresas de transporte aéreo e terrestre.
 Segundo reportado por~\cite{zeren2012improved}, os gastos com tripulação consistem
 na segunda maior fonte de despesas, atrás apenas dos gastos de combustíveis. Portanto,
@@ -535,7 +535,7 @@ de um ponto de vista operacional pode-se utilizar métodos de otimização para ofe
 reduções significativas nos gastos, enquanto que de um ponto de vista acadêmico é um
 problema difícil de resolver, com grandes instâncias e uma aplicabilidade prática.
 
-O CSP pode ser definido como criar e designar jornadas para um conjunto de tripulantes de
+O CSP designa jornadas para um conjunto de tripulantes de
 modo a cobrir todas as tarefas que devem ser realizadas. Conforme já definido no
 capítulo~\ref{cap1}, uma \textbf{tarefa} é definida como sendo uma ação que deve
 ser realizada por uma tripulação. Durante uma tarefa a tripulação dedica-se integralmente
@@ -554,7 +554,7 @@ dependendo se é desejável que uma jornada seja coberta mais de uma vez. No resta
 deste capitulo é discutido os problemas de cobertura e particionamento assim como uma
 abordagem mais detalhada do CSP.
 
-\section{Problema de Escalonamento de Tripulação}
+\section{Modelagem do problema}
 \label{csppppp}
 
 Esta seção é dedicada a explicar a modelagem e as instâncias utilizadas neste
@@ -650,7 +650,7 @@ Resolvendo-se o problema apresentado em~\eqref{csp_1} e~\eqref{spppp} com um mét
 obtém-se a solução ótima composta por: Uma jornada que cobre as tarefas $1$ e $3$; Uma jornada que cobre as tarefas $2$, $4$ e $5$.
 A resolução desta instância ocorre praticamente instantaneamente, no entanto, ao aumentar-se os tamanhos das instâncias,
 a resolução utilizando-se métodos tradicionais (BnB, BnC) de PLI torná-se inviável e uma outra estratégia deve ser empregada.
-~\cite{desrochers1989column} utiliza uma abordagem baseada em geração de colunas baseada no problema de cobertura.~\cite{beasley1996tree}
+~\cite{desrochers1989column} utiliza uma abordagem de geração de colunas utilizando o problema de cobertura para modelar o CSP.~\cite{beasley1996tree}
 utiliza relaxação lagrangiana com otimização de sub gradientes em conjunto com uma busca em árvore.~\cite{smith1988bus} utilizou
 diversos modelos matemáticos para tentar acelerar o processo de solução utilizando o IMPACS~\cite{smith1988impacs}.
 Algumas abordagens heurísticas para o problema incluem~\cite{doalgoritmos} e~\cite{silva2002simulated}.~\cite{Bergh}
@@ -720,7 +720,7 @@ que cada jornada cubra o mínimo possível), na pratica utilizou-se apenas 3 jorna
 Isto ocorre pelo fato de que a grande maioria das jornadas
 é de custo muito alto ou não cobre um número suficiente de tarefas para valer a pena ser considerada.
 Não obstante, para garantir-se que a solução encontrada é ótima, deve-se considerar integralmente o conjunto
-de jornadas possíveis, mesmo que de modo implico. Na seção a seguir é apresentado um modelo baseado em geração
+de jornadas possíveis, mesmo que de modo implícito. Na seção a seguir é apresentado um modelo baseado em geração
 de colunas, capaz de resolver o CSP de modo exato, obtendo a solução ótima. O algoritmo considera
 as jornadas de modo explícito, isto é, as jornadas não são pré-calculadas.
 
@@ -729,7 +729,7 @@ as jornadas de modo explícito, isto é, as jornadas não são pré-calculadas.
 \section{Geração de colunas para o CSP}
 
 Conforme visto na seção\ref{csppppp}, considerar explicitamente o conjunto de todas as jornadas possíveis para
-uma instância de CSP é algo que pode inviabilizar ou dificultar a solução do problema. Um método que contorna
+uma instância de CSP é algo que pode inviabilizar a solução do problema. Um método que contorna
 este problema é o de geração de colunas~\cite{desaulniers2006column}~\cite{barnhart1998branch}.
 
 %\begin{figure}[!htb]
@@ -747,9 +747,9 @@ O método de geração de colunas é decomposto em dois problemas menores: Problema 
 Sub problema, que é um modelo de PLI capaz de identificar que informação é necessária para que o problema
 mestre encontre a solução ótima.
 
-A interação entre os dois problemas é mostrada na figura~\ref{treta}. A relaxação do problema mestre é resolvido com um
-conjunto inicial de jornadas de modo que o problema possua uma solução factível. A partir da solução da relaxação do
-problema mestre obtém-se os preços duais associados às restrições do problema, que é utilizado na formulação do subproblema.
+A interação entre os dois problemas é mostrada na figura~\ref{treta}. A relaxação linear do problema mestre é resolvido com um
+conjunto inicial de jornadas, de modo que o problema possua uma solução factível. A partir da solução da relaxação do
+problema mestre obtém-se os preços duais associados às restrições do problema, que são utilizados na formulação do subproblema.
 O subproblema então utiliza os preços duais para calcular uma nova jornada que tem a possibilidade de contribuir para o problema
 mestre. Esta nova jornada é adicionada no problema mestre e o processo repete-se. A condição de parada consiste
 no problema mestre obter uma solução com custo reduzido negativo, o que indica que não é possível melhorar o problema mestre.
@@ -788,22 +788,20 @@ ao tamanho da tripulação, que é fixo e conhecido \textit{à priori}. O restante d
     \end{align}
 \end{subequations}
 
-Uma questão a se considerar em relação ao problema mestre, é a necessidade de uma solução factível no Inicio do processo.
-No caso do SPP, deve ter um conjunto de colunas (jornadas) que possam cobrir todas as tarefas. O conjunto de colunas iniciais
-pode influenciar no processo de solução, de tal forma que a utilização de uma heurística para o conjunto inicial de tarefas
-pode vir a valer apena, quando comparado com uma solução aleatória.
+Uma questão a se considerar em relação ao problema mestre, é a necessidade de uma solução factível no \textquote{Inicio} do processo.
+No caso do SPP, deve ter um conjunto de colunas (jornadas) que possam cobrir todas as tarefas.
 
-A partir da solução do problema mestre, obtém-se um conjunto de informações relativos aos preços duais. Para este problema
-em específico, o interesse esta no custo reduzido associado as restrições. Considerando que cada restrição esta associada
-a uma tarefa, o custo reduzido da restrição quantifica quanto que uma jornada que cubra a tarefa associada pode melhorar a
-solução do SPP. Note que a restrição~\eqref{pmaster3} não esta associada a uma tarefa em específico, mas sim ao número de
-jornadas que podem ser utilizadas simultaneamente. O vetor de comprimento $|T|$, onde $T$ é o conjunto de todas as tarefas,
-que contém o custo reduzido das restrições é referenciado neste trabalho como $\tilde{\pi}$, onde $\tilde{\pi}_t$ indica
+A partir da solução do problema mestre, obtém-se um conjunto de informações relativos aos preços duais.  Considerando que cada
+restrição esta associada a uma tarefa, o custo reduzido da restrição quantifica quanto que uma jornada que cubra a tarefa associada
+pode melhorar a solução do SPP. Note que a restrição~\eqref{pmaster3} não esta associada a uma tarefa em específico, mas sim ao
+número de jornadas que podem ser utilizadas simultaneamente. O vetor de comprimento $|T|$, onde $T$ é o conjunto de todas as
+tarefas, que contém o custo reduzido das restrições é referenciado neste trabalho como $\tilde{\pi}$, onde $\tilde{\pi}_t$ indica
 o custo reduzido associado a tarefa $t$. O custo reduzido de~\eqref{pmaster3} é referenciado como $\tilde{\mu}$.
 
-Uma, jornada por si só pode ser ótima para um dado conjunto de custos reduzidos, mas em conjunto com as demais pode não
-levar a solução ótima. A importância de $\tilde{\mu}$ está em determinar se é possível encontrar uma melhor solução utilizando
-jornadas sub ótimas. Os preços duais $\tilde{\mu}$ e $\tilde{\pi}$ são utilizados no subproblema para identificar quais
+Uma, jornada gerada pelo subproblema, por si só pode ser ótima para um dado conjunto de custos reduzidos,
+mas em conjunto com as demais jornadas presentes no problema mestre pode não levar a solução ótima. A importância
+de $\tilde{\mu}$ está em determinar se é possível encontrar uma melhor solução utilizando jornadas sub ótimas.
+Os preços duais $\tilde{\mu}$ e $\tilde{\pi}$ são utilizados no subproblema para identificar quais
 colunas devem ser geradas, conforme é exposto na seção a seguir.
 
 \subsection{Subproblema}
@@ -825,27 +823,27 @@ $v_f$ possui todos os nós levando a ele. Todos os arcos que conectam $v_0$ e $v_
 representa a duração máxima de uma jornada. O valor de $d_a$ é a duração do arco de transição somado com a
 duração do nó final (da transição).
 
+A variável de decisão $y_a$ possuem seu valor igual a $1$ se e somente se o arco $a$ é utilizado na jornada. A variável de
+decisão $v_t$ vale $1$ se e somente se o vértice associado a tarefa $t$ esta presente na jornada. Em um problema simples
+de caminho mínimo apenas o uso da variável de decisão $y_a$ é o suficiente. No entanto, para o CSP a variável de
+decisão $v_t$ possuí a funcionalidade de guiar a função objetivo utilizando os custos reduzidos oriundos do problema mestre.
+
 \begin{subequations}
     \label{subp}
     \begin{align}
         \label{subp1} \text{min} \: \sum_{a \in A} c_a y_a - \sum_{t \int T} \tilde{\pi}_t v_t - \tilde{\mu}\\
         \label{subp2} \sum_{a \in \delta^{+} (v_0)} y_{a} = \sum_{a \in \delta^{-} (v_f)} y_{a} = 1 \\
         \label{subp3} \sum_{a \in \delta^{+} (v_t)} y_{a} = \sum_{a \in \delta^{-} (v_t)} y_{a} = v_t, \forall t \in T \\
-        \label{subp4} \sum_{a \in A} d_a y_{a} = MaxW \\
+        \label{subp4} \sum_{a \in A} d_a y_{a} \leq MaxW \\
         \label{subp5} v_t, y_a \in \{0, 1\}, \forall v_j \in V, \forall a \in A
     \end{align}
 \end{subequations}
 
 A função objetivo~\eqref{subp1} possui $3$ elementos: $\sum_{a \in A} c_a y_a$ é componente que guia a função objetivo
 em direção ao caminho de menor custo; $- \sum_{t \int T} \tilde{\pi}_t v_t$ é responsável por guiar o processo de solução
-a escolher um caminho que contenha as tarefas que apresentam a maior vantagem no problema mestre; por fim $- \tilde{\mu}$
-possui a finalidade de possibilitar que a geração de colunas crie jornadas sub ótimo, que no contexto geral podem levar
+a escolher um caminho que contenha as tarefas que tenham o potencial de melhorar a solução do problema mestre; por fim $- \tilde{\mu}$
+possui a finalidade de possibilitar que a geração de colunas crie jornadas sub ótimas, que no contexto geral podem levar
 a solução ótima.
-
-A variável de decisão $y_a$ possuem seu valor igual a $1$ se e somente se o arco $a$ é utilizado na jornada. A variável de
-decisão $v_t$ vale $1$ se e somente se o vértice associado a tarefa $t$ esta presente na jornada. Em um problema simples
-de caminho mínimo apenas o uso da variável de decisão $y_a$ é o suficiente. No entanto, para o CSP a variável de
-decisão $v_t$ possuí a funcionalidade de guiar a função objetivo utilizando os custos reduzidos oriundos do problema mestre.
 
 A restrição~\eqref{subp2} faz com que exatamente um arco saia do nó inicial e um arco chegue no nó inicial.
 A restrição~\eqref{subp3} garante que o número de arcos que conectam a um nó é o mesmo que o número de arcos que conectam
@@ -867,43 +865,53 @@ Neste capitulo serão apresentados métodos de solução para o problema mestre e o 
 {
     \centering
     \includegraphics[width=1\linewidth]{../figuras/flowchart.pdf}
-    \captionof{figure}{Funcionamento de geração de coluna}
+    \captionof{figure}{Funcionamento de geração de colunas, adaptado de~\cite{dos2008metodo}}
     \label{flowchart}
 }
 %\end{figure}
 
 Na figura~\ref{flowchart} tem-se um fluxograma com as etapas de solução do CSP utilizando-se geração de colunas.
-O processo de resolver o problema mestre (SPP) é apresentado na seção\ref{solv_pmaster}. Possíveis métodos de solução
-para o subproblema são apresentados na seção~\ref{solv_subp}, incluindo a solução heurística e exata do subproblema.
+O processo de resolver o problema mestre (SPP) é apresentado na seção~\ref{solv_pmaster}. Para a solução do subproblema
+analisou-se alguns métodos presentes na literatura e a seguir discutidos e são apresentados na seção~\ref{solv_subp}.
 
 \section{Solução do problema mestre}
 \label{solv_pmaster}
 
-A solução de um problema mestre, que é um problema de PLI, deve ser resolvido pelo SIMPLEX devido a
-necessidade de obter-se os custos duais associados com as restrições do problema. Outros métodos de solução para o SPP
-incluem: Heurística de Chvatal, método do ponto interior ou meta heurísticas como algoritmo genético e \textit{Simulated Annealing}.
+A solução de um problema mestre dá-se em 3 etapas (1, 2 e 3), conforme a figura~\ref{flowchart},
+que são executadas sequencialmente e uma etapa inicial (etapa 0) que é executada
+uma única vez no inicio do procedimento. A etapa inicial (etapa zero) consiste em criar um conjunto de colunas que seja
+factível para o problema mestre. Estas jornadas podem ser geradas aleatoriamente ou através da execução de alguma
+heurística. As demais etapas são executadas toda vez que desejar-se resolver o problema mestre.
+
+A etapa 1 é executada toda vez no inicio da solução do problema mestre. Esta etapa consiste em atualizar o modelo inserindo
+as novas jornadas obtidas ou da etapa 0 ou da solução do subproblema. A etapa 2 é a execução do SIMPLEX em cima do modelo.
+A etapa 3 consiste no calculo dos preços duais associado as restrições do problema.
 
 \section{Solução do subproblema}
 
-O processo de solução do subproblema ocorre em duas etapas: Na primeira etapa uma ou mais colunas são geradas de
-modo heurístico; Na segunda etapa, que ocorre sequencialmente quando não é possível encontrar uma solução heurística.
+O processo de solução do subproblema ocorre em duas etapas, conforme a figura~\ref{flowchart}:
+Na primeira etapa dado os preços duais, uma ou mais colunas são geradas de modo heurístico; Na
+segunda etapa, que ocorre sequencialmente quando não é possível encontrar uma solução heurística,
+resolve-se o problema de modo exato.
+
+A utilização de heurísticas no subproblema
+tende a gerar colunas mais rapidamente do que quando resolvido de modo exato. Porém, considerando que as colunas obtidas
+heuristicamente não são necessariamente a solução do subproblema, pode ser necessário gerar-se mais colunas do que na solução
+completamente exata (no subproblema e no problema mestre). Segundo os resultado de~\cite{dos2008metodo}, a utilização
+das heurísticas no subproblema diminuíram o tempo de execução.
 
 A solução exata do subproblema deve ser encontrada no caso de não ser encontrado uma solução heurística para que
 se garanta que a solução final do SPP é ótima. Portanto, o SPP é inicialmente processado com uma ou mais heurísticas,
 e caso não encontre-se uma solução com custo reduzido negativo, então deve ser utilizada a solução exata. A solução
 exata do subproblema pode ser modelada como um caminho mínimo com restrições via PLI, conforme visto na seção~\ref{sec_subp}.
-Este problema de PLI é resolvido utilizando-se o método de \textit{Branch and Cut}. A utilização de heurísticas no subproblema
-tende a gerar colunas mais rapidamente do que quando resolvido de modo exato. Porém, considerando que as colunas obitidas
-heuristicamente não são necessariamente a solução do subproblema, pode ser necessário gerar-se mais colunas do que na solução
-completamente exata (no subproblema e no problema mestre). Segundo os resultado de~\cite{dos2008metodo}, a utilização
-das heurísticas no subproblema ofereceu um decremento no processo de solução.
+Este problema de PLI é resolvido utilizando-se o método de \textit{Branch and Cut}.
 
 \subsection{Solução heurística}
 \label{solv_subp}
 
-Nesta seção ão apresentados diversas heurísticas e meta-heurísticas que podem ser utilizadas para
-resolver-se o subproblema. Como objetivo final do trabalho, deseja-se incorporar uma ou mais heurísticas para
-acelerar o processo de solução do CSP.
+Nesta seção ão apresentados diversas heurísticas e meta-heurísticas encontradas na literatura e capazes de
+serem utilizadas para resolver-se o subproblema. Como objetivo final do trabalho, deseja-se avalia-las e
+incorporar uma ou mais heurísticas para acelerar o processo de solução do CSP.
 
 \subsubsection{Busca Gulosa baseada em relaxação linear}
 

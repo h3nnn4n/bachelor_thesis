@@ -26,8 +26,8 @@ do percurso do veículo. A segunda etapa consiste em baseado na demanda pelo serv
 ônibus devem partir dos terminais, de modo a atender da forma mais eficiente possível. A terceira etapa possui a
 funcionalidade de determinar quais veículos saem de quais estações, por quais pontos ele deve passar e para onde que
 ele deve retornar, formando assim uma jornada. Esta etapa deve cobrir todas as tarefas e minimizar o custo operacional
-A quarta e ultima etapa deve associa motoristas com jornadas, de modo que cada jornada tenha um motorista, onde
-cada motorista tenha todos os seus direitos respeitados, tanto os previstos por lei quanto os contratuais.
+A quarta e ultima etapa deve associa membros da tripulação com jornadas, de modo que cada jornada tenha a tripulação necessária,
+sendo que cada membro da tripulação deve ter todos os seus direitos respeitados, tanto os previstos por lei quanto os contratuais.
 
 Especificamente, o problema de alocação de funcionários ou tripulação, em inglês \textit{crew scheduling problem} (CSP),
 consiste em escolher grupos de funcionários que devem realizar tarefas durante um dado período de tempo \cite{Bergh}. O processo
@@ -47,7 +47,7 @@ O problema do CSP é referenciado na literatura como sendo um problema de \textbf
 (SCP)~\cite{nemhauser1988integer}. Dado um conjunto de linhas a serem cobertas, e um conjunto de colunas com custos
 associados que cobrem as linhas, escolhe-se o subconjunto de colunas que cubra todas as linhas minimizando o custo final. Como o SCP
 define que cada linha deve ser coberta pelo menos uma vez, isso implica que se o CSP for modelado como uma instância de SCP, pode ocorrer
-de mais de um tripulante ser designado para a mesma viagem. Isso na prática consiste no fato de um motorista ir de carona até o início de outra viagem,
+de mais de um tripulante ser designado para a mesma viagem. Isso na prática consiste no fato da tripulação ir de carona até o início de outra viagem,
 por exemplo.
 
 Outra forma de modelar-se o CSP consiste em determinar qual tripulação deve ser associado a uma viagem. Esta restrição
@@ -103,8 +103,8 @@ capaz de sequencialmente reduzir o número de colunas a serem utilizados, denomin
     \label{scp3} x_j \in \{0, 1\}, \forall j \in J
 \end{align}
 
-O método de geração de colunas consiste em um processo o problema com um grande número de variáveis é decomposto em
-dois problemas. O problema mestre, que é igual ao original, porém, com um conjunto reduzido de variáveis, e o sub-problema,
+O método de geração de colunas consiste decompor um dado problema com um grande número de variáveis em
+dois problemas menores: O \textbf{problema mestre}, que é igual ao original, porém, com um conjunto reduzido de variáveis, e o \textbf{sub-problema},
 que é utilizado para identificar quais variáveis são necessárias para obter-se a solução ótima do problema original. O processo
 de solução com geração de colunas consiste em criar-se um problema mestre, otimizar a sua relaxação linear, e utilizar
 as varáveis duais do problema mestre juntamente com o sub-problema,  para identificar se o problema mestre necessita da geração
@@ -126,10 +126,12 @@ não transfere-se para outro.
 
 Dado o exposto acima, este trabalho tem o objetivo de especificar e propor um método para a solução do CSP que, a princípio seja capaz de prover
 soluções de modo exato, e preferencialmente mais eficiente, considerando algoritmos pesquisados na literatura. O algoritmo proposto será aplicado
-a instâncias disponíveis na literatura.
+à instâncias disponíveis na literatura.
 
-No capitulo 2 é apresentado a fundamentação teoria necessária para o estudo do algoritmo proposto. Define-se programação linear, programação linear
+No capítulo 2 é apresentado a fundamentação teoria necessária para o estudo do algoritmo proposto. Define-se programação linear, programação linear
 inteira e é apresentado os seus respetivos métodos de solução.
 
-No capitulo 3 é apresentado a formulação do CSP e sua respectiva modelagem utilizando-se geração de colunas, onde é definido também o problema mestre
+No capítulo 3 é apresentado a formulação do CSP e sua respectiva modelagem utilizando-se geração de colunas, onde é definido também o problema mestre
 e o subproblema.
+
+No capítulo 4 apresenta-se a proposta para este trabalho. Discute-se as ferramentas que serão utilizadas e os métodos considerados para resolver o subproblema.
