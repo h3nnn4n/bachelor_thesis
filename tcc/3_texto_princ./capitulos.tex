@@ -852,6 +852,37 @@ A restrição~\eqref{subp5} faz com que $v_t$ tenha seu valor restrito em $0$ ou $
 nó (exceto $v_0$ e $v_t$) é zero ou um. A não ser pela presença da variável $v_t$. Por fim, a restrição~\eqref{subp4} faz
 com que as jornadas tenham no máximo uma duração pré definida.
 
+%solv_subp\begin{figure}[!htb]
+{
+\centering
+\begin{minipage}{0.48\textwidth}
+    \centering
+        \includegraphics[width=1\linewidth]{../figuras/graph2.pdf}
+        \captionof{figure}{Exemplo do subproblema}
+        \label{graph2}
+\end{minipage}
+%
+\begin{minipage}{0.48\textwidth}
+    \centering
+    \begin{tabular}{r c l | r c l}
+        $v_1$ &=& $6$  & $v_{(1,2)}$ &=& 1\\
+        $v_2$ &=& $7$  & $v_{(1,3)}$ &=& 6\\
+        $v_3$ &=& $4$  & $v_{(2,3)}$ &=& 2\\
+    \end{tabular}
+    \captionof{table}{Preços Duais e custos}
+    \label{tab_pd}
+\end{minipage}
+}
+%\end{figure}
+
+Considere o grafo na figura~\ref{graph2} como um subproblema, na qual os preços duais e os custos
+das arestas são apresentados na tabela~\ref{tab_pd}. As arestas tracejadas fazem parte do grafo, porém
+não fazem parte da solução encontrada. As arestas em destaque formam uma solução de custo reduzido
+negativo para o subproblema. Tem-se então que $y_{(0,1)} = y_{(1,3)} = y_{(3,f)} = 1$ e os demais
+$y_{(i,j)} = 0$, já para os vértices tem-se $v_1 = v_3 = 1$ e $v_2 = 0$. Portanto obtêm-se uma
+função objetivo onde o primeiro termo possui um valor de $y{(1,3)}*6 = 6$ e o segundo vale
+$v_1 * 6 + v_3*4 = 10$, resultando em $-4$.
+
 Neste capitulo discutiu-se a modelagem do SPP e do CSP. Discutiu-se ainda como são modelados o problema mestre utilizando SPP
 e o subproblema utilizando caminho mínimo com restrições.
 
@@ -1037,17 +1068,17 @@ ao fim a melhor solução encontrada, ou retornar o conjunto de todas as soluções 
 A proposta deste trabalho baseia-se no trabalho de~\cite{dos2008metodo}, onde utilizou-se o procedimento de
 geração de colunas juntamente com duas meta heurísticas para resolver o CSP, onde o autor utilizou as meta heurísticas
 GRASP~\cite{feo1995greedy} e algoritmo genético~\cite{gen1997genetic}. Tem-se como objetivo implementar
-outras (meta) heurísticas com o objetivo de melhorar o procedimento de geração de colunas. Na figura~\ref{flowchart_wip}
+outras (meta) heurísticas com o objetivo de melhorar o procedimento de geração de colunas. Na figura~\ref{flowchart}
 tem-se um fluxograma que apresenta o funcionamento da geração de colunas. Os blocos de fundo cinza e contorno pontilhado
 correspondem as etapas que são abordadas neste trabalho.
 
 %solv_subp\begin{figure}[!htb]
-{
-    \centering
-    \includegraphics[width=1\linewidth]{../figuras/flowchart_wip.pdf}
-    \captionof{figure}{Funcionamento de geração de coluna}
-    \label{flowchart_wip}
-}
+%{
+    %\centering
+    %\includegraphics[width=1\linewidth]{../figuras/flowchart_wip.pdf}
+    %\captionof{figure}{Funcionamento de geração de coluna}
+    %\label{flowchart_wip}
+%}
 %\end{figure}
 
 O bloco correspondente a geração das colunas inciais corresponde a um fator importante no processo de geração de colunas,
