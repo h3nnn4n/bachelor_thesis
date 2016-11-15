@@ -52,14 +52,15 @@ introduced in PGF/TikZ >= 1.09.
 
 \begin{tikzpicture}[node distance = 2cm, auto]
     % Place nodes
-    \node [block, minimum width=40mm] (init) at (0,0) {Colunas iniciais};
+    \node [block, minimum width=40mm, thick, fill=gray!25, dotted] (init) at (0,0) {Colunas iniciais};
 
     \node [block, minimum width=40mm, below of=init    , text width = 37mm] (add)      {Adicionar Jornadas};
-    \node [block, minimum width=40mm, below of=add     , text width = 37mm] (solvespp) {Resolver o SPP};
+    \node [block, minimum width=40mm, below of=add     , text width = 37mm] (solvespp) {Resolver o problema mestre (SPP)};
     \node [block, minimum width=40mm, below of=solvespp, text width = 37mm] (calc)     {Calcular pre\c{c}os duais};
 
-    \node [block   , minimum width=40mm, right=5mm of init    , text width = 37mm] (heursolve) at (6,0) {Resolver o Subproblema de forma heur\'istica};
-    \node [decision, below=5mm of heursolve, aspect = 2       , text width = 37mm] (redcost)            {Jornada de custo reduzido < 0?};
+    \node [block   , minimum width=40mm, right=5mm of init    , text width = 37mm, thick, fill=gray!25, dotted] (heursolve) at (6,0) {Resolver o Subproblema de forma heur\'istica};
+    \node [decision, below=5mm of heursolve, aspect = 2       , text width = 37mm, thick, fill=gray!25, dotted] (redcost)            {Jornada de custo reduzido < 0?};
+
     \node [block   , minimum width=40mm, below=5mm of redcost , text width = 37mm] (exactsolve)         {Resolver o Subproblema de forma exata};
     \node [decision, below=5mm of exactsolve, aspect = 2      , text width = 37mm] (redcost2)           {Jornada de custo reduzido < 0?};
     \node [block   , minimum width=40mm, below=6mm of redcost2, text width = 37mm] (end)                {Retornar solu\c{c}\~ao \'otima do problema mestre};
@@ -73,34 +74,35 @@ introduced in PGF/TikZ >= 1.09.
     \node [draw, dashed, fit=(heursolve) (redcost2) (s1)] (b1) {};
     \node [draw, dashed, fit=(add) (calc)               ] (b2) {};
 
+    \node [draw=none, left=10mm of redcost ] (h1) {};
+    \node [draw=none, left=10mm of redcost2] (h2) {};
+
+    \coordinate (h1) at ($(redcost.west)+(-15mm,0)$);
+    \coordinate (h2) at ($(redcost2.west)+(-15mm,0)$);
+    \coordinate (h3) at ($(b2.south)+(0,-15mm)$);
+    \coordinate (h4) at ($(add.west)+(-15mm, 0)$);
+    \coordinate (h5) at ($(h4.south)+(0,-63mm)$);
+
+    \coordinate (f1) at ($(calc.east)+(5mm,0)$);
+    \coordinate (f2) at ($(heursolve.west)+(-25mm,0)$);
+
     % Draw edges
-    %\path [line] (init)       -> (add);
     \path [line] (add)        -> (solvespp);
     \path [line] (solvespp)   -> (calc);
 
     \path [line] (heursolve)  -> (redcost);
     \path [line] (redcost)    -> (exactsolve);
     \path [line] (exactsolve) -> (redcost2);
-    %\path [line] (redcost2)   -> (end);
 
-    \path [line] (redcost)    -> +(-3,0);
-    \path [line] (redcost2)   -> +(-3,0);
+    \path [line] (redcost)    -- (h1) |- (h2.east)  |- (h5) node[midway,fill=white, yshift= 2.5mm, xshift=-40.0mm]  {\emph{Nova Jornada}} |- (h4) |- (add.west);
+    \path [line] (redcost2)   -- (h2.east);
+    \path [line] (calc)       -- (f1) |- (f2) node[midway,fill=white, yshift=-2.5mm, xshift=14.0mm]  {\emph{Pre\c{c}os Duais}} |- (heursolve);
 
     \draw[line ,-implies,double, double distance=2mm] (init)     -- (add);
     \draw[line ,-implies,double, double distance=2mm] (redcost2) -- (end);
 
-    %\draw[line ,-implies,double, double distance=2mm] [yshift = 5mm](b1) -- (b2);
-    %\draw[line ,-implies,double, double distance=2mm] (b2) -- (b1);
-
-    %\draw[line ,-implies,double, double distance=2mm] (b1) -- ++(0,1) node (b2){};
-    %\draw[line ,-implies,double, double distance=2mm] (b1) -- ++(0,1) node (b2){};
-    %\draw[line ,-implies,double, double distance=2mm] (b2) -- (b1) coordinate[pos=2];
-    %\draw[line ,-implies,double, double distance=2mm, yshift =-5mm] (b2) -- (b1);
-
-    %\path [line] (b1) -- (b2) coordinate(1,1);
-    %\path [line, xshift=1cm] (b2) -- (b1);
-    \draw[transform canvas={yshift=-2cm}, -implies, double, double distance=6mm] (b1) -> (b2) node[midway,fill=white, yshift= 2.6mm, xshift= 2.1mm]  {\emph{Nova jornada}};
-    \draw[transform canvas={yshift= 2cm}, -implies, double, double distance=6mm] (b2) -> (b1) node[midway,fill=white, yshift=-2.6mm, xshift=-1.5mm] {\emph{Pre\c{c}os duais}};
+    %\draw[transform canvas={yshift=-2cm}, -implies, double, double distance=6mm] (b1) -> (b2) node[midway,fill=white, yshift= 2.6mm, xshift= 2.1mm]  {\emph{Nova jornada}};
+    %\draw[transform canvas={yshift= 2cm}, -implies, double, double distance=6mm] (b2) -> (b1) node[midway,fill=white, yshift=-2.6mm, xshift=-1.5mm] {\emph{Pre\c{c}os duais}};
 \end{tikzpicture}
 
 
