@@ -4,6 +4,7 @@ cd figuras
 
 pdflatex gercolumn.tex
 pdflatex graph.tex
+pdflatex graph2.tex
 pdflatex pli.tex
 pdflatex etapas.tex
 pdflatex flowchart.tex
