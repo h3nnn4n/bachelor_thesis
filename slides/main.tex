@@ -39,6 +39,10 @@ Universidade do Estado de Santa Catarina}
 
 \end{frame}
 
+\begin{frame}{Overview}
+    \tableofcontents
+\end{frame}
+
 \section{Introdução}
 \begin{frame}
     \frametitle{Introdução}
@@ -87,8 +91,63 @@ Universidade do Estado de Santa Catarina}
     \end{description}
 \end{frame}
 
+\section{Formulação}
 \begin{frame}
-    \frametitle{Introdução}
+    \frametitle{Formulação}
+    Dentre as possíveis modelagens possíveis para o CSP, utilizou-se uma com base no problema de particionamento de conjuntos(SPP);
+
+    \begin{figure}[!htb]
+        \centering
+        \begin{minipage}{0.48\textwidth}
+            $A = \begin{pmatrix}
+                1 & 1 & 0 & 0 & 0 & 0 & 0 \\
+                0 & 0 & 1 & 1 & 1 & 1 & 1 \\
+                1 & 0 & 1 & 0 & 0 & 1 & 0 \\
+                0 & 0 & 0 & 1 & 1 & 1 & 0 \\
+                0 & 1 & 0 & 0 & 1 & 0 & 1 \\
+            \end{pmatrix}$
+        \end{minipage}
+%
+        \begin{minipage}{.48\textwidth}
+            \begin{subequations}
+                \label{spppp}
+                \begin{align}
+                \label{spp2}  \text{min} \: \sum_{j \in J} c_j x_j \\
+                \label{spp22} \sum_{j \in J} a_{ij} x_j = 1, \forall i \in I \\
+                \label{spp24} x_j \in \{0, 1\}, \forall j \in J
+            \end{align}
+        \end{subequations}
+        \end{minipage}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Modelando o CSP com o SPP}
+    \begin{figure}[!htb]
+        \centering
+        \begin{minipage}{0.48\textwidth}
+{
+    \centering
+    \includegraphics[width=0.8\textwidth]{../tcc/figuras/graph.pdf}
+    \captionof{figure}{Possíveis jornadas representadas em um grafo}
+    \label{treta}
+}
+        \end{minipage}
+%
+        \begin{minipage}{.48\textwidth}
+            \begin{itemize}
+                \item Deve-se enumerar todos as possíveis jornadas viáveis;
+                \item O número de jornadas cresce exponencialmente em função do número de tarefas;
+                \item Enumerar todas as jornadas é inviável;
+                \item Se não forem enumeradas todas as jornadas, perde-se a solução ótima;
+            \end{itemize}
+        \end{minipage}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Geração de colunas}
 
 \end{frame}
 
@@ -97,13 +156,13 @@ Universidade do Estado de Santa Catarina}
 
 \end{frame}
 
-\section{Introdução}
+\section{Conclusões parciais}
 \begin{frame}
-    \frametitle{Introdução}
+    \frametitle{Conclusões parciais}
 
 \end{frame}
 
-\section{Referências}
+%\section{Referências}
 
 \begin{frame}
     %\bibliography{bibliografia}

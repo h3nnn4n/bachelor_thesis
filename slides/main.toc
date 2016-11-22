@@ -4,8 +4,8 @@
 \defcounter {refsection}{0}\relax 
 \select@language {portuges}
 \defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {1}{Introdu\IeC {\c c}\IeC {\~a}o}{2}{0}{1}
+\beamer@sectionintoc {1}{Introdu\IeC {\c c}\IeC {\~a}o}{3}{0}{1}
 \defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {2}{Introdu\IeC {\c c}\IeC {\~a}o}{7}{0}{2}
+\beamer@sectionintoc {2}{Formula\IeC {\c c}\IeC {\~a}o}{6}{0}{2}
 \defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {3}{Refer\IeC {\^e}ncias}{8}{0}{3}
+\beamer@sectionintoc {3}{Conclus\IeC {\~o}es parciais}{10}{0}{3}

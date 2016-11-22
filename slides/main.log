@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.8.30)  22 NOV 2016 09:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.8.30)  22 NOV 2016 09:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1906,40 +1906,54 @@ LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <4> not available
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
- <./udesc_background.pdf> <./udesc_logo.png>]
-LaTeX Font Info:    Try loading font information for OMS+cmss on input line 65.
+ <./udesc_background.pdf> <./udesc_logo.png>] (./main.toc) [2
 
-LaTeX Font Info:    No file OMScmss.fd. on input line 65.
+ <./udesc_logo.png>]
+LaTeX Font Info:    Try loading font information for OMS+cmss on input line 69.
+
+LaTeX Font Info:    No file OMScmss.fd. on input line 69.
 
 
 LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbullet' on input line 65.
+(Font)              for symbol `textbullet' on input line 69.
 
-<../tcc/figuras/etapas.pdf, id=62, 88.1965pt x 221.10706pt>
+<../tcc/figuras/etapas.pdf, id=80, 88.1965pt x 221.10706pt>
 File: ../tcc/figuras/etapas.pdf Graphic file (type pdf)
 
 <use ../tcc/figuras/etapas.pdf>
-Package pdftex.def Info: ../tcc/figuras/etapas.pdf used on input line 65.
+Package pdftex.def Info: ../tcc/figuras/etapas.pdf used on input line 69.
 (pdftex.def)             Requested size: 73.86383pt x 185.166pt.
 
-Overfull \vbox (16.14897pt too high) detected at line 65
+Overfull \vbox (16.14897pt too high) detected at line 69
  []
 
-[2
+[3
 
- <./udesc_logo.png> <../tcc/figuras/etapas.pdf>] [3
+ <./udesc_logo.png> <../tcc/figuras/etapas.pdf>] [4
 
  <./udesc_logo.png>]
-[4
-
- <./udesc_logo.png>] [5
+[5
 
  <./udesc_logo.png>] [6
 
- <./udesc_logo.png>] [7
+ <./udesc_logo.png>]
+<../tcc/figuras/graph.pdf, id=147, 103.63818pt x 101.3125pt>
+File: ../tcc/figuras/graph.pdf Graphic file (type pdf)
 
- <./udesc_logo.png>] [8
+<use ../tcc/figuras/graph.pdf>
+Package pdftex.def Info: ../tcc/figuras/graph.pdf used on input line 147.
+(pdftex.def)             Requested size: 117.9987pt x 115.35521pt.
+ [7
+
+ <./udesc_logo.png> <../tcc/figuras/graph.pdf>] [8
+
+ <./udesc_logo.png>] [9
+
+ <./udesc_logo.png>] [10
+
+ <./udesc_logo.png>]
+[11
 
  <./udesc_logo.png> </usr/share/texmf-dist/tex/latex/beamer/art/beamericonartic
 le.pdf>]
@@ -1952,13 +1966,13 @@ le.pdf>]
 \tf@snm=\write10
 \openout10 = `main.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 113.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 113.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 172.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 172.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 113.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 113.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 172.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 172.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8F2844F9A1B3AEA98BFBFA2F84E24684;151.
+(rerunfilecheck)             Checksum: 1A61E9A7FB7831691F06321CD0F06070;159.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1970,30 +1984,35 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 113.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 172.
  ) 
 Here is how much of TeX's memory you used:
- 24748 strings out of 493013
- 458323 string characters out of 6139317
- 700509 words of memory out of 5000000
- 27738 multiletter control sequences out of 15000+600000
+ 24796 strings out of 493013
+ 459214 string characters out of 6139317
+ 706509 words of memory out of 5000000
+ 27772 multiletter control sequences out of 15000+600000
  20813 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,19n,55p,905b,1316s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,19n,55p,905b,1484s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/font
-s/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/p
-ublic/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/
-sfss0600.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></
-usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/share/texmf
--dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/share/texmf-dist/fonts/typ
-e1/public/cm-super/sfss1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-su
-per/sfsx0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1000.pf
-b>
-Output written on main.pdf (8 pages, 272054 bytes).
+exmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+ss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></us
+r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
+nts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1
+000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/s
+hare/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texmf-dist
+/fonts/type1/public/cm-super/sfss1000.pfb></usr/share/texmf-dist/fonts/type1/pu
+blic/cm-super/sfss1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/s
+fss1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx0900.pfb></u
+sr/share/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on main.pdf (11 pages, 345467 bytes).
 PDF statistics:
- 206 PDF objects out of 1000 (max. 8388607)
- 149 compressed objects within 2 object streams
- 23 named destinations out of 1000 (max. 500000)
- 134 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 285 PDF objects out of 1000 (max. 8388607)
+ 210 compressed objects within 3 object streams
+ 34 named destinations out of 1000 (max. 500000)
+ 154 words of extra memory for PDF output out of 10000 (max. 10000000)
 
