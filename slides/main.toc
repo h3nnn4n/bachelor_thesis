@@ -1,0 +1,4 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {portuges}
+\beamer@sectionintoc {1}{Isso \IeC {\'e} uma se\IeC {\c c}\IeC {\~a}o}{2}{0}{1}
+\beamer@sectionintoc {2}{Isso \IeC {\'e} outra se\IeC {\c c}\IeC {\~a}o}{3}{0}{2}
