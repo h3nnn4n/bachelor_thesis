@@ -1,4 +1,11 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
 \beamer@endinputifotherversion {3.36pt}
+\defcounter {refsection}{0}\relax 
 \select@language {portuges}
-\beamer@sectionintoc {1}{Isso \IeC {\'e} uma se\IeC {\c c}\IeC {\~a}o}{2}{0}{1}
-\beamer@sectionintoc {2}{Isso \IeC {\'e} outra se\IeC {\c c}\IeC {\~a}o}{3}{0}{2}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {1}{Introdu\IeC {\c c}\IeC {\~a}o}{2}{0}{1}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {2}{Introdu\IeC {\c c}\IeC {\~a}o}{7}{0}{2}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {3}{Refer\IeC {\^e}ncias}{8}{0}{3}

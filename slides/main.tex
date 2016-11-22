@@ -4,8 +4,21 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{booktabs}
+\usepackage{caption}
 \usepackage[portuges]{babel}
+\usepackage{ amssymb }
 
+\setbeamertemplate{caption}[numbered]
+
+\usepackage[
+    backend=bibtex,
+    style=alphabetic,
+    citestyle=authoryear
+]{biblatex}
+
+\addbibresource{bibliografia.bib}
+
+\newcommand{\ccite}[1]{(\citeauthor{#1}, \citeyear{#1})}
 
 \title[Modelo Slides Udesc]{Modelo de slides UDESC}
 
@@ -26,27 +39,75 @@ Universidade do Estado de Santa Catarina}
 
 \end{frame}
 
-\section{Isso é uma seção}
+\section{Introdução}
 \begin{frame}
-    \frametitle{Hitórico}
+    \frametitle{Introdução}
 
-    \begin{itemize}
-        \item Alguma data: O Castro fez o modelo;
-        \item 11/11: O Renan tirou as coisas velhas e fez um make file supimpa.
-    \end{itemize}
+    \begin{figure}[!htb]
+        \centering
+        \begin{minipage}{0.48\textwidth}
+            \begin{itemize}
+                %\item Segundo~\ccite{de2011algoritmo} e~\ccite{qiao2010algorithm}, o planejamento operacional de uma empresa de transporte de urbano pode ser dividido conforme a figura~\ref{fig_etapas};
+                \item O planejamento operacional de uma empresa de transporte de urbano pode ser dividido conforme a figura~\ref{fig_etapas};
+                \item Este trabalho tem como objetivo resolver problema do Escalonamento de Tripulação (CSP);
+            \end{itemize}
+        \end{minipage}
+    %
+        \begin{minipage}{.48\textwidth}
+        {
+            \centering
+            \includegraphics[height=0.8\textheight]{../tcc/figuras/etapas.pdf}
+            \captionof{figure}{Etapas do planejamento}
+            \label{fig_etapas}
+        }
+        \end{minipage}
+    \end{figure}
 \end{frame}
 
-\section{Isso é outra seção}
 \begin{frame}
-    \frametitle{Isso é um titulo}
+    \frametitle{Relevância}
 
-    Isso é um texto.
-    \begin{itemize}
-        \item Isso é um item;
-        \item PogChamp;
-        \item Kappa;
-        \item KTHXBYE;
-    \end{itemize}
+    \begin{description}
+        \item [Teória] O CSP é um problema $\mathcal{NP}$-Hard, que pode ser reduzido para o problema de cobertura/particionamento de conjuntos;
+        \item [Prática]\ccite{zeren2012improved} afirma que os gastos com a tripulação são a segunda maior fonte de gastos das empresas, atrás apenas dos gastos com combustíveis;
+    \end{description}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Definição}
+
+    O CSP consiste determinar jornadas para um conjunto de tripulantes, onde
+
+    \begin{description}
+        \item[Tarefa] É uma atividade que deve ser realizada, que possui um tempo de inicio e fim predefinidos;
+        \item[Jornada] É um conjunto de tarefas que devem ser executadas por uma mesma tripulação;
+        \item[$\blacktriangleright$]Jornadas possuem restrições, carga horaria máxima, etc;
+        \item[$\blacktriangleright$]Existe um custo para deslocar-se entre duas tarefas;
+        \item[$\blacktriangleright$]Deseja-se minimizar o custo total de cobrir todas as jornadas;
+    \end{description}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Introdução}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Introdução}
+
+\end{frame}
+
+\section{Introdução}
+\begin{frame}
+    \frametitle{Introdução}
+
+\end{frame}
+
+\section{Referências}
+
+\begin{frame}
+    %\bibliography{bibliografia}
+    \printbibliography
 \end{frame}
 
 \end{document}
