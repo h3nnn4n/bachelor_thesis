@@ -126,40 +126,74 @@ Universidade do Estado de Santa Catarina}
     \begin{figure}[!htb]
         \centering
         \begin{minipage}{0.48\textwidth}
-{
-    \centering
-    \includegraphics[width=0.8\textwidth]{../tcc/figuras/graph.pdf}
-    \captionof{figure}{Possíveis jornadas representadas em um grafo}
-    \label{treta}
-}
+        {
+            \centering
+            \includegraphics[width=0.8\textwidth]{../tcc/figuras/graph.pdf}
+            \captionof{figure}{Possíveis jornadas representadas em um grafo}
+            \label{treta}
+        }
         \end{minipage}
 %
         \begin{minipage}{.48\textwidth}
             \begin{itemize}
                 \item Deve-se enumerar todos as possíveis jornadas viáveis;
                 \item O número de jornadas cresce exponencialmente em função do número de tarefas;
-                \item Enumerar todas as jornadas é inviável;
                 \item Se não forem enumeradas todas as jornadas, perde-se a solução ótima;
+                \item Enumerar todas as jornadas é inviável;
             \end{itemize}
         \end{minipage}
     \end{figure}
-
 \end{frame}
 
+\section{Geração de colunas}
 \begin{frame}
     \frametitle{Geração de colunas}
+    O método de geração de colunas é capaz de:
 
+    \begin{itemize}
+        \item Lidar com um grande número de variáveis;
+        \item Considerar implicitamente todas as jornadas;
+        \item Iniciar com um conjunto reduzido de jornadas;
+        \item Encontrar iterativamente todas as jornadas necessárias para encontrar a solução ótima;
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Introdução}
+    \frametitle{Funcionamento}
+
+    \begin{figure}[!htb]
+        \centering
+        \begin{minipage}{0.55\textwidth}
+            \begin{itemize}
+                \item A geração de colunas é dividida em dois problemas menores: Problema mestre e subproblema;
+                \item O problema mestre é o problema original com um conjunto reduzido de jornadas(colunas);
+                \item O subproblema é um problema de programação linear inteira que determina qual jornada
+                    deve ser inserida no problema mestre;
+            \end{itemize}
+        \end{minipage}
+%
+        \begin{minipage}{.40\textwidth}
+{
+    \centering
+    \includegraphics[width=1\linewidth]{../tcc/figuras/gercolumn.pdf}
+    \captionof{figure}{Processo de geração de colunas}
+    \label{treta}
+}
+        \end{minipage}
+    \end{figure}
 
 \end{frame}
 
 \section{Conclusões parciais}
 \begin{frame}
     \frametitle{Conclusões parciais}
-
+    \begin{itemize}
+        \item Kappa;
+        \item Keepo;
+        \item Kippa;
+        \item Klappa;
+        \item KappaRoss;
+    \end{itemize}
 \end{frame}
 
 %\section{Referências}
