@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.8.30)  22 NOV 2016 10:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.8.30)  23 NOV 2016 09:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1014,46 +1014,6 @@ Package: fontenc 2016/06/19 v1.99m Standard LaTeX package
 File: t1enc.def 2016/06/19 v1.99m Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
-(/usr/share/texmf-dist/tex/latex/booktabs/booktabs.sty
-Package: booktabs 2016/04/27 v1.618033 publication quality tables
-\heavyrulewidth=\dimen188
-\lightrulewidth=\dimen189
-\cmidrulewidth=\dimen190
-\belowrulesep=\dimen191
-\belowbottomsep=\dimen192
-\aboverulesep=\dimen193
-\abovetopsep=\dimen194
-\cmidrulesep=\dimen195
-\cmidrulekern=\dimen196
-\defaultaddspace=\dimen197
-\@cmidla=\count153
-\@cmidlb=\count154
-\@aboverulesep=\dimen198
-\@belowrulesep=\dimen199
-\@thisruleclass=\count155
-\@lastruleclass=\count156
-\@thisrulewidth=\dimen256
-)
-(/usr/share/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
-
-(/usr/share/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 67.
-\captionmargin=\dimen257
-\captionmargin@=\dimen258
-\captionwidth=\dimen259
-\caption@tempdima=\dimen260
-\caption@indent=\dimen261
-\caption@parindent=\dimen262
-\caption@hangindent=\dimen263
-)
-\c@ContinuedFloat=\count157
-Package caption Info: beamer document class.
-Package caption Info: hyperref package is loaded.
-Package caption Info: Hyperref support is turned off
-(caption)             because hyperref has stopped early.
-)
 (/usr/share/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2016/04/23 3.9r The Babel package
 
@@ -1062,12 +1022,74 @@ Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
 
 (/usr/share/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2016/04/23 3.9r Babel common definitions
-\babel@savecnt=\count158
-\U@D=\dimen264
+\babel@savecnt=\count153
+\U@D=\dimen188
 LaTeX Info: Redefining \textlatin on input line 1448.
 )
 Package babel Info: Making " an active character on input line 145.
 ))
+(/usr/share/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2016/04/27 v1.618033 publication quality tables
+\heavyrulewidth=\dimen189
+\lightrulewidth=\dimen190
+\cmidrulewidth=\dimen191
+\belowrulesep=\dimen192
+\belowbottomsep=\dimen193
+\aboverulesep=\dimen194
+\abovetopsep=\dimen195
+\cmidrulesep=\dimen196
+\cmidrulekern=\dimen197
+\defaultaddspace=\dimen198
+\@cmidla=\count154
+\@cmidlb=\count155
+\@aboverulesep=\dimen199
+\@belowrulesep=\dimen256
+\@thisruleclass=\count156
+\@lastruleclass=\count157
+\@thisrulewidth=\dimen257
+)
+(/usr/share/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/share/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen258
+\captionmargin@=\dimen259
+\captionwidth=\dimen260
+\caption@tempdima=\dimen261
+\caption@indent=\dimen262
+\caption@parindent=\dimen263
+\caption@hangindent=\dimen264
+)
+\c@ContinuedFloat=\count158
+Package caption Info: beamer document class.
+Package caption Info: hyperref package is loaded.
+Package caption Info: Hyperref support is turned off
+(caption)             because hyperref has stopped early.
+)
+(/usr/share/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2016/05/22 v1.1-161 Sub-captions (AR)
+\c@subfigure=\count159
+\c@subtable=\count160
+)
+(/usr/share/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen265
+)
+(/usr/share/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+
+(/usr/share/texmf-dist/tex/latex/tools/array.sty
+Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen266
+\extrarowheight=\dimen267
+\NC@list=\toks45
+\extratabsurround=\skip57
+\backup@length=\skip58
+)
+\everycr=\toks46
+\minrowclearance=\skip59
+)
 (/usr/share/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2016/05/14 v3.4 programmable bibliographies (PK/JW/AB)
 
@@ -1077,11 +1099,11 @@ and LuaTeX
 )
 (/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count159
+\etb@tempcnta=\count161
 )
 (/usr/share/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count160
+\lrq@indent=\count162
 
 (/usr/share/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
@@ -1092,62 +1114,62 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 (/usr/share/texmf-dist/tex/generic/xstring/xstring.sty
 (/usr/share/texmf-dist/tex/generic/xstring/xstring.tex
 \@xs@message=\write5
-\integerpart=\count161
-\decimalpart=\count162
+\integerpart=\count163
+\decimalpart=\count164
 )
 Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 )
-\c@tabx@nest=\count163
-\c@listtotal=\count164
-\c@listcount=\count165
-\c@liststart=\count166
-\c@liststop=\count167
-\c@citecount=\count168
-\c@citetotal=\count169
-\c@multicitecount=\count170
-\c@multicitetotal=\count171
-\c@instcount=\count172
-\c@maxnames=\count173
-\c@minnames=\count174
-\c@maxitems=\count175
-\c@minitems=\count176
-\c@citecounter=\count177
-\c@savedcitecounter=\count178
-\c@uniquelist=\count179
-\c@uniquename=\count180
-\c@refsection=\count181
-\c@refsegment=\count182
-\c@maxextratitle=\count183
-\c@maxextratitleyear=\count184
-\c@maxextrayear=\count185
-\c@maxextraalpha=\count186
-\c@abbrvpenalty=\count187
-\c@highnamepenalty=\count188
-\c@lownamepenalty=\count189
-\c@maxparens=\count190
-\c@parenlevel=\count191
-\blx@tempcnta=\count192
-\blx@tempcntb=\count193
-\blx@tempcntc=\count194
-\blx@maxsection=\count195
-\blx@maxsegment@0=\count196
-\blx@notetype=\count197
-\blx@parenlevel@text=\count198
-\blx@parenlevel@foot=\count199
-\blx@sectionciteorder@0=\count266
-\labelnumberwidth=\skip57
-\labelalphawidth=\skip58
-\biblabelsep=\skip59
-\bibitemsep=\skip60
-\bibnamesep=\skip61
-\bibinitsep=\skip62
-\bibparsep=\skip63
-\bibhang=\skip64
+\c@tabx@nest=\count165
+\c@listtotal=\count166
+\c@listcount=\count167
+\c@liststart=\count168
+\c@liststop=\count169
+\c@citecount=\count170
+\c@citetotal=\count171
+\c@multicitecount=\count172
+\c@multicitetotal=\count173
+\c@instcount=\count174
+\c@maxnames=\count175
+\c@minnames=\count176
+\c@maxitems=\count177
+\c@minitems=\count178
+\c@citecounter=\count179
+\c@savedcitecounter=\count180
+\c@uniquelist=\count181
+\c@uniquename=\count182
+\c@refsection=\count183
+\c@refsegment=\count184
+\c@maxextratitle=\count185
+\c@maxextratitleyear=\count186
+\c@maxextrayear=\count187
+\c@maxextraalpha=\count188
+\c@abbrvpenalty=\count189
+\c@highnamepenalty=\count190
+\c@lownamepenalty=\count191
+\c@maxparens=\count192
+\c@parenlevel=\count193
+\blx@tempcnta=\count194
+\blx@tempcntb=\count195
+\blx@tempcntc=\count196
+\blx@maxsection=\count197
+\blx@maxsegment@0=\count198
+\blx@notetype=\count199
+\blx@parenlevel@text=\count266
+\blx@parenlevel@foot=\count267
+\blx@sectionciteorder@0=\count268
+\labelnumberwidth=\skip60
+\labelalphawidth=\skip61
+\biblabelsep=\skip62
+\bibitemsep=\skip63
+\bibnamesep=\skip64
+\bibinitsep=\skip65
+\bibparsep=\skip66
+\bibhang=\skip67
 \blx@bcfin=\read2
 \blx@bcfout=\write6
-\c@mincomprange=\count267
-\c@maxcomprange=\count268
-\c@mincompwidth=\count269
+\c@mincomprange=\count269
+\c@maxcomprange=\count270
+\c@mincompwidth=\count271
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -1156,78 +1178,78 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'alphabetic.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count270
-\c@savedafterword=\count271
-\c@annotator=\count272
-\c@savedannotator=\count273
-\c@author=\count274
-\c@savedauthor=\count275
-\c@bookauthor=\count276
-\c@savedbookauthor=\count277
-\c@commentator=\count278
-\c@savedcommentator=\count279
-\c@editor=\count280
-\c@savededitor=\count281
-\c@editora=\count282
-\c@savededitora=\count283
-\c@editorb=\count284
-\c@savededitorb=\count285
-\c@editorc=\count286
-\c@savededitorc=\count287
-\c@foreword=\count288
-\c@savedforeword=\count289
-\c@holder=\count290
-\c@savedholder=\count291
-\c@introduction=\count292
-\c@savedintroduction=\count293
-\c@namea=\count294
-\c@savednamea=\count295
-\c@nameb=\count296
-\c@savednameb=\count297
-\c@namec=\count298
-\c@savednamec=\count299
-\c@translator=\count300
-\c@savedtranslator=\count301
-\c@shortauthor=\count302
-\c@savedshortauthor=\count303
-\c@shorteditor=\count304
-\c@savedshorteditor=\count305
-\c@labelname=\count306
-\c@savedlabelname=\count307
-\c@institution=\count308
-\c@savedinstitution=\count309
-\c@lista=\count310
-\c@savedlista=\count311
-\c@listb=\count312
-\c@savedlistb=\count313
-\c@listc=\count314
-\c@savedlistc=\count315
-\c@listd=\count316
-\c@savedlistd=\count317
-\c@liste=\count318
-\c@savedliste=\count319
-\c@listf=\count320
-\c@savedlistf=\count321
-\c@location=\count322
-\c@savedlocation=\count323
-\c@organization=\count324
-\c@savedorganization=\count325
-\c@origlocation=\count326
-\c@savedoriglocation=\count327
-\c@origpublisher=\count328
-\c@savedorigpublisher=\count329
-\c@publisher=\count330
-\c@savedpublisher=\count331
-\c@language=\count332
-\c@savedlanguage=\count333
-\c@pageref=\count334
-\c@savedpageref=\count335
-\shorthandwidth=\skip65
-\shortjournalwidth=\skip66
-\shortserieswidth=\skip67
-\shorttitlewidth=\skip68
-\shortauthorwidth=\skip69
-\shorteditorwidth=\skip70
+\c@afterword=\count272
+\c@savedafterword=\count273
+\c@annotator=\count274
+\c@savedannotator=\count275
+\c@author=\count276
+\c@savedauthor=\count277
+\c@bookauthor=\count278
+\c@savedbookauthor=\count279
+\c@commentator=\count280
+\c@savedcommentator=\count281
+\c@editor=\count282
+\c@savededitor=\count283
+\c@editora=\count284
+\c@savededitora=\count285
+\c@editorb=\count286
+\c@savededitorb=\count287
+\c@editorc=\count288
+\c@savededitorc=\count289
+\c@foreword=\count290
+\c@savedforeword=\count291
+\c@holder=\count292
+\c@savedholder=\count293
+\c@introduction=\count294
+\c@savedintroduction=\count295
+\c@namea=\count296
+\c@savednamea=\count297
+\c@nameb=\count298
+\c@savednameb=\count299
+\c@namec=\count300
+\c@savednamec=\count301
+\c@translator=\count302
+\c@savedtranslator=\count303
+\c@shortauthor=\count304
+\c@savedshortauthor=\count305
+\c@shorteditor=\count306
+\c@savedshorteditor=\count307
+\c@labelname=\count308
+\c@savedlabelname=\count309
+\c@institution=\count310
+\c@savedinstitution=\count311
+\c@lista=\count312
+\c@savedlista=\count313
+\c@listb=\count314
+\c@savedlistb=\count315
+\c@listc=\count316
+\c@savedlistc=\count317
+\c@listd=\count318
+\c@savedlistd=\count319
+\c@liste=\count320
+\c@savedliste=\count321
+\c@listf=\count322
+\c@savedlistf=\count323
+\c@location=\count324
+\c@savedlocation=\count325
+\c@organization=\count326
+\c@savedorganization=\count327
+\c@origlocation=\count328
+\c@savedoriglocation=\count329
+\c@origpublisher=\count330
+\c@savedorigpublisher=\count331
+\c@publisher=\count332
+\c@savedpublisher=\count333
+\c@language=\count334
+\c@savedlanguage=\count335
+\c@pageref=\count336
+\c@savedpageref=\count337
+\shorthandwidth=\skip68
+\shortjournalwidth=\skip69
+\shortserieswidth=\skip70
+\shorttitlewidth=\skip71
+\shortauthorwidth=\skip72
+\shorteditorwidth=\skip73
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 
@@ -1249,13 +1271,13 @@ Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
  (/usr/share/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2016/05/14 v3.4 biblatex compatibility (PK/JW/AB)
-\c@textcitecount=\count336
-\c@textcitetotal=\count337
-\c@textcitemaxnames=\count338
-\c@biburlnumpenalty=\count339
-\c@biburlucpenalty=\count340
-\c@biburllcpenalty=\count341
-\c@smartand=\count342
+\c@textcitecount=\count338
+\c@textcitetotal=\count339
+\c@textcitemaxnames=\count340
+\c@biburlnumpenalty=\count341
+\c@biburlucpenalty=\count342
+\c@biburllcpenalty=\count343
+\c@smartand=\count344
 )
 Package biblatex Info: Trying to load bibliography style 'alphabetic'...
 Package biblatex Info: ... file 'alphabetic.bbx' found.
@@ -1267,8 +1289,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 
 (/usr/share/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2016/05/14 v3.4 biblatex bibliography style (PK/JW/AB)
-\c@bbx:relatedcount=\count343
-\c@bbx:relatedtotal=\count344
+\c@bbx:relatedcount=\count345
+\c@bbx:relatedtotal=\count346
 ))
 Package biblatex Info: Trying to load citation style 'authoryear'...
 Package biblatex Info: ... file 'authoryear.cbx' found.
@@ -1291,371 +1313,195 @@ File: biblatex.cfg
 ))
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 28.
+(hyperref)                removing `\\' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 28.
+(hyperref)                removing `\new@ifnextchar' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\medskipamount' on input line 28.
+(hyperref)                removing `\medskipamount' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 28.
+(hyperref)                removing `\begingroup' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 28.
+(hyperref)                removing `\catcode' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 28.
+(hyperref)                removing `\active' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 28.
+(hyperref)                removing `\<def>-command' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 28.
+(hyperref)                removing `\csname\endcsname' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 28.
+(hyperref)                removing `\catcode' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 28.
+(hyperref)                removing `\active' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 28.
+(hyperref)                removing `\<let>-command' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 28.
+(hyperref)                removing `\csname\endcsname' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 28.
+(hyperref)                removing `\<let>-command' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\%' on input line 28.
+(hyperref)                removing `\%' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 28.
+(hyperref)                removing `\catcode' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 28.
+(hyperref)                removing `\active' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 28.
+(hyperref)                removing `\<def>-command' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 28.
+(hyperref)                removing `\csname\endcsname' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 28.
+(hyperref)                removing `\<def>-command' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\#' on input line 28.
+(hyperref)                removing `\#' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 28.
+(hyperref)                removing `\catcode' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 28.
+(hyperref)                removing `\<def>-command' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 28.
+(hyperref)                removing `\csname\endcsname' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 28.
+(hyperref)                removing `\<def>-command' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\&' on input line 28.
+(hyperref)                removing `\&' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 28.
+(hyperref)                removing `\<def>-command' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\textunderscore' on input line 28.
+(hyperref)                removing `\textunderscore' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 28.
+(hyperref)                removing `\<let>-command' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\_' on input line 28.
+(hyperref)                removing `\_' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 28.
+(hyperref)                removing `\catcode' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 28.
+(hyperref)                removing `\active' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 28.
+(hyperref)                removing `\<let>-command' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 28.
+(hyperref)                removing `\csname\endcsname' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 28.
+(hyperref)                removing `\<let>-command' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 28.
+(hyperref)                removing `\csname\endcsname' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 28.
+(hyperref)                removing `\<let>-command' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\~' on input line 28.
+(hyperref)                removing `\~' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 28.
+(hyperref)                removing `\<let>-command' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\textasciitilde' on input line 28.
+(hyperref)                removing `\textasciitilde' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 28.
+(hyperref)                removing `\<let>-command' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 28.
+(hyperref)                removing `\\' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 28.
+(hyperref)                removing `\<def>-command' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 28.
+(hyperref)                removing `\csname\endcsname' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 28.
+(hyperref)                removing `\<def>-command' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Hy@tempa' on input line 28.
+(hyperref)                removing `\Hy@tempa' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 28.
+(hyperref)                removing `\<def>-command' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Hy@tempa' on input line 28.
+(hyperref)                removing `\Hy@tempa' on input line 42.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\%' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\#' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\&' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\textunderscore' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\_' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\catcode' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\active' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\~' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\textasciitilde' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\csname\endcsname' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Hy@tempa' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 28.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Hy@tempa' on input line 28.
+(hyperref)                removing `\\' on input line 42.
 
 Package biblatex Info: Trying to load language 'portuges'...
 Package biblatex Info: ... file 'portuges.lbx' found.
@@ -1675,29 +1521,38 @@ Package biblatex Warning: Patching footnotes failed.
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (biblatex)                Loading 'csquotes' recommended.
 
-\@quotelevel=\count345
-\@quotereset=\count346
+\@quotelevel=\count347
+\@quotereset=\count348
 (./main.aux
 
 LaTeX Warning: Label `treta' multiply defined.
 
+
+LaTeX Warning: Label `treta' multiply defined.
+
+
+LaTeX Warning: Label `graph2' multiply defined.
+
+
+LaTeX Warning: Label `sub@graph2' multiply defined.
+
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1735,17 +1590,17 @@ LaTeX Font Info:    ... okay on input line 35.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count347
-\scratchdimen=\dimen265
+\scratchcounter=\count349
+\scratchdimen=\dimen268
 \scratchbox=\box53
-\nofMPsegments=\count348
-\nofMParguments=\count349
-\everyMPshowfont=\toks45
-\MPscratchCnt=\count350
-\MPscratchDim=\dimen266
-\MPnumerator=\count351
-\makeMPintoPDFobject=\count352
-\everyMPtoPDFconversion=\toks46
+\nofMPsegments=\count350
+\nofMParguments=\count351
+\everyMPshowfont=\toks47
+\MPscratchCnt=\count352
+\MPscratchDim=\dimen269
+\MPnumerator=\count353
+\makeMPintoPDFobject=\count354
+\everyMPtoPDFconversion=\toks48
 ) (/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -1765,7 +1620,7 @@ e
 ))
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box54
-Package hyperref Info: Link coloring OFF on input line 35.
+Package hyperref Info: Link coloring OFF on input line 50.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1773,73 +1628,73 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count353
+\c@section@level=\count355
 )
-LaTeX Info: Redefining \ref on input line 35.
-LaTeX Info: Redefining \pageref on input line 35.
-LaTeX Info: Redefining \nameref on input line 35.
+LaTeX Info: Redefining \ref on input line 50.
+LaTeX Info: Redefining \pageref on input line 50.
+LaTeX Info: Redefining \nameref on input line 50.
  (./main.out)
 (./main.out)
 \@outlinefile=\write7
 \openout7 = `main.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 35.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 50.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 35.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 50.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 35.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 35.
+(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 50.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 50.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 35.
+(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 50.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 35.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 35.
+(Font)                  OT1/cmr/bx/n --> T1/cmss/bx/n on input line 50.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 50.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 35.
+(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 50.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 35.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 35.
+(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 50.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 50.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 35.
+(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 50.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 35.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 35.
+(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 50.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 50.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 35.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 50.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 35.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 50.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 35.
+(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 50.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 35.
+(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 50.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/cmr/bx/n on input line 35.
+(Font)                  OT1/cmss/bx/n --> T1/cmr/bx/n on input line 50.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/cmss/bx/n --> T1/cmss/bx/n on input line 35.
+(Font)                  T1/cmss/bx/n --> T1/cmss/bx/n on input line 50.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 35.
+(Font)                  T1/cmss/m/n --> T1/cmss/bx/n on input line 50.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 35.
+(Font)                  T1/cmss/m/it --> T1/cmss/bx/it on input line 50.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/cmtt/m/n --> T1/cmtt/bx/n on input line 35.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 35.
+(Font)                  T1/cmtt/m/n --> T1/cmtt/bx/n on input line 50.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 50.
 LaTeX Font Info:    Encoding `T1' has changed to `OT1' for symbol font
-(Font)              `pureletters' in the math version `normal' on input line 35
+(Font)              `pureletters' in the math version `normal' on input line 50
 .
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  T1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 35
+(Font)                  T1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 50
 .
 LaTeX Font Info:    Encoding `T1' has changed to `OT1' for symbol font
-(Font)              `pureletters' in the math version `bold' on input line 35.
+(Font)              `pureletters' in the math version `bold' on input line 50.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/cmss/bx/it --> OT1/mathkerncmss/m/sl on input line 3
-5.
+(Font)                  T1/cmss/bx/it --> OT1/mathkerncmss/m/sl on input line 5
+0.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 35.
+ut line 50.
 
 (/usr/share/texmf-dist/tex/latex/beamer/translator/dicts/translator-basic-dicti
 onary/translator-basic-dictionary-English.dict
@@ -1865,7 +1720,7 @@ Dictionary: translator-numbers-dictionary, Language: English
 tionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 35.
+LaTeX Info: Redefining \includegraphics on input line 50.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 Package biblatex Info: Input encoding 'utf8' detected.
@@ -1879,26 +1734,26 @@ Package biblatex Info: Data encoding 'utf8' specified.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (./main.bbl)
-Package biblatex Info: Reference section=0 on input line 35.
-Package biblatex Info: Reference segment=0 on input line 35.
+Package biblatex Info: Reference section=0 on input line 50.
+Package biblatex Info: Reference segment=0 on input line 50.
  (./main.nav)
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 40.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 55.
 
 (/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 40.
+LaTeX Font Info:    Try loading font information for U+msa on input line 55.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 40.
+LaTeX Font Info:    Try loading font information for U+msb on input line 55.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 40.
+line 55.
 
 (/usr/share/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
@@ -1906,70 +1761,157 @@ thkerncmss.
 )
 
 LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 40.
+(Font)              size <5> substituted on input line 55.
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
  <./udesc_background.pdf> <./udesc_logo.png>] (./main.toc) [2
 
- <./udesc_logo.png>]
-LaTeX Font Info:    Try loading font information for OMS+cmss on input line 69.
+ <./udesc_logo.png>] [3
 
-LaTeX Font Info:    No file OMScmss.fd. on input line 69.
+ <./udesc_logo.png>]
+LaTeX Font Info:    Try loading font information for OMS+cmss on input line 84.
+
+LaTeX Font Info:    No file OMScmss.fd. on input line 84.
 
 
 LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbullet' on input line 69.
+(Font)              for symbol `textbullet' on input line 84.
 
-<../tcc/figuras/etapas.pdf, id=89, 88.1965pt x 221.10706pt>
+<../tcc/figuras/etapas.pdf, id=117, 88.1965pt x 221.10706pt>
 File: ../tcc/figuras/etapas.pdf Graphic file (type pdf)
 
 <use ../tcc/figuras/etapas.pdf>
-Package pdftex.def Info: ../tcc/figuras/etapas.pdf used on input line 69.
-(pdftex.def)             Requested size: 71.78867pt x 179.96277pt.
+Package pdftex.def Info: ../tcc/figuras/etapas.pdf used on input line 84.
+(pdftex.def)             Requested size: 69.71214pt x 174.75952pt.
 
-Overfull \vbox (17.44977pt too high) detected at line 69
+Overfull \vbox (18.75055pt too high) detected at line 84
  []
 
-[3
+[4
 
- <./udesc_logo.png> <../tcc/figuras/etapas.pdf>] [4
-
- <./udesc_logo.png>]
-[5
-
- <./udesc_logo.png>] [6
+ <./udesc_logo.png> <../tcc/figuras/etapas.pdf>] [5
 
  <./udesc_logo.png>]
-<../tcc/figuras/graph.pdf, id=160, 103.63818pt x 101.3125pt>
+[6
+
+ <./udesc_logo.png>] [7
+
+ <./udesc_logo.png>] [8
+
+ <./udesc_logo.png>]
+<../tcc/figuras/graph.pdf, id=210, 103.63818pt x 101.3125pt>
 File: ../tcc/figuras/graph.pdf Graphic file (type pdf)
 
 <use ../tcc/figuras/graph.pdf>
-Package pdftex.def Info: ../tcc/figuras/graph.pdf used on input line 146.
+Package pdftex.def Info: ../tcc/figuras/graph.pdf used on input line 161.
 (pdftex.def)             Requested size: 117.9987pt x 115.35521pt.
- [7
+ [9
 
- <./udesc_logo.png> <../tcc/figuras/graph.pdf>] [8
+ <./udesc_logo.png> <../tcc/figuras/graph.pdf>] [10
+
+ <./udesc_logo.png>] [11
+
+ <./udesc_logo.png>] [12
 
  <./udesc_logo.png>]
-<../tcc/figuras/gercolumn.pdf, id=195, 430.81252pt x 212.1526pt>
+<../tcc/figuras/gercolumn.pdf, id=274, 430.81252pt x 212.1526pt>
 File: ../tcc/figuras/gercolumn.pdf Graphic file (type pdf)
 
 <use ../tcc/figuras/gercolumn.pdf>
-Package pdftex.def Info: ../tcc/figuras/gercolumn.pdf used on input line 185.
-(pdftex.def)             Requested size: 122.91406pt x 60.52885pt.
+Package pdftex.def Info: ../tcc/figuras/gercolumn.pdf used on input line 196.
+(pdftex.def)             Requested size: 307.28987pt x 151.33185pt.
 pdfTeX warning (ext4): destination with the same identifier (name{treta}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.185 \end{frame}
-                  [9
+l.196 \end{frame}
+                  [13
 
  <./udesc_logo.png> <../tcc/figuras/gercolumn.pdf>]
-[10
+[14
 
- <./udesc_logo.png>] [11
+ <./udesc_logo.png>] [15
+
+ <./udesc_logo.png>] [16
+
+ <./udesc_logo.png>]
+File: ../tcc/figuras/graph.pdf Graphic file (type pdf)
+
+<use ../tcc/figuras/graph.pdf>
+Package pdftex.def Info: ../tcc/figuras/graph.pdf used on input line 287.
+(pdftex.def)             Requested size: 117.9987pt x 115.35521pt.
+pdfTeX warning (ext4): destination with the same identifier (name{treta}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.287 \end{frame}
+                 
+Overfull \hbox (5.14403pt too wide) in paragraph at lines 287--287
+ [][] 
+ []
+
+[17
+
+ <./udesc_logo.png>] [18
+
+ <./udesc_logo.png>]
+<figuras/graph2.pdf, id=385, 154.41188pt x 77.88197pt>
+File: figuras/graph2.pdf Graphic file (type pdf)
+
+<use figuras/graph2.pdf>
+Package pdftex.def Info: figuras/graph2.pdf used on input line 323.
+(pdftex.def)             Requested size: 150.57372pt x 75.94826pt.
+ <figuras/graph3.pdf, id=386, 163.9465pt x 77.88197pt>
+File: figuras/graph3.pdf Graphic file (type pdf)
+
+<use figuras/graph3.pdf>
+Package pdftex.def Info: figuras/graph3.pdf used on input line 323.
+(pdftex.def)             Requested size: 150.57372pt x 71.53223pt.
+ [19
+
+pdfTeX warning (ext4): destination with the same identifier (name{graph2}) has 
+been already used, duplicate ignored
+
+\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
+                                                  
+l.323 \end{frame}
+                 pdfTeX warning (ext4): destination with the same identifier (n
+ame{sub@graph2}) has been already used, duplicate ignored
+
+\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
+                                                  
+l.323 \end{frame}
+                  <./udesc_logo.png> <./figuras/graph2.pdf> <./figuras/graph3.p
+df>] [20
+
+ <./udesc_logo.png>] [21
+
+ <./udesc_logo.png>]
+<../tcc/figuras/flowchart.pdf, id=459, 427.88057pt x 339.8848pt>
+File: ../tcc/figuras/flowchart.pdf Graphic file (type pdf)
+
+<use ../tcc/figuras/flowchart.pdf>
+Package pdftex.def Info: ../tcc/figuras/flowchart.pdf used on input line 343.
+(pdftex.def)             Requested size: 220.00513pt x 174.75952pt.
+
+Overfull \vbox (6.75055pt too high) detected at line 343
+ []
+
+[22
+
+ <./udesc_logo.png> <../tcc/figuras/flowchart.pdf>] [23
+
+ <./udesc_logo.png>]
+[24
+
+ <./udesc_logo.png>] [25
+
+ <./udesc_logo.png>] [26
+
+ <./udesc_logo.png>]
+[27
 
  <./udesc_logo.png> </usr/share/texmf-dist/tex/latex/beamer/art/beamericonartic
 le.pdf>]
@@ -1982,13 +1924,13 @@ le.pdf>]
 \tf@snm=\write10
 \openout10 = `main.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 206.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 206.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 402.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 402.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 206.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 206.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 402.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 402.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 94E5911402E9E17CFE5078ECA47B5EC4;218.
+(rerunfilecheck)             Checksum: 10CD2EFD9BB75AE964A4CA0BE49669C2;261.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -2003,36 +1945,43 @@ LaTeX Warning: There were multiply-defined labels.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 206.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 402.
  ) 
 Here is how much of TeX's memory you used:
- 24806 strings out of 493013
- 459404 string characters out of 6139317
- 706509 words of memory out of 5000000
- 27780 multiletter control sequences out of 15000+600000
- 20813 words of font info for 60 fonts, out of 8000000 for 9000
+ 25101 strings out of 493013
+ 463410 string characters out of 6139317
+ 720849 words of memory out of 5000000
+ 28009 multiletter control sequences out of 15000+600000
+ 21640 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,19n,55p,905b,1484s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,19n,58p,905b,1484s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/font
 s/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-ss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></us
-r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
-nts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1
-000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texmf-dist
-/fonts/type1/public/cm-super/sfss1000.pfb></usr/share/texmf-dist/fonts/type1/pu
-blic/cm-super/sfss1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/s
-fss1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx0900.pfb></u
-sr/share/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf-
-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on main.pdf (11 pages, 371680 bytes).
+/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+mi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/s
+hare/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb>
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/am
+sfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/sy
+mbols/msam7.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb
+></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsi1095.pfb></usr/share/te
+xmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/share/texmf-dist/fonts/
+type1/public/cm-super/sfss0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm
+-super/sfss1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1095
+.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/shar
+e/texmf-dist/fonts/type1/public/cm-super/sfsx0600.pfb></usr/share/texmf-dist/fo
+nts/type1/public/cm-super/sfsx0900.pfb></usr/share/texmf-dist/fonts/type1/publi
+c/cm-super/sfti1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt
+1000.pfb>
+Output written on main.pdf (27 pages, 754834 bytes).
 PDF statistics:
- 313 PDF objects out of 1000 (max. 8388607)
- 235 compressed objects within 3 object streams
- 35 named destinations out of 1000 (max. 500000)
- 167 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 658 PDF objects out of 1000 (max. 8388607)
+ 514 compressed objects within 6 object streams
+ 84 named destinations out of 1000 (max. 500000)
+ 288 words of extra memory for PDF output out of 10000 (max. 10000000)
 

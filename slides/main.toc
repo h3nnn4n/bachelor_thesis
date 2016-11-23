@@ -6,8 +6,10 @@
 \defcounter {refsection}{0}\relax 
 \beamer@sectionintoc {1}{Introdu\IeC {\c c}\IeC {\~a}o}{3}{0}{1}
 \defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {2}{Formula\IeC {\c c}\IeC {\~a}o}{6}{0}{2}
+\beamer@sectionintoc {2}{Formula\IeC {\c c}\IeC {\~a}o}{7}{0}{2}
 \defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {3}{Gera\IeC {\c c}\IeC {\~a}o de colunas}{8}{0}{3}
+\beamer@sectionintoc {3}{Gera\IeC {\c c}\IeC {\~a}o de colunas}{10}{0}{3}
 \defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {4}{Conclus\IeC {\~o}es parciais}{10}{0}{4}
+\beamer@sectionintoc {4}{Proposta}{20}{0}{4}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {5}{Conclus\IeC {\~o}es parciais}{24}{0}{5}

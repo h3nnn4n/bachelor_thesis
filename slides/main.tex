@@ -3,12 +3,26 @@
 \usepackage{graphicx,hyperref,udesc,url}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage[portuges]{babel}
 \usepackage{booktabs}
 \usepackage{caption}
-\usepackage[portuges]{babel}
-\usepackage{ amssymb }
+\usepackage{subcaption}
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{colortbl}
 
 \setbeamertemplate{caption}[numbered]
+
+\AtBeginSection[]{
+    \begin{frame}
+    \vfill
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+        \usebeamerfont{title}\insertsectionhead\par%
+    \end{beamercolorbox}
+    \vfill
+    \end{frame}
+}
 
 \usepackage[
     backend=bibtex,
@@ -20,17 +34,18 @@
 
 \newcommand{\ccite}[1]{(\citeauthor{#1}, \citeyear{#1})}
 
-\title[Modelo Slides Udesc]{Modelo de slides UDESC}
+\title[]{Proposta de um algoritmo híbrido para a solução do Problema de Escalonamento de Tripulação}
 
-\author[Rafael Castro, Renan S. Silva]{
-    Rafael Castro, Renan S. Silva\\\medskip
+\author[Renan S. Silva]{
+    Renan S. Silva\\\medskip
     {\small \url{rafaelcgs10@gmail.com}} \\ 
-{\small \url{uber.renan@gmail.com}}}
+}
 
 \institute[UDESC]{
     Departamento de Ci\^encia da Computa\c{c}\~ao \\
     Centro de Ci\^encias e Tecnol\'ogias\\
-Universidade do Estado de Santa Catarina}
+    Universidade do Estado de Santa Catarina
+}
 
 \begin{document}
 
@@ -53,7 +68,7 @@ Universidade do Estado de Santa Catarina}
             \begin{itemize}
                 %\item Segundo~\ccite{de2011algoritmo} e~\ccite{qiao2010algorithm}, o planejamento operacional de uma empresa de transporte de urbano pode ser dividido conforme a figura~\ref{fig_etapas};
                 \item O planejamento operacional de uma empresa de transporte de urbano pode ser dividido conforme a figura~\ref{fig_etapas};
-                \item Este trabalho tem como objetivo resolver problema do Escalonamento de Tripulação (CSP);
+                \item Este trabalho tem como objetivo propor um algoritmo para resolver problema do Escalonamento de Tripulação (CSP);
             \end{itemize}
         \end{minipage}
     %
@@ -72,7 +87,7 @@ Universidade do Estado de Santa Catarina}
     \frametitle{Relevância}
 
     \begin{description}
-        \item [Teória] O CSP é um problema $\mathcal{NP}$-Hard, que pode ser reduzido para o problema de cobertura/particionamento de conjuntos;
+        \item [Teória] O CSP é um problema $\mathcal{NP}$-Hard, que pode ser reduzido para o problema de cobertura ou particionamento de conjuntos;
         \item [Prática]\ccite{zeren2012improved} afirma que os gastos com a tripulação são a segunda maior fonte de gastos das empresas, atrás apenas dos gastos com combustíveis;
     \end{description}
 \end{frame}
@@ -93,7 +108,7 @@ Universidade do Estado de Santa Catarina}
 
 \section{Formulação}
 \begin{frame}
-    \frametitle{Formulação}
+    \frametitle{Problema de cobertura e particionamento}
     Dentre as possíveis modelagens possíveis para o CSP, utilizou-se uma com base no problema de particionamento de conjuntos(SPP);
 
     \begin{figure}[!htb]
@@ -159,41 +174,222 @@ Universidade do Estado de Santa Catarina}
 \end{frame}
 
 \begin{frame}
+    \frametitle{Estrutura}
+
+    \begin{itemize}
+        \item A geração de colunas é dividida em dois problemas menores: Problema mestre e subproblema;
+        \item O problema mestre é o problema original com um conjunto reduzido de jornadas(colunas);
+        \item O subproblema é um problema de programação linear inteira que determina qual jornada
+            deve ser inserida no problema mestre;
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
     \frametitle{Funcionamento}
+
+    {
+        \centering
+        \includegraphics[width=1\linewidth]{../tcc/figuras/gercolumn.pdf}
+        \captionof{figure}{Processo de geração de colunas}
+        \label{treta}
+    }
+\end{frame}
+
+%\begin{frame}
+    %\frametitle{Funcionamento}
+
+    %\begin{figure}[!htb]
+        %\centering
+        %\begin{minipage}{0.49\textwidth}
+            %\begin{itemize}
+                %\item A geração de colunas é dividida em dois problemas menores: Problema mestre e subproblema;
+                %\item O problema mestre é o problema original com um conjunto reduzido de jornadas(colunas);
+                %\item O subproblema é um problema de programação linear inteira que determina qual jornada
+                    %deve ser inserida no problema mestre;
+            %\end{itemize}
+        %\end{minipage}
+%%
+        %\begin{minipage}{.49\textwidth}
+        %{
+            %\centering
+            %\includegraphics[width=1\linewidth]{../tcc/figuras/gercolumn.pdf}
+            %\captionof{figure}{Processo de geração de colunas}
+            %\label{treta}
+        %}
+        %\end{minipage}
+    %\end{figure}
+%\end{frame}
+
+\begin{frame}
+    \frametitle{Problema mestre}
+
+    O problema mestre para resolver o CSP:
+    \begin{itemize}
+        \item É um problema de SPP;
+        \item Necessita de um conjunto inicial de colunas;
+        \item Resolve-se a relaxação linear;
+        \item Fornece preços duais para guiar o subproblema;
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Formulação do problema mestre}
+
+    \begin{subequations}
+        \label{pmaster}
+        \begin{align}
+            \label{pmaster1}  \text{min} \: &\sum_{j \in \tilde{J}} c_j x_j \\
+            \label{pmaster2} &\sum_{j \in \tilde{J}} a_{tj} x_j = 1, \forall t \in T \\
+            \label{pmaster3} &\sum_{j \in \tilde{J}}        x_j = NJ \\
+            \label{pmaster4} x_j &\geq 0, \forall j \in \tilde{J}
+        \end{align}
+    \end{subequations}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Subproblema}
+
+
+    \begin{itemize}
+        \item O subproblema é um problema de PLI, cujo objetivo é encontrar uma nova coluna para o problema mestre;
+        \item Utiliza os preços duais fornecidos pelo problema mestre;
+        \item É um caminho mínimo com restrições ($\mathcal{NP}$-hard);
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Subproblema}
+{
+    \centering
+    \begin{minipage}{.48\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{../tcc/figuras/graph.pdf}
+        \captionof{figure}{Grafo do subproblema}
+        \label{treta}
+    \end{minipage}%
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \begin{tabular}{l l l}
+            Jornada                           & Custo & Duração \\
+            1 $\rightarrow$ 3                 & 5     & 13 \\
+            1 $\rightarrow$ 5                 & 6     & 14 \\
+            2 $\rightarrow$ 3                 & 3     & 13 \\
+            2 $\rightarrow$ 4                 & 4     & 9  \\
+            2 $\rightarrow$ 4 $\rightarrow$ 5 & 7     & 14 \\
+            2 $\rightarrow$ 4 $\rightarrow$ 3 & 8     & 13 \\
+            2 $\rightarrow$ 5                 & 6     & 14 \\
+        \end{tabular}
+        \captionof{table}{Enumeração de todas as jornadas viáveis}
+        \label{tab_gragh_csp_enum}
+    \end{minipage}
+}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Formulação do Subproblema}
+
+    \begin{subequations}
+        \label{subp}
+        \begin{align}
+            \label{subp1} \text{min} \: \sum_{a \in A} c_a y_a &- \sum_{t \in T} \tilde{\pi}_t v_t - \tilde{\mu}\\
+            \label{subp2} \sum_{a \in \delta^{+} (v_0)} y_{a} &= \sum_{a \in \delta^{-} (v_f)} y_{a} = 1 \\
+            \label{subp3} \sum_{a \in \delta^{+} (v_t)} y_{a} &= \sum_{a \in \delta^{-} (v_t)} y_{a} = v_t, \forall t \in T \\
+            \label{subp4} \sum_{a \in A} d_a y_{a} &\leq MaxW \\
+            \label{subp5} v_t, y_a &\in \{0, 1\}, \forall v_j \in V, \forall a \in A
+        \end{align}
+    \end{subequations}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Adição de tarefas fictícias}
 
     \begin{figure}[!htb]
         \centering
-        \begin{minipage}{0.55\textwidth}
-            \begin{itemize}
-                \item A geração de colunas é dividida em dois problemas menores: Problema mestre e subproblema;
-                \item O problema mestre é o problema original com um conjunto reduzido de jornadas(colunas);
-                \item O subproblema é um problema de programação linear inteira que determina qual jornada
-                    deve ser inserida no problema mestre;
-            \end{itemize}
-        \end{minipage}
-%
-        \begin{minipage}{.40\textwidth}
-{
-    \centering
-    \includegraphics[width=1\linewidth]{../tcc/figuras/gercolumn.pdf}
-    \captionof{figure}{Processo de geração de colunas}
-    \label{treta}
-}
-        \end{minipage}
+        \begin{subfigure}[t]{0.49\textwidth}
+            \centering
+            \includegraphics[width=1\linewidth]{figuras/graph2.pdf}
+            \caption{Grafo original}
+            \label{graph2}
+        \end{subfigure}
+        \begin{subfigure}[t]{0.49\textwidth}
+            \centering
+            \includegraphics[width=1\linewidth]{figuras/graph3.pdf}
+            \caption{Grafo com os nós fictícios}
+            \label{graph2}
+        \end{subfigure}
+        \caption{Grafo com e sem nós fictícios}
     \end{figure}
-
 \end{frame}
+
+\section{Proposta}
+\begin{frame}
+    \frametitle{Proposta}
+    \begin{itemize}
+        \item Encorporar o uso de (meta) heurísticas na solução do subproblema;
+        \item Segundo~\ccite{dos2008metodo} a utilização de meta heurísticas pode acelerar o processo de solução;
+        \item Utilizar as heurísticas do subproblema para gerar um conjunto inicial de colunas;
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Proposta}
+    {
+        \centering
+        \includegraphics[height=.8\textheight]{../tcc/figuras/flowchart.pdf}
+        \captionof{figure}{Proposta de geração de colunas, adaptado de~\ccite{dos2008metodo}}
+        \label{flowchart}
+    }
+\end{frame}
+
+\begin{frame}
+    \frametitle{(Meta) heurísticas estudadas}
+    \begin{itemize}
+        \item Busca gulosa baseada em relaxação linear;
+        \item Subida de encosta;
+        \item \textit{Simmulated annealing} (SA);
+        \item \textit{Ant colony optimization} (ACO);
+        \item Busca Tabu;
+    \end{itemize}
+\end{frame}
+
+%\begin{frame}
+    %\frametitle{Formulação do Subproblema}
+
+%\end{frame}
 
 \section{Conclusões parciais}
 \begin{frame}
     \frametitle{Conclusões parciais}
     \begin{itemize}
-        \item Kappa;
-        \item Keepo;
-        \item Kippa;
-        \item Klappa;
-        \item KappaRoss;
+        \item Pode-se identificar um problema teórico e com interesse prático;
+        \item Identificou-se um método de solução para o problema;
+        \item Realizou-se uma revisão bibliográfica para identificar possíveis métodos para melhorar o desempenho do algoritmo;
     \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Cronograma}
+    \begin{center}
+    \tiny
+    \begin{tabular}{|c||c|c|c|c|c||c|c|c|c|c|c|}
+        \hline
+        \multirow{2}{*}{\textbf{{Etapas}}} & \multicolumn{5}{|c||}{\textbf{{2016}}} & \multicolumn{6}{|c|}{\textbf{{2017}}} \\
+        \cline{2-12}
+        & \textbf{A} & \textbf{S} & \textbf{O} & \textbf{N} & \textbf{D} & \textbf{J} & \textbf{F} & \textbf{M} & \textbf{A} & \textbf{M} & \textbf{J} \\
+        \hline \hline
+        \textbf{1} & \cellcolor{gray!50}\checkmark & \cellcolor{gray!50}\checkmark & \cellcolor{gray!50}\checkmark &                               &                               &                               &                               &                               &            &            & \\ \hline
+        \textbf{2} &                               & \cellcolor{gray!50}\checkmark & \cellcolor{gray!50}\checkmark & \cellcolor{gray!50}\checkmark &                               &                               &                               &                               &            &            & \\ \hline
+        \textbf{3} &                               & \cellcolor{gray!50}\checkmark & \cellcolor{gray!50}\checkmark & \cellcolor{gray!50}\checkmark & \cellcolor{gray!50}\checkmark &                               &                               &                               &            &            & \\ \hline
+        \textbf{4} &                               & \cellcolor{gray!50}\checkmark & \cellcolor{gray!50}\checkmark & \cellcolor{gray!50}\checkmark & \cellcolor{gray!50}\checkmark &                               &                               &                               &            &            & \\ \hline
+        \textbf{5} &                               &                               & \cellcolor{gray!50}\checkmark & \cellcolor{gray!50}\checkmark & \cellcolor{gray!50}\checkmark &                               &                               &                               &            &            & \\ \hline
+        \textbf{6} &                               &                               &                               &                               &                               & \cellcolor{gray!50}\checkmark & \cellcolor{gray!50}\checkmark & \cellcolor{gray!50}\checkmark & \checkmark &            & \\ \hline
+        \textbf{7} &                               &                               &                               &                               &                               &                               & \checkmark                    & \checkmark                    & \checkmark & \checkmark & \checkmark \\ \hline
+        \textbf{8} &                               &                               &                               &                               &                               &                               &                               & \checkmark                    & \checkmark & \checkmark & \checkmark \\ \hline
+        \textbf{9} &                               &                               &                               & \cellcolor{gray!50}\checkmark & \cellcolor{gray!50}\checkmark & \checkmark                    & \checkmark                    & \checkmark                    & \checkmark & \checkmark & \checkmark \\ \hline
+    \end{tabular}
+    \captionof{table}{Cronograma proposto com atividades completas em destaque}
+    \end{center}
 \end{frame}
 
 %\section{Referências}

@@ -17,6 +17,34 @@
 \endgroup
 
 \sortlist[entry]{anyt/global/}
+  \entry{dos2008metodo}{thesis}{}
+    \name{author}{1}{}{%
+      {{hash=dSAG}{%
+         prefix={dos},
+         prefix_i={d\bibinitperiod},
+         family={Santos},
+         family_i={S\bibinitperiod},
+         given={Andr{\'e}\bibnamedelima Gustavo},
+         given_i={A\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SAGd1}
+    \strng{fullhash}{SAGd1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelalpha}{San08}
+    \field{labelyear}{2008}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{M{\'e}todo de Gera{\c{c}}{\~a}o de Colunas e
+  Meta-heur{\'\i}sticas para Aloca{\c{c}}{\~a}o de Tripula{\c{c}}{\~a}o}
+    \list{institution}{1}{%
+      {Universidade Federal de Minas Gerais}%
+    }
+    \field{type}{phdthesis}
+    \field{year}{2008}
+  \endentry
+
   \entry{zeren2012improved}{article}{}
     \true{moreauthor}
     \name{author}{1}{}{%
