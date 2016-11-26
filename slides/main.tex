@@ -13,6 +13,8 @@
 
 \setbeamertemplate{caption}[numbered]
 
+\newcommand{\RNum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+
 \AtBeginSection[]{
     \begin{frame}
     \vfill
@@ -38,7 +40,7 @@
 
 \author[Renan S. Silva]{
     Renan S. Silva\\\medskip
-    {\small \url{rafaelcgs10@gmail.com}} \\ 
+    {\small \url{uber.renan@gmail.com}} \\ 
 }
 
 \institute[UDESC]{
@@ -363,8 +365,31 @@
     \frametitle{Conclusões parciais}
     \begin{itemize}
         \item Pode-se identificar um problema teórico e com interesse prático;
-        \item Identificou-se um método de solução para o problema;
-        \item Realizou-se uma revisão bibliográfica para identificar possíveis métodos para melhorar o desempenho do algoritmo;
+        \item Realizou-se uma revisão bibliográfica onde:
+        \begin{itemize}
+            \item Identificou-se um método de solução para o problema;
+            \item Identificou-se possíveis métodos para melhorar o desempenho do algoritmo;
+        \end{itemize}
+    \item Identificou-se um solver (\textbf{CPLEX}, GLKP, SCIP, Cbc, $\ldots$) para utilizar na solução do problema mestre
+        e subproblema;
+    \item Implementou-se um protótipo de geração de colunas capaz de resolver o CSP de forma exata;
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Próximas etapas}
+    \begin{itemize}
+        \item Seleção, implementação e avaliação das (meta) heurísticas para aplicar no subproblema;
+        \item Utilização do banco de dados da \textit{OR-Libary} para avaliar a implementação final;
+        \item Escrita do TCC-\RNum{2};
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Publicações}
+    \begin{itemize}
+        \item Artigo publicado na SBPO \RNum{48};
+        \item Escrita de um artigo contemplando os resultados deste trabalho;
     \end{itemize}
 \end{frame}
 
