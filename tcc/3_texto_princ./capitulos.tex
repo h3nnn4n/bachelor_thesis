@@ -1,4 +1,3 @@
-\setlength\abovedisplayskip{0pt} \setlength\belowdisplayskip{0pt}
 \setlength\abovedisplayshortskip{0pt} \setlength\belowdisplayshortskip{0pt}
 
 \chapter{Fundamentação Teórica} \label{cap1}
@@ -10,15 +9,15 @@ problema do escalonamento de tripulações.
 
 A programação linear consiste na modelagem e solução de problemas descritos com
 uma função objetivo linear sujeita a múltiplas restrições lineares. A forma
-genérica de um problema de programação linear é\cite{dantzig1955generalized}:
+genérica de um problema de programação linear é, fornecida por~\cite{dantzig1955generalized}:
 
-\begin{align} \label{funcao_obj} \text{maximizar} \: z &= \sum_{j=1}^{p}
-    c_jx_j, \intertext{sujeito à:} \label{restricoes} \sum_{j=1}^{p} a_{ij} x_j
-    \leq b_i, i &= 1, 2, \ldots, q \\ \label{restricoes_triviais} x_j \geq 0, j
-    &= 1, 2, \ldots, p, \end{align}.
+\begin{align} \label{funcao_obj} \text{maximizar} \: z &= \sum_{j=1}^{m}
+    c_jx_j, \intertext{sujeito à:} \label{restricoes} \sum_{j=1}^{m} a_{ij} x_j
+    \leq b_i, i &= 1, 2, \ldots, n \\ \label{restricoes_triviais} x_j \geq 0, j
+    &= 1, 2, \ldots, m, \end{align}.
 
 Onde $c_j, a_{ij}$ e $b_i$ são números reais que definem o problema e $x_j$
-para $j=1, 2, \ldots, p$ são as variáveis de decisão. A
+para $j=1, 2, \ldots, m$ são as variáveis de decisão. A
 função~\eqref{funcao_obj} é denominada de função objetivo, a qual deve ser
 maximizada. Note que o máximo de $f(x)$ é o mínimo de $-f(x)$ com o sinal
 oposto max $f(x) = - \text{min} f(x)$. As inequações em~\eqref{restricoes}
@@ -31,14 +30,14 @@ Cada restrição em~\eqref{restricoes} pode ser convertida para restrição de
 igualdade utilizando-se uma variável extra, denominada de variável de folga. A
 utilização dá-se por:
 
-\[ \label{restricoes} \sum_{j=1}^{p} a_{ij} x_j \leq b_i \Leftrightarrow
-\begin{cases} \Sigma_{j=1}^{p} a_{ij} x_j + x_{p+i} = b_i\\ x_{p+i} \geq 0
+\[ \label{restricoes} \sum_{j=1}^{m} a_{ij} x_j \leq b_i \Leftrightarrow
+\begin{cases} \Sigma_{j=1}^{m} a_{ij} x_j + x_{m+i} = b_i\\ x_{m+i} \geq 0
 \end{cases} \].
 
 é possível ainda utilizar duas igualdades para representar uma igualdade:
 
-\[ \label{restricoes} \sum_{j=1}^{p} a_{ij} x_j = b_i \Leftrightarrow
-\begin{cases} \Sigma_{j=1}^{p} a_{ij} x_j \leq b_i\\ \Sigma_{j=1}^{p} a_{ij}
+\[ \label{restricoes} \sum_{j=1}^{m} a_{ij} x_j = b_i \Leftrightarrow
+\begin{cases} \Sigma_{j=1}^{m} a_{ij} x_j \leq b_i\\ \Sigma_{j=1}^{m} a_{ij}
 x_j \geq b_i \end{cases} \]
 
 Para um problema qualquer de programação linear com restrições de desigualdades
@@ -54,7 +53,9 @@ qualquer problema de programação linear pode ser expresso como:
 \end{align}.
 
 Onde $c^T \in \mathbb{R}^n$, $x \in \mathbb{R}^n$, $b \in \mathbb{R}^m$, $A \in
-\mathbb{R}^{m \times n}$ e $a_j \in \mathbb{R}^m$.
+\mathbb{R}^{m \times n}$ e $a_j \in \mathbb{R}^m$. Sendo que $c$ e $x$ são vetores de reais
+de dimensão $n$, $b$ é um vetor de reais de dimensão $m$ e $A$ é uma matriz de dimensão $m \times n$
+de valores reais.
 
 Baseado nas restrições~\eqref{res2} e~\eqref{res_t2}, pode-se descrever o
 problema como encontrar $x \in X$, onde $X = \{ x \in \mathbb{R}^n | Ax = b, x
@@ -73,7 +74,10 @@ matricial, ou em forma de conjunto. Suas representações são respectivamente:
 \label{lp_r} Ax &= b \\ \label{lp_tr} x &\geq 0 \intertext{} \label{lp_set}
 \text{max } \{ cx : Ax &\leq b, x \geq 0 \} \end{align}
 
-\subsection{Métodos de solução}
+Com os modelos apresentados, pode-se modelar qualquer problema de otimização com
+uma funções objetivo linear e sujeita a restrições lineares.
+
+\subsection{Métodos de Solução}
 
 Considerando o conjunto $X$ descrito na seção anterior, o objetivo de efetuar a
 modelagem de um problema utilizando-se programação linear é utilizar recursos
@@ -125,16 +129,16 @@ Considerando o problema de programação linear apresentado
 em~\eqref{funcao_obj},~\eqref{restricoes} e~\eqref{restricoes_triviais}, que a
 partir de agora será denominado de problema primal,
 
-\begin{align} \text{maximizar} \: z = \sum_{j=1}^{p} c_jx_j, \intertext{sujeito
-a:} \label{rp} \sum_{j=1}^{p} a_{ij} x_j \leq b_i, i = 1, 2, \ldots, q \\
-\label{} x_j \geq 0, j = 1, 2, \ldots, p, \end{align}.
+\begin{align} \text{maximizar} \: z = \sum_{j=1}^{m} c_jx_j, \intertext{sujeito
+a:} \label{rm} \sum_{j=1}^{m} a_{ij} x_j \leq b_i, i = 1, 2, \ldots, n \\
+\label{} x_j \geq 0, j = 1, 2, \ldots, m, \end{align}.
 
 O problema dual é construído atribuindo-se uma variável $u_i, i = 1, 2, \ldots,
 q$ a cada restrição em~\eqref{rp} e definindo o problema como:
 
-\begin{align} \text{minimizar} \: d = \sum_{i=1}^{q} b_iu_i, \intertext{sujeito
-a:} \label{} \sum_{i=1}^{q} a_{ij} u_i \leq c_j, i = 1, 2, \ldots, p \\
-\label{} u_i \geq 0, i = 1, 2, \ldots, q, \end{align}
+\begin{align} \text{minimizar} \: d = \sum_{i=1}^{n} b_iu_i, \intertext{sujeito
+a:} \label{} \sum_{i=1}^{n} a_{ij} u_i \leq c_j, i = 1, 2, \ldots, m \\
+\label{} u_i \geq 0, i = 1, 2, \ldots, n, \end{align}
 
 O problema primal e dual em sua forma matricial são dados por:
 
@@ -211,13 +215,23 @@ Sabe-se ainda que a PLI é um problema $\mathcal{NP}$-completo forte, portanto, é
 improvável que exista um algoritmo pseudo-polinomial capaz de
 resolvê-lo~\cite{garey1978strong}.
 
-Considere o problema de PLI a seguir:
+Considere o problema de PLI a seguir, em sua forma matricial:
 
 \begin{equation} \label{pli_example} A = \begin{pmatrix} -1 &  2 \\ 5 &  1 \\
     -2 & -2 \end{pmatrix}, \quad b = \begin{pmatrix} 4 \\ 20 \\ -7
         \end{pmatrix}, \quad c^T = \begin{pmatrix} 1 \\ 1 \end{pmatrix}
 \end{equation}
 
+que corresponde ao seguinte problema de programação linear inteira:
+
+\begin{subequations}
+    \begin{align}
+        \text{min} \: x_1 + x_2 \\
+        -x_1 + 2x_2 = 4 \\
+        5x_1 + x_2  = 20 \\
+        -2x_1 + 2x_2 = -7
+    \end{align}
+\end{subequations}
 
 \begin{figure}[!htb]
     \centering
@@ -240,10 +254,10 @@ Considere o problema de PLI a seguir:
     \end{minipage}
 \end{figure}
 
-Resolvendo-o obtém-se o resultado apresentado na figura~\ref{rrrr}.
+Resolvendo-o obtém-se o resultado apresentado na Figura~\ref{rrrr}.
 Considerando que o problema de PLI admite apenas variáveis com valores
 inteiros, o resultado acima é inválido como resposta para o problema.
-Observando-se a figura~\ref{espacobusca}, que contém o espaço de busca do problema
+Observando-se a Figura~\ref{espacobusca}, que contém o espaço de busca do problema
 em questão, pode-se observar que os pontos que são factíveis ao problema de PLI
 são um subconjunto do espaço de busca de um problema de programação linear com
 as mesmas restrições. Observa-se ainda que a solução ótima do problema de PLI
@@ -266,7 +280,7 @@ relaxação linear é um limite superior de otimalidade para um problema de PLI
 qualquer. O mesmo é válido para PLIM e PLIB.
 
 O espaço de busca de um problema de PLI consiste em um conjunto de pontos com
-coordenadas inteiras. A figura~\ref{espacobusca} contém o conjunto de pontos
+coordenadas inteiras. A Figura~\ref{espacobusca} contém o conjunto de pontos
 que satisfazem o problema original. O contorno que envolve os pontos consiste
 na relaxação linear, onde a restrição de integralidade foi desconsiderada.
 Pode-se notar que a área de busca aumentou e a solução ótima da relaxação é
@@ -280,7 +294,7 @@ relaxação combinatória oferece um limite superior de otimalidade para um
 problema de PLI, no entanto a relaxação combinatória não necessariamente torna
 o problema mais fácil de se resolver, no sentido de diminuir a complexidade.
 
-Um exemplo de relaxação combinatória é a remoção da restrição de sub-tours no
+Um exemplo de relaxação combinatória é a remoção da restrição de \texit{sub-tours} no
 problema do caixeiro viajante, que transforma-o em um problema de designação. O
 problema de designação é um problema $\mathcal{P}$. Na prática utiliza-se esta
 relaxação para resolver-se o problema do caixeiro
@@ -327,7 +341,7 @@ da PLI. Sendo assim, pode-se incluir a geração de planos de cortes no processo
 de solução do BnB, melhorando assim seus limites. O BnB que utiliza planos de
 cortes é denominado de \textit{Branch and Cut} (BnC).
 
-\section{Problemas com muitas restrições ou variáveis}
+\section{Problemas com Muitas Restrições ou Variáveis}
 
 Na programação linear inteira existem problemas que tornam-se inviáveis de serem
 resolvidos puramente com os métodos acima mencionados. Tomemos o problema
@@ -399,8 +413,8 @@ variáveis violadas.
 A principal vantagem deste método é que o conjunto de restrições finais é
 muito menor do que o total de restrições do problema original. E portanto, o
 custo de resolver diversos problemas de separação e efetuar múltiplas
-re-otimizações do problema original tende a ser mais rápida do que resolver
-o problema original.
+re-otimizações do problema original mostrou-se ser mais rápido do que resolver
+do que o problema original.
 
 Existem ainda problemas onde o número de restrições é relativamente pequeno,
 enquanto que o \textbf{número de variáveis é muito maior}. Um exemplo de problema com
@@ -524,7 +538,7 @@ programação linear inteira, suas principais propriedades e métodos de solução.
 Por fim introduziu-se o conceito de utilizar custo reduzido e o problema dual
 para determinar restrições violadas ou colunas que podem melhorar a função objetivo.
 
-\chapter{Escalonamento de tripulação}
+\chapter{Escalonamento de Tripulação}
 \label{chap3}
 
 A alocação de tripulação (CSP) consiste em um dos principais problemas de planejamento
@@ -549,12 +563,13 @@ por jornada.
 
 Conhecendo-se um número suficientemente grande de jornadas (grande o suficiente
 para poder cobrir todas as tarefas de modo factível) pode-se modelar o CSP como
-um problema de \textit{set covering problem} (SCP) ou \textit{set partitioning problem} (SPP),
+um problema de \textit{set covering problem} (SCP, ou do português, problema de cobertura de conjuntos)
+ou \textit{set partitioning problem} (SPP, do português, problema de particionamento de conjuntos),
 dependendo se é desejável que uma jornada seja coberta mais de uma vez. No restante
 deste capitulo é discutido os problemas de cobertura e particionamento assim como uma
 abordagem mais detalhada do CSP.
 
-\section{Modelagem do problema}
+\section{Modelagem do Problema}
 \label{csppppp}
 
 Esta seção é dedicada a explicar a modelagem e as instâncias utilizadas neste
@@ -567,7 +582,7 @@ eles são utilizados como objeto de estudo neste trabalho. Cada instância é apres
 no seguinte formato: Número de tarefas($N$); Tempo limite de uma jornada; para cada
 $i\text{ em }\{1, \ldots, N\}$: tempo de início, tempo de termino; Para cada par
 $(i, j)$ de arestas, onde $j$ começa após o término de $i$, o custo da transição
-de $i$ para $j$. O problema pode ser representado em um grafo, conforme visto na figura~\ref{fig_graph_csp}
+de $i$ para $j$. O problema pode ser representado em um grafo, conforme visto na Figura~\ref{fig_graph_csp}
 Beasley, no seu artigo considera um número fixo de jornadas para a solução final.
 Este número fixo corresponderia a tripulação disponível operar. Apesar desta informação
 não estar disponível nas instâncias, ela foi utilizada.
@@ -592,7 +607,7 @@ número de tarefas. No entanto este modelo é a base para a solução por geração de
 %}
 %\end{figure}
 
-Na figura~\ref{fig_graph_csp} é apresentado um grafo relativo a instância apresentada
+Na Figura~\ref{fig_graph_csp} é apresentado um grafo relativo a instância apresentada
 na tabela~\ref{tab_graph_csp}, no modelo apresentado acima. A enumeração de todas as jornadas
 factíveis e seus respectivos custo e durações são apresentadas na tabela~\ref{tab_gragh_csp_enum}.
 Utilizando-se estas informações, é possível utilizar um problema de particionamento de conjuntos
@@ -726,7 +741,7 @@ as jornadas de modo explícito, isto é, as jornadas não são pré-calculadas.
 
 %Com o exposto acima concluímos que
 
-\section{Geração de colunas para o CSP}
+\section{Geração de Colunas para o CSP}
 
 Conforme visto na seção\ref{csppppp}, considerar explicitamente o conjunto de todas as jornadas possíveis para
 uma instância de CSP é algo que pode inviabilizar a solução do problema. Um método que contorna
@@ -747,7 +762,7 @@ O método de geração de colunas é decomposto em dois problemas menores: Problema 
 Sub problema, que é um modelo de PLI capaz de identificar que informação é necessária para que o problema
 mestre encontre a solução ótima.
 
-A interação entre os dois problemas é mostrada na figura~\ref{treta}. A relaxação linear do problema mestre é resolvido com um
+A interação entre os dois problemas é mostrada na Figura~\ref{treta}. A relaxação linear do problema mestre é resolvido com um
 conjunto inicial de jornadas, de modo que o problema possua uma solução factível. A partir da solução da relaxação do
 problema mestre obtém-se os preços duais associados às restrições do problema, que são utilizados na formulação do subproblema.
 O subproblema então utiliza os preços duais para calcular uma nova jornada que tem a possibilidade de contribuir para o problema
@@ -759,7 +774,7 @@ PLI.
 
 Nas seções a seguir é discutido formalmente a formulação e funcionamento do processo de geração de colunas.
 
-\subsection{Problema mestre}
+\subsection{Problema Mestre}
 
 O problema mestre deve ser capaz de obter uma solução factível e ótima para o problema original. Quando aplicado
 ao CSP, o problema mestre consiste de um SPP. Tem-se que cada coluna corresponde a uma jornada viável, com uma
@@ -875,13 +890,13 @@ com que as jornadas tenham no máximo uma duração pré definida.
 }
 %\end{figure}
 
-Considere o grafo na figura~\ref{graph2} como um subproblema, na qual os preços duais e os custos
+Considere o grafo na Figura~\ref{graph2} como um subproblema, na qual os preços duais e os custos
 das arestas são apresentados na tabela~\ref{tab_pd}. As arestas tracejadas fazem parte do grafo, porém
 não fazem parte da solução encontrada. As arestas em destaque formam uma solução de custo reduzido
 negativo para o subproblema. Tem-se então que $y_{(0,1)} = y_{(1,3)} = y_{(3,f)} = 1$ e os demais
 $y_{(i,j)} = 0$, já para os vértices tem-se $v_1 = v_3 = 1$ e $v_2 = 0$. Portanto obtêm-se uma
-função objetivo onde o primeiro termo possui um valor de $y{(1,3)}*6 = 6$ e o segundo vale
-$v_1 * 6 + v_3*4 = 10$, resultando em $-4$.
+função objetivo onde o primeiro termo possui um valor de $y{(1,3)}\cdot6 = 6$ e o segundo vale
+$v_1 \cdot 6 + v_3\cdot4 = 10$, resultando em $-4$.
 
 Neste capitulo discutiu-se a modelagem do SPP e do CSP. Discutiu-se ainda como são modelados o problema mestre utilizando SPP
 e o subproblema utilizando caminho mínimo com restrições.
@@ -890,7 +905,7 @@ e o subproblema utilizando caminho mínimo com restrições.
 
 Nos capítulos anteriores discutiu-se a fundamentação teórica da PLI, bem como os detalhes de modelagem do CSP utilizando-se
 o SPP, e o método de geração de colunas. Especificou-se a modelagem utilizada tanto no problema mestre quanto no subproblema.
-Neste capitulo serão apresentados métodos de solução para o problema mestre e o subproblema e a interação entre eles.
+Neste capitulo é apresentados métodos de solução para o problema mestre e o subproblema e a interação entre eles.
 
 %solv_subp\begin{figure}[!htb]
 {
@@ -901,14 +916,14 @@ Neste capitulo serão apresentados métodos de solução para o problema mestre e o 
 }
 %\end{figure}
 
-Na figura~\ref{flowchart} tem-se um fluxograma com as etapas de solução do CSP utilizando-se geração de colunas.
+Na Figura~\ref{flowchart} tem-se um fluxograma com as etapas de solução do CSP utilizando-se geração de colunas.
 O processo de resolver o problema mestre (SPP) é apresentado na seção~\ref{solv_pmaster}. Para a solução do subproblema
 analisou-se alguns métodos presentes na literatura e a seguir discutidos e são apresentados na seção~\ref{solv_subp}.
 
-\section{Solução do problema mestre}
+\section{Solução do Problema Mestre}
 \label{solv_pmaster}
 
-A solução de um problema mestre dá-se em 3 etapas (1, 2 e 3), conforme a figura~\ref{flowchart},
+A solução de um problema mestre dá-se em 3 etapas (1, 2 e 3), conforme a Figura~\ref{flowchart},
 que são executadas sequencialmente e uma etapa inicial (etapa 0) que é executada
 uma única vez no inicio do procedimento. A etapa inicial (etapa zero) consiste em criar um conjunto de colunas que seja
 factível para o problema mestre. Estas jornadas podem ser geradas aleatoriamente ou através da execução de alguma
@@ -918,9 +933,9 @@ A etapa 1 é executada toda vez no inicio da solução do problema mestre. Esta eta
 as novas jornadas obtidas ou da etapa 0 ou da solução do subproblema. A etapa 2 é a execução do SIMPLEX em cima do modelo.
 A etapa 3 consiste no calculo dos preços duais associado as restrições do problema.
 
-\section{Solução do subproblema}
+\section{Solução do Subproblema}
 
-O processo de solução do subproblema ocorre em duas etapas, conforme a figura~\ref{flowchart}:
+O processo de solução do subproblema ocorre em duas etapas, conforme a Figura~\ref{flowchart}:
 Na primeira etapa dado os preços duais, uma ou mais colunas são geradas de modo heurístico; Na
 segunda etapa, que ocorre sequencialmente quando não é possível encontrar uma solução heurística,
 resolve-se o problema de modo exato.
@@ -937,14 +952,14 @@ e caso não encontre-se uma solução com custo reduzido negativo, então deve ser u
 exata do subproblema pode ser modelada como um caminho mínimo com restrições via PLI, conforme visto na seção~\ref{sec_subp}.
 Este problema de PLI é resolvido utilizando-se o método de \textit{Branch and Cut}.
 
-\subsection{Solução heurística}
+\subsection{Solução Heurística}
 \label{solv_subp}
 
 Nesta seção ão apresentados diversas heurísticas e meta-heurísticas encontradas na literatura e capazes de
 serem utilizadas para resolver-se o subproblema. Como objetivo final do trabalho, deseja-se avalia-las e
 incorporar uma ou mais heurísticas para acelerar o processo de solução do CSP.
 
-\subsubsection{Busca Gulosa baseada em relaxação linear}
+\subsubsection{Busca Gulosa Baseada em Relaxação Linear}
 
 Uma heurística simples para resolver o subproblema consiste em resolver a relaxação linear do mesmo. Conforme visto
 no capitulo~\ref{cap1}, de modo geral a relaxação linear não leva a solução ótima de um problema de PLI. No entanto,
@@ -952,14 +967,14 @@ para algumas instâncias de um problema de PLI, é possível que isto ocorra, fazen
 difícil sejam resolvido rapidamente.
 
 No caso de resolver-se a relaxação linear de um subproblema e obter-se uma solução inteira de custo reduzido negativo,
-pode-se gerar uma nova jornada e inseri-la no problema mestre, conforme ilustrado na figura~\ref{flowchart}
+pode-se gerar uma nova jornada e inseri-la no problema mestre, conforme ilustrado na Figura~\ref{flowchart}
 Caso a solução seja inteira e não possua custo reduzido negativo,
 então o problema mestre já possui o conjunto ótimo de colunas. Por fim, se for obtido uma solução não inteira
 de custo reduzido negativo, pode-se aplicar uma ou mais heurísticas de arredondamento para obter uma solução inteira.
 Este tipo de heurística é utilizada e ~\cite{glpk} e~\cite{scip} e apresentam um ganho significativo em caso de sucesso
 a um custo irrelevante em caso de falha
 
-\subsubsection{Subida de encosta}
+\subsubsection{Subida de Encosta}
 
 O algoritmo de otimização baseado em subida de encosta consiste consiste em uma simples operação gulosa
 que busca o máximo local. Uma solução inicial é gerada aleatoriamente e a cada passo é escolhido uma modificação
@@ -1016,7 +1031,7 @@ o algoritmo assim que uma solução de custo negativo seja encontrada ou executar 
 a temperatura final predeterminada e retornar a melhor solução obtida. Pode-se ainda armazenar todas as soluções de
 custo reduzido negativo encontradas e retorna-las ao problema mestre.
 
-\subsubsection{Colônia de formigas}
+\subsubsection{Colônia de Formigas}
 
 A otimização de colônia de formigas (ACO, \textit{ant colony optimization})~\cite{dorigo2003ant},
 é uma meta-heurística bioinspirada no comportamento emergente em formigas durante o processo de
@@ -1063,12 +1078,12 @@ ao fim a melhor solução encontrada, ou retornar o conjunto de todas as soluções 
 
 %Do ré mi fá sol la si.
 
-\section{Utilização das heurísticas e meta heurísticas}
+\section{Utilização das Heurísticas e Meta Heurísticas}
 
 A proposta deste trabalho baseia-se no trabalho de~\cite{dos2008metodo}, onde utilizou-se o procedimento de
 geração de colunas juntamente com duas meta heurísticas para resolver o CSP, onde o autor utilizou as meta heurísticas
 GRASP~\cite{feo1995greedy} e algoritmo genético~\cite{gen1997genetic}. Tem-se como objetivo implementar
-outras (meta) heurísticas com o objetivo de melhorar o procedimento de geração de colunas. Na figura~\ref{flowchart}
+outras (meta) heurísticas com o objetivo de melhorar o procedimento de geração de colunas. Na Figura~\ref{flowchart}
 tem-se um fluxograma que apresenta o funcionamento da geração de colunas. Os blocos de fundo cinza e contorno pontilhado
 correspondem as etapas que são abordadas neste trabalho.
 
@@ -1086,3 +1101,279 @@ tendo em vista que os primeiros passos do método retiram a informação dual diret
 deseja-se utilizar uma heurísticas para gerar um conjunto inicial de colunas. O procedimento de resolver o subproblema de
 modo heurístico consiste na principal contribuição deste trabalho, onde o objetivo é identificar o desempenho de algumas
 heurísticas presentes na literatura quando aplicadas a solução do subproblema e do CSP.
+
+\chapter{Experimentos Computacionais e Análise}
+
+O método proposto foi implementado utilizando-se as linguagens de programação C e C++. Utilizou-se o IBM ILOG CPLEX Optimizer~\cite{cplex} como
+solver para os modelos de programação linear e programação linear inteira. A implementação do \textit{Branch and Price} foi escrita como um
+\textit{plugin} para SCIP~\cite{MaherFischerGallyetal}. Todos os testes foram realizados em uma máquina com processador
+Intel\textsuperscript{\textregistered} i7 Core\texttrademark~i7-4770 operando a 3.9 GHz, com 16 Gigabytes de RAM e rodando
+um sistema operacional GNU/Linux com kernel $4.8.10$.
+
+As instâncias \textit{benchmark} utilizadas para avaliar o método proposto foram retiradas biblioteca da \textit{OR-Library}~\cite{beasley1990or}. Os nomes utilizados para identificar as instâncias,
+por exemplo, \textbf{csp100\_42}, representa um problema onde existem 100 tarefas a serem cobertas utilizando-se exatamente 44 jornadas. Todas as instâncias
+possuem um tempo de jornada limitado a 480 minutos. Mais detalhes sobre as instâncias utilizadas podem ser encontrados em~\cite{beasley1996tree}.
+
+Para o primeiro cenário de testes (meta heurísticas independentes), os tempos utilizados para resolver cada uma das instâncias, assim como as informações
+sobre as meta heurísticas utilizadas estão contidas nas tabelas~\ref{tab_time_sep_hc} e~\ref{tab_time_sep_aco}.
+Cada tabela agrega os resultados dos testes para duas heurísticas
+que foram executadas de modo independente.  A coluna \textbf{Tempo} contém o tempo total de execução para resolver a instância. A coluna \textbf{Total}
+contém o total de colunas geradas durante o processo de solução quando utilizada em conjunto com outra heurística (destacada na coluna ao lado).
+A coluna \textbf{Heuristíca} indica dentre o total de colunas geradas, quantas foram geradas a partir da heurística nomeada na coluna.
+
+Por exemplo, o lado esquerdo da tabela~\ref{tab_time_sep_hc} em sua primeira linha, contém os resultados dos testes para a instância~\textbf{csp100\_44} resolvida
+utilizando o \textbf{hill climbing}. A coluna tempo contém o tempo total de execução em segundos ($27.6711$), a coluna ``Total'' contém o total de colunas geradas
+durante o processo de solução ($243$). Por fim a coluna ``Heurística'' contém o número de colunas geradas pela heurística ($102$).
+A diferença entre as colunas ``Total'' e `'heurística'' corresponde ao número de colunas que foram geradas (de modo exato) pelo método de \textit{Branch and Bound}, para
+a linha em questão têm-se $243 - 102$, que equivale a $141$. Ao lado direito da tabela têm-se as mesmas informações, porém da execução de outra meta heurística.
+
+\begin{center}
+%\begin{table}[! htbp]
+{
+    \centering
+    %\caption{Tempo e colunas geradas}
+    \captionof{table}{Tempo e colunas geradas para o \textit{hill climbing} e \textit{Simulated Annealing}}
+    \label{tab_time_sep_hc}
+    \begin{tabular}{|r | r r r} \hline
+        & \multicolumn{3}{c|}{\textit{Hill Climbing}} \\ \hline
+        nome        & Tempo (s) & Total & Heurística \\ \hline
+        %csp50\_27   & 1.4646    & 58.0       & 23.6    \\ \hline
+        %csp50\_28   & 1.2432    & 57.6       & 25.3    \\ \hline
+        %csp50\_29   & 1.4122    & 60.0       & 20.3    \\ \hline
+        csp100\_42  & 27.6711   & 243.0      & 102.0   \\ \hline
+        csp100\_43  & 16.5789   & 227.0      & 102.0   \\ \hline
+        csp100\_44  & 15.8095   & 225.0      & 102.0   \\ \hline
+        csp150\_67  & 122.9611  & 349.0      & 140.0   \\ \hline
+        csp150\_68  & 107.5191  & 347.0      & 140.0   \\ \hline
+        csp150\_69  & 73.6804   & 352.0      & 142.0   \\ \hline
+        csp200\_86  & 402.6408  & 571.0      & 249.0   \\ \hline
+        csp200\_87  & 202.4217  & 520.0      & 250.0   \\ \hline
+        csp200\_88  & 150.5260  & 507.0      & 252.0   \\ \hline
+        csp250\_111 & 199.4931  & 655.0      & 360.0   \\ \hline
+        csp250\_112 & 204.0749  & 671.0      & 359.0   \\ \hline
+        csp250\_113 & 192.7779  & 665.0      & 361.0   \\ \hline
+    \end{tabular}%
+    %\caption{Tempo e colunas geradas}
+    %\label{tab_time_sep_sa}
+    \begin{tabular}{| r r r|} \hline
+        \multicolumn{3}{c|}{\textit{Simulaed Annealing}} \\ \hline
+        Tempo (s)  & Total & Heurística \\ \hline
+           %1.3804  & 59.0       & 31.6   \\ \hline
+           %1.3353  & 63.3       & 34.6   \\ \hline
+            %0.9542 & 60.0       & 36.6   \\ \hline
+          32.3331  & 251.6      & 34.6   \\ \hline
+          27.5180  & 247.3      & 50.3   \\ \hline
+          28.0785  & 241.0      & 45.6   \\ \hline
+         167.7493  & 395.6      & 49.0   \\ \hline
+         156.1783  & 384.6      & 60.6   \\ \hline
+         152.7513  & 432.3      & 68.6   \\ \hline
+         651.7173  & 643.0      & 90.0   \\ \hline
+         524.5502  & 605.0      & 94.6   \\ \hline
+         521.8145  & 601.3      & 92.0   \\ \hline
+         949.2324  & 790.0      & 178.0   \\ \hline
+         830.3431  & 758.0      & 150.0   \\ \hline
+         957.6591  & 751.0      & 137.6   \\ \hline
+    \end{tabular}
+%\end{table}
+}
+\end{center}
+
+No segundo cenário de testes as heurísticas foram executadas de modo encadeado antes de executar a solução exata para o subproblema (se necessário).
+A utilização de todas as heurísticas de modo encadeado levou ao segundo melhor tempo, de modo geral.
+Conforme as tabelas~\ref{tab_time_sep_hc},~\ref{tab_time_sep_aco} e~\ref{tab_time_sep_exact}, pode-se observar que a utilização da busca tabu
+(tabela~\ref{tab_time_sep_aco}) apresentou o menor tempo de execução em todos os casos.
+Analisando-se o desempenho quando compara-se o tempo de execução da busca tabu com o tempo de execução do método de geração de colunas puramente
+exato, verifica-se que a diferença de tempo foi significativa, chegando a ser aproximadamente 18 vezes mais rápido para as instâncias \textbf{csp250}.
+Para instâncias de tamanhos menores esta diferença é menor, chegando a cair para um fator de aproximadamente 3.5 vezes.
+
+
+\begin{center}
+%\begin{table}[! htbp]
+{
+    \centering
+    \captionof{table}{Tempo e colunas geradas para ACO e busca tabu}
+    \label{tab_time_sep_aco}
+    \begin{tabular}{|r | r r r} \hline
+        & \multicolumn{3}{c|}{\textit{Ant Colony Optimization}} \\ \hline
+        nome        & Tempo (s) & Total & Heurística  \\ \hline
+        %csp50\_27   & 2.2504    & 63.6    &  25.0  \\ \hline
+        %csp50\_28   & 1.6567    & 60.6    &  26.0  \\ \hline
+        %csp50\_29   & 1.8225    & 57.6    &  23.3  \\ \hline
+        csp100\_42  & 37.0227   & 240.0   &  98.3  \\ \hline
+        csp100\_43  & 32.2277   & 232.0   &  99.0  \\ \hline
+        csp100\_44  & 33.5735   & 237.0   &  93.0  \\ \hline
+        csp150\_67  & 177.5754  & 386.0   & 146.0  \\ \hline
+        csp150\_68  & 175.6358  & 380.0   & 149.0  \\ \hline
+        csp150\_69  & 166.3722  & 397.0   & 148.0  \\ \hline
+        csp200\_86  & 748.1522  & 612.0   & 198.3  \\ \hline
+        csp200\_87  & 582.0481  & 568.0   & 199.0  \\ \hline
+        csp200\_88  & 584.5416  & 583.0   & 198.6  \\ \hline
+        csp250\_111 & 1785.0666 & 747.0   & 245.0  \\ \hline
+        csp250\_112 & 1898.2388 & 750.0   & 246.3  \\ \hline
+        csp250\_113 & 1981.3187 & 742.0   & 247.6  \\ \hline
+    \end{tabular}%
+    %\caption{Tempo e colunas geradas}
+    %\label{tab_time_sep_sa}
+    \begin{tabular}{| r r r|} \hline
+        \multicolumn{3}{c|}{Busca Tabu} \\ \hline
+        Tempo (s) & Total & Heurística \\ \hline
+        %1.1262  & 82.6   & 65.0    \\ \hline
+        %0.6998  & 65.3   & 50.6    \\ \hline
+        %1.1270  & 85.0   & 60.6    \\ \hline
+        11.4404  & 368.3  & 321.6    \\ \hline
+        5.6778   & 364.6  & 325.6    \\ \hline
+        5.7029   & 364.6  & 321.3    \\ \hline
+        47.4881  & 582.0  & 503.6    \\ \hline
+        35.1768  & 600.0  & 518.3    \\ \hline
+        37.5174  & 598.3  & 503.3    \\ \hline
+        226.6417 & 960.0  & 793.6    \\ \hline
+        97.9521  & 925.3  & 784.0    \\ \hline
+        85.4223  & 923.6  & 777.0    \\ \hline
+        128.6715 & 1193.3 & 1019.6    \\ \hline
+        107.7587 & 1145.6 & 967.6    \\ \hline
+        92.4310  & 1161.3 & 992.0    \\ \hline
+    \end{tabular}
+%\end{table}
+}
+\end{center}
+
+As demais meta heurísticas implementadas também proporcionaram redução no tempo de solução dos problemas. Em alguns casos a diferença não foi
+significativa, melhorando menos de 2\%, como foi o caso do ACO na instância \textbf{csp200\_87}. Não obstante, esta pequena melhoria indica
+que mesmo que a meta heurística seja capaz de gerar poucas colunas e falhe nas demais interações, ela ainda contribui para a diminuição
+do tempo de execução. Isto dá-se pelo tempo necessário para resolver o subproblema de modo exato que, segundo os resultados obtidos, demonstram que
+mais de 90\% do tempo de execução é gasto resolvendo-se o subproblema de modo exato.
+A tabela~\ref{tab_time_sep_exact} contém os dados para o cenário 2 (meta heurísticas encadeadas) e para o cenário 3 (sem meta heurísticas).
+
+
+\begin{center}
+%\begin{table}[! htbp]
+{
+    \centering
+    \captionof{table}{Tempo e colunas geradas para o método puramente exato e com a utilização de todas as meta heurísticas}
+    \label{tab_time_sep_exact}
+    \begin{tabular}{|r | r r r} \hline
+        & \multicolumn{2}{c|}{Método exato puro} \\ \hline
+        nome        & Tempo (s) & Total \\ \hline
+        %csp50\_27   &   13.4217 &  58.6      \\ \hline
+        %csp50\_28   &   10.5705 &  55.0      \\ \hline
+        %csp50\_29   &   10.2935 &  57.0      \\ \hline
+        csp100\_42  &   73.8325 & 240.0      \\ \hline
+        csp100\_43  &   34.6233 & 232.0      \\ \hline
+        csp100\_44  &   36.0911 & 237.0      \\ \hline
+        csp150\_67  &  190.9429 & 386.0      \\ \hline
+        csp150\_68  &  189.1863 & 380.0      \\ \hline
+        csp150\_69  &  178.1048 & 397.0      \\ \hline
+        csp200\_86  &  829.8991 & 612.0      \\ \hline
+        csp200\_87  &  590.8635 & 568.0      \\ \hline
+        csp200\_88  &  593.6881 & 583.0      \\ \hline
+        csp250\_111 & 1884.8217 & 747.0      \\ \hline
+        csp250\_112 & 1872.2440 & 750.0      \\ \hline
+        csp250\_113 & 1842.4232 & 742.0      \\ \hline
+    \end{tabular}%
+    %\caption{Tempo e colunas geradas}
+    %\label{tab_time_sep_sa}
+    \begin{tabular}{| r r r|} \hline
+        \multicolumn{3}{c|}{Meta heurísticas encadeadas} \\ \hline
+        Tempo (s) & Total & Heurística \\ \hline
+        %0.7770    &  59.6      &  48.2      \\ \hline
+        %0.7018    &  60.3      &  49.6      \\ \hline
+        %0.4759    &  68.3      &  60.0      \\ \hline
+        11.3554   & 351.3      & 324.3      \\ \hline
+        6.3006    & 343.6      & 312.3      \\ \hline
+        4.2294    & 334.6      & 310.3      \\ \hline
+        39.8183   & 509.6      & 456.6      \\ \hline
+        31.0726   & 490.3      & 447.6      \\ \hline
+        36.4308   & 533.0      & 681.0      \\ \hline
+        243.9982  & 811.3      & 707.3      \\ \hline
+        102.1412  & 780.6      & 706.3      \\ \hline
+        92.4814   & 775.6      & 702.0      \\ \hline
+        148.7475  & 943.3      & 865.3      \\ \hline
+        152.1997  & 940.0      & 850.7      \\ \hline
+        133.7747  & 906.3      & 821.3      \\ \hline
+    \end{tabular}
+%\end{table}
+}
+\end{center}
+
+A tabela~\ref{tab_hit} apresenta as taxas de acertos e erros para cada uma das heurísticas e para o método exato. A razão entre o número
+de colunas geradas no total e número de colunas geradas pela heurística corresponde a taxa de acerto. Seja $t_a$ a taxa de acerto, define-se
+a taxa de erro como sendo $1.0 - t_a$. A taxa de acerto indica o quão eficaz a heurística foi em encontrar novas colunas.
+A tabela~\ref{tab_time} contém na coluna ``Tempo'' o tempo total médio em segundos gasto para resolver todas as instâncias com um número de tarefas variando de $50$ até $250$.
+A coluna ``Fator desempenho'' contém a razão entre o tempo de solução com uma determinada meta heurística e o tempo de solução utilizando o método de geração de colunas puramente exato.
+
+A busca tabu foi a heurística que mais gerou novas colunas, conforme pode ser constatado nas tabelas~\ref{tab_time_sep_hc},~\ref{tab_time_sep_aco} e~\ref{tab_time_sep_exact}.
+Considerando o número total de colunas geradas, a taxa de acerto e o tempo gasto, pode-se concluir que gerar uma grande quantidade de colunas de custo reduzido próximo a zero
+contribuiu significativamente para reduzir o tempo necessário para se alcançar a solução ótima.
+
+\begin{center}
+{
+    \begin{minipage}{0.49\linewidth}
+        \centering
+        \captionof{table}{Razão de colunas geradas}
+        \label{tab_hit}
+        \begin{tabular}{| l | l | l |} \hline
+            Heurística & Acerto              & Erro \\ \hline
+            hc         & 0.477 & 0.523 \\ \hline
+            sa         & 0.183 & 0.819 \\ \hline
+            aco        & 0.354 & 0.646 \\ \hline
+            tabu       & 0.849 & 0.151 \\ \hline
+            todos      & 0.901 & 0.099 \\ \hline
+            exact      & 1.000 & 0.000 \\ \hline
+        \end{tabular}%
+    \end{minipage}
+    \begin{minipage}{0.49\linewidth}
+        \centering
+        \captionof{table}{Desempenho relativo dos métodos}
+        \label{tab_time}
+        \begin{tabular}{| l | l | l |} \hline
+            Heurística & Tempo              & Fator desempenho \\ \hline
+            hc         & 114.719 & 4.853 \\ \hline
+            sa         & 333.573 & 1.669 \\ \hline
+            aco        & 547.167 & 1.017 \\ \hline
+            tabu       &  58.988 & 9.437 \\ \hline
+            todos      &  66.966 & 8.313 \\ \hline
+            exact      & 556.733 & 1.000 \\ \hline
+        \end{tabular}
+    \end{minipage}
+}
+\end{center}
+
+A Figura~\ref{fig_convergencia} apresenta o comportamento (convergência) da função objetivo do problema mestre ao longo do tempo.
+Apresenta-se as curvas de convergência do método de geração de colunas puro com o método utilizando as
+meta heurísticas. Para todas as execuções utilizou-se a mesma solução inicial do problema mestre, que é construída a partir de uma
+jornada capaz de cobrir todas as tarefas (esta jornada é descartada assim que uma nova solução factível é encontrada).
+O eixo $x$ da Figura representa o tempo de execução e o $y$ o valor da função objetivo do problema mestre. Analisando-se a Figura~\ref{fig_convergencia}
+observou-se que a busca tabu, as heurísticas encadeadas e o \textit{hill climbing} convergiram rapidamente, conforme a ordem citada.
+O recozimento simulado, conforme os testes realizados, teve um desempenho mediano. O ACO e o método puramente exato tiveram suas
+convergências muito próximas.
+
+%\begin{figure}[htpb]
+{
+    \centering
+    \includegraphics[scale=1, resolution=120]{../figuras/nice_web_plot.png}
+    %\includegraphics[width=0.6\linewidth]{figuras/nice_web_plot.png}
+    %\includegraphics[width=0.8\linewidth]{figuras/nice_web_plot.png}
+    %\includegraphics{figuras/nice_web_plot.png}
+    \captionof{figure}{Convergencia dos métodos}
+    \label{fig_convergencia}
+}
+%\end{figure}
+
+Conforme a tabela~\ref{tab_time}, pode-se identificar que a execução da busca tabu foi em média 9 (nove) vezes mais rápida que o procedimento puramente exato.
+%que a busca tabu foi capaz de, na média, resolver as instâncias de teste mais de $9$ vezes mais rapidamente. Em segundo lugar esta a implementação
+O segundo melhor desempenho constatado esta quando utiliza-se todas as heurísticas de modo encadeado.
+Em terceiro lugar, o \textit{hill climbing} melhorou na média o tempo de execução em um
+fator de aproximadamente $4.8$. As demais heurísticas apresentaram um fator de redução de $1.6$ e $1.017$, o que apesar de baixo
+quando comparado com as demais meta heurísticas implementadas, ainda é capaz de oferecer uma vantagem significativa
+sobre o método puramente exato.
+
+Uma possível explicação para a superioridade do \textit{hill climbing} e da busca tabu dá-se pelo fato de que em ambas
+as implementações não é possível gerar colunas infactíveis (que violam a restrição do tempo). Já no \textit{simulated annealing} e
+no ACO, durante o processo de execução encontrou-se colunas infactíveis, diminuindo assim a eficiência das meta heurísticas.
+
+%Um aspecto a considerar na investigação da eficiência das meta heurísticas é a sua convergência.
+
+%Pode-se observar que o ACO teve um comportamento semelhante à solução puramente exata, a diferença esta no fato de que o método
+%começou a convergir mais cedo. Para a busca tabu e o \textit{hill clibing} pode-se observar sua rápida convergência para solução
+%ótima do problema. A utilização de todas as heurísticas no processo de solução iniciou sua convergência após a busca tabu, porém
+%convergiu mais rapidamente.

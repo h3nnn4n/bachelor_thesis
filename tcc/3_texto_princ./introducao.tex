@@ -34,7 +34,7 @@ consiste em escolher grupos de funcionários que devem realizar tarefas durante u
 de escolha está sujeito à restrições. Tais como regras definidas pela empresa; leis trabalhistas; sindicais
 ou preferências estipuladas pela própria tripulação. Dado um conjunto de restrições, deve-se encontrar as designações que reduzem
 ao máximo o custo da operação. O CSP assume que já tenha sido determinado os percursos onde a tripulação irá trabalhar, assim como quais veículos
-serão utilizados, quais os horários de partida e chegada e os pontos de troca.
+são utilizados, quais os horários de partida e chegada e os pontos de troca.
 
 A definição de termos relacionados à problemática do CSP faz-se necessária e são apresentadas a seguir: uma \textbf{viagem} ou \textbf{tarefa} consiste
 no deslocamento entre dois pontos pré-determinados com horários de partida e chegada já determinados. Uma \textbf{jornada}
@@ -119,10 +119,13 @@ Na literatura pesquisada até o momento, identificou-se que vários autores a fim 
 (que apresentam um melhor desempenho computacional), utilizaram o método de geração de colunas ou um conjunto de outros métodos,
 podendo ser heurísticos ou híbridos.
 
-Dada a pesquisa que realizou-se, não foi possível concluir que identificou-se um método (híbrido ou heurístico)
-que apresenta o melhor desempenho computacional dentre todos os métodos que foram propostos. Especialmente considerando
-que o CSP apresenta diversas modelagens que variam entre si, de modo que o bom desempenho para um conjunto de modelos
-não transfere-se para outro.
+Dada a pesquisa que realizou-se, identificou-se que métodos híbridos exatos, apesar de seu custo computacional relativamente grande,
+tem um potencial de oferecer a solução ótima para as instâncias do CSP em um tempo menor do que um algoritmo puramente exato.
+
+%Dada a pesquisa que realizou-se, não foi possível concluir que identificou-se um método (híbrido ou heurístico)
+%que apresenta o melhor desempenho computacional dentre todos os métodos que foram propostos. Especialmente considerando
+%que o CSP apresenta diversas modelagens que variam entre si, de modo que o bom desempenho para um conjunto de modelos
+%não transfere-se para outro.
 
 Dado o exposto acima, este trabalho tem o objetivo de especificar e propor um método para a solução do CSP que, a princípio seja capaz de prover
 soluções de modo exato, e preferencialmente mais eficiente, considerando algoritmos pesquisados na literatura. O algoritmo proposto será aplicado
