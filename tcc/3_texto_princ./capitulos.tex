@@ -9,7 +9,7 @@ problema do escalonamento de tripulações.
 
 A programação linear consiste na modelagem e solução de problemas descritos com
 uma função objetivo linear sujeita a múltiplas restrições lineares. A forma
-genérica de um problema de programação linear é, fornecida por~\cite{dantzig1955generalized}:
+genérica de um problema de programação linear é, dada por~\cite{dantzig1955generalized}:
 
 \begin{align} \label{funcao_obj} \text{maximizar} \: z &= \sum_{j=1}^{m}
     c_jx_j, \intertext{sujeito à:} \label{restricoes} \sum_{j=1}^{m} a_{ij} x_j
@@ -67,12 +67,12 @@ problema de programação linear é sempre um poliedro convexo, se interpretado
 geometricamente, e a solução ótima para o mesmo sempre está em um vértice do
 poliedro.
 
-Um problema de programação linear pode ser ainda expresso em uma forma
-matricial, ou em forma de conjunto. Suas representações são respectivamente:
+%Um problema de programação linear pode ser ainda expresso em uma forma
+%matricial, ou em forma de conjunto. Suas representações são respectivamente:
 
-\begin{align} \label{lp_fo} \text{maximizar} \: z &= cx \intertext{sujeito à:}
-\label{lp_r} Ax &= b \\ \label{lp_tr} x &\geq 0 \intertext{} \label{lp_set}
-\text{max } \{ cx : Ax &\leq b, x \geq 0 \} \end{align}
+%\begin{align} \label{lp_fo} \text{maximizar} \: z &= cx \intertext{sujeito à:}
+%\label{lp_r} Ax &= b \\ \label{lp_tr} x &\geq 0 \intertext{} \label{lp_set}
+%\text{max } \{ cx : Ax &\leq b, x \geq 0 \} \end{align}
 
 Com os modelos apresentados, pode-se modelar qualquer problema de otimização com
 uma funções objetivo linear e sujeita a restrições lineares.
@@ -114,7 +114,7 @@ polinomial~\cite{Grotschel1981}.
 
 Em 1984 foi proposto um novo método polinomial para a solução do problema da
 programação linear, denominado de método do ponto interior\cite{potra2000interior}.
-Este método consiste em a partir de uma solução factível centro do politopo, perturba-la
+Este método consiste em a partir de uma solução factível centro do politopo, perturbá-la
 até que a mesma convirja para o ponto ótimo. O método do ponto interior também é
 referenciado na literatura como método das barreiras, já que as restrições
 lineares são reescritas como funções assintóticas que tendem ao infinito quando
@@ -129,12 +129,15 @@ Considerando o problema de programação linear apresentado
 em~\eqref{funcao_obj},~\eqref{restricoes} e~\eqref{restricoes_triviais}, que a
 partir de agora será denominado de problema primal,
 
-\begin{align} \text{maximizar} \: z = \sum_{j=1}^{m} c_jx_j, \intertext{sujeito
-a:} \label{rm} \sum_{j=1}^{m} a_{ij} x_j \leq b_i, i = 1, 2, \ldots, n \\
-\label{} x_j \geq 0, j = 1, 2, \ldots, m, \end{align}.
+\begin{align}
+    \text{maximizar} \: z = \sum_{j=1}^{m} c_jx_j,
+    \intertext{sujeito à:}
+    \label{rm} \sum_{j=1}^{m} a_{ij} x_j \leq b_i, i = 1, 2, \ldots, n \\
+    x_j \geq 0, j = 1, 2, \ldots, m,
+\end{align}.
 
 O problema dual é construído atribuindo-se uma variável $u_i, i = 1, 2, \ldots,
-q$ a cada restrição em~\eqref{rp} e definindo o problema como:
+q$ a cada restrição em~\eqref{rm} e definindo o problema como:
 
 \begin{align} \text{minimizar} \: d = \sum_{i=1}^{n} b_iu_i, \intertext{sujeito
 a:} \label{} \sum_{i=1}^{n} a_{ij} u_i \leq c_j, i = 1, 2, \ldots, m \\
@@ -164,12 +167,12 @@ em~\cite{maculan2006otimizaccao}, segue que:
 
 O primeiro item é conhecido como teorema da \textbf{dualidade fraca}, e sua implicação é
 que uma solução dual é um limite superior de otimalidade para o problema
-primal.  O segundo e terceiro item constituem o teorema da \textbf{dualidade forte}, que
+primal.  O segundo e terceiro item constitue-se no teorema da \textbf{dualidade forte}, que
 pode ser utilizado para provar que uma solução de um problema primal é a ótima.
 
 \section{Programação Linear Inteira}
 
-A Programação Linear Inteira (PLI)~\cite{wolsey1998integer} trata de modelar problemas onde existem
+A Programação Linear Inteira (PLI)~\cite{wolsey1998integer} trata de modelar problemas em que existem
 variáveis inteiras. A forma genérica de um problema dá-se de forma análoga a de
 um problema de programação linear:
 
@@ -282,7 +285,7 @@ qualquer. O mesmo é válido para PLIM e PLIB.
 O espaço de busca de um problema de PLI consiste em um conjunto de pontos com
 coordenadas inteiras. A Figura~\ref{espacobusca} contém o conjunto de pontos
 que satisfazem o problema original. O contorno que envolve os pontos consiste
-na relaxação linear, onde a restrição de integralidade foi desconsiderada.
+na relaxação linear, em que restrição de integralidade foi desconsiderada.
 Pode-se notar que a área de busca aumentou e a solução ótima da relaxação é
 maior do que o problema original.
 
@@ -303,8 +306,8 @@ viajante~\cite{laporte1992traveling}.
 \subsection{Métodos de solução de PLI}
 
 Um dos primeiros métodos para solução de problemas de programação inteira foi
-proposto por~\cite{gomory1960solving,gomory1960algorithm}. O método veio a ser
-denominado de método de planos de cortes, que consiste em gerar hiperplanos
+proposto por~\cite{gomory1960solving,gomory1960algorithm}. O método
+denominado de planos de cortes, consiste em gerar hiperplanos
 (restrições) que removem o ponto ótimo da relaxação linear sem remover o ótimo
 da PLI. Esta sequencia de cortes faz com que a solução ótima da relaxação linear
 seja a mesma do problema original.
@@ -478,10 +481,10 @@ exposto a seguir. Considere o problema genérico de PLI ~\eqref{k1},
     \end{align}
 \end{subequations}
 
-no qual o número de variáveis é grande o suficiente para inviabilizar a inclusão
+O número de variáveis é grande o suficiente para inviabilizar a inclusão
 explicita de todas elas no modelo. Para contornar a inviabilidade gerada pelo
 grande número de colunas, divide-se o problema original em vários subproblemas menores
-e mais fáceis de resolver. Considere um novo problema de PLI~\eqref{k1}
+e mais fáceis de resolver. Considere um novo problema de PLI~\eqref{k2}
 
 \begin{subequations} \label{k2}
     \begin{align} \label{}
@@ -495,7 +498,7 @@ e mais fáceis de resolver. Considere um novo problema de PLI~\eqref{k1}
 onde $\tilde{x} \subseteq x$. Ou seja,~\eqref{k2} é o problema \eqref{k1} com um
 número reduzido de variáveis. Este novo problema, denominado de problema mestre, deve
 ser testado para determinar a sua otimalidade em comparação ao problema original, com
-o objetivo de obter-se a resista de~\eqref{k1} resolvendo-se o problema mais
+o objetivo de obter-se a solução ótima de~\eqref{k1} resolvendo-se o problema mais
 fácil~\eqref{k2}. O teste de otimalidade pode ser feito resolvendo-se o problema da
 separação do modelo dual do problema mestre, apresentado em~\eqref{k3}.
 
@@ -509,7 +512,7 @@ separação do modelo dual do problema mestre, apresentado em~\eqref{k3}.
 \end{subequations}
 
 Resolvendo-se~\eqref{k3} e obtendo-se a solução primal $\tilde{x}$ e dual $\tilde{y}$.
-Subentendo-se a solução dual a um teste que consiste em determinar todas as
+Submetendo a solução dual a um teste que consiste em determinar todas as
 restrições violadas por $\tilde{y}$ na restrição~\eqref{kk3}. As variáveis
 referentes as restrições violadas são adicionas a~\eqref{k2}, modificando-se $A, b, c$
 e $\tilde{x}$. Este processo é repetido até não haver mais restrições violadas no
@@ -531,7 +534,7 @@ solução do problema mestre fique mais próxima da solução do problema original. M
 que esta variável não seja incorporada na solução, ela altera os valores duais e faz com que
 uma nova variável seja incorporada na próxima iteração do algoritmo.
 
-Neste capitulo foi apresentado os principais conceitos teóricos necessários para
+Neste capítulo foi apresentado os principais conceitos teóricos necessários para
 o entendimento do problema a ser abordado nos próximos capítulos deste trabalho.
 Discutiu-se as principais representações de problemas de programação linear e
 programação linear inteira, suas principais propriedades e métodos de solução.

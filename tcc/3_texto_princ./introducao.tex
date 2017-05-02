@@ -16,22 +16,22 @@ da interação entre as etapas e a ordem na qual elas são executadas.
 {
     \centering
     \includegraphics[height=0.3\textheight]{../figuras/etapas.pdf}
-    \captionof{figure}{Etapas do planejamento}
+    \captionof{figure}{Etapas do planejamento, adaptado de~\cite{de2011algoritmo}}
     \label{fig_etapas}
 }
 
-A primeira etapa consiste em determinar quais locais devem ser atendidos pelo serviço de transporte e determinar qual
-a melhor rota para cobrir estes locais. Deve ainda escolher a melhor localização para as estações de ônibus ao longo
-do percurso do veículo. A segunda etapa consiste em baseado na demanda pelo serviço, determinar os horários na qual os
-ônibus devem partir dos terminais, de modo a atender da forma mais eficiente possível. A terceira etapa possui a
-funcionalidade de determinar quais veículos saem de quais estações, por quais pontos ele deve passar e para onde que
+A primeira etapa consiste em determinar quais locais devem ser atendidos pelo serviço de transporte; Determinar qual
+a melhor rota para cobrir estes locais; Deve ainda escolher a melhor localização para as estações de ônibus ao longo
+do percurso do veículo. A segunda etapa consiste em, determinar os horários na qual os
+ônibus devem partir dos terminais, de modo a atender da forma mais eficiente possível a demanda. A terceira etapa
+consiste em determinar quais veículos partem de quais estações; Por quais pontos ele deve passar e para onde que
 ele deve retornar, formando assim uma jornada. Esta etapa deve cobrir todas as tarefas e minimizar o custo operacional
-A quarta e ultima etapa deve associa membros da tripulação com jornadas, de modo que cada jornada tenha a tripulação necessária,
+A quarta e última etapa deve associar membros da tripulação(alocação) com jornadas, de modo que cada jornada tenha a tripulação necessária,
 sendo que cada membro da tripulação deve ter todos os seus direitos respeitados, tanto os previstos por lei quanto os contratuais.
 
 Especificamente, o problema de alocação de funcionários ou tripulação, em inglês \textit{crew scheduling problem} (CSP),
 consiste em escolher grupos de funcionários que devem realizar tarefas durante um dado período de tempo \cite{Bergh}. O processo
-de escolha está sujeito à restrições. Tais como regras definidas pela empresa; leis trabalhistas; sindicais
+de escolha está sujeito à restrições como: Regras definidas pela empresa; leis trabalhistas; sindicais
 ou preferências estipuladas pela própria tripulação. Dado um conjunto de restrições, deve-se encontrar as designações que reduzem
 ao máximo o custo da operação. O CSP assume que já tenha sido determinado os percursos onde a tripulação irá trabalhar, assim como quais veículos
 são utilizados, quais os horários de partida e chegada e os pontos de troca.
@@ -61,26 +61,27 @@ NP-Hard~\cite{karp1972}.
 Um dos primeiros algoritmos propostos para o SCP consiste em uma heurística gulosa proposta por~\cite{chvatal1979greedy}.
 A cada passo o algoritmo escolhe a coluna que cobre o maior número possível de linhas. O algoritmo
 é na prática rápido, porém tende a não gerar soluções tão boas quanto outros algoritmos modernos.~\cite{balas1980set} propôs
-um algoritmo baseado em \textit{branch and bound} e que utiliza heurísticas duais. Este algoritmo (com o poder computacional
-disponível na data da publicação do artigo) foi capaz de resolver instâncias de dimensões até 200 $\times$ 2000.~\cite{beasley1987algorithm}
-melhorou o algoritmo proposto por Balas e Ho, utilizando relaxações lagrangianas e remoção de linhas e colunas. Este algoritmo, segundo
-o autor, chegou a marca de problemas de dimensões $400 \times 4000$.~\cite{fisher1990optimal} utilizou \textit{branch and bound} com
-diversas heurísticas duais, para assim encontrar o limite superior de otimalidade do problema. Trabalhos como~\cite{de2011algoritmo} e
-\cite{dos2008metodo} utilizam soluções híbridas para a solução do problema.\cite{ceria1997}, \cite{caprara2000algorithms},
+um algoritmo baseado em \textit{branch and bound} e que utiliza heurísticas duais.
+%Este algoritmo (com o poder computacional disponível na data da publicação do artigo) foi capaz de resolver instâncias de dimensões até 200 $\times$ 2000.
+~\cite{beasley1987algorithm} melhorou o algoritmo proposto por Balas e Ho, utilizando relaxações lagrangianas e remoção de linhas e colunas.
+%Este algoritmo, segundo o autor, chegou a marca de problemas de dimensões $400 \times 4000$.
+~\cite{fisher1990optimal} utilizou \textit{branch and bound} com
+diversas heurísticas duais, para assim encontrar o limite superior de otimalidade do problema. Trabalhos como~\cite{de2011algoritmo}
+e~\cite{dos2008metodo} utilizam soluções híbridas para a solução do problema.~\cite{ceria1997},~\cite{caprara2000algorithms},
 ~\cite{ernst2004staff} e~\cite{van2013personnel} apresentam um estudo mais detalhado sobre os algoritmos utilizados para resolver o
 SCP, SPP e CSP.
 
 %Conhecendo-se todas as possíveis jornadas de uma instância de CSP, pode-se modela-lo utilizando programação linear inteira (PLI).
 Diversas modelagens para o CSP são possíveis,~\cite{beasley1987algorithm} utilizou uma modelagem baseada em múltiplos caminhos mínimos.
 É possível ainda utilizar SCP e SPP para modelar o CSP. A modelagem utilizando-se
-o SPP e o SCP é apresentada em~\eqref{spp} e~\eqref{scp}, respectivamente. O conjunto de todas as jornadas possíveis está codificado
+o SPP e o SCP é apresentada em~\eqref{s_pp} e~\eqref{scp}, respectivamente. O conjunto de todas as jornadas possíveis está codificado
 na matriz $A$. O vetor $J$ corresponde a todas as jornadas, e o vetor $T$ a todas as tarefas. A variável $a_{tj}$ é $1$ se a tarefa
-$t$ é coberta pela jornada $j$ e $0$ caso contrário. A restrição~\eqref{spp2} garante que cada tarefa $t \in T$ é coberta exatamente
+$t$ é coberta pela jornada $j$ e $0$ caso contrário. A restrição~\eqref{s_pp2} garante que cada tarefa $t \in T$ é coberta exatamente
 uma única vez pelas jornadas selecionadas.
 
 A restrição~\eqref{scp2} funciona de modo análogo, porém, a restrição deixa de ser uma igualdade
 e passa a ser uma desigualdade, fazendo com que cada tarefa seja coberta pelo menos uma vez. O vetor $X$ determina que jornadas
-serão utilizadas. Se $x_j = 1$, então a $j-$ésima é utilizada, caso contrário $x_j = 0$. As restrições~\eqref{spp3} e~\eqref{scp3}
+serão utilizadas. Se $x_j = 1$, então a $j-$ésima é utilizada, caso contrário $x_j = 0$. As restrições~\eqref{s_pp3} e~\eqref{scp3}
 garantem que a varável de decisão $x$ possuirá um valor válido.
 
 Dado o problema em questão, o tamanho da matriz é tipicamente grande, e para casos práticos
@@ -88,13 +89,16 @@ Dado o problema em questão, o tamanho da matriz é tipicamente grande, e para cas
 jornadas possíveis não é viável.
 \cite{vance1993crew} reportou que para uma instância de CSP com 253 tarefas, mais de 5 milhões de jornadas
 são possíveis. De todas as jornadas possíveis, apenas algumas são de fato utilizadas na solução final.
-Portanto, é interessante que apenas jornadas que podem vir a ser úteis sejam utilizadas de fato. A programação linear inteira dispõe-se um recurso
-capaz de sequencialmente reduzir o número de colunas a serem utilizados, denominado de \textbf{geração de colunas}~\cite{desaulniers2006column}.
+Portanto, é interessante que apenas jornadas que podem vir a ser úteis sejam utilizadas de fato.
+%A programação linear inteira dispõe-se um recurso
+%capaz de sequencialmente reduzir o número de colunas a serem utilizados, denominado de \textbf{geração de colunas}~\cite{desaulniers2006column}.
+A fim de reduzir o número de colunas, o método de geração de colunas pode ser utilizado
+para resolver o problema~\cite{desaulniers2006column}.
 
 \begin{align}
-    \label{spp} \text{min} \: \sum_{j \in J} c_j x_j \\
-    \label{spp2} \sum_{j \in J} a_{tj} x_j = 1, \forall t \in T \\
-    \label{spp3} x_j \in \{0, 1\}, \forall j \in J
+    \label{s_pp} \text{min} \: \sum_{j \in J} c_j x_j \\
+    \label{s_pp2} \sum_{j \in J} a_{tj} x_j = 1, \forall t \in T \\
+    \label{s_pp3} x_j \in \{0, 1\}, \forall j \in J
 \end{align}
 
 \begin{align}
@@ -104,7 +108,8 @@ capaz de sequencialmente reduzir o número de colunas a serem utilizados, denomin
 \end{align}
 
 O método de geração de colunas consiste decompor um dado problema com um grande número de variáveis em
-dois problemas menores: O \textbf{problema mestre}, que é igual ao original, porém, com um conjunto reduzido de variáveis, e o \textbf{sub-problema},
+dois problemas menores: O \textbf{problema mestre}, que é derivado do problema original, porém, com um conjunto reduzido de variáveis,
+e o \textbf{sub-problema},
 que é utilizado para identificar quais variáveis são necessárias para obter-se a solução ótima do problema original. O processo
 de solução com geração de colunas consiste em criar-se um problema mestre, otimizar a sua relaxação linear, e utilizar
 as varáveis duais do problema mestre juntamente com o sub-problema,  para identificar se o problema mestre necessita da geração
@@ -116,19 +121,19 @@ Além do método de geração de colunas, outros métodos também são utilizados na li
 \textit{multi-start randomized heuristic}~\cite{de2016multi},
 e \textit{ant colony optimization}~\cite{deng2011ant}.
 Na literatura pesquisada até o momento, identificou-se que vários autores a fim de resolver o CSP de forma eficiente
-(que apresentam um melhor desempenho computacional), utilizaram o método de geração de colunas ou um conjunto de outros métodos,
+(que apresentam um melhor desempenho computacional), utilizaram o método de geração de colunas em conjunto com outros métodos,
 podendo ser heurísticos ou híbridos.
 
 Dada a pesquisa que realizou-se, identificou-se que métodos híbridos exatos, apesar de seu custo computacional relativamente grande,
-tem um potencial de oferecer a solução ótima para as instâncias do CSP em um tempo menor do que um algoritmo puramente exato.
+tem um potencial de oferecer a solução ótima para as instâncias do CSP, em um tempo menor do que um algoritmo puramente exato.
 
 %Dada a pesquisa que realizou-se, não foi possível concluir que identificou-se um método (híbrido ou heurístico)
 %que apresenta o melhor desempenho computacional dentre todos os métodos que foram propostos. Especialmente considerando
 %que o CSP apresenta diversas modelagens que variam entre si, de modo que o bom desempenho para um conjunto de modelos
 %não transfere-se para outro.
 
-Dado o exposto acima, este trabalho tem o objetivo de especificar e propor um método para a solução do CSP que, a princípio seja capaz de prover
-soluções de modo exato, e preferencialmente mais eficiente, considerando algoritmos pesquisados na literatura. O algoritmo proposto será aplicado
+Dado o exposto acima, este trabalho tem o objetivo de especificar e propor um método para a solução do CSP que, a princípio, seja capaz de prover
+soluções de modo exato, e preferencialmente mais eficientes, considerando os algoritmos pesquisados na literatura. O algoritmo proposto será aplicado
 à instâncias disponíveis na literatura.
 
 No capítulo 2 é apresentado a fundamentação teoria necessária para o estudo do algoritmo proposto. Define-se programação linear, programação linear
