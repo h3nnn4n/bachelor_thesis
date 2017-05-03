@@ -546,11 +546,14 @@ para determinar restrições violadas ou colunas que podem melhorar a função objet
 
 A alocação de tripulação (CSP) consiste em um dos principais problemas de planejamento
 de operações dentro do contexto de empresas de transporte aéreo e terrestre.
-Segundo reportado por~\cite{zeren2012improved}, os gastos com tripulação consistem
-na segunda maior fonte de despesas, atrás apenas dos gastos de combustíveis. Portanto,
-de um ponto de vista operacional pode-se utilizar métodos de otimização para oferecer
-reduções significativas nos gastos, enquanto que de um ponto de vista acadêmico é um
-problema difícil de resolver, com grandes instâncias e uma aplicabilidade prática.
+Segundo reportado por~\cite{zeren2012improved}, os gastos com combustíveis e tripulação consistem
+nas duas maiores fontes de despesas.
+%na segunda maior fonte de despesas, atrás apenas dos gastos de combustíveis.
+Portanto,
+é desejável utilizar métodos de otimização para prover
+reduções significativas nas despesas.
+%enquanto que de um ponto de vista acadêmico é um
+%problema difícil de resolver, com grandes instâncias e uma aplicabilidade prática.
 
 O CSP designa jornadas para um conjunto de tripulantes de
 modo a cobrir todas as tarefas que devem ser realizadas. Conforme já definido no
@@ -558,7 +561,7 @@ capítulo~\ref{cap1}, uma \textbf{tarefa} é definida como sendo uma ação que deve
 ser realizada por uma tripulação. Durante uma tarefa a tripulação dedica-se integralmente
 a mesma durante um período de tempo fixo. Uma \textbf{jornada} consiste em um conjuntos de
 tarefas que dever ser cobertas por uma tripulação. A cada jornada é atribuído um
-custo operacional, e a geração de jornadas esta limitada por leis trabalhistas e
+custo operacional, e a geração de jornadas está limitada por leis trabalhistas e
 sindicais. O principal objetivo do CSP é determinar o conjunto de jornadas que
 cobre todas as tarefas, reduzindo o custo operacional, respeitando as restrições
 impostas em relação as jornadas de trabalho e designando apenas uma tripulação
@@ -585,10 +588,14 @@ eles são utilizados como objeto de estudo neste trabalho. Cada instância é apres
 no seguinte formato: Número de tarefas($N$); Tempo limite de uma jornada; para cada
 $i\text{ em }\{1, \ldots, N\}$: tempo de início, tempo de termino; Para cada par
 $(i, j)$ de arestas, onde $j$ começa após o término de $i$, o custo da transição
-de $i$ para $j$. O problema pode ser representado em um grafo, conforme visto na Figura~\ref{fig_graph_csp}
-Beasley, no seu artigo considera um número fixo de jornadas para a solução final.
-Este número fixo corresponderia a tripulação disponível operar. Apesar desta informação
-não estar disponível nas instâncias, ela foi utilizada.
+de $i$ para $j$. O problema pode ser representado em um grafo $G=(V, E)$, conforme visto na Figura~\ref{fig_graph_csp}.
+Onde $E$ é o conjunto de tarefas que no grafo está associado aos vértices e $V$ são os
+deslocamentos entre duas tarefas, correspondes as arestas.
+%
+%As instâncias da \textit{OR-Library} possuem um número fixo de jornadas de devem ser utilizadas
+%Beasley, no seu artigo considera um número fixo de jornadas para a solução final.
+%Este número fixo corresponderia a tripulação disponível operar. Apesar desta informação
+%não estar disponível nas instâncias, ela foi utilizada.
 
 {
     \centering
@@ -598,7 +605,7 @@ não estar disponível nas instâncias, ela foi utilizada.
 }
 
 As instâncias apresentadas podem ser formuladas matematicamente de diversas maneiras.
-Uma delas é apresentada no artigo onde foram propostas as instâncias. Neste trabalho utilizou-se
+Uma delas é apresentada no artigo em que foram propostas. Neste trabalho utilizou-se
 uma formulação baseada em particionamento de conjuntos. Para que se possa obter a
 resposta ótima para qualquer instância de CSP modelada como SPP, o modo mais simples de modelar consiste
 em enumerar todas as jornadas viáveis. Algo que é impraticável, considerando
@@ -611,8 +618,11 @@ número de tarefas. No entanto este modelo é a base para a solução por geração de
 %\end{figure}
 
 Na Figura~\ref{fig_graph_csp} é apresentado um grafo relativo a instância apresentada
-na tabela~\ref{tab_graph_csp}, no modelo apresentado acima. A enumeração de todas as jornadas
+na tabela~\ref{tab_graph_csp}. A enumeração de todas as jornadas
 factíveis e seus respectivos custo e durações são apresentadas na tabela~\ref{tab_gragh_csp_enum}.
+Por exemplo, na primeira linha têm-se: $1 \rightarrow $3, o que indica após a tarefa $1$ pode-se
+realizar a tarefa $3$. O custo de deslocar-se de $1$ para $3$ é de $5$ unidades, e o tempo gasto é
+de $13$ unidades de tempo.
 Utilizando-se estas informações, é possível utilizar um problema de particionamento de conjuntos
 para resolver o CSP. A formulação genéria de um SPP é apresentada em~\eqref{spppp}. Tem-se que $c_j$
 é o custo associado a $j$-ésima jornada, $x_j = 1$ se e somente se a jornada $j$ é utilizada. Tem-se
@@ -664,9 +674,10 @@ cobrir as tarefas existentes.
 }
 %\end{table}
 
-Resolvendo-se o problema apresentado em~\eqref{csp_1} e~\eqref{spppp} com um método de \textit{branch and bound},
+Resolvendo-se o problema apresentado nas Tabelas~\eqref{csp_1} e~\eqref{spppp} com um método de \textit{branch and bound},
 obtém-se a solução ótima composta por: Uma jornada que cobre as tarefas $1$ e $3$; Uma jornada que cobre as tarefas $2$, $4$ e $5$.
-A resolução desta instância ocorre praticamente instantaneamente, no entanto, ao aumentar-se os tamanhos das instâncias,
+Dado o tamanho do problema (grafo) e seu tamanho reduzido, a resolução desta instância ocorre praticamente instantaneamente.
+No entanto, ao aumentar-se os tamanhos das instâncias,
 a resolução utilizando-se métodos tradicionais (BnB, BnC) de PLI torná-se inviável e uma outra estratégia deve ser empregada.
 ~\cite{desrochers1989column} utiliza uma abordagem de geração de colunas utilizando o problema de cobertura para modelar o CSP.~\cite{beasley1996tree}
 utiliza relaxação lagrangiana com otimização de sub gradientes em conjunto com uma busca em árvore.~\cite{smith1988bus} utilizou
