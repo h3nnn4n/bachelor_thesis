@@ -949,8 +949,11 @@ ainda o método de \textit{Branch and Price}, capaz de garantir a integralidade d
 \chapter{Proposta}
 
 Nos capítulos anteriores discutiu-se a fundamentação teórica da PLI, bem como os detalhes de modelagem do CSP utilizando-se
-o SPP, e o método de geração de colunas. Especificou-se a modelagem utilizada tanto no problema mestre quanto no subproblema.
-Neste capitulo é apresentados métodos de solução para o problema mestre e o subproblema e a interação entre eles.
+o SPP, e o método de geração de colunas.
+Neste capitulo é apresentada a proposta para solução do CSP, que consiste em agregar o método de Geração de Colunas e
+algoritmos heurísticos, a fim de reduzir o tempo computacional para a solução do problema.
+%Especificou-se a modelagem utilizada tanto no problema mestre quanto no subproblema.
+%Neste capitulo é apresentados métodos de solução para o problema mestre e o subproblema e a interação entre eles.
 
 %solv_subp\begin{figure}[!htb]
 {
@@ -975,13 +978,16 @@ factível para o problema mestre. Estas jornadas podem ser geradas aleatoriamente
 heurística. As demais etapas são executadas toda vez que desejar-se resolver o problema mestre.
 
 A etapa 1 é executada toda vez no inicio da solução do problema mestre. Esta etapa consiste em atualizar o modelo inserindo
-as novas jornadas obtidas ou da etapa 0 ou da solução do subproblema. A etapa 2 é a execução do SIMPLEX em cima do modelo.
+as novas jornadas obtidas ou da etapa 0 ou da solução do subproblema. A etapa 2 consiste na execução do SIMPLEX em cima do modelo.
 A etapa 3 consiste no calculo dos preços duais associado as restrições do problema.
 
 \section{Solução do Subproblema}
 
 O processo de solução do subproblema ocorre em duas etapas, conforme a Figura~\ref{flowchart}:
-Na primeira etapa dado os preços duais, uma ou mais colunas são geradas de modo heurístico; Na
+Na primeira etapa, dado os preços duais encontrados pelo problema mestre, uma ou mais colunas são geradas de modo heurístico; Na
+%Na primeira etapa os preços duas gerados pelo problema mestre são utilizados
+%na modelagem do subproblema. Conforme apresentado na Seção 3.2.2, Ou seja, o subproblema é modelado como
+%um problema de caminho mínimo com restrições. uma ou mais colunas são geradas de modo heurístico; Na
 segunda etapa, que ocorre sequencialmente quando não é possível encontrar uma solução heurística,
 resolve-se o problema de modo exato.
 
