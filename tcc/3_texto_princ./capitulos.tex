@@ -682,8 +682,9 @@ a resolução utilizando-se métodos tradicionais (BnB, BnC) de PLI torná-se inviáv
 ~\cite{desrochers1989column} utiliza uma abordagem de geração de colunas utilizando o problema de cobertura para modelar o CSP.~\cite{beasley1996tree}
 utiliza relaxação lagrangiana com otimização de sub gradientes em conjunto com uma busca em árvore.~\cite{smith1988bus} utilizou
 diversos modelos matemáticos para tentar acelerar o processo de solução utilizando o IMPACS~\cite{smith1988impacs}.
-Algumas abordagens heurísticas para o problema incluem~\cite{doalgoritmos} e~\cite{silva2002simulated}.~\cite{Bergh}
-e~\cite{ernst2004staff} oferecem um \textit{survey} detalhado da área.
+\cite{doalgoritmos} e~\cite{silva2002simulated} utilizaram abordagens heurísticas para o problema incluem.~\cite{Bergh}
+e~\cite{ernst2004staff} apresentaram uma revisão bibliográfica detalhada sobre métodos utilizados para solução
+de problemas de \textit{crew schedling}.
 
 \begin{subequations}
     \label{spppp}
@@ -724,7 +725,7 @@ e~\cite{ernst2004staff} oferecem um \textit{survey} detalhado da área.
 
 No trabalho de~\cite{dos2008metodo}, o autor apresenta uma tabela contendo 5 instâncias reais
 do problema de CSP e o seu respectivo número de jornadas viáveis. Esta tabela está reproduzida
-na tabela~\ref{tab_iters}. Como se pode observar, o número de jornadas viáveis é grande mesmo
+na tabela~\ref{tab_iters}. Como pode-se observar, o número de jornadas viáveis é grande mesmo
 para um número relativamente pequeno de jornadas. No caso da tabela considera-se apenas uma linha
 de ônibus, o que consiste em uma versão mais simples do problema.
 
@@ -738,14 +739,14 @@ de ônibus, o que consiste em uma versão mais simples do problema.
         1170       & 54                & 292505           \\
         2153       & 43                & 10045            \\
     \end{tabular}
-    \caption{Jornadas das intâncias utilizadas em~\cite{dos2008metodo}}
+    \caption{Jornadas das instâncias utilizadas em~\cite{dos2008metodo}}
     \label{tab_iters}
 \end{table}
 
 Dentre todas as possíveis jornadas possíveis para uma instância qualquer de CSP, apenas um
 número relativamente pequeno é utilizado de fato. Considerando por exemplo o Itinerário 101
 da tabela~\ref{tab_iters}, tem-se 1037190 jornadas, sendo que no máximo 40 podem ser utilizadas (assumindo
-que cada jornada cubra o mínimo possível), na pratica utilizou-se apenas 3 jornadas.
+que cada jornada cubra o mínimo possível), a solução ótima encontrada utilizou apenas 3 jornadas.
 Isto ocorre pelo fato de que a grande maioria das jornadas
 é de custo muito alto ou não cobre um número suficiente de tarefas para valer a pena ser considerada.
 Não obstante, para garantir-se que a solução encontrada é ótima, deve-se considerar integralmente o conjunto
@@ -757,9 +758,11 @@ as jornadas de modo explícito, isto é, as jornadas não são pré-calculadas.
 
 \section{Geração de Colunas para o CSP}
 
-Conforme visto na seção\ref{csppppp}, considerar explicitamente o conjunto de todas as jornadas possíveis para
-uma instância de CSP é algo que pode inviabilizar a solução do problema. Um método que contorna
-este problema é o de geração de colunas~\cite{desaulniers2006column}~\cite{barnhart1998branch}.
+Conforme abordado na seção\ref{csppppp}, explicitar o conjunto de todas as jornadas possíveis para
+uma instância de CSP é algo que pode inviabilizar.
+O método de geração de colunas tem como objetivo resolver problemas que tem como
+característica um grande número de variáveis~\cite{desaulniers2006column}~\cite{barnhart1998branch}.
+A Figura~\ref{treta} apresenta no formato de fluxograma as etapas do método de geração de colunas canônico.
 
 %\begin{figure}[!htb]
 %\begin{minipage}
@@ -772,9 +775,12 @@ este problema é o de geração de colunas~\cite{desaulniers2006column}~\cite{barnh
 %\end{minipage}
 %\end{figure}
 
-O método de geração de colunas é decomposto em dois problemas menores: Problema mestre, o problema a ser resolvido;
-Sub problema, que é um modelo de PLI capaz de identificar que informação é necessária para que o problema
-mestre encontre a solução ótima.
+O método de geração de colunas é decomposto em dois problemas menores: O problema mestre o o sub problema.
+O problema mestre está representado do lado esquerdo da figura~\ref{treta}, composto de 3 etapas: A inclusão de novas
+jornadas (colunas) no modelo; A solução do modelo, que é feita através do método Simplex; A extração dos preços duais,
+que é fornecida pelo método Simplex primal-dual. No lado direito da figura está representado o sub problema, que é
+composto de dois módulos: A solução exata do sub problema (feita através de \textit{Branch and Bound}); O módulo
+de verificação de otimalidade, que utiliza informações do modelo para verificar a otimalidade so problema mestre.
 
 A interação entre os dois problemas é mostrada na Figura~\ref{treta}. A relaxação linear do problema mestre é resolvido com um
 conjunto inicial de jornadas, de modo que o problema possua uma solução factível. A partir da solução da relaxação do
@@ -782,15 +788,15 @@ problema mestre obtém-se os preços duais associados às restrições do problema, q
 O subproblema então utiliza os preços duais para calcular uma nova jornada que tem a possibilidade de contribuir para o problema
 mestre. Esta nova jornada é adicionada no problema mestre e o processo repete-se. A condição de parada consiste
 no problema mestre obter uma solução com custo reduzido negativo, o que indica que não é possível melhorar o problema mestre.
-O problema mestre até o presente momento foi resolvido sob o efeito de uma relaxação linear. Portanto, caso existam
-variáveis não inteiras é necessário resolver o problema mestre mais uma vez, desta vez utilizando-se um método de solução para
-PLI.
+Como apenas a relaxação linear do problema mestre é resolvida, portanto é possível que ao final da execução existam
+variáveis não inteiras. Caso isto ocorra, é necessário utilizar um método de \textit{Branch and Bound} integrado com geração
+de colunas, denominado de \textit{Branch and Price}.
 
 Nas seções a seguir é discutido formalmente a formulação e funcionamento do processo de geração de colunas.
 
 \subsection{Problema Mestre}
 
-O problema mestre deve ser capaz de obter uma solução factível e ótima para o problema original. Quando aplicado
+O problema mestre deve ser capaz de obter uma solução e ótima para o problema original. Quando aplicado
 ao CSP, o problema mestre consiste de um SPP. Tem-se que cada coluna corresponde a uma jornada viável, com uma
 variável e um custo associado. Cada linha esta representando uma tarefa que deve ser coberta por exatamente
 uma jornada.
@@ -800,10 +806,10 @@ a solução dual associada não possua o mesmo valor da função objetivo. Portanto, 
 de modo correto é inviabilizado. Sendo assim utiliza-se a relaxação linear do problema mestre, que possui
 a propriedade de integralidade forte. No caso da relaxação linear, as variáveis deixam de ser inteiras (ou binárias)
 e passam a ser não negativas. Considerando que na formulação do problema mestre tem-se a restrição de cobertura, que faz
-com que o somatório das variáveis de cobertura de uma tarefa sejam iguais à $1$ e existe a restrição de não negatividade
+com que o somatório das variáveis de cobertura de uma tarefa sejam iguais à $1$, bem como a restrição de não negatividade
 das variáveis, as variáveis tem automaticamente o seu valor limitado entre $0$ e $1$.
 
-Considerando-se as instâncias da \textit{OR-Library}, o problema mestre é dado em~\eqref{pmaster}. Note que $J$ é o conjunto
+Considerando-se as instâncias da \textit{OR-Library}~\cite{beasley1990or}, o problema mestre é dado em~\eqref{pmaster}. Note que $J$ é o conjunto
 de todas as jornadas factíveis, e que o modelo utiliza $\tilde{J}$, sendo que $\tilde{J} \subset J$. A constante $NJ$ corresponde
 ao tamanho da tripulação, que é fixo e conhecido \textit{à priori}. O restante da formulação~\eqref{pmaster} é igual à~\eqref{spppp}.
 
@@ -820,7 +826,7 @@ ao tamanho da tripulação, que é fixo e conhecido \textit{à priori}. O restante d
 Uma questão a se considerar em relação ao problema mestre, é a necessidade de uma solução factível no \textquote{Inicio} do processo.
 No caso do SPP, deve ter um conjunto de colunas (jornadas) que possam cobrir todas as tarefas.
 
-A partir da solução do problema mestre, obtém-se um conjunto de informações relativos aos preços duais.  Considerando que cada
+A partir da solução do problema mestre, obtém-se os preços duais.  Considerando que cada
 restrição esta associada a uma tarefa, o custo reduzido da restrição quantifica quanto que uma jornada que cubra a tarefa associada
 pode melhorar a solução do SPP. Note que a restrição~\eqref{pmaster3} não esta associada a uma tarefa em específico, mas sim ao
 número de jornadas que podem ser utilizadas simultaneamente. O vetor de comprimento $|T|$, onde $T$ é o conjunto de todas as
@@ -836,8 +842,8 @@ colunas devem ser geradas, conforme é exposto na seção a seguir.
 \subsection{Subproblema}
 \label{sec_subp}
 
-O problema mestre possui a funcionalidade de escolher quais jornadas devem ser utilizadas, já o subproblema é responsável
-por produzir novas jornadas para o problema mestre e indicar quanto a solução é ótima. O subproblema gera novas colunas
+O subproblema é responsável
+por produzir novas jornadas para o problema mestre e indicar quando a solução é ótima, ou seja, o subproblema gera novas colunas
 enquanto sua função objetivo for negativa.
 
 Uma jornada consiste em uma sequencia de tarefas, onde a transição entre cada tarefa possui um custo. Sendo assim, uma
@@ -845,14 +851,16 @@ jornada deve minimizar o custo, e o conjunto de todas as jornadas deve ser capaz
 existe um limite de tempo para cada jornada, portanto, o caminho mínimo esta restrito. Este problema é denominado de
 caminho mínimo com restrições, e é um problema $\mathbb{NP}$-completo~\cite{irnich2005shortest}.
 
-A formulação do subproblema dá-se em~\eqref{subp}. O subproblema é modelado como sendo um grafo. Neste grafo, cada arco
+A formulação do subproblema dá-se em~\eqref{subp}. O subproblema foi modelado como sendo um grafo $G=(V, E)$, onde
+$V$ é o conjunto de vértices, que estão associados as tarefas e $E$ é o conjunto de arestas, associadas com
+deslocamentos entre uma tarefa e outra. Neste grafo, cada arco
 $a = (v_t, v_w)$ possui um custo $c_a$ que representa o custo de transição entre $t$ e $w$. Existem ainda dois nós
 fictícios para facilitar a modelagem: $v_0$ e $v_f$. O nó $v_0$ conecta a todos os outros nós (exceto $v_f$), o nó
 $v_f$ possui todos os nós levando a ele. Todos os arcos que conectam $v_0$ e $v_f$ possuem custo $0$. A constante $MaxW$
 representa a duração máxima de uma jornada. O valor de $d_a$ é a duração do arco de transição somado com a
 duração do nó final (da transição).
 
-A variável de decisão $y_a$ possuem seu valor igual a $1$ se e somente se o arco $a$ é utilizado na jornada. A variável de
+A variável de decisão $y_a$ possui seu valor igual a $1$ se e somente se o arco $a$ é utilizado na jornada. A variável de
 decisão $v_t$ vale $1$ se e somente se o vértice associado a tarefa $t$ esta presente na jornada. Em um problema simples
 de caminho mínimo apenas o uso da variável de decisão $y_a$ é o suficiente. No entanto, para o CSP a variável de
 decisão $v_t$ possuí a funcionalidade de guiar a função objetivo utilizando os custos reduzidos oriundos do problema mestre.
@@ -868,8 +876,8 @@ decisão $v_t$ possuí a funcionalidade de guiar a função objetivo utilizando os c
     \end{align}
 \end{subequations}
 
-A função objetivo~\eqref{subp1} possui $3$ elementos: $\sum_{a \in A} c_a y_a$ é componente que guia a função objetivo
-em direção ao caminho de menor custo; $- \sum_{t \int T} \tilde{\pi}_t v_t$ é responsável por guiar o processo de solução
+A função objetivo~\eqref{subp1} possui $3$ elementos: $\sum_{a \in A} c_a y_a$, que é o componente que guia a função objetivo
+em direção ao caminho de menor custo; $- \sum_{t \int T} \tilde{\pi}_t v_t$, que é o responsável por guiar o processo de solução
 a escolher um caminho que contenha as tarefas que tenham o potencial de melhorar a solução do problema mestre; por fim $- \tilde{\mu}$
 possui a finalidade de possibilitar que a geração de colunas crie jornadas sub ótimas, que no contexto geral podem levar
 a solução ótima.
@@ -880,6 +888,14 @@ este nós a um outro. Esta restrição ainda faz com que número de arcos incidentes
 A restrição~\eqref{subp5} faz com que $v_t$ tenha seu valor restrito em $0$ ou $1$, portanto o grau de incidência para qualquer
 nó (exceto $v_0$ e $v_t$) é zero ou um. A não ser pela presença da variável $v_t$. Por fim, a restrição~\eqref{subp4} faz
 com que as jornadas tenham no máximo uma duração pré definida.
+
+Como exemplo, considere o grafo na Figura~\ref{graph2} que representa um subproblema, o qual os preços duais e os custos
+das arestas são apresentados na tabela~\ref{tab_pd}. As arestas tracejadas fazem parte do grafo, porém
+não fazem parte da solução encontrada. As arestas em destaque formam uma solução de custo reduzido
+negativo para o subproblema. Tem-se então que $y_{(0,1)} = y_{(1,3)} = y_{(3,f)} = 1$ e os demais
+$y_{(i,j)} = 0$, já para os vértices tem-se $v_1 = v_3 = 1$ e $v_2 = 0$. Portanto obtêm-se uma
+função objetivo onde o primeiro termo possui um valor de $y{(1,3)}\cdot6 = 6$ e o segundo vale
+$v_1 \cdot 6 + v_3\cdot4 = 10$, resultando em $-4$.
 
 %solv_subp\begin{figure}[!htb]
 {
@@ -904,16 +920,31 @@ com que as jornadas tenham no máximo uma duração pré definida.
 }
 %\end{figure}
 
-Considere o grafo na Figura~\ref{graph2} como um subproblema, na qual os preços duais e os custos
-das arestas são apresentados na tabela~\ref{tab_pd}. As arestas tracejadas fazem parte do grafo, porém
-não fazem parte da solução encontrada. As arestas em destaque formam uma solução de custo reduzido
-negativo para o subproblema. Tem-se então que $y_{(0,1)} = y_{(1,3)} = y_{(3,f)} = 1$ e os demais
-$y_{(i,j)} = 0$, já para os vértices tem-se $v_1 = v_3 = 1$ e $v_2 = 0$. Portanto obtêm-se uma
-função objetivo onde o primeiro termo possui um valor de $y{(1,3)}\cdot6 = 6$ e o segundo vale
-$v_1 \cdot 6 + v_3\cdot4 = 10$, resultando em $-4$.
+\subsection{Branch and Price}
 
-Neste capitulo discutiu-se a modelagem do SPP e do CSP. Discutiu-se ainda como são modelados o problema mestre utilizando SPP
-e o subproblema utilizando caminho mínimo com restrições.
+O processo de resolução do Problema Mestre opera unicamente com a relaxação linear do modelo. Isto
+implica na possibilidade de que ao final da execução, quando a solução ótima tiver sido encontrada,
+$2$ duas ou mais variáveis podem ter seus valores não inteiros. Devido ao valor semântico de cada
+variável (a utilização ou não de uma jornada), é necessário garantir sua integralidade.
+
+É necessário utilizar o método Simplex no subproblema, já que ele é a fonte dos preços duais para
+o subproblema. No entanto, o Simplex não garante a integralidade do modelo no caso do SPP. Utiliza-se
+então o método de \textit{Branch and Price}.
+
+O \textit{Branch and Price} possui grande semelhança com o método de \textit{Branch and Bound}. Sua
+diferença consiste em verificar o custo reduzido do subproblema em cada nó da árvore de enumeração,
+de modo que caso seja necessário, novas variáveis são criadas. No caso de uma variável
+não ser inteira, realiza-se o \textit{Branching} de variável (ou algum outro método).
+
+As variáveis do modelo, ao final de sua execução, possuem seus valores em $0$ ou $1$. Portanto,
+durante a execução do \textit{Branch and Price}, quando é encontrado uma variável com valor fracionário
+pode-se criar dois novos problemas: Um onde esta variável tem seu valor fixo em $0$; Outro
+onde esta variável tem seu valor fixo em $1$. Com isto, pode-se garantir que ao final da execução
+a solução ótima foi encontrada e que todas variáveis são inteiras.
+
+Neste capitulo discutiu-se a modelagem do SPP e do CSP. Abordou-se o método de geração de colunas e como são
+modelados o problema mestre utilizando SPP e o subproblema utilizando caminho mínimo com restrições. Abordou-se
+ainda o método de \textit{Branch and Price}, capaz de garantir a integralidade da solução do Problema Mestre.
 
 \chapter{Proposta}
 
