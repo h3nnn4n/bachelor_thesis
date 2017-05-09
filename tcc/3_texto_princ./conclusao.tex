@@ -1,22 +1,28 @@
 \chapter{Considera\c{c}\~oes finais}
 
-%Neste trabalho apresentou-se a fundamentação teórica referente a programação linear e a programação linear inteira,
-%com a finalidade de definir o problema de alocação de tripulação, do inglês \textit{crew scheduling problem} (CSP).
-%Apresentou-se também o método de geração de colunas, utilizado para resolver problemas com um grande número
-%de variáveis, que é o caso do CSP. Modelou-se os dois componentes da geração de colunas para o CSP: O problema
-%mestre e o subproblema. Por fim apresentou-se um conjunto de métodos para resolver o CSP juntamente com a proposta
-%deste trabalho.
+Neste trabalho apresentou-se a fundamentação teórica referente a programação linear e a programação linear inteira,
+com a finalidade de definir o problema de programação de tripulação, do inglês \textit{crew scheduling problem} (CSP).
+Apresentou-se também o método de geração de colunas, utilizado para resolver problemas com um grande número
+de variáveis, que é o caso do CSP. Modelou-se os dois componentes da geração de colunas para o CSP: O problema
+mestre e o subproblema. Apresentou-se ainda um conjunto de métodos para resolver o CSP juntamente com o
+algoritmo híbrido exato proposto.
 
-%Durante o desenvolvimento deste trabalho pode-se identificar os principais conceitos necessários para compreender
-%o processo de solução do CSP. Pode-se ainda identificar um problema de interesse prático e utilizado em larga
-%escala no setor de transporte terrestre e aéreo. Com base na utilização na literatura e ao desempenho obtido
-%em testes de laboratório, optou-se por utilizar o CPLEX para resolver o problema mestre e o sub problema de modo
-%exato.
+Durante o desenvolvimento deste trabalho pode-se identificar os principais conceitos necessários para compreender
+o processo de solução do CSP. Pode-se ainda identificar um problema de interesse prático e utilizado em larga
+escala no setor de transporte terrestre e aéreo. Com base na utilização na literatura e ao desempenho obtido
+em testes de laboratório, optou-se por utilizar o CPLEX para resolver o problema mestre e o sub problema de modo
+exato e o SCIP para realizar o \textit{Branch and Price}.
 
-%A próxima etapa do trabalho consiste em implementar o método de geração de colunas, validar a implementação,
-%implementar as diferentes (meta) heurísticas mencionadas na seção\ref{secc4}, executar testes e coletar dados, e
-%por fim fazer uma análise dos resultados encontrados. Tem-se como objetivo também escrever um artigo apresentando
-%os resultados obtidos neste trabalho.
+Os resultados encontrados apontam que a adição de heurísticas que sejam capazes de encontrar algumas poucas colunas já é o suficiente
+para reduzir o tempo computacional total de processamento.
+Identificou-se ainda através da análise da taxa de convergência, do total de colunas geradas, do tempo computacional total e da taxa de acerto que:
+Quanto maior a taxa de acerto mais rápida e a convergência e menor o tempo necessário para obter-se a solução ótima do problema; A adição
+de colunas em excesso tem um impacto negativo na solução do subproblema de modo exato, que é necessário para garantir que a solução ótima foi encontrada.
 
-%O trabalho desenvolvido neste TCC faz parte de um projeto de Iniciação Científica (IC), na qual foi desenvolvido
-%e publicado um artigo no Simpósio Brasileiro de Pesquisa Operacional (SBPO).
+Em trabalhos futuros, sugere-se analisar o algoritmo com instâncias reais e encorporar novas heurísticas, já que a adição de novas heurísticas
+aponta que existe vantagem em sua utilização. A encorporação da regra de \textit{branching} de~\cite{ryan1981integer}, segundo a literatura encontrada, pode
+trazer benefícios se implementada dentro do \textit{branch and price}, devido a sua capacidade de gerar uma árvore mais balanceada do que
+o \textit{branching} de variável.
+
+O trabalho desenvolvido neste TCC faz parte de um projeto de Iniciação Científica (IC), na qual foi desenvolvido
+e publicado artigos no Simpósio Brasileiro de Pesquisa Operacional (SBPO).
