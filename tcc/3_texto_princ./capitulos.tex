@@ -1002,28 +1002,38 @@ se garanta que a solução final do SPP é ótima. Portanto, o SPP é inicialmente pr
 e caso não encontre-se uma solução com custo reduzido negativo, então deve ser utilizada a solução exata. A solução
 exata do subproblema pode ser modelada como um caminho mínimo com restrições via PLI, conforme visto na seção~\ref{sec_subp}.
 Este problema de PLI é resolvido utilizando-se o método de \textit{Branch and Cut}.
-
 \subsection{Solução Heurística}
 \label{solv_subp}
 
-Nesta seção ão apresentados diversas heurísticas e meta-heurísticas encontradas na literatura e capazes de
+Nesta seção é apresentados diversas heurísticas e meta-heurísticas encontradas na literatura e capazes de
 serem utilizadas para resolver-se o subproblema. Como objetivo final do trabalho, deseja-se avalia-las e
 incorporar uma ou mais heurísticas para acelerar o processo de solução do CSP.
 
-\subsubsection{Busca Gulosa Baseada em Relaxação Linear}
+Todos as (meta) heurísticas apresentadas a seguir operam sobre o modelo apresentado na Seção~\ref{sec_subp}. Este modelo
+é apresentado novamente em~\eqref{subp2}. A função objetivo (cujo significado foi explicado na Seção~\eqref{sec_subp}) está
+presente em todas a heurísticas implementadas e é responsável por guiá-las. As restrições~\eqref{subp22} e~\eqref{subp23}
+são tratadas implicitamente, já que seu objetivo é garantir a conetividade do grafo e a existência de um único caminho e
+as meta heurísticas utilizadas garantem isto automaticamente. A restrição~\eqref{subp25} é uma questão de codificação (binária)
+das variáveis, na qual as meta heurísticas utilizadas são capazes de considerar automaticamente. A única restrição
+que de fato é utilizada explicitamente é a restrição~\eqref{subp24}, que garante que não exista uma jornada de trabalho
+longa demais.
 
-Uma heurística simples para resolver o subproblema consiste em resolver a relaxação linear do mesmo. Conforme visto
-no capitulo~\ref{cap1}, de modo geral a relaxação linear não leva a solução ótima de um problema de PLI. No entanto,
-para algumas instâncias de um problema de PLI, é possível que isto ocorra, fazendo com que alguns casos de um problema
-difícil sejam resolvido rapidamente.
+\begin{subequations}
+    \label{subp2}
+    \begin{align}
+        \label{subp21} \text{min} \: \sum_{a \in A} c_a y_a - \sum_{t \int T} \tilde{\pi}_t v_t - \tilde{\mu}\\
+        \label{subp22} \sum_{a \in \delta^{+} (v_0)} y_{a} = \sum_{a \in \delta^{-} (v_f)} y_{a} = 1 \\
+        \label{subp23} \sum_{a \in \delta^{+} (v_t)} y_{a} = \sum_{a \in \delta^{-} (v_t)} y_{a} = v_t, \forall t \in T \\
+        \label{subp24} \sum_{a \in A} d_a y_{a} \leq MaxW \\
+        \label{subp25} v_t, y_a \in \{0, 1\}, \forall v_j \in V, \forall a \in A
+    \end{align}
+\end{subequations}
 
-No caso de resolver-se a relaxação linear de um subproblema e obter-se uma solução inteira de custo reduzido negativo,
-pode-se gerar uma nova jornada e inseri-la no problema mestre, conforme ilustrado na Figura~\ref{flowchart}
-Caso a solução seja inteira e não possua custo reduzido negativo,
-então o problema mestre já possui o conjunto ótimo de colunas. Por fim, se for obtido uma solução não inteira
-de custo reduzido negativo, pode-se aplicar uma ou mais heurísticas de arredondamento para obter uma solução inteira.
-Este tipo de heurística é utilizada e ~\cite{glpk} e~\cite{scip} e apresentam um ganho significativo em caso de sucesso
-a um custo irrelevante em caso de falha
+Os procedimentos de \textit{Ant Colony Optimization} e \textit{Simulated Annealing} utilizam penalidades
+para guiar o processo de solução em direção ao espaço de busca viável. \textit{Hill Climbing} e Busca Tabu
+operam apenas dentro de espaço de busca factível, de modo que em momento algum uma jornada com duração maior
+que o limite é considerada. Com estas duas estratégias garante-se que a restrição~\eqref{subp24} não é violada.
+
 
 \subsubsection{Subida de Encosta}
 
@@ -1042,6 +1052,8 @@ a que apresenta o menor aumento da função objetivo. A função objetivo consiste n
 duas tarefas adjacentes subtraído do preço dual associado as tarefas cobertas por esta transição. O algoritmo de busca
 de encosta pode operar enquanto for possível adicionar tarefas sem violar a restrição de duração da jornada. É possível
 retornar a jornada de maior duração encontrada ou armazenar as soluções parciais e retorna-las ao problema mestre.
+Optou-se por retornar a primeira solução de custo reduzido negativo, com o objetivo de manter as iterações
+o mais curtas possíveis.
 
 \subsubsection{\textit{Simulated Annealing} - Recozimento Simulado}
 
@@ -1049,18 +1061,35 @@ O processo de \textit{annealing} (recozimento) é utilizado na industria metalúrg
 características desejáveis. Um metal é aquecido a uma determinada temperatura e é resfriado de modo controlado, com
 o objetivo de permitir que os cristais de carbono do aço possam de alocar de modo apropriado.
 
-A otimização de \textit{Simulated Annealing} baseia-se no processo de \textit{annealing} para resolver problemas
+A otimização de \textit{Simulated Annealing} (SA) baseia-se no processo de \textit{annealing} para resolver problemas
 de otimização~\cite{kirkpatrick1983optimization,eglese1990simulated}. O algoritmo de \textit{Simulated Annealing}
 possui um comportamento semelhante ao de subida de encosta, onde a melhor alteração é escolhida.
 A diferença está no fato de que é possível escolher uma alteração que tenha um impacto negativo na solução. Isto permite
 que o algoritmo escape de máximos locais e possa explorar melhor o espaço de busca.
 
-O algoritmo de \textit{Simulated Annealing}recozimento simulado possui uma variável de controle que é temperatura. Esta possui um valor inicial e
+O algoritmo de SA possui uma variável de controle que é temperatura. Esta possui um valor inicial e
 final arbitrário e predefinido. A função da temperatura é decidir a probabilidade de uma ação prejudicial a função
 objetivo seja executada. Para valores altos da temperatura, a chance de tomar-se uma ação prejudicial é alta. Ao passar
 das iterações do algoritmo a temperatura diminui conforme uma função predeterminada, até chegar na temperatura final.
 Em valores próximos da temperatura final, o algoritmo possui uma chance próxima de zero de permitir que seja tomado
-uma ação que tenha um impacto negativo na função objetivo.
+uma ação que tenha um impacto negativo na função objetivo. A temperatura diminui de acordo com um \textit{Cooling Scheme}
+(Esquema de Resfriamento), que controla a temperatura ao longo da execução. Os parâmetros utilizados pelo SA são apresentados na
+Tabela~\ref{tab_sa}.
+
+%\begin{table}[h]
+{
+    \centering
+    \begin{tabular}{r | l}
+        Parâmetro & Valor \\ \hline
+        Temperatura inicial & $50.0$ \\ \hline
+        Temperatura final & $0.0$ \\ \hline
+        Número de iterações & $1000$ \\ \hline
+        \textit{Cooling Scheme} & Linear \\
+    \end{tabular}
+    \captionof{table}{Parâmetros do SA}
+    \label{tab_sa}
+}
+%\end{table}
 
 Desta forma, o algoritmo inicia tomando possíveis decisões que pioram a função objetivo,
 e com o passar das iterações estas ações tornam-se mais raras. Com isto é possível
@@ -1082,6 +1111,11 @@ o algoritmo assim que uma solução de custo negativo seja encontrada ou executar 
 a temperatura final predeterminada e retornar a melhor solução obtida. Pode-se ainda armazenar todas as soluções de
 custo reduzido negativo encontradas e retorna-las ao problema mestre.
 
+Durante a execução do SA, admite-se que soluções inválidas (que estouram o limite de tempo da jornada),
+com o objetivo de mais facilmente navegar pelo espaço de busca. Aplica-se uma penalidade proporcional ao tempo
+em excesso na jornada, com o objetivo de guiar o processo de busca em direção a soluções válidas. Ao final da
+execução, retorna-se a jornada com o menor custo reduzido negativo encontrado.
+
 \subsubsection{Colônia de Formigas}
 
 A otimização de colônia de formigas (ACO, \textit{ant colony optimization})~\cite{dorigo2003ant},
@@ -1094,13 +1128,13 @@ caminhos mais utilizados permaneçam.
 
 Este comportamento é simulado computacionalmente e pode ser utilizado para resolver diversos problemas de otimização
 combinatória~\cite{dorigo2005ant}. O algoritmo implementa um sistema multiagente (cada formiga é considerada um agente) onde existe
-um comportamento emergente no coletivo dos agentes.  Problemas envolvendo grafos são facilmente resolvidos via
+um comportamento emergente no coletivo dos agentes. Problemas envolvendo grafos são facilmente resolvidos via
 ACO e consistem em um exemplo clássico de aplicação.
 
 Para resolver o subproblema, os agentes são todos posicionados no nó inicial e movem aleatoriamente depositando
-feromônios. Quando o agente chega no nó final, ele é motivo para o nó inicial e o processo continua. Após a primeira
-leva de agentes, o sistema tera rastro de feromônios que irá influenciar o comportamento dos próximos agentes.
-Nas demais iterações, os agentes utilizando um mecanismo estocástico de decisão, onde existe uma tendencia
+feromônios. Quando o agente chega no nó final, ele é movido para o nó inicial e o processo continua. Após a primeira
+leva de agentes, o sistema terá rastro de feromônios que influencia o comportamento dos próximos agentes.
+Nas demais iterações, os agentes utilizando um mecanismo estocástico de decisão, onde existe uma tendência
 de seguir caminhos com maior concentração de feromônios. A cada iteração a concentração de feromônio é diminuída,
 com o objetivo de eliminar caminhos pouco utilizados. Após um número predefinido de iterações, é possível extrair
 o caminho de menor custo reduzido.
@@ -1110,13 +1144,43 @@ onde autores modelam o CSP como uma instância do \textit{traveling salesman prob
 aplicado diretamente ao problema do caminho mínimo e suas variantes~\cite{ghoseiri2010ant,dorigo1997ant}.
 E considerando a natureza do subproblema, o ACO pode ser aplicado diretamente~\cite{dorigo2006ant}.
 
+A implementação foi feita utilizando-se o grafo do subproblema como o ambiente na qual os agentes deslocam-se.
+Isto garante que ao final a solução sera uma jornada viável (sem considerar a restrição de tempo). A intensidade
+dos feromônios depositados é inversamente proporcional ao custo reduzido da jornada.
+
+A Tabela~\eqref{tab_aco} contém os parâmetros utilizados. O ``Decaimento'' controla a velocidade com que o feromônio
+evapora. Um valor alto demais faz com que caminhos ruins permaneçam por mais tempo, enquanto que um valor menor
+torna o algoritmo tendencioso a caminhos bons. O ``Fator Heurístico'' controla o quanto que uma função heurística
+(que fornece alguma informação sobre o problema) influencia na decisão. A função heurística utilizada consiste
+na função objetivo do subproblema. ``Fator  Histórico'' determina a importância da intensidade da trilha de feromônios
+e o coeficiente de ``\textit{Greediness}'' determina o quanto o custo da transição importa (neste caso o Preço Dual).
+
+%\begin{table}[htpb]
+{
+    \centering
+    \begin{tabular}{r | l}
+        Parâmetro           & Valor  \\ \hline
+        Iterações           & $1000$ \\ \hline
+        Número de agentes   & $10$   \\ \hline
+        Decaimento          & $0.1$   \\ \hline
+        Fator Heurístico    & $2.5$  \\ \hline
+        Fator Histórico     & $0.1$  \\ \hline
+        \textit{Greediness} & $0.9$  \\ \hline
+    \end{tabular}
+    \captionof{table}{caption}
+    \label{tab_aco}
+}
+%\end{table}
+
 \subsubsection{Busca Tabu}
 
 A busca tabu é uma meta-heurística baseada na subida de encosta, onde uma modificação é aplicada sucessivamente
 a uma solução, de modo guloso~\cite{glover1989tabu,glover1990tabu}. Para evitar ficar preso em máximos locais,
 o algoritmo permite fazer uma modificação prejudicial para a função objetivo caso não seja
 possível melhora-la. Quando isto ocorre, é criado uma regra que proíbe voltar para aquele estado.
-Esta regra expira após um tempo predefinido.
+Esta regra expira após um tempo predefinido, controlando assim a utilização de memória. Utilizou-se uma
+lista circular de $15$ posições para armazenar os tabus e o algoritmo executou por $1000$ iterações retornando
+assim que fosse encontrado uma solução de custo reduzido negativo.
 
 Um modo de aplicar a busca tabu na solução do subproblema consiste em gerar uma solução inicial factível e trocar
 uma tarefa por outra, sempre que isto melhorar a função objetivo. Caso não seja possível, deve-se então
@@ -1125,11 +1189,12 @@ executado por uma quantidade predefinida de passos ou até que uma solução de cus
 seja encontrada. No caso de executar o algoritmo por uma quantidade predefinida de passos, pode-se retornar
 ao fim a melhor solução encontrada, ou retornar o conjunto de todas as soluções de custo reduzido negativo.
 
-%\chapter{Resultados parciais}
+A comparação entre duas soluções candidatas é feita aplicando-se a jornada na função objetivo do subproblema
+(apresentada em~\eqref{subp}) e a substituição é feita de acordo com as possibilidades de melhoria e da lista tabu.
+Optou-se por não permitir que soluções infactíveis (que violam a restrição de duração) fossem admissíveis. Esta
+escolha mostrou-se melhor do que utilizar penalidades para guiar o processo de solução.
 
-%Do ré mi fá sol la si.
-
-\section{Utilização das Heurísticas e Meta Heurísticas}
+\section{Utilização das Meta Heurísticas}
 
 A proposta deste trabalho baseia-se no trabalho de~\cite{dos2008metodo}, onde utilizou-se o procedimento de
 geração de colunas juntamente com duas meta heurísticas para resolver o CSP, onde o autor utilizou as meta heurísticas
