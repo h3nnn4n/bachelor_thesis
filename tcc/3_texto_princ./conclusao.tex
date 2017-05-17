@@ -10,11 +10,11 @@ algoritmo híbrido exato proposto.
 Durante o desenvolvimento deste trabalho pode-se identificar os principais conceitos necessários para compreender
 o processo de solução do CSP. Pode-se ainda identificar um problema de interesse prático e utilizado em larga
 escala no setor de transporte terrestre e aéreo. Com base na utilização na literatura e ao desempenho obtido
-em testes de laboratório, optou-se por utilizar o CPLEX para resolver o problema mestre e o sub problema de modo
-exato e o SCIP para realizar o \textit{Branch and Price}.
+em testes de laboratório, optou-se por utilizar o IBM ILOG CPLEX Optimizer para resolver o problema mestre e o sub problema de modo
+exato e o \textit{SCIP - Solving Contrained Integter Problems} para realizar o \textit{Branch and Price}.
 
-Os resultados encontrados apontam que a adição de heurísticas que sejam capazes de encontrar algumas poucas colunas já é o suficiente
-para reduzir o tempo computacional total de processamento.
+Os resultados obtidos com esta pesquisa exploratória constam que a adição de heurísticas, que sejam capazes de encontrar algumas poucas colunas,
+já é o suficiente para reduzir o tempo computacional total de processamento.
 Identificou-se ainda através da análise da taxa de convergência, do total de colunas geradas, do tempo computacional total e da taxa de acerto que:
 Quanto maior a taxa de acerto mais rápida e a convergência e menor o tempo necessário para obter-se a solução ótima do problema; A adição
 de colunas em excesso tem um impacto negativo na solução do subproblema de modo exato, que é necessário para garantir que a solução ótima foi encontrada.
@@ -24,5 +24,11 @@ aponta que existe vantagem em sua utilização. A encorporação da regra de \textit
 trazer benefícios se implementada dentro do \textit{branch and price}, devido a sua capacidade de gerar uma árvore mais balanceada do que
 o \textit{branching} de variável.
 
-O trabalho desenvolvido neste TCC faz parte de um projeto de Iniciação Científica (IC), na qual foi desenvolvido
-e publicado artigos no Simpósio Brasileiro de Pesquisa Operacional (SBPO).
+O trabalho desenvolvido neste TCC é consequência de 2 anos de Iniciação Científica (IC), na qual foi desenvolvido
+e publicado artigos no Simpósio Brasileiro de Pesquisa Operacional (SBPO). No primeiro ano do Projeto de IC realizou-se uma
+pesquisa e estudo sobre os conceitos de PLI. Como resultado do primeiro ano de trabalho publicou-se um artigo na SBPO 2016 abordando
+as problemáticas presentes em PLI de titulo "ANÁLISE DE MÉTODOS PARA RESOLUÇÃO DE PROBLEMAS DE  PROGRAMAÇÃO LINEAR INTEIRA". No segundo ano
+do projeto de IC, abordou-se problemas mais específicos de PLI, como problemas de cobertura e particionamento de conjuntos.
+
+O tema do TCC foi proposto de desenvolvido considerando o conhecimento adquirido no projeto de IC. Como resultado final deste trabalho de pesquisa,
+encaminhou-se para a SBPO 2017 para avaliação um segundo artigo que contempla o trabalho desenvolvido no TCC e seus resultados.

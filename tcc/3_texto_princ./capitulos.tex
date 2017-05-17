@@ -589,7 +589,7 @@ no seguinte formato: Número de tarefas($N$); Tempo limite de uma jornada; para c
 $i\text{ em }\{1, \ldots, N\}$: tempo de início, tempo de termino; Para cada par
 $(i, j)$ de arestas, onde $j$ começa após o término de $i$, o custo da transição
 de $i$ para $j$. O problema pode ser representado em um grafo $G=(V, E)$, conforme visto na Figura~\ref{fig_graph_csp}.
-Onde $E$ é o conjunto de tarefas que no grafo está associado aos vértices e $V$ são os
+Onde $V$ é o conjunto de tarefas que no grafo está associado aos vértices e $E$ são os
 deslocamentos entre duas tarefas, correspondes as arestas.
 %
 %As instâncias da \textit{OR-Library} possuem um número fixo de jornadas de devem ser utilizadas
@@ -605,8 +605,8 @@ deslocamentos entre duas tarefas, correspondes as arestas.
 }
 
 As instâncias apresentadas podem ser formuladas matematicamente de diversas maneiras.
-Uma delas é apresentada no artigo em que foram propostas. Neste trabalho utilizou-se
-uma formulação baseada em particionamento de conjuntos. Para que se possa obter a
+Uma delas é apresentada no artigo em que foram propostas~\cite{beasley1996tree}.
+Optou-se por utilizar uma uma formulação baseada em particionamento de conjuntos. Para que se possa obter a
 resposta ótima para qualquer instância de CSP modelada como SPP, o modo mais simples de modelar consiste
 em enumerar todas as jornadas viáveis. Algo que é impraticável, considerando
 que o fato de enumerar-se todas as jornadas leva um tempo exponencial em relação ao
@@ -617,10 +617,18 @@ número de tarefas. No entanto este modelo é a base para a solução por geração de
 %}
 %\end{figure}
 
-Na Figura~\ref{fig_graph_csp} é apresentado um grafo relativo a instância apresentada
+A Tabela~\ref{tab_graph_csp} contém uma instância criada para ser utilizada como exemplo neste trabalho.
+O modelo utilizado é o mesmo da OR-Library. O primeiro número da primeira linha, $5$, corresponde ao número de
+tarefas existentes ($nt$). O segundo número, $14$, representa o tempo limite de uma jornada ($tl$). A seguir,
+as próximas $nt$ linhas contém os tempos de início e fim da tarefa. Por fim, após estas $nt$ linhas, está
+representado um grafo que indica que tarefas podem ser executadas em sequência. Cada linha possui $3$
+números, $a, b, w$. Os números $a$ e $b$ indicam que da tarefa $a$ pode-se executar $b$ com custo $w$. Com
+estas informações é possível montar o grafo apresentado na Figura~\ref{fig_graph_csp}.
+
+Por exemplo, na Figura~\ref{fig_graph_csp} é apresentado um grafo relativo à instância apresentada
 na tabela~\ref{tab_graph_csp}. A enumeração de todas as jornadas
 factíveis e seus respectivos custo e durações são apresentadas na tabela~\ref{tab_gragh_csp_enum}.
-Por exemplo, na primeira linha têm-se: $1 \rightarrow $3, o que indica após a tarefa $1$ pode-se
+Por exemplo, na primeira linha têm-se: $1 \rightarrow $3, indicando que após a tarefa $1$ pode-se
 realizar a tarefa $3$. O custo de deslocar-se de $1$ para $3$ é de $5$ unidades, e o tempo gasto é
 de $13$ unidades de tempo.
 Utilizando-se estas informações, é possível utilizar um problema de particionamento de conjuntos
@@ -678,11 +686,11 @@ Resolvendo-se o problema apresentado nas Tabelas~\eqref{csp_1} e~\eqref{spppp} c
 obtém-se a solução ótima composta por: Uma jornada que cobre as tarefas $1$ e $3$; Uma jornada que cobre as tarefas $2$, $4$ e $5$.
 Dado o tamanho do problema (grafo) e seu tamanho reduzido, a resolução desta instância ocorre praticamente instantaneamente.
 No entanto, ao aumentar-se os tamanhos das instâncias,
-a resolução utilizando-se métodos tradicionais (BnB, BnC) de PLI torná-se inviável e uma outra estratégia deve ser empregada.
+a resolução utilizando-se métodos tradicionais (\textit{Branch and Bound}, \textit{Branch and Cut}) de PLI torná-se inviável e uma outra estratégia deve ser empregada.
 ~\cite{desrochers1989column} utiliza uma abordagem de geração de colunas utilizando o problema de cobertura para modelar o CSP.~\cite{beasley1996tree}
 utiliza relaxação lagrangiana com otimização de sub gradientes em conjunto com uma busca em árvore.~\cite{smith1988bus} utilizou
 diversos modelos matemáticos para tentar acelerar o processo de solução utilizando o IMPACS~\cite{smith1988impacs}.
-\cite{doalgoritmos} e~\cite{silva2002simulated} utilizaram abordagens heurísticas para o problema incluem.~\cite{Bergh}
+\cite{doalgoritmos} e~\cite{silva2002simulated} utilizaram abordagens heurísticas para o resolver o problema.~\cite{Bergh}
 e~\cite{ernst2004staff} apresentaram uma revisão bibliográfica detalhada sobre métodos utilizados para solução
 de problemas de \textit{crew schedling}.
 
@@ -894,7 +902,7 @@ das arestas são apresentados na tabela~\ref{tab_pd}. As arestas tracejadas fazem
 não fazem parte da solução encontrada. As arestas em destaque formam uma solução de custo reduzido
 negativo para o subproblema. Tem-se então que $y_{(0,1)} = y_{(1,3)} = y_{(3,f)} = 1$ e os demais
 $y_{(i,j)} = 0$, já para os vértices tem-se $v_1 = v_3 = 1$ e $v_2 = 0$. Portanto obtêm-se uma
-função objetivo onde o primeiro termo possui um valor de $y{(1,3)}\cdot6 = 6$ e o segundo vale
+função objetivo~\eqref{subp1} o primeiro termo possui um valor de $y{(1,3)}\cdot6 = 6$, O segundo tem o valor de
 $v_1 \cdot 6 + v_3\cdot4 = 10$, resultando em $-4$.
 
 %solv_subp\begin{figure}[!htb]
@@ -914,7 +922,7 @@ $v_1 \cdot 6 + v_3\cdot4 = 10$, resultando em $-4$.
         $v_2$ &=& $7$  & $v_{(1,3)}$ &=& 6\\
         $v_3$ &=& $4$  & $v_{(2,3)}$ &=& 2\\
     \end{tabular}
-    \captionof{table}{Preços Duais e custos}
+    \captionof{table}{Preços Duais ($\pi$) e custos}
     \label{tab_pd}
 \end{minipage}
 }
@@ -936,24 +944,22 @@ diferença consiste em verificar o custo reduzido do subproblema em cada nó da ár
 de modo que caso seja necessário, novas variáveis são criadas. No caso de uma variável
 não ser inteira, realiza-se o \textit{Branching} de variável (ou algum outro método).
 
-As variáveis do modelo, ao final de sua execução, possuem seus valores em $0$ ou $1$. Portanto,
+As variáveis do modelo do problema mestre, ao final de sua execução, possuem seus valores entre $0$ ou $1$. Portanto,
 durante a execução do \textit{Branch and Price}, quando é encontrado uma variável com valor fracionário
 pode-se criar dois novos problemas: Um onde esta variável tem seu valor fixo em $0$; Outro
 onde esta variável tem seu valor fixo em $1$. Com isto, pode-se garantir que ao final da execução
 a solução ótima foi encontrada e que todas variáveis são inteiras.
 
-Neste capitulo discutiu-se a modelagem do SPP e do CSP. Abordou-se o método de geração de colunas e como são
+Neste Capítulo discutiu-se a modelagem do SPP e do CSP. Abordou-se o método de geração de colunas e como são
 modelados o problema mestre utilizando SPP e o subproblema utilizando caminho mínimo com restrições. Abordou-se
-ainda o método de \textit{Branch and Price}, capaz de garantir a integralidade da solução do Problema Mestre.
+ainda o método de \textit{Branch and Price}, que permite garantir a integralidade da solução do Problema Mestre.
 
 \chapter{Proposta}
 
 Nos capítulos anteriores discutiu-se a fundamentação teórica da PLI, bem como os detalhes de modelagem do CSP utilizando-se
 o SPP, e o método de geração de colunas.
-Neste capitulo é apresentada a proposta para solução do CSP, que consiste em agregar o método de Geração de Colunas e
-algoritmos heurísticos, a fim de reduzir o tempo computacional para a solução do problema.
-%Especificou-se a modelagem utilizada tanto no problema mestre quanto no subproblema.
-%Neste capitulo é apresentados métodos de solução para o problema mestre e o subproblema e a interação entre eles.
+Neste Capítulo é apresentada a proposta para solução do CSP, que consiste em agregar algoritmos heurísticos ao método de Geração de Colunas,
+a fim de reduzir o tempo computacional para a solução do problema.
 
 %solv_subp\begin{figure}[!htb]
 {
@@ -966,25 +972,27 @@ algoritmos heurísticos, a fim de reduzir o tempo computacional para a solução do
 
 Na Figura~\ref{flowchart} tem-se um fluxograma com as etapas de solução do CSP utilizando-se geração de colunas.
 O processo de resolver o problema mestre (SPP) é apresentado na seção~\ref{solv_pmaster}. Para a solução do subproblema
-analisou-se alguns métodos presentes na literatura e a seguir discutidos e são apresentados na seção~\ref{solv_subp}.
+analisou-se alguns métodos presentes na literatura, apresentados na seção~\ref{solv_subp}.
 
 \section{Solução do Problema Mestre}
 \label{solv_pmaster}
 
 A solução de um problema mestre dá-se em 3 etapas (1, 2 e 3), conforme a Figura~\ref{flowchart},
 que são executadas sequencialmente e uma etapa inicial (etapa 0) que é executada
-uma única vez no inicio do procedimento. A etapa inicial (etapa zero) consiste em criar um conjunto de colunas que seja
+uma única vez no inicio do procedimento. A etapa inicial (etapa 0) consiste em criar um conjunto de colunas que seja
 factível para o problema mestre. Estas jornadas podem ser geradas aleatoriamente ou através da execução de alguma
-heurística. As demais etapas são executadas toda vez que desejar-se resolver o problema mestre.
+heurística. Neste trabalho gerou-se uma solução inicial de 1 jornada que cobre todas as tarefas. Atribuiu-se um
+custo grande o suficiente para que qualquer outra solução factível tenha seu custo menor. As demais etapas são
+executadas toda vez que desejar-se resolver o problema mestre.
 
 A etapa 1 é executada toda vez no inicio da solução do problema mestre. Esta etapa consiste em atualizar o modelo inserindo
-as novas jornadas obtidas ou da etapa 0 ou da solução do subproblema. A etapa 2 consiste na execução do SIMPLEX em cima do modelo.
+as novas jornadas provenientes da etapa 0 ou da solução do subproblema. A etapa 2 consiste na execução do SIMPLEX em cima do modelo.
 A etapa 3 consiste no calculo dos preços duais associado as restrições do problema.
 
 \section{Solução do Subproblema}
 
-O processo de solução do subproblema ocorre em duas etapas, conforme a Figura~\ref{flowchart}:
-Na primeira etapa, dado os preços duais encontrados pelo problema mestre, uma ou mais colunas são geradas de modo heurístico; Na
+O processo de solução do subproblema ocorre em duas etapas conforme a Figura~\ref{flowchart}:
+Na primeira etapa, dado os preços duais encontrados pelo problema mestre, uma ou mais colunas são geradas utilizando métodos heurísticos; Na
 %Na primeira etapa os preços duas gerados pelo problema mestre são utilizados
 %na modelagem do subproblema. Conforme apresentado na Seção 3.2.2, Ou seja, o subproblema é modelado como
 %um problema de caminho mínimo com restrições. uma ou mais colunas são geradas de modo heurístico; Na
@@ -1001,19 +1009,18 @@ A solução exata do subproblema deve ser encontrada no caso de não ser encontrado
 se garanta que a solução final do SPP é ótima. Portanto, o SPP é inicialmente processado com uma ou mais heurísticas,
 e caso não encontre-se uma solução com custo reduzido negativo, então deve ser utilizada a solução exata. A solução
 exata do subproblema pode ser modelada como um caminho mínimo com restrições via PLI, conforme visto na seção~\ref{sec_subp}.
-Este problema de PLI é resolvido utilizando-se o método de \textit{Branch and Cut}.
+Este problema de PLI é resolvido utilizando-se o método de \textit{Branch and Cut}~\cite{wosley88}.
+
 \subsection{Solução Heurística}
 \label{solv_subp}
 
-Nesta seção é apresentados diversas heurísticas e meta-heurísticas encontradas na literatura e capazes de
-serem utilizadas para resolver-se o subproblema. Como objetivo final do trabalho, deseja-se avalia-las e
-incorporar uma ou mais heurísticas para acelerar o processo de solução do CSP.
-
-Todos as (meta) heurísticas apresentadas a seguir operam sobre o modelo apresentado na Seção~\ref{sec_subp}. Este modelo
+Nesta seção são apresentados diversas heurísticas e meta-heurísticas encontradas na literatura e capazes de
+serem utilizadas para resolver-se o subproblema.
+Todos as heurísticas apresentadas a seguir operam sobre o modelo apresentado na Seção~\ref{sec_subp}. Este modelo
 é apresentado novamente em~\eqref{subp2}. A função objetivo (cujo significado foi explicado na Seção~\eqref{sec_subp}) está
 presente em todas a heurísticas implementadas e é responsável por guiá-las. As restrições~\eqref{subp22} e~\eqref{subp23}
 são tratadas implicitamente, já que seu objetivo é garantir a conetividade do grafo e a existência de um único caminho e
-as meta heurísticas utilizadas garantem isto automaticamente. A restrição~\eqref{subp25} é uma questão de codificação (binária)
+as meta heurísticas utilizadas garantem isto. A restrição~\eqref{subp25} é uma questão de codificação (binária)
 das variáveis, na qual as meta heurísticas utilizadas são capazes de considerar automaticamente. A única restrição
 que de fato é utilizada explicitamente é a restrição~\eqref{subp24}, que garante que não exista uma jornada de trabalho
 longa demais.
@@ -1029,15 +1036,16 @@ longa demais.
     \end{align}
 \end{subequations}
 
-Os procedimentos de \textit{Ant Colony Optimization} e \textit{Simulated Annealing} utilizam penalidades
-para guiar o processo de solução em direção ao espaço de busca viável. \textit{Hill Climbing} e Busca Tabu
-operam apenas dentro de espaço de busca factível, de modo que em momento algum uma jornada com duração maior
+% Os procedimentos de \textit{Ant Colony Optimization} e \textit{Simulated Annealing} utilizam penalidades
+Pode-se utilizar penalidades para guiar o processo de solução em direção ao espaço de busca viável.
+%\textit{Hill Climbing} e Busca Tabu
+É possível ainda proibir o algoritmo de sair do espaço de busca factível, de modo que em momento algum uma jornada com duração maior
 que o limite é considerada. Com estas duas estratégias garante-se que a restrição~\eqref{subp24} não é violada.
 
 
 \subsubsection{Subida de Encosta}
 
-O algoritmo de otimização baseado em subida de encosta consiste consiste em uma simples operação gulosa
+O algoritmo de otimização baseado em subida de encosta consiste em uma simples operação gulosa
 que busca o máximo local. Uma solução inicial é gerada aleatoriamente e a cada passo é escolhido uma modificação
 aleatória que melhora a função objetivo.
 
@@ -1194,7 +1202,7 @@ A comparação entre duas soluções candidatas é feita aplicando-se a jornada na fu
 Optou-se por não permitir que soluções infactíveis (que violam a restrição de duração) fossem admissíveis. Esta
 escolha mostrou-se melhor do que utilizar penalidades para guiar o processo de solução.
 
-\section{Utilização das Meta Heurísticas}
+%\section{Utilização das Meta Heurísticas}
 
 A proposta deste trabalho baseia-se no trabalho de~\cite{dos2008metodo}, onde utilizou-se o procedimento de
 geração de colunas juntamente com duas meta heurísticas para resolver o CSP, onde o autor utilizou as meta heurísticas
@@ -1212,11 +1220,16 @@ correspondem as etapas que são abordadas neste trabalho.
 %}
 %\end{figure}
 
-O bloco correspondente a geração das colunas inciais corresponde a um fator importante no processo de geração de colunas,
+O bloco correspondente a geração das colunas iniciais corresponde a um fator importante no processo de geração de colunas,
 tendo em vista que os primeiros passos do método retiram a informação dual diretamente do conjunto inicial de colunas. Portanto,
 deseja-se utilizar uma heurísticas para gerar um conjunto inicial de colunas. O procedimento de resolver o subproblema de
 modo heurístico consiste na principal contribuição deste trabalho, onde o objetivo é identificar o desempenho de algumas
 heurísticas presentes na literatura quando aplicadas a solução do subproblema e do CSP.
+
+A utilização do \textit{Branch and Price} (BnP) ocorre após o término da geração de colunas, quando não é mais possível
+encontrar jornadas de custo reduzido negativo. Se for identificado alguma jornada com valor fracionário no problema
+mestre executa-se então o \textit{Branch and Price}. O BnB utiliza o modelo final do problema mestre como input, de modo
+a utilizar as informações originais do modelo.
 
 \chapter{Experimentos Computacionais e Análise}
 
@@ -1224,11 +1237,16 @@ O método proposto foi implementado utilizando-se as linguagens de programação C 
 solver para os modelos de programação linear e programação linear inteira. A implementação do \textit{Branch and Price} foi escrita como um
 \textit{plugin} para SCIP~\cite{MaherFischerGallyetal}. Todos os testes foram realizados em uma máquina com processador
 Intel\textsuperscript{\textregistered} i7 Core\texttrademark~i7-4770 operando a 3.9 GHz, com 16 Gigabytes de RAM e rodando
-um sistema operacional GNU/Linux com kernel $4.8.10$.
+um sistema operacional GNU/Linux com kernel $4.8.10$. Os testes para avaliação do método proposto foram realizadas em um ambiente
+controlado de laboratório.
 
 As instâncias \textit{benchmark} utilizadas para avaliar o método proposto foram retiradas biblioteca da \textit{OR-Library}~\cite{beasley1990or}. Os nomes utilizados para identificar as instâncias,
 por exemplo, \textbf{csp100\_42}, representa um problema onde existem 100 tarefas a serem cobertas utilizando-se exatamente 44 jornadas. Todas as instâncias
 possuem um tempo de jornada limitado a 480 minutos. Mais detalhes sobre as instâncias utilizadas podem ser encontrados em~\cite{beasley1996tree}.
+
+Utilizou-se 3 cenários de testes. O primeiro cenário consiste de $4$ testes, onde cada um utiliza exclusivamente uma única heurística. O segundo cenário
+é composto de todas as heurísticas encadeadas, onde uma é executada após a outra caso a anterior tenha falhado. O terceiro cenário é utilizado como
+referência e consiste do método canônico de geração de colunas.
 
 Para o primeiro cenário de testes (meta heurísticas independentes), os tempos utilizados para resolver cada uma das instâncias, assim como as informações
 sobre as meta heurísticas utilizadas estão contidas nas tabelas~\ref{tab_time_sep_hc} e~\ref{tab_time_sep_aco}.
@@ -1294,13 +1312,13 @@ a linha em questão têm-se $243 - 102$, que equivale a $141$. Ao lado direito da 
 }
 \end{center}
 
-No segundo cenário de testes as heurísticas foram executadas de modo encadeado antes de executar a solução exata para o subproblema (se necessário).
+No segundo cenário de testes as heurísticas foram executadas de modo encadeado(em sequência) antes de executar a solução exata para o subproblema (se necessário).
 A utilização de todas as heurísticas de modo encadeado levou ao segundo melhor tempo, de modo geral.
 Conforme as tabelas~\ref{tab_time_sep_hc},~\ref{tab_time_sep_aco} e~\ref{tab_time_sep_exact}, pode-se observar que a utilização da busca tabu
 (tabela~\ref{tab_time_sep_aco}) apresentou o menor tempo de execução em todos os casos.
 Analisando-se o desempenho quando compara-se o tempo de execução da busca tabu com o tempo de execução do método de geração de colunas puramente
 exato, verifica-se que a diferença de tempo foi significativa, chegando a ser aproximadamente 18 vezes mais rápido para as instâncias \textbf{csp250}.
-Para instâncias de tamanhos menores esta diferença é menor, chegando a cair para um fator de aproximadamente 3.5 vezes.
+Para instâncias de tamanhos menores esta diferença é menor, chegando reduzindo para um fator de aproximadamente 3.5 vezes.
 
 
 \begin{center}
