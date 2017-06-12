@@ -1036,53 +1036,71 @@ longa demais.
     \end{align}
 \end{subequations}
 
-% Os procedimentos de \textit{Ant Colony Optimization} e \textit{Simulated Annealing} utilizam penalidades
-Pode-se utilizar penalidades para guiar o processo de solução em direção ao espaço de busca viável.
+% Os procedimentos de \textit{Ant Colony Optimization} e \textit{Simulated
+% Annealing} utilizam penalidades
+Pode-se utilizar penalidades para guiar o processo de solução em direção ao
+espaço de busca viável.
 %\textit{Hill Climbing} e Busca Tabu
-É possível ainda proibir o algoritmo de sair do espaço de busca factível, de modo que em momento algum uma jornada com duração maior
-que o limite é considerada. Com estas duas estratégias garante-se que a restrição~\eqref{subp24} não é violada.
+É possível ainda proibir o algoritmo de sair do espaço de busca factível, de
+modo que em momento algum uma jornada com duração maior que o limite é
+considerada. Com estas duas estratégias garante-se que a
+restrição~\eqref{subp24} não é violada.
 
 
 \subsubsection{Subida de Encosta}
 
-O algoritmo de otimização baseado em subida de encosta consiste em uma simples operação gulosa
-que busca o máximo local. Uma solução inicial é gerada aleatoriamente e a cada passo é escolhido uma modificação
-aleatória que melhora a função objetivo.
+O algoritmo de otimização baseado em subida de encosta consiste em uma simples
+operação gulosa que busca o máximo local. Uma solução inicial é gerada
+aleatoriamente e a cada passo é escolhido uma modificação aleatória que melhora
+a função objetivo.
 
-É conhecido que o algoritmo de subida de encosta apresenta um desempenho pobre quando comparado a meta-heurísticas
-mais sofisticadas~\cite{mitchell1993will}. No entanto, a subida de encosta é uma das heurísticas existentes mais simples e é capaz de
-gerar soluções muito rapidamente. Oferecendo assim uma vantagem caso consiga alcançar rapidamente uma solução para
-o problema, e pouca desvantagem caso não consiga, já que o sem tempo de execução é relativamente pequeno.
+É conhecido que o algoritmo de subida de encosta apresenta um desempenho pobre
+quando comparado a meta-heurísticas mais sofisticadas~\cite{mitchell1993will}.
+No entanto, a subida de encosta é uma das heurísticas existentes mais simples e
+é capaz de gerar soluções muito rapidamente. Oferecendo assim uma vantagem caso
+consiga alcançar rapidamente uma solução para o problema, e pouca desvantagem
+caso não consiga, já que o sem tempo de execução é relativamente pequeno.
 
-Quando aplicado ao subproblema apresentado neste trabalho, uma possível abordagem consiste em selecionar uma tarefa
-de modo aleatório e considerar todas as tarefas e a antecedem ou sucedem. Destas tarefas adjacentes escolhe-se
-a que apresenta o menor aumento da função objetivo. A função objetivo consiste na soma do custo de transição entre
-duas tarefas adjacentes subtraído do preço dual associado as tarefas cobertas por esta transição. O algoritmo de busca
-de encosta pode operar enquanto for possível adicionar tarefas sem violar a restrição de duração da jornada. É possível
-retornar a jornada de maior duração encontrada ou armazenar as soluções parciais e retorna-las ao problema mestre.
-Optou-se por retornar a primeira solução de custo reduzido negativo, com o objetivo de manter as iterações
-o mais curtas possíveis.
+Quando aplicado ao subproblema apresentado neste trabalho, uma possível
+abordagem consiste em selecionar uma tarefa de modo aleatório e considerar
+todas as tarefas e a antecedem ou sucedem. Destas tarefas adjacentes escolhe-se
+a que apresenta o menor aumento da função objetivo. A função objetivo consiste
+na soma do custo de transição entre duas tarefas adjacentes subtraído do preço
+dual associado as tarefas cobertas por esta transição. O algoritmo de busca de
+encosta pode operar enquanto for possível adicionar tarefas sem violar a
+restrição de duração da jornada. É possível retornar a jornada de maior duração
+encontrada ou armazenar as soluções parciais e retorna-las ao problema mestre.
+Optou-se por retornar a primeira solução de custo reduzido negativo, com o
+objetivo de manter as iterações o mais curtas possíveis.
 
 \subsubsection{\textit{Simulated Annealing} - Recozimento Simulado}
 
-O processo de \textit{annealing} (recozimento) é utilizado na industria metalúrgica com a finalidade de tratar os metais de modo a obter
-características desejáveis. Um metal é aquecido a uma determinada temperatura e é resfriado de modo controlado, com
-o objetivo de permitir que os cristais de carbono do aço possam de alocar de modo apropriado.
+O processo de \textit{annealing} (recozimento) é utilizado na industria
+metalúrgica com a finalidade de tratar os metais de modo a obter
+características desejáveis. Um metal é aquecido a uma determinada temperatura e
+é resfriado de modo controlado, com o objetivo de permitir que os cristais de
+carbono do aço possam de alocar de modo apropriado.
 
-A otimização de \textit{Simulated Annealing} (SA) baseia-se no processo de \textit{annealing} para resolver problemas
-de otimização~\cite{kirkpatrick1983optimization,eglese1990simulated}. O algoritmo de \textit{Simulated Annealing}
-possui um comportamento semelhante ao de subida de encosta, onde a melhor alteração é escolhida.
-A diferença está no fato de que é possível escolher uma alteração que tenha um impacto negativo na solução. Isto permite
-que o algoritmo escape de máximos locais e possa explorar melhor o espaço de busca.
+A otimização de \textit{Simulated Annealing} (SA) baseia-se no processo de
+\textit{annealing} para resolver problemas de
+otimização~\cite{kirkpatrick1983optimization,eglese1990simulated}. O algoritmo
+de \textit{Simulated Annealing} possui um comportamento semelhante ao de subida
+de encosta, onde a melhor alteração é escolhida.  A diferença está no fato de
+que é possível escolher uma alteração que tenha um impacto negativo na solução.
+Isto permite que o algoritmo escape de máximos locais e possa explorar melhor o
+espaço de busca.
 
-O algoritmo de SA possui uma variável de controle que é temperatura. Esta possui um valor inicial e
-final arbitrário e predefinido. A função da temperatura é decidir a probabilidade de uma ação prejudicial a função
-objetivo seja executada. Para valores altos da temperatura, a chance de tomar-se uma ação prejudicial é alta. Ao passar
-das iterações do algoritmo a temperatura diminui conforme uma função predeterminada, até chegar na temperatura final.
-Em valores próximos da temperatura final, o algoritmo possui uma chance próxima de zero de permitir que seja tomado
-uma ação que tenha um impacto negativo na função objetivo. A temperatura diminui de acordo com um \textit{Cooling Scheme}
-(Esquema de Resfriamento), que controla a temperatura ao longo da execução. Os parâmetros utilizados pelo SA são apresentados na
-Tabela~\ref{tab_sa}.
+O algoritmo de SA possui uma variável de controle que é temperatura. Esta
+possui um valor inicial e final arbitrário e predefinido. A função da
+temperatura é decidir a probabilidade de uma ação prejudicial a função objetivo
+seja executada. Para valores altos da temperatura, a chance de tomar-se uma
+ação prejudicial é alta. Ao passar das iterações do algoritmo a temperatura
+diminui conforme uma função predeterminada, até chegar na temperatura final.
+Em valores próximos da temperatura final, o algoritmo possui uma chance próxima
+de zero de permitir que seja tomado uma ação que tenha um impacto negativo na
+função objetivo. A temperatura diminui de acordo com um \textit{Cooling Scheme}
+(Esquema de Resfriamento), que controla a temperatura ao longo da execução. Os
+parâmetros utilizados pelo SA são apresentados na Tabela~\ref{tab_sa}.
 
 %\begin{table}[h]
 {
